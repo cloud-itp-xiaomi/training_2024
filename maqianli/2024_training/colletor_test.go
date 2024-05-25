@@ -1,6 +1,8 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 import "github.com/stretchr/testify/assert"
 
 // https://rosettacode.org/wiki/Linux_CPU_utilization#Go
@@ -12,9 +14,58 @@ import "github.com/stretchr/testify/assert"
 //  subtract the previous fraction from 1.0 to get the time spent being   not   idle
 //  multiple by   100   to get a percentage
 
-func TestCollectTotalCPUTime(t *testing.T) {
+func TestCollectCPUUsageFromFile(t *testing.T) {
 	file := "linux_cpu_example.txt"
-	data, err := collectTotalCPUTime(file)
+	data, err := collectCPUUsageFromFile(file)
 	assert.Nil(t, err)
-	assert.Equal(t, 1165507628, data)
+	assert.Equal(t, 0.004553, data)
+}
+
+func TestReadFirstLineFromFile(t *testing.T) {
+	file := "linux_cpu_example.txt"
+	data, err := readFirstLineFromFile(file)
+	assert.Nil(t, err)
+	assert.Equal(t, "cpu  2310622 512 2961553 1154598147 4243 0 3471 0 0 0", data)
+}
+
+func TestParseCPUUsageText(t *testing.T) {
+	text := "cpu  2310622 512 2961553 1154598147 4243 0 3471 0 0 0"
+	data, err := parseCPUUsageText(text)
+	assert.Nil(t, err)
+	expect := []int{2310622, 512, 2961553, 1154598147, 4243, 0, 3471, 0, 0, 0}
+	assert.Equal(t, expect, data)
+}
+
+func TestCollectCPUTotalTime(t *testing.T) {
+	data := []int{2310622, 512, 2961553, 1154598147, 4243, 0, 3471, 0, 0, 0}
+	got, err := collectTotalCPUTime(data)
+	assert.Nil(t, err)
+	assert.Equal(t, 1159878548, got)
+}
+
+func TestCollectCPUIdleTime(t *testing.T) {
+	data := []int{2310622, 512, 2961553, 1154598147, 4243, 0, 3471, 0, 0, 0}
+	got, err := collectIdleCPUTime(data)
+	assert.Nil(t, err)
+	assert.Equal(t, 1154598147, got)
+}
+
+func TestCalculateCPUIdlePercentage(t *testing.T) {
+	data := []int{2310622, 512, 2961553, 1154598147, 4243, 0, 3471, 0, 0, 0}
+	idle, _ := collectIdleCPUTime(data)
+	total, _ := collectTotalCPUTime(data)
+	got, err := calculateCPUIdlePercentage(idle, total)
+	assert.Nil(t, err)
+	assert.Equal(t, 0.995447, got)
+}
+
+func TestFormatFloat(t *testing.T) {
+	num := 0.002553
+	assert.Equal(t, 0.0, formatFloat(num, 0))
+	assert.Equal(t, 0.00, formatFloat(num, 2))
+	assert.Equal(t, 0.00, formatFloat(num, 2))
+	assert.Equal(t, 0.0026, formatFloat(num, 4))
+	assert.Equal(t, 0.0025530, formatFloat(num, 7))
+	assert.Equal(t, 0.00255300, formatFloat(num, 8))
+	assert.Equal(t, -0.00255300, formatFloat(-num, 8))
 }
