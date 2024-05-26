@@ -7,21 +7,31 @@ import (
 )
 
 func readFirstLineFromFile(filePath string) (string, error) {
+	texts, err := readLinesFromFile(filePath, 1)
+	if len(texts) > 0 {
+		return texts[0], err
+	}
+
+	return "", err
+}
+
+func readLinesFromFile(filePath string, count int) ([]string, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
-		return "", fmt.Errorf("error opening file: %v", err)
+		return nil, fmt.Errorf("error opening file: %v", err)
 	}
 	defer file.Close()
+
+	lines := make([]string, 0)
 	scanner := bufio.NewScanner(file)
-	if scanner.Scan() {
-		return scanner.Text(), nil
+	for len(lines) < count && scanner.Scan() {
+		if err = scanner.Err(); err != nil {
+			return nil, fmt.Errorf("error reading file: %v", err)
+		}
+		lines = append(lines, scanner.Text())
 	}
 
-	if err = scanner.Err(); err != nil {
-		return "", fmt.Errorf("error reading file: %v", err)
-	}
-
-	return "", nil
+	return lines, nil
 }
 
 func formatFloat(num float64, decimalPlaces int) float64 {
