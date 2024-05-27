@@ -2,24 +2,45 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"strconv"
 	"strings"
 )
 
-func pickMemValue(text string) (int64, error) {
-	parts := strings.Split(text, ":")
-	if len(parts) != 2 {
-		return 0, fmt.Errorf("invalid format in text: %s", text)
-	}
-	value := strings.TrimSuffix(parts[1], " kB")
-	value = strings.TrimSpace(value)
-	return strconv.ParseInt(value, 10, 64)
+type MemStat struct {
+	MemTotal     int64
+	MemFree      int64
+	MemAvailable int64
 }
 
-func readMemTotal(filePath string) (int64, error) {
-	text, err := readFirstLineFromFile(filePath)
+func readMemStat(filePath string) (*MemStat, error) {
+	const lineCount = 3
+	texts, err := readLinesFromFile(filePath, lineCount)
 	if err != nil {
-		return 0, err
+		return nil, err
 	}
-	return pickMemValue(text)
+	if len(texts) != lineCount {
+		return nil, fmt.Errorf("invalid number of lines in file: %s", filePath)
+	}
+
+	return &MemStat{
+		MemTotal:     pickMemValue(texts[0]),
+		MemFree:      pickMemValue(texts[1]),
+		MemAvailable: pickMemValue(texts[2]),
+	}, nil
+}
+
+func pickMemValue(text string) int64 {
+	parts := strings.Split(text, ":")
+	if len(parts) != 2 {
+		log.Printf("Invalid format in text: %s\n", text)
+		return 0
+	}
+	str := strings.TrimSpace(strings.TrimSuffix(parts[1], " kB"))
+	v, err := strconv.ParseInt(str, 10, 64)
+	if err != nil {
+		log.Printf("Failed to parse value: %s, error: %v", str, err)
+		return 0
+	}
+	return v
 }
