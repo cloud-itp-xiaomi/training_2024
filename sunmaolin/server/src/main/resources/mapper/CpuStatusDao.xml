@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cl.server.mapper.CpuStatusDao">
+
+    <resultMap type="com.cl.server.entity.CpuStatus" id="CpuStatusMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="metric" column="metric" jdbcType="VARCHAR"/>
+        <result property="endpoint" column="endpoint" jdbcType="VARCHAR"/>
+        <result property="timestamp" column="timestamp" jdbcType="INTEGER"/>
+        <result property="step" column="step" jdbcType="INTEGER"/>
+        <result property="value" column="value" jdbcType="NUMERIC"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="CpuStatusMap">
+        select
+          id, metric, endpoint, timestamp, step, value
+        from cpu_status
+        where id = #{id}
+    </select>
+
+    <!--查询所有数据-->
+    <select id="queryAllByLimit" resultMap="CpuStatusMap">
+        select
+          id, metric, endpoint, timestamp, step, value
+        from cpu_status
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="metric != null and metric != ''">
+                and metric = #{metric}
+            </if>
+            <if test="endpoint != null and endpoint != ''">
+                and endpoint = #{endpoint}
+            </if>
+            <if test="timestamp != null">
+                and timestamp = #{timestamp}
+            </if>
+            <if test="step != null">
+                and step = #{step}
+            </if>
+            <if test="value != null">
+                and value = #{value}
+            </if>
+        </where>
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from cpu_status
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="metric != null and metric != ''">
+                and metric = #{metric}
+            </if>
+            <if test="endpoint != null and endpoint != ''">
+                and endpoint = #{endpoint}
+            </if>
+            <if test="timestamp != null">
+                and timestamp = #{timestamp}
+            </if>
+            <if test="step != null">
+                and step = #{step}
+            </if>
+            <if test="value != null">
+                and value = #{value}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into cpu_status(metric, endpoint, timestamp, step, value)
+        values (#{metric}, #{endpoint}, #{timestamp}, #{step}, #{value})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into cpu_status(metric, endpoint, timestamp, step, value)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.metric}, #{entity.endpoint}, #{entity.timestamp}, #{entity.step}, #{entity.value})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into cpu_status(metric, endpoint, timestamp, step, value)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.metric}, #{entity.endpoint}, #{entity.timestamp}, #{entity.step}, #{entity.value})
+        </foreach>
+        on duplicate key update
+        metric = values(metric),
+        endpoint = values(endpoint),
+        timestamp = values(timestamp),
+        step = values(step),
+        value = values(value)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update cpu_status
+        <set>
+            <if test="metric != null and metric != ''">
+                metric = #{metric},
+            </if>
+            <if test="endpoint != null and endpoint != ''">
+                endpoint = #{endpoint},
+            </if>
+            <if test="timestamp != null">
+                timestamp = #{timestamp},
+            </if>
+            <if test="step != null">
+                step = #{step},
+            </if>
+            <if test="value != null">
+                value = #{value},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from cpu_status where id = #{id}
+    </delete>
+
+</mapper>
+
