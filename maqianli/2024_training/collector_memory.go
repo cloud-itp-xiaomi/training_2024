@@ -13,6 +13,11 @@ type MemStat struct {
 	MemAvailable int64
 }
 
+func (s *MemStat) UsagePercentage() float64 {
+	v := float64(s.MemTotal-s.MemFree) / float64(s.MemTotal)
+	return formatFloat(v, 6)
+}
+
 func readMemStat(filePath string) (*MemStat, error) {
 	const lineCount = 3
 	texts, err := readLinesFromFile(filePath, lineCount)

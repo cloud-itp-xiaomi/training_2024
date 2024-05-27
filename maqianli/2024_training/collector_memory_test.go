@@ -22,3 +22,10 @@ func TestReadMemFields(t *testing.T) {
 	assert.Equal(t, int64(120827536), mem.MemFree)
 	assert.Equal(t, int64(124360936), mem.MemAvailable)
 }
+
+func TestCalculateMemUsage(t *testing.T) {
+	filePath := "linux_memory_example.txt"
+	mem, err := readMemStat(filePath)
+	assert.Nil(t, err)
+	assert.Equal(t, 0.080724, mem.UsagePercentage())
+}
