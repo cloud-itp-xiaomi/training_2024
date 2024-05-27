@@ -8,11 +8,11 @@ import (
 
 // collectCPUUsageFromFile  reads the first line of a file and returns the CPU usage percentage
 func collectCPUUsageFromFile(filePath string) (float64, error) {
-	text, err := readFirstLineFromFile(filePath)
+	texts, err := readLinesFromFile(filePath, 1)
 	if err != nil {
 		return 0, err
 	}
-	data, err := parseCPUUsageText(text)
+	data, err := parseCPUUsageText(texts[0])
 	if err != nil {
 		return 0, err
 	}

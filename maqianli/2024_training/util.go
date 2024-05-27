@@ -30,7 +30,9 @@ func readLinesFromFile(filePath string, count int) ([]string, error) {
 		}
 		lines = append(lines, scanner.Text())
 	}
-
+	if len(lines) < count {
+		return nil, fmt.Errorf("not enough lines in file, expected %d but got %d", count, len(lines))
+	}
 	return lines, nil
 }
 

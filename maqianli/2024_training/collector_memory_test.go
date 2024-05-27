@@ -12,6 +12,16 @@ func TestPickMemValue(t *testing.T) {
 	text := "MemTotal:       131437740 kB"
 	value := pickMemValue(text)
 	assert.Equal(t, int64(131437740), value)
+
+	// invalid format
+	text = "131437740 kB"
+	value = pickMemValue(text)
+	assert.Equal(t, int64(0), value)
+
+	// invalid format
+	text = "131437740"
+	value = pickMemValue(text)
+	assert.Equal(t, int64(0), value)
 }
 
 func TestReadMemFields(t *testing.T) {
