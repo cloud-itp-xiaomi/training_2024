@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mysqltest.dao.BookManageDao">
+    <!--创建表的 SQL 语句-->
+    <update id="createTable" parameterType="java.lang.String">
+        CREATE TABLE IF NOT EXISTS `${tableName}`
+        (
+            `id`       int(0)      NOT NULL AUTO_INCREMENT COMMENT '主键',
+            `name` varchar(20) NULL DEFAULT NULL COMMENT '图书名',
+            `author` varchar(20) NULL DEFAULT NULL COMMENT '作者',
+            PRIMARY KEY (`id`)
+        ) ENGINE = InnoDB
+        AUTO_INCREMENT = 9
+        CHARACTER SET = utf8mb4 COMMENT ='用于测试的用户表';
+    </update>
+
+    <select id="queryAllBook" resultType="org.example.mysqltest.bean.Book">
+        SELECT * FROM book
+    </select>
+
+    <insert id="addBook" parameterType="org.example.mysqltest.bean.Book">
+        INSERT INTO book (name, author) VALUES (#{name}, #{author})
+    </insert>
+
+    <update id="updateBook" parameterType="org.example.mysqltest.bean.Book">
+        UPDATE book SET name = #{name}, author = #{author} WHERE id = #{id}
+    </update>
+
+    <delete id="deleteBook" parameterType="long">
+        DELETE FROM book WHERE id = #{id}
+    </delete>
+
+    <select id="queryBookById" parameterType="long" resultType="org.example.mysqltest.bean.Book">
+        SELECT id, name, author FROM book WHERE id = #{id}
+    </select>
+
+    <select id="queryBookByName" parameterType="String" resultType="org.example.mysqltest.bean.Book">
+        SELECT id, name, author FROM book WHERE name = #{bookName}
+    </select>
+</mapper>
