@@ -57,7 +57,7 @@ public class MetricsCollector {
         cpuJson.put("value",cpuUse);
 
         JSONObject memJson = new JSONObject();
-        memJson.put("metric","cpu.used.percent");
+        memJson.put("metric","mem.used.percent");
         memJson.put("endpoint",ip);
         memJson.put("timestamp",System.currentTimeMillis());
         memJson.put("step",60);
