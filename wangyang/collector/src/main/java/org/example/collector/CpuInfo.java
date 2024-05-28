@@ -1,15 +1,12 @@
-package com.xiaomi.work1.collector;
+package org.example.collector;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.sun.management.OperatingSystemMXBean;
+
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.management.ManagementFactory;
-import java.time.LocalDateTime;
+
 
 /**
  * ClassName: CPUInfo

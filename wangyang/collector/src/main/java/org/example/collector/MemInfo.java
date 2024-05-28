@@ -1,4 +1,4 @@
-package com.xiaomi.work1.collector;
+package org.example.collector;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
