@@ -20,7 +20,6 @@ public class Xiaomi1Application {
 //    public RestTemplate restTemplate() {
 //        return new RestTemplate();
 //    }
-
 //    @Bean
 //    public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory connectionFactory) {
 //        RedisTemplate<String, Object> template = new RedisTemplate<>();
