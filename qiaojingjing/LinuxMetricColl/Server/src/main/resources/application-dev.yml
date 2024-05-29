@@ -1,0 +1,19 @@
+datasource:
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  host: localhost
+  port: 3306
+  database: xiaomitest
+  username: root
+  password: rootroot
+
+spring:
+  redis:
+    host: 192.168.225.200
+    port: 6379
+    password: 123456
+    database: 10
+    lettuce:
+      pool:
+        max-active: 32
+        max-idle: 16
+        min-idle: 8
