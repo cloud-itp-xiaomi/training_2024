@@ -16,15 +16,5 @@ public class Xiaomi1Application {
         SpringApplication.run(Xiaomi1Application.class, args);
     }
 
-//    @Bean
-//    public RestTemplate restTemplate() {
-//        return new RestTemplate();
-//    }
 
-//    @Bean
-//    public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory connectionFactory) {
-//        RedisTemplate<String, Object> template = new RedisTemplate<>();
-//        template.setConnectionFactory(connectionFactory);
-//        return template;
-//    }
 }
