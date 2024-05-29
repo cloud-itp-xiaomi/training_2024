@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+   redis:
+      image: "redis:latest"
+      ports:
+        - "6379:6379"
+   collector:
+      build:
+        context: ./collector
+        dockerfile: Dockerfile
+      restart: always
+      depends_on:
+         - server
+      
+   server:
+      build:
+        context: ./server
+        dockerfile: Dockerfile
+      ports:
+        - "8080:8080"
+      restart: always
+      depends_on:
+         - redis
+      

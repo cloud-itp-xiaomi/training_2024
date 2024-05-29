@@ -19,3 +19,4 @@
 1. Pull Request 的标题格式：`姓名：描述`，比如“马千里：创建个人目录”、“马千里：给自己的 Demo 项目增加 xxx 能力”。
 2. 不要修改非自己目录下的文件，否则会容易出现文件冲突，处理起来比较麻烦。如需修改请联系管理员。
 3. 每次提交的代码要能编译通过，能够运行。
+4. 代码库里添加 `.gitignore` 文件，不要提交 `.idea`、`.class` 等临时性文件。可以参考[李思琪同学的 .gitignore](https://github.com/cloud-itp-xiaomi/training_2024/blob/main/lisiqi/Server/.gitignore)。
