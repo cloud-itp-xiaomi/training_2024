@@ -1,19 +1,16 @@
 package com.jiuth.sysmonitorserver.controller;
 
-import com.jiuth.sysmonitorserver.dao.enity.SysInfoCapture;
+import com.jiuth.sysmonitorserver.enity.SysInfoCapture;
 import com.jiuth.sysmonitorserver.dto.SysInfoCaptureDTO;
 import com.jiuth.sysmonitorserver.service.SysInfoCaptureService;
 import com.jiuth.sysmonitorserver.util.ApiResponse;
 import com.jiuth.sysmonitorserver.util.converter.Convert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @RestController

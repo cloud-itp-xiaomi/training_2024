@@ -1,6 +1,6 @@
 package com.jiuth.sysmonitorserver.service;
 
-import com.jiuth.sysmonitorserver.dao.enity.SysInfoCapture;
+import com.jiuth.sysmonitorserver.enity.SysInfoCapture;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
