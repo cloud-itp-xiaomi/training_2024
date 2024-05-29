@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: cpu-controller
+server:
+  port: 8082
+dubbo:
+  application:
+    name: cpu-controller
+    qos-enable: true
+    qos-port: 22223
+    qos-accept-foreign-ip: false
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://localhost:8848
+    parameters:
+      register-consumer-url: true
