@@ -1,4 +1,4 @@
-package org.qiaojingjing.server.result;
+package org.qiaojingjing.result;
 
 import lombok.Data;
 /**
@@ -16,7 +16,7 @@ public class Result {
 
     public static Result success(){
         Result result = new Result();
-        result.code = 1;
+        result.code = 200;
         result.message = "ok";
         result.data = null;
         return result;
@@ -24,7 +24,7 @@ public class Result {
 
     public static Result success(Object data){
         Result result = new Result();
-        result.code = 1;
+        result.code = 200;
         result.message = "ok";
         result.data = data;
         return result;
@@ -32,7 +32,7 @@ public class Result {
 
     public static Result error(String message) {
         Result result = new Result();
-        result.code = 1;
+        result.code = 0;
         result.message = message;
         result.data = null;
         return result;
