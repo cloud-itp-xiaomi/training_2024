@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaomi2024.txh.dubbo.spring.provider.dao.BookManageDao">
+    <!--创建表的 SQL 语句-->
+    <update id="createTable" parameterType="java.lang.String">
+        CREATE TABLE IF NOT EXISTS `${tableName}`
+        (
+            `id`       int(0)      NOT NULL AUTO_INCREMENT COMMENT '主键',
+            `name` varchar(20) NULL DEFAULT NULL COMMENT '图书名',
+            `author` varchar(20) NULL DEFAULT NULL COMMENT '作者',
+            `price` int(0) NULL DEFAULT NULL COMMENT '价格',
+            PRIMARY KEY (`id`)
+        ) ENGINE = InnoDB
+        AUTO_INCREMENT = 9
+        CHARACTER SET = utf8mb4 COMMENT ='用于测试的用户表';
+    </update>
+
+    <select id="queryAllBook" resultType="com.xiaomi2024.txh.dubbo.spring.provider.bean.Book">
+        SELECT * FROM book
+    </select>
+
+    <insert id="addBook" parameterType="com.xiaomi2024.txh.dubbo.spring.provider.bean.Book">
+        INSERT INTO book (name, author, price) VALUES (#{name}, #{author}, #{price})
+    </insert>
+
+    <update id="updateBook" parameterType="com.xiaomi2024.txh.dubbo.spring.provider.bean.Book">
+        UPDATE book SET name = #{name}, price = #{price} WHERE id = #{id}
+    </update>
+
+    <delete id="deleteBook" parameterType="String">
+        DELETE FROM book WHERE name = #{name}
+    </delete>
+
+    <select id="queryBookById" parameterType="long" resultType="com.xiaomi2024.txh.dubbo.spring.provider.bean.Book">
+        SELECT id, name, author, price FROM book WHERE id = #{id}
+    </select>
+
+    <select id="queryBookByName" parameterType="String" resultType="com.xiaomi2024.txh.dubbo.spring.provider.bean.Book">
+        SELECT id, name, author, price FROM book WHERE name = #{bookName}
+    </select>
+</mapper>
