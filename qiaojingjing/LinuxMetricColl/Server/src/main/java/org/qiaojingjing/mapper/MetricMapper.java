@@ -1,9 +1,9 @@
-package org.qiaojingjing.server.mapper;
+package org.qiaojingjing.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.qiaojingjing.server.pojo.dto.MetricDTO;
-import org.qiaojingjing.server.pojo.entity.Metric;
-import org.qiaojingjing.server.pojo.vo.MetricVO;
+import org.qiaojingjing.pojo.dto.MetricDTO;
+import org.qiaojingjing.pojo.entity.Metric;
+import org.qiaojingjing.pojo.vo.MetricVO;
 
 import java.util.List;
 
