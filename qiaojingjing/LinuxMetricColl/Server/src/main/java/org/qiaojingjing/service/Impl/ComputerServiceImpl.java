@@ -1,11 +1,11 @@
-package org.qiaojingjing.server.service.Impl;
+package org.qiaojingjing.service.Impl;
 
-import org.qiaojingjing.server.mapper.MetricMapper;
-import org.qiaojingjing.server.pojo.dto.MetricDTO;
-import org.qiaojingjing.server.pojo.dto.MetricsDTO;
-import org.qiaojingjing.server.pojo.entity.Metric;
-import org.qiaojingjing.server.pojo.vo.MetricVO;
-import org.qiaojingjing.server.service.ComputerService;
+import org.qiaojingjing.pojo.dto.MetricDTO;
+import org.qiaojingjing.pojo.dto.MetricsDTO;
+import org.qiaojingjing.pojo.entity.Metric;
+import org.qiaojingjing.pojo.vo.MetricVO;
+import org.qiaojingjing.mapper.MetricMapper;
+import org.qiaojingjing.service.ComputerService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -43,8 +43,9 @@ public class ComputerServiceImpl implements ComputerService {
         }
 
         List<Metric> metrics = new ArrayList<>();
-        Metric metric = new Metric();
+
         for (MetricsDTO dto : metricsDTO) {
+            Metric metric = new Metric();
             BeanUtils.copyProperties(dto,metric);
             metrics.add(metric);
         }

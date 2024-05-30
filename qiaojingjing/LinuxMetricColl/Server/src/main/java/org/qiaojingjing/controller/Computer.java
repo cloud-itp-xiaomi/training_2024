@@ -1,12 +1,12 @@
-package org.qiaojingjing.server.controller;
+package org.qiaojingjing.controller;
 
 
 import lombok.extern.slf4j.Slf4j;
-import org.qiaojingjing.server.pojo.dto.MetricDTO;
-import org.qiaojingjing.server.pojo.dto.MetricsDTO;
-import org.qiaojingjing.server.pojo.vo.MetricVO;
-import org.qiaojingjing.server.result.Result;
-import org.qiaojingjing.server.service.ComputerService;
+import org.qiaojingjing.pojo.vo.MetricVO;
+import org.qiaojingjing.pojo.dto.MetricDTO;
+import org.qiaojingjing.pojo.dto.MetricsDTO;
+import org.qiaojingjing.result.Result;
+import org.qiaojingjing.service.ComputerService;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
@@ -26,7 +26,7 @@ public class Computer {
      **/
     @PostMapping("/upload")
     public Result uploadMetrics(@RequestBody List<MetricsDTO> metricsDTO){
-        log.info("接收到Collector上传的数据...");
+        log.info("接收到Collector上传的数据{}",metricsDTO);
         computerService.upload(metricsDTO);
         return Result.success();
     }

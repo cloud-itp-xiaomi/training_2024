@@ -1,4 +1,4 @@
-package org.qiaojingjing.server.pojo.dto;
+package org.qiaojingjing.pojo.dto;
 
 import lombok.Data;
 

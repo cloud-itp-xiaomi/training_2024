@@ -1,4 +1,4 @@
-package org.qiaojingjing.server.exception;
+package org.qiaojingjing.exception;
 
 public class BaseException extends RuntimeException{
     public BaseException() {

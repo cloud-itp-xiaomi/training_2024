@@ -1,9 +1,9 @@
-package org.qiaojingjing.server.handler;
+package org.qiaojingjing.handler;
 
 
 import lombok.extern.slf4j.Slf4j;
-import org.qiaojingjing.server.exception.BaseException;
-import org.qiaojingjing.server.result.Result;
+import org.qiaojingjing.exception.BaseException;
+import org.qiaojingjing.result.Result;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

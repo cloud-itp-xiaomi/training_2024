@@ -1,4 +1,4 @@
-package org.qiaojingjing.server.config;
+package org.qiaojingjing.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
