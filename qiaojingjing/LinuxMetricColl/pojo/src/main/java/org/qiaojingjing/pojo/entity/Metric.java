@@ -1,4 +1,4 @@
-package org.qiaojingjing.server.pojo.entity;
+package org.qiaojingjing.pojo.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
