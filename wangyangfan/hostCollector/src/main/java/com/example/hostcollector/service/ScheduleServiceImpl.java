@@ -16,7 +16,6 @@ import org.springframework.web.client.RestTemplate;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @Author: WangYF
@@ -48,7 +47,7 @@ public class ScheduleServiceImpl implements ScheduleService{
         String hostName = InetAddress.getLocalHost().getHostName();
         long currentTimeSeconds = System.currentTimeMillis() / 1000;
 
-        List<UploadData> data = new ArrayList<>();
+        ArrayList<UploadData> data = new ArrayList<>();
         data.add(new UploadData(cpuMetricName, hostName, currentTimeSeconds, step, IOProcessUtils.getCPUUtilization()));
         data.add(new UploadData(memMetricName, hostName, currentTimeSeconds, step, IOProcessUtils.getMemUtilization()));
         System.out.println(data);
@@ -56,7 +55,7 @@ public class ScheduleServiceImpl implements ScheduleService{
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<String> req = new HttpEntity<>(data.toString(), headers);
+        HttpEntity<ArrayList<UploadData>> req = new HttpEntity<>(data, headers);
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(transUrl, req, String.class);
         Assert.notNull(responseEntity.getBody(), "Response Body is Null");
     }

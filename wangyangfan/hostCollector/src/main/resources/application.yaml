@@ -1,8 +1,8 @@
 server:
-  port: 8081
+  port: 18081
 
 collection:
-  trans-url: http://localhost:8080/api/metric/upload
+  trans-url: http://localhost:18080/api/metric/upload
   cpu-metric-name: cpu.used.percent
   mem-metric-name: mem.used.percent
   delay-seconds: 60
