@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * @Author: WangYF
@@ -26,7 +26,8 @@ public class MonitorController {
      * @Description: 上报接口
      */
     @PostMapping("upload")
-    public Result upload(List<UploadData> uploadData){
+    public Result upload(ArrayList<UploadData> uploadData){
+        System.out.println(uploadData);
         return Result.success();
     }
 
@@ -38,6 +39,11 @@ public class MonitorController {
      */
     @GetMapping("query")
     public Result query(QueryData queryData){
+        return Result.success();
+    }
+
+    @GetMapping("hello")
+    public Result query1(){
         return Result.success();
     }
 }
