@@ -1,0 +1,32 @@
+# 忽略 Go 的编译生成文件
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# 忽略编译缓存目录
+*.test
+*.out
+
+# 忽略依赖管理工具生成的文件和目录
+vendor/
+Gopkg.lock
+Gopkg.toml
+go.sum
+
+# 忽略 Go 的构建缓存和临时文件
+*.log
+*.tmp
+*.swp
+*.swo
+
+# 忽略 IDE 生成的文件
+.idea/
+*.iml
+.vscode/
+*.code-workspace
+
+# 忽略操作系统生成的文件
+.DS_Store
+Thumbs.db
