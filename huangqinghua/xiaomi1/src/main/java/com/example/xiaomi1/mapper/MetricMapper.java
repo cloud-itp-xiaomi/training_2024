@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface MetricMapper extends BaseMapper<Metric> {
     List<MetricData> getMetrics(
-            @Param("endpoint") String endPoint,
+            @Param("endpoint") String endpoint,
             @Param("metric") String metric,
             @Param("start_ts") long start_ts,
             @Param("end_ts") long end_ts);
