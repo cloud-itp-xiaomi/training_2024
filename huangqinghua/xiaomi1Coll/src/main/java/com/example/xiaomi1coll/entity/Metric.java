@@ -1,4 +1,4 @@
-package com.example.xiaomi1.entity;
+package com.example.xiaomi1coll.entity;
 
 
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -11,8 +11,8 @@ public class Metric {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
     private String metric;
-    private String endpoint;
-    private long timestamp;
+    private String endPoint;
+    private long timeStamp;
     private Integer step;
     private double value;
 
@@ -32,20 +32,20 @@ public class Metric {
         this.metric = metric;
     }
 
-    public String getEndpoint() {
-        return endpoint;
+    public String getEndPoint() {
+        return endPoint;
     }
 
-    public void setEndpoint(String endpoint) {
-        this.endpoint = endpoint;
+    public void setEndPoint(String endPoint) {
+        this.endPoint = endPoint;
     }
 
-    public long getTimestamp() {
-        return timestamp;
+    public long getTimeStamp() {
+        return timeStamp;
     }
 
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public Integer getStep() {
@@ -69,8 +69,8 @@ public class Metric {
         return "Log{" +
                 "id=" + id + '\'' +
                 ", metric='" + metric + '\'' +
-                ", endPoint=' "+endpoint+'\''+
-                ", timeStamp=' "+timestamp+'\''+
+                ", endPoint=' "+endPoint+'\''+
+                ", timeStamp=' "+timeStamp+'\''+
                 ", step=' "+step+'\''+
                 ", value=' "+value+'\''+
                 '}';
