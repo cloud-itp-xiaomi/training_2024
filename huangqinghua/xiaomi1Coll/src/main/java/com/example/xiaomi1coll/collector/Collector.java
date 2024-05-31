@@ -55,8 +55,8 @@ public class Collector {
     private Metric createMetric(String metricName, double value) {
         Metric metric = new Metric();
         metric.setMetric(metricName);
-        metric.setEndPoint("my-computer");
-        metric.setTimeStamp(Instant.now().getEpochSecond());
+        metric.setEndpoint("my-computer");
+        metric.setTimestamp(Instant.now().getEpochSecond());
         metric.setStep(60);
         metric.setValue(value);
         return metric;

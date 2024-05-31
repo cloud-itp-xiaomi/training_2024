@@ -11,8 +11,8 @@ public class Metric {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
     private String metric;
-    private String endPoint;
-    private long timeStamp;
+    private String endpoint;
+    private long timestamp;
     private Integer step;
     private double value;
 
@@ -32,20 +32,20 @@ public class Metric {
         this.metric = metric;
     }
 
-    public String getEndPoint() {
-        return endPoint;
+    public String getEndpoint() {
+        return endpoint;
     }
 
-    public void setEndPoint(String endPoint) {
-        this.endPoint = endPoint;
+    public void setEndpoint(String endpoint) {
+        this.endpoint = endpoint;
     }
 
-    public long getTimeStamp() {
-        return timeStamp;
+    public long getTimestamp() {
+        return timestamp;
     }
 
-    public void setTimeStamp(long timeStamp) {
-        this.timeStamp = timeStamp;
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
     public Integer getStep() {
@@ -69,8 +69,8 @@ public class Metric {
         return "Log{" +
                 "id=" + id + '\'' +
                 ", metric='" + metric + '\'' +
-                ", endPoint=' "+endPoint+'\''+
-                ", timeStamp=' "+timeStamp+'\''+
+                ", endPoint=' "+endpoint+'\''+
+                ", timeStamp=' "+timestamp+'\''+
                 ", step=' "+step+'\''+
                 ", value=' "+value+'\''+
                 '}';
