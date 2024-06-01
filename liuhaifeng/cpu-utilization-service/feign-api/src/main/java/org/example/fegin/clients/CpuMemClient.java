@@ -22,7 +22,7 @@ import java.util.List;
 public interface CpuMemClient {
 
     @PostMapping("api/metric/upload")
-    Result<Void> upload(@RequestBody CpuMemInfoDTO cpuMemInfoDTO);
+    Result<Void> upload(@RequestBody List<CpuMemInfoDTO> cpuMemInfoDTOList);
 
     @GetMapping("api/metric/query")
     Result<List<CpuMemQueryVO>> query(@SpringQueryMap CpuMemQueryDTO cpuMemQueryDTO);

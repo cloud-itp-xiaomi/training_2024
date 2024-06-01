@@ -24,9 +24,9 @@ public class Controller {
     private CpuMemClient cpuMemClient;
 
     @PostMapping("/upload")
-    public Result<Void> upload(@RequestBody CpuMemInfoDTO cpuMemInfoDTO) {
-        log.info("cpuMemInfoDTO:{}", cpuMemInfoDTO);
-        return cpuMemClient.upload(cpuMemInfoDTO);
+    public Result<Void> upload(@RequestBody List<CpuMemInfoDTO> cpuMemInfoDTOList) {
+        log.info("cpuMemInfoDTOList:{}", cpuMemInfoDTOList);
+        return cpuMemClient.upload(cpuMemInfoDTOList);
     }
 
     @GetMapping("/query")

@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface CpuMemService {
 
-    Result<Void> upload(@RequestBody CpuMemInfoDTO cpuMemInfoDTO);
+    Result<Void> upload(List<CpuMemInfoDTO> cpuMemInfoDTOList);
 
     Result<List<CpuMemQueryVO>> query(CpuMemQueryDTO cpuMemQueryDTO);
 
