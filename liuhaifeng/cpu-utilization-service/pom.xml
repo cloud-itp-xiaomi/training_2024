@@ -30,6 +30,8 @@
         <mysql.version>8.0.30</mysql.version>
         <mybatis.version>2.1.1</mybatis.version>
         <lombok.version>1.18.30</lombok.version>
+        <spring-cache.version>2.7.3</spring-cache.version>
+        <spring-data-redis.version>2.7.3</spring-data-redis.version>
     </properties>
 
     <dependencyManagement>
@@ -67,6 +69,20 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- spring data redis -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring-data-redis.version}</version>
+            </dependency>
+
+            <!-- spring cache -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-cache</artifactId>
+                <version>${spring-cache.version}</version>
             </dependency>
 
         </dependencies>

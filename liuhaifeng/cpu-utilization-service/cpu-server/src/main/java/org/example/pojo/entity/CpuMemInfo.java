@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 /**
@@ -38,7 +37,7 @@ public class CpuMemInfo {
     /**
      * 采集数据时的时间戳
      */
-    private Timestamp timestamp;
+    private LocalDateTime timestamp;
 
     /**
      * 指标采集周期

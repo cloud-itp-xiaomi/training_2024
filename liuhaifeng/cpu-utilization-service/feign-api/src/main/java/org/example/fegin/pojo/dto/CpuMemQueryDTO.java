@@ -2,7 +2,6 @@ package org.example.fegin.pojo.dto;
 
 import lombok.Data;
 
-import java.sql.Timestamp;
 
 /**
  * 查询接口请求参数

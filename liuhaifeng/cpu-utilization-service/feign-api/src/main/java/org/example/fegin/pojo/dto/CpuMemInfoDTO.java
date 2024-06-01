@@ -1,9 +1,7 @@
 package org.example.fegin.pojo.dto;
 
 import lombok.Data;
-import org.example.fegin.pojo.CpuMem;
 
-import java.util.List;
 
 
 /**
@@ -14,5 +12,16 @@ import java.util.List;
  */
 @Data
 public class CpuMemInfoDTO {
-    List<CpuMem> cpuMems;
+
+    private String metric;
+
+    private String endpoint;
+
+    private Long timestamp;
+
+    private Integer step;
+
+    private Double value;
+
+    private String tags;
 }

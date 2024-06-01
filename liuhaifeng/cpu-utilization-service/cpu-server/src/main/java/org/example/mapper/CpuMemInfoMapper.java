@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.example.pojo.entity.CpuMemInfo;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ public interface CpuMemInfoMapper {
     void insertBatch(@Param("cpuMemInfoList") List<CpuMemInfo> cpuMemInfoList);
 
     List<CpuMemInfo> query(@Param("endpointId") Integer endpointId,
-                           @Param("startTs") Long startTs,
-                           @Param("endTs") Long endTs,
+                           @Param("startTs") LocalDateTime startTs,
+                           @Param("endTs") LocalDateTime endTs,
                            @Param("metricType") Integer metricType);
 }
