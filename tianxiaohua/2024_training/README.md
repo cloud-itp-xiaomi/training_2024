@@ -1,5 +1,10 @@
 田小花2024_training
 
-1. dubbo-spring-boot项目
+host-collection-system项目
 
-   结合dubbo+zookeeper+springboot实现数据库mysql与缓存redis的操作
+- collector：实现采集系统cpu和内存利用率，并上报给service
+- interface：dubbo接口，提供数据上报接口，用于service模块和collector模块通信
+- service：实现数据存储到mysql和redis，并进行查询
+
+
+
