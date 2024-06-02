@@ -30,6 +30,7 @@ public class ComputerServiceImpl implements ComputerService {
     /**
      * Redis 作为缓存，
      * 只存储 Server 接收到的 CPU 利用率和内存利用率数据的最近十条数据。
+     *
      * @version 0.1.0
      * @author qiaojingjing
      * @since 0.1.0
@@ -42,16 +43,16 @@ public class ComputerServiceImpl implements ComputerService {
         String key = metricsDTO.get(1).getEndpoint();
         for (MetricsDTO dto : metricsDTO) {
             Metric metric = new Metric();
-            BeanUtils.copyProperties(dto,metric);
-            listOps.leftPush(key,metric);
-            listOps.trim(key,0,19);
+            BeanUtils.copyProperties(dto, metric);
+            listOps.leftPush(key, metric);
+            listOps.trim(key, 0, 19);
         }
 
 
         List<Metric> metrics = new ArrayList<>();
         for (MetricsDTO dto : metricsDTO) {
             Metric metric = new Metric();
-            BeanUtils.copyProperties(dto,metric);
+            BeanUtils.copyProperties(dto, metric);
             metrics.add(metric);
         }
         System.out.println(metrics);
@@ -60,7 +61,6 @@ public class ComputerServiceImpl implements ComputerService {
     }
 
     /**
-     *
      * @version 0.1.0
      * @author qiaojingjing
      * @since 0.1.0
@@ -70,23 +70,23 @@ public class ComputerServiceImpl implements ComputerService {
         ListOperations listOperations = redisTemplate.opsForList();
         String key = metricDTO.getEndpoint();
         List<MetricVO> list;
-        List<Metric> metrics = listOperations.range(key, 0, 19);
-        if(metrics.size() == 20){
-            Map<String, List<Metric>> metricsMap = metrics.stream().collect(Collectors.groupingBy(Metric::getMetric));
-            Long end = metrics.get(0).getTimestamp();
-            Long start = metrics.get(19).getTimestamp();
-            Long startTs = metricDTO.getStartTs();
-            Long endTs = metricDTO.getEndTs();
-            if(startTs>=start && endTs<=end){
-                log.info("通过redis查询数据...");
-                list = retrieveDataFromRedis(startTs,endTs,metricsMap);
-                return list;
-            }
+        //获取所有数据
+        List<Metric> metrics = listOperations.range(key, 0, -1);
+
+        Map<String, List<Metric>> metricsMap = metrics.stream().collect(Collectors.groupingBy(Metric::getMetric));
+        Long end = metrics.get(0).getTimestamp();
+        Long start = metrics.get(metrics.size()-1).getTimestamp();
+        Long startTs = metricDTO.getStartTs();
+        Long endTs = metricDTO.getEndTs();
+        if (startTs >= start && endTs <= end) {
+            log.info("通过redis查询数据...");
+            list = retrieveDataFromRedis(startTs, endTs, metricsMap);
+            return list;
 
         }
 
 
-        list =  metricMapper.query(metricDTO);
+        list = metricMapper.query(metricDTO);
         return list;
     }
 
@@ -102,7 +102,7 @@ public class ComputerServiceImpl implements ComputerService {
             List<MetricVO.Value> values = new ArrayList<>();
 
             for (Metric metric : metricData) {
-                if(metric.getTimestamp()>=startTs && metric.getTimestamp()<=endTs){
+                if (metric.getTimestamp() >= startTs && metric.getTimestamp() <= endTs) {
                     MetricVO.Value value = new MetricVO.Value();
                     value.setTimestamp(metric.getTimestamp());
                     value.setValue(metric.getValue());
