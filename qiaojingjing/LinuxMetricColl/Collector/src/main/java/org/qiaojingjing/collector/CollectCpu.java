@@ -5,6 +5,7 @@ import org.qiaojingjing.entity.Metric;
 
 import java.io.*;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -39,7 +40,7 @@ public class CollectCpu {
         double value = (double) 100 * (total - idle) / total;
 
         BigDecimal bd = new BigDecimal(value);
-        value = bd.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        value = bd.setScale(2, RoundingMode.HALF_UP).doubleValue();
 
         cpu.setEndpoint(hostname);
         cpu.setStep(60L);

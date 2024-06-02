@@ -24,7 +24,7 @@ public class POSTRequest {
 
             //组装请求信息
             HttpEntity<String> httpEntity = new HttpEntity<>(json,headers);
-            String response = restTemplate.postForObject("http://localhost:8080/api/metric/upload", httpEntity, String.class);
+            String response = restTemplate.postForObject("http://server1:8080/api/metric/upload", httpEntity, String.class);
             System.out.println("Response:"+response);
         } catch (Exception e) {
             e.printStackTrace();

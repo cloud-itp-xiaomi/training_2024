@@ -32,7 +32,7 @@ public class Upload {
                 metrics[0].setTimestamp(System.currentTimeMillis());
                 metrics[1].setTimestamp(System.currentTimeMillis());
                 POSTRequest.sendPostRequest(metrics);
-                //System.out.println("运行了");
+                System.out.println("采集并上传数据");
             }
         };
 
