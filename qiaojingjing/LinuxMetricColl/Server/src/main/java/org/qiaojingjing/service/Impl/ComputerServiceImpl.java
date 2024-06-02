@@ -1,5 +1,6 @@
 package org.qiaojingjing.service.Impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.qiaojingjing.pojo.dto.MetricDTO;
 import org.qiaojingjing.pojo.dto.MetricsDTO;
 import org.qiaojingjing.pojo.entity.Metric;
@@ -19,6 +20,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class ComputerServiceImpl implements ComputerService {
     @Resource
     private RedisTemplate redisTemplate;
@@ -71,12 +73,12 @@ public class ComputerServiceImpl implements ComputerService {
         List<Metric> metrics = listOperations.range(key, 0, 19);
         if(metrics.size() == 20){
             Map<String, List<Metric>> metricsMap = metrics.stream().collect(Collectors.groupingBy(Metric::getMetric));
-            System.out.println(metrics);
             Long end = metrics.get(0).getTimestamp();
             Long start = metrics.get(19).getTimestamp();
             Long startTs = metricDTO.getStartTs();
             Long endTs = metricDTO.getEndTs();
             if(startTs>=start && endTs<=end){
+                log.info("通过redis查询数据...");
                 list = retrieveDataFromRedis(startTs,endTs,metricsMap);
                 return list;
             }
