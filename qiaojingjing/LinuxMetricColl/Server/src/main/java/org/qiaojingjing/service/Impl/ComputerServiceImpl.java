@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class ComputerServiceImpl implements ComputerService {
@@ -33,17 +36,17 @@ public class ComputerServiceImpl implements ComputerService {
     public void upload(List<MetricsDTO> metricsDTO) {
         //这里采用列表数据结构。1.控制数量方便。 2.插入效率高
         //设置 key，使用 metricsDTO.getEndpoint() 作为列表的名称
+        ListOperations<String, Object> listOps = redisTemplate.opsForList();
+        String key = metricsDTO.get(1).getEndpoint();
         for (MetricsDTO dto : metricsDTO) {
-            String key = dto.getEndpoint();
-            ListOperations<String, Object> listOps = redisTemplate.opsForList();
-            // 将值添加到列表中
-            listOps.leftPush(key, dto);
-            // 截断列表，保留最新的 10 个值
-            listOps.trim(key, 0, 9);
+            Metric metric = new Metric();
+            BeanUtils.copyProperties(dto,metric);
+            listOps.leftPush(key,metric);
+            listOps.trim(key,0,19);
         }
 
-        List<Metric> metrics = new ArrayList<>();
 
+        List<Metric> metrics = new ArrayList<>();
         for (MetricsDTO dto : metricsDTO) {
             Metric metric = new Metric();
             BeanUtils.copyProperties(dto,metric);
@@ -62,8 +65,53 @@ public class ComputerServiceImpl implements ComputerService {
      **/
     @Override
     public List<MetricVO> query(MetricDTO metricDTO) {
-        //TODO 从redis中取出第一条和第十条数据，判断是否在传入的时间戳内
-        List<MetricVO> list =  metricMapper.query(metricDTO);
+        ListOperations listOperations = redisTemplate.opsForList();
+        String key = metricDTO.getEndpoint();
+        List<MetricVO> list;
+        List<Metric> metrics = listOperations.range(key, 0, 19);
+        if(metrics.size() == 20){
+            Map<String, List<Metric>> metricsMap = metrics.stream().collect(Collectors.groupingBy(Metric::getMetric));
+            System.out.println(metrics);
+            Long end = metrics.get(0).getTimestamp();
+            Long start = metrics.get(19).getTimestamp();
+            Long startTs = metricDTO.getStartTs();
+            Long endTs = metricDTO.getEndTs();
+            if(startTs>=start && endTs<=end){
+                list = retrieveDataFromRedis(startTs,endTs,metricsMap);
+                return list;
+            }
+
+        }
+
+
+        list =  metricMapper.query(metricDTO);
         return list;
+    }
+
+    //从redis从检索数据
+    private List<MetricVO> retrieveDataFromRedis(Long startTs, Long endTs, Map<String, List<Metric>> metricsMap) {
+        List<MetricVO> list = new ArrayList<>();
+        Set<Map.Entry<String, List<Metric>>> entries = metricsMap.entrySet();
+        for (Map.Entry<String, List<Metric>> entry : entries) {
+            String metricName = entry.getKey();
+            List<Metric> metricData = entry.getValue();
+            MetricVO metricVO = new MetricVO();
+            metricVO.setMetric(metricName);
+            List<MetricVO.Value> values = new ArrayList<>();
+
+            for (Metric metric : metricData) {
+                if(metric.getTimestamp()>=startTs && metric.getTimestamp()<=endTs){
+                    MetricVO.Value value = new MetricVO.Value();
+                    value.setTimestamp(metric.getTimestamp());
+                    value.setValue(metric.getValue());
+                    values.add(value);
+                }
+            }
+            metricVO.setValues(values);
+            list.add(metricVO);
+        }
+
+        return list;
+
     }
 }

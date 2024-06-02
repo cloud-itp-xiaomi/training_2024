@@ -10,7 +10,7 @@ public class MetricVO {
     private List<Value> values;
 
     @Data
-    private static class Value {
+    public static class Value {
         private Long timestamp;
         private Double value;
     }

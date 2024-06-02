@@ -1,9 +1,5 @@
 package org.qiaojingjing.collector;
 
-import com.jcraft.jsch.ChannelExec;
-import com.jcraft.jsch.JSch;
-import com.jcraft.jsch.JSchException;
-import com.jcraft.jsch.Session;
 import org.qiaojingjing.cons.Param;
 import org.qiaojingjing.entity.Metric;
 
