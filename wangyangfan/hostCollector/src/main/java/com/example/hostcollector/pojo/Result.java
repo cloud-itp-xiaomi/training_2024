@@ -1,4 +1,4 @@
-package com.example.hostmonitor.pojo;
+package com.example.hostcollector.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,6 +18,7 @@ public class Result {
     public static Result success(Object data) {
         return new Result(1, "success", data);
     }
+
 
     public static Result error(String msg) {
         return new Result(0, msg, null);
