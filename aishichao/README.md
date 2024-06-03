@@ -1,5 +1,5 @@
 # 1.项目描述
-  本项目在Ubuntu系统下,基于Golang开发，部署在Docker上运行，用于采集计算机cpu和内存的利用率，并可在shell终端上查询数据。  
+  本项目在Ubuntu20.04系统下,基于Golang开发，部署在Docker上运行，用于采集计算机cpu和内存的利用率，并可在Shell终端上查询数据。  
 # 2.项目部署
   ## (1).安装Docker
       curl -fsSL https://test.docker.com -o test-docker.sh  
