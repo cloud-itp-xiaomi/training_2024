@@ -13,7 +13,7 @@ public class CollectCpu {
     private static final Metric cpu = new Metric();
 
     public static Metric collect() throws IOException {
-        String hostname = Files.readString(Paths.get("/etc/hostname"));
+        String hostname = Files.readString(Paths.get("/etc/hostname")).trim();
 
         //第一次读取
         String line1 = getFirstLine();

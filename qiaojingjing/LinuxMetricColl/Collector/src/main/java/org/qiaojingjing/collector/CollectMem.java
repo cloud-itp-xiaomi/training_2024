@@ -21,7 +21,7 @@ public class CollectMem {
     private static final Metric mem = new Metric();
 
     public static Metric collect() throws IOException {
-        String hostname = Files.readString(Paths.get("/etc/hostname"));
+        String hostname = Files.readString(Paths.get("/etc/hostname")).trim();
         File fileMem = new File("/proc/meminfo");
         InputStream inputStream = new FileInputStream(fileMem);
         //读取
