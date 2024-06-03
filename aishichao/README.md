@@ -1,9 +1,9 @@
 # 1.项目描述
-  本项目在ubuntu系统下,基于golang开发，部署在docker上运行，用于采集计算机cpu和内存利用率，并可在shell终端上查询数据;  
+  本项目在ubuntu系统下,基于golang开发，部署在docker上运行，用于采集计算机cpu和内存利用率，并可在shell终端上查询数据。  
 # 2.项目部署
   ## (1).安装docker
-      `curl -fsSL https://test.docker.com -o test-docker.sh ` 
-      如果提示为找到命令curl,需安装：`sudo apt-get install curl`  
+      curl -fsSL https://test.docker.com -o test-docker.sh  
+      如果提示为找到命令curl,需安装：sudo apt-get install curl  
       sudo sh test-docker.sh  
   ## (2).安装ddocker-compose  
       sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose  
