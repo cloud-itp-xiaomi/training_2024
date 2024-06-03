@@ -41,20 +41,16 @@ public class ComputerServiceImpl implements ComputerService {
         //设置 key，使用 metricsDTO.getEndpoint() 作为列表的名称
         ListOperations<String, Object> listOps = redisTemplate.opsForList();
         String key = metricsDTO.get(1).getEndpoint();
+        List<Metric> metrics = new ArrayList<>();
         for (MetricsDTO dto : metricsDTO) {
             Metric metric = new Metric();
             BeanUtils.copyProperties(dto, metric);
             listOps.leftPush(key, metric);
             listOps.trim(key, 0, 19);
-        }
-
-
-        List<Metric> metrics = new ArrayList<>();
-        for (MetricsDTO dto : metricsDTO) {
-            Metric metric = new Metric();
-            BeanUtils.copyProperties(dto, metric);
             metrics.add(metric);
         }
+
+
         System.out.println(metrics);
         // 存入数据库
         metricMapper.save(metrics);
