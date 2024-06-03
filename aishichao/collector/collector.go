@@ -108,7 +108,7 @@ func sendData(data []MetricData) {
 
      resp, err := http.Post("http://server:8080/api/metric/upload", "application/json", bytes.NewBuffer(jsonData))
      if err != nil {
-         log.Println("Error sending data:", err)
+         //log.Println("Error sending data:", err)
          return
      }
      defer resp.Body.Close()
