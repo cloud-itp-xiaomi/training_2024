@@ -11,6 +11,7 @@ import (
     "strings"
     "time"
     "net/http"
+    "github.com/shirou/gopsutil/v3/cpu"
 )
 
 type MetricData struct{
@@ -23,59 +24,28 @@ type MetricData struct{
 
 func main() {
      fmt.Println("Starting collector...")
-     //fmt.Println("CPU and Memory usage at 1 minute intervals:\n")
-     //var prevIdleTime, prevTotalTime uint64
 
      for {
-         data:=collectData()
-        // 采集CPU利用率
-        
-
-        // 打印CPU和内存利用率
-        //if prevTotalTime != 0 {
-        //fmt.Printf("CPU usage: %6.3f%%, Memory usage: %6.3f%%\n", cpuUsage, memoryUsage)
-        //}
-        
-       //Data=append(Data, data)
-       sendData(data)
-       time.Sleep(time.Minute)
+        data:=collectData()
+        sendData(data)
+        time.Sleep(60*time.Second)
      }
 }
 
-func getCpuUsage(prevIdleTime, prevTotalTime *uint64) (float64, error) {
-     file, err := os.Open("/proc/stat")
-     if err != nil {
-        return 0, err
-     }
-     defer file.Close()
+func getCpuUsage() (float64, error) {
+     percentages, err := cpu.Percent(1*time.Second, false)
+	if err != nil {
+		return 0, err
+	}
 
-     scanner := bufio.NewScanner(file)
-     scanner.Scan()
-     firstLine := scanner.Text()[5:] // get rid of "cpu " plus 2 spaces
+	// 计算所有核心的平均使用率
+	total := 0.0
+	for _, percentage := range percentages {
+		total += percentage
+	}
+	average := total / float64(len(percentages))
 
-     if err := scanner.Err(); err != nil {
-        return 0, err
-     }
-
-     split := strings.Fields(firstLine)
-     idleTime, _ := strconv.ParseUint(split[3], 10, 64)
-     totalTime := uint64(0)
-     for _, s := range split {
-         u, _ := strconv.ParseUint(s, 10, 64)
-         totalTime += u
-     }
-
-     var cpuUsage float64
-     if *prevTotalTime != 0 {
-        deltaIdleTime := idleTime - *prevIdleTime
-        deltaTotalTime := totalTime - *prevTotalTime
-        cpuUsage = (1.0 - float64(deltaIdleTime)/float64(deltaTotalTime)) * 100.0
-     }
-
-     *prevIdleTime = idleTime
-     *prevTotalTime = totalTime
-
-     return cpuUsage, nil
+	return average, nil
 }
 
 func getMemoryUsage() (float64, error) {
@@ -95,7 +65,7 @@ func getMemoryUsage() (float64, error) {
             continue
          }
 
-         key := fields[0][:len(fields[0])-1] // Remove trailing ':'
+         key := fields[0][:len(fields[0])-1] 
          value, err := strconv.ParseUint(fields[1], 10, 64)
          if err != nil {
             return 0, err
@@ -150,15 +120,14 @@ func sendData(data []MetricData) {
 
 func collectData() []MetricData{
      hostname:=getHostName()
-     timestamp:=time.Now().Unix()
-     //step:=60
-     var prevIdleTime, prevTotalTime uint64
-     cpuUsage, err := getCpuUsage(&prevIdleTime, &prevTotalTime)
+     
+     //采集CPU利用率
+     cpuUsage,err:=getCpuUsage()
      if err != nil {
          log.Fatal(err)
          cpuUsage=0
      }
-
+     
      // 采集内存利用率
      memoryUsage, err := getMemoryUsage()
      if err != nil {
@@ -166,20 +135,22 @@ func collectData() []MetricData{
          memoryUsage=0
      } 
      
+     timestamp:=time.Now().Unix()
+     
      return []MetricData{
             {
                 Metric:    "cpu.used.percent",
                 Endpoint:  hostname,
                 Timestamp: timestamp,
                 Step:      60,
-                Value:     cpuUsage,
+                Value:     (cpuUsage*1e2+0.5)*1e-2,
             },
             {
                 Metric:    "mem.used.percent",
                 Endpoint:  hostname,
                 Timestamp: timestamp,
                 Step:      60,
-                Value:     memoryUsage,
+                Value:     (memoryUsage*1e2+0.5)*1e-2,
             },
         }
      
