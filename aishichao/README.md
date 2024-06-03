@@ -1,32 +1,31 @@
-1.é¡¹ç›®æè¿°
-  æœ¬é¡¹ç›®åœ¨ubuntuç³»ç»Ÿä¸‹,åŸºäºgolangå¼€å‘ï¼Œéƒ¨ç½²åœ¨dockerä¸Šè¿è¡Œï¼Œç”¨äºé‡‡é›†è®¡ç®—æœºcpuå’Œå†…å­˜åˆ©ç”¨ç‡ï¼Œå¹¶å¯åœ¨shellç»ˆç«¯ä¸ŠæŸ¥è¯¢æ•°æ®;  
-  
-2.é¡¹ç›®éƒ¨ç½²  
-  (1).å®‰è£…dockerï¼š  
-      curl -fsSL https://test.docker.com -o test-docker.sh  
-      å¦‚æœæç¤ºä¸ºæ‰¾åˆ°å‘½ä»¤curl,éœ€å®‰è£…ï¼šsudo apt-get install curl  
+# 1.ÏîÄ¿ÃèÊö
+  ±¾ÏîÄ¿ÔÚubuntuÏµÍ³ÏÂ,»ùÓÚgolang¿ª·¢£¬²¿ÊğÔÚdockerÉÏÔËĞĞ£¬ÓÃÓÚ²É¼¯¼ÆËã»úcpuºÍÄÚ´æÀûÓÃÂÊ£¬²¢¿ÉÔÚshellÖÕ¶ËÉÏ²éÑ¯Êı¾İ;  
+# 2.ÏîÄ¿²¿Êğ
+  ## (1).°²×°docker
+      `curl -fsSL https://test.docker.com -o test-docker.sh ` 
+      Èç¹ûÌáÊ¾ÎªÕÒµ½ÃüÁîcurl,Ğè°²×°£º`sudo apt-get install curl`  
       sudo sh test-docker.sh  
-  (2).å®‰è£…ddocker-compose  
+  ## (2).°²×°ddocker-compose  
       sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose  
       sudo chmod +x /usr/local/bin/docker-compose  
-  (3).è¿›å…¥åˆ°é¡¹ç›®æ ¹ç›®å½•ï¼Œå¯åŠ¨é¡¹ç›®  
-      sudo docker-compose up --build  
-      æ­¤æ—¶ä¼šæç¤ºæ‰¾ä¸åˆ°mysqlè¡¨ï¼Œéœ€è¿›è¡Œé…ç½®  
-  (4).mysqlé…ç½®  
-      æ‰¾åˆ°mysqlå®¹å™¨id:sudo docker ps -a  
-      è¿›å…¥mysqlï¼šsudo docker exec -it <ID> /bin/bash  
-      è¿›å…¥taskåº“ï¼šuse tasks;  
-      åˆ›å»ºè¡¨ï¼šcreate table metric(  
+  ## (3).½øÈëµ½ÏîÄ¿¸ùÄ¿Â¼£¬Æô¶¯ÏîÄ¿  
+      sudo docker-compose up --build
+      ´ËÊ±»áÌáÊ¾ÕÒ²»µ½mysql±í£¬Ğè½øĞĞÅäÖÃ  
+  ## (4).mysqlÅäÖÃ  
+      ÕÒµ½mysqlÈİÆ÷id:sudo docker ps -a  
+      ½øÈëmysql£ºsudo docker exec -it <ID> /bin/bash  
+      ½øÈëtask¿â£ºuse tasks;  
+      ´´½¨±í£ºcreate table metric(  
                  id int AUTO_INCREMENT PRIMARY KEY,  
                  Metric varchar(255) not null,  
                  Endpoint varchar(255) not null,  
                  Timestamp bigint not null,  
                  Step bigint not null,  
                  Value double precision not null);  
-  (5).é¡¹ç›®éƒ¨ç½²å®Œæˆ  
+  ## (5).ÏîÄ¿²¿ÊğÍê³É  
     
-3.é¡¹ç›®ä½¿ç”¨ï¼š  
-  (1).å®‰è£…jqå·¥å…·ï¼šsudo-apt-get install jq  
-  (2).åœ¨é¡¹ç›®æ ¹ç›®å½•æ‰§è¡Œ:æ·»åŠ è„šæœ¬æ‰§è¡Œæƒé™ï¼šchmod +x reader.sh   
-  (3).åœ¨é¡¹ç›®æ ¹ç›®å½•æ‰§è¡Œï¼š./reader.sh æ ¹æ®æç¤ºè¿›è¡ŒæŸ¥è¯¢  
+# 3.ÏîÄ¿Ê¹ÓÃ  
+  (1).°²×°jq¹¤¾ß£º`sudo-apt-get install jq`</p>  
+  (2).ÔÚÏîÄ¿¸ùÄ¿Â¼Ö´ĞĞ:Ìí¼Ó½Å±¾Ö´ĞĞÈ¨ÏŞ£º`chmod +x reader.sh`</p>   
+  (3).ÔÚÏîÄ¿¸ùÄ¿Â¼Ö´ĞĞ£º./reader.sh ¸ù¾İÌáÊ¾½øĞĞ²éÑ¯</p>  
       
