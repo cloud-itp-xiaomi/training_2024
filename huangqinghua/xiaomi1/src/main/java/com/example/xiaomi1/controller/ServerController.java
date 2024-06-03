@@ -41,39 +41,34 @@ public class ServerController {
             @RequestParam(required = false) String metric,
             @RequestParam long start_ts,
             @RequestParam long end_ts) {
-        try {
-            // 获取所有符合条件的数据
-            List<MetricData> metricDataList = metricService.getMetrics(endpoint, metric, start_ts, end_ts);
 
-            // 按照 metric 分组
-            Map<String, List<MetricData>> groupedByMetric = metricDataList.stream()
-                    .collect(Collectors.groupingBy(MetricData::getMetric));
+        // 获取所有符合条件的数据
+        List<MetricData> metricDataList = metricService.getMetrics(endpoint, metric, start_ts, end_ts);
 
-            // 转换为 MetricResponse 格式
-            List<MetricResponse> responseList = new ArrayList<>();
-            for (Map.Entry<String, List<MetricData>> entry : groupedByMetric.entrySet()) {
-                MetricResponse metricResponse = new MetricResponse();
-                metricResponse.setMetric(entry.getKey());
+        // 按照 metric 分组
+        Map<String, List<MetricData>> groupedByMetric = metricDataList.stream()
+                .collect(Collectors.groupingBy(MetricData::getMetric));
 
-                List<MetricResponse.ValueData> valueDataList = entry.getValue().stream()
-                        .map(data -> {
-                            MetricResponse.ValueData valueData = new MetricResponse.ValueData();
-                            valueData.setTimestamp(data.getTimestamp());
-                            valueData.setValue(data.getValue());
-                            return valueData;
-                        })
-                        .collect(Collectors.toList());
+        // 转换为 MetricResponse 格式
+        List<MetricResponse> responseList = new ArrayList<>();
+        for (Map.Entry<String, List<MetricData>> entry : groupedByMetric.entrySet()) {
+            MetricResponse metricResponse = new MetricResponse();
+            metricResponse.setMetric(entry.getKey());
 
-                metricResponse.setValues(valueDataList);
-                responseList.add(metricResponse);
-            }
+            List<MetricResponse.ValueData> valueDataList = entry.getValue().stream()
+                    .map(data -> {
+                        MetricResponse.ValueData valueData = new MetricResponse.ValueData();
+                        valueData.setTimestamp(data.getTimestamp());
+                        valueData.setValue(data.getValue());
+                        return valueData;
+                    })
+                    .collect(Collectors.toList());
 
-            return new Result().success(responseList);  // 返回成功的结果，并带上转换后的数据
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("ok");
-            return new Result().failure(500, "Error get metric: " + e.getMessage());
+            metricResponse.setValues(valueDataList);
+            responseList.add(metricResponse);
         }
+
+        return new Result().success(responseList);  // 返回成功的结果，并带上转换后的数据
     }
 
 }

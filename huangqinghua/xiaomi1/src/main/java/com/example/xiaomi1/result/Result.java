@@ -40,11 +40,7 @@ public class Result {
 
     // 返回失败的结果，使用默认的错误码和消息
     public Result failure(){
-        Result result=new Result();
-        result.setCode(500); // 默认的失败错误码，如HTTP中的Internal Server Error
-        result.setMessage("failure"); // 简单的失败消息
-        result.setData("");
-        return result;
+        return  failure(500, "failure");
     }
 
     // 返回失败的结果，允许自定义错误码和消息

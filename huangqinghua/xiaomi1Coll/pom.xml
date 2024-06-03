@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>xiaomi1Coll</artifactId>
+    <artifactId>xiaomi1-coll</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>xiaomi1Coll</name>
     <description>xiaomi1Coll</description>

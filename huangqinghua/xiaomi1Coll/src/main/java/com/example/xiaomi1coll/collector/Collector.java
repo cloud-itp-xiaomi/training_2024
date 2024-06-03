@@ -9,8 +9,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
 import java.lang.management.ManagementFactory;
@@ -27,7 +29,12 @@ public class Collector {
     private final ExecutorService executorService;
 
     public Collector() {
-        this.restTemplate = new RestTemplate();
+        // 创建自定义的 RestTemplate，并设置请求超时
+        SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+        requestFactory.setConnectTimeout(5000); // 设置连接超时时间（毫秒）
+        requestFactory.setReadTimeout(5000); // 设置读取超时时间（毫秒）
+        this.restTemplate = new RestTemplate(requestFactory);
+
         this.osBean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
         // 创建一个包含4个线程的线程池
         this.executorService = Executors.newFixedThreadPool(4);
@@ -84,27 +91,37 @@ public class Collector {
             logger.info("Metric sent: {}", metric);
             logger.info("Response Status: {}", response.getStatusCode());
             logger.info("Response Body: {}", response.getBody());
-        }catch (Exception e) {
+        } catch (ResourceAccessException e) {
+            // 处理超时异常
+            logger.error("Request timeout when sending metric: {}", metric, e);
+        } catch (Exception e) {
+            // 处理其他异常
             logger.error("Error sending metric: {}", metric, e);
         }
-
     }
+
 
     // 获取主机内存使用率
     private double getMemoryUsage() {
         long totalMemory = osBean.getTotalMemorySize();
         long freeMemory = osBean.getFreeMemorySize();
+
+        if (totalMemory == 0) {
+            // 返回无效数据
+            return -1;
+        }
         return (double) (totalMemory - freeMemory) / totalMemory * 100;
     }
+
 
     // 获取主机cpu使用率
     private double getCpuUsage() {
         double systemCpuLoad = osBean.getCpuLoad();
         if (systemCpuLoad < 0) {
-            // 如果返回负值，说明不支持或无法获取CPU负载
             return Double.NaN;
         }
-        return twoDecimal(systemCpuLoad * 100); // 转换为百分比并保留两位小数
+        // return twoDecimal(systemCpuLoad * 100); // 转换为百分比并保留两位小数
+        return (double) Math.round(systemCpuLoad * 10000) / 100.0; // 转换为百分比%，并保留小数点后两位
     }
 
     // 控制精度

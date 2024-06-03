@@ -6,6 +6,12 @@ public class MetricData {
     private long timestamp;
     private double value;
 
+    public MetricData(String metric, long timestamp, double value) {
+        this.metric=metric;
+        this.timestamp=timestamp;
+        this.value=value;
+    }
+
     public String getMetric() {
         return metric;
     }
