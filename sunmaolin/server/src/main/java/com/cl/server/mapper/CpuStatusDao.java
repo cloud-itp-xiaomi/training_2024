@@ -3,8 +3,6 @@ package com.cl.server.mapper;
 import com.cl.server.entity.CpuStatus;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
-
 import java.util.List;
 
 /**

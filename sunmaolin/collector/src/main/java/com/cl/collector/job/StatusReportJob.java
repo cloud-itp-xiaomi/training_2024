@@ -1,5 +1,6 @@
 package com.cl.collector.job;
 
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -54,7 +55,6 @@ public class StatusReportJob {
             status.add(memStatue);
             log.info("StatusReportJob.collectAndReportJobHandler.status:{}", JSON.toJSONString(status));
             report(status);
-
         }catch (Exception e){
             XxlJobHelper.log("collectAndReportJobHandler.error:"+e.getMessage());
         }
