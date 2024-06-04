@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaomi.work1.mapper.MetricMapper">
+
+    <insert id="saveMetrics"  parameterType="com.xiaomi.work1.bean.Metric">
+        insert into metrics values(#{id},#{metric},#{endpoint},#{timestamp},#{step},#{value})
+    </insert>
+    <select id="queryAll" resultType="com.xiaomi.work1.bean.Metric">
+        select * from metrics where endpoint=#{endpoint} and metric=#{metric} and timestamp between #{startTs} and #{endTs}
+    </select>
+</mapper>
