@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"github.com/stretchr/testify/assert"
@@ -228,7 +228,7 @@ func TestGenerateGroupKey(t *testing.T) {
 		File:     "/home/work/a.log",
 	}
 
-	key := generateGroupKey(meta)
+	key := meta.generateGroupKey()
 	assert.Equal(t, key, "my-computer|/home/work/a.log")
 }
 

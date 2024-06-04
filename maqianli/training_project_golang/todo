@@ -12,5 +12,6 @@ Done 反序列化时将日志分组
 Done 多条日志的序列化与反序列化
 Done 提供 Logger 工场方法
 Done 将日志写到文件里
+Done 分模块
 将日志写到 MySQL 里
 
