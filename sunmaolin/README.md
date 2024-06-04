@@ -56,7 +56,7 @@ cp -r  你的服务器Maven路径  /var/jenkins_home/
   ![](images/5.jpg)
 
 2.调用Maven顶层目标
-  ![](images/6.jpg)
+  ![](images/6.png)
 
 3.使用ssh插件发送shell脚本至服务器
 
@@ -100,8 +100,10 @@ fi
 ```
 
 - 运行server模块任务
+![](images/7.png)
 控制台出现以下效果即可
 ![](images/3.jpg)
 
 - 服务器Java进程
+
 ![](images/2.jpg)
