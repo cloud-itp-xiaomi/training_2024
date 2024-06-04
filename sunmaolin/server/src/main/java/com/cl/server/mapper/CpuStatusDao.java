@@ -3,6 +3,8 @@ package com.cl.server.mapper;
 import com.cl.server.entity.CpuStatus;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
+
 import java.util.List;
 
 /**
@@ -29,6 +31,14 @@ public interface CpuStatusDao {
      * @return 对象列表
      */
     List<CpuStatus> queryAllByLimit(CpuStatus cpuStatus);
+
+    /**
+     * 时间范围查询
+     *
+     * @param
+     * @return 对象列表
+     */
+    List<CpuStatus> queryAllByTimeStamp(String endPoint,String metric,Long start_ts,Long end_ts);
 
     /**
      * 统计总行数
