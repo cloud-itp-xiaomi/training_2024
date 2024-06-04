@@ -48,6 +48,60 @@ docker logs afdc75a54567     //查看Jenkins启动日志获取管理员密码
 ```
 cp -r  你的服务器Maven路径  /var/jenkins_home/
 ```
+![](images/1.jpg)
+![](images/4.jpg)
 
-![sunmaolin/images/1.jpg](C:\Users\32536\Desktop\main\training_2024\sunmaolin\images\1.jpg)
+- 新建模块任务（以server模块为例）
+1.配置git地址
+  ![](images/5.jpg)
 
+2.调用Maven顶层目标
+  ![](images/6.jpg)
+
+3.使用ssh插件发送shell脚本至服务器
+
+```Shell
+cp /var/jenkins_home/workspace/Server/server/target/server.jar /var/jenkins_home/jar/
+#!/bin/bash
+APP_NAME=server.jar
+LOG_NAME=/var/log/server.log
+
+pid=ps -ef | grep $APP_NAME | grep -v grep|awk '{print $2}'
+
+function is_exist(){
+pid=ps -ef | grep $APP_NAME | grep -v grep|awk '{print $2}'
+if [ -z ${pid} ]; then
+String="notExist"
+echo $String
+else
+String="exist"
+echo $String
+fi
+}
+
+str=$(is_exist)
+if [ ${str} = "exist" ]; then
+echo " 检测到已经启动的程序，pid 是 ${pid} "
+kill -9 $pid
+else
+echo " 程序没有启动了 "
+echo "${APP_NAME} is not running"
+fi
+
+str=$(is_exist)
+if [ ${str} = "exist" ]; then
+echo "${APP_NAME} 已经启动了. pid=${pid} ."
+else
+source /etc/profile
+BUILD_ID=dontKillMe
+nohup java -Xms300m -Xmx300m -jar /var/jenkins_home/jar/$APP_NAME   >$LOG_NAME 2>&1 &
+echo "程序已重新启动..."
+fi
+```
+
+- 运行server模块任务
+控制台出现以下效果即可
+![](images/3.jpg)
+
+- 服务器Java进程
+![](images/2.jpg)
