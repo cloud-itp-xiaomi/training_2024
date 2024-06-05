@@ -132,14 +132,23 @@ func (s FileServer) saveLog(log Log, fileName string) error {
 }
 
 func (s FileServer) readLog(fileName string) Log {
-	return Log{
-		Hostname: "my-computer",
-		File:     "/home/work/a.log",
-		Logs: []string{
-			"2024-05-16 10:11:51 +08:00 This is a log",
-			"2024-05-16 10:11:51 +08:00 This is another log",
-		},
+	file, err := os.Open(fileName)
+	if err != nil {
+		return Log{}
 	}
+	defer file.Close()
+
+	var lines []string
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		line := scanner.Text()
+		lines = append(lines, line)
+	}
+	if err := scanner.Err(); err != nil {
+		return Log{}
+	}
+
+	return deserializeLog(lines)
 }
 
 func TestFileServerSaveOneLog(t *testing.T) {
