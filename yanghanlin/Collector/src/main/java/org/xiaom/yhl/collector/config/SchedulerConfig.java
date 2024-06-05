@@ -3,8 +3,7 @@ package org.xiaom.yhl.collector.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.xiaom.yhl.collector.service.CpuUsageService;
-
+import org.xiaom.yhl.collector.service.CPUAndMemUsageService;
 /**
  * ClassName: SchedulerConfig
  * Package: org.xiaom.yhl.collector.config
@@ -16,15 +15,25 @@ import org.xiaom.yhl.collector.service.CpuUsageService;
  */
 @Component
 public class SchedulerConfig {
+
+    private final CPUAndMemUsageService cpuAndMemUsageService;
+    private final MetricsUploader metricsUploader;
+
     @Autowired
-    private CpuUsageService cpuUsageService;
+    public SchedulerConfig(CPUAndMemUsageService cpuAndMemUsageService, MetricsUploader metricsUploader) {
+        this.cpuAndMemUsageService = cpuAndMemUsageService;
+        this.metricsUploader = metricsUploader;
+    }
 
     @Scheduled(fixedRate = 60000)
-    public void collectCpuUsage() {
+    public void collectUsage() {
         try {
-            double cpuUsage = cpuUsageService.getCpuUsage();
-            System.out.println("CPU Usage: " + cpuUsage);
-
+            double cpuUsage = cpuAndMemUsageService.getCpuUsage();
+            double memoryUsage = cpuAndMemUsageService.getMemoryUsage();
+            System.out.println(String.format("CPU Usage: %.2f%%", cpuUsage * 100));
+            System.out.println(String.format("Memory Usage: %.2f%%", memoryUsage * 100));
+            metricsUploader.uploadMetric("cpu.used.percent", cpuUsage);
+            metricsUploader.uploadMetric("mem.used.percent", memoryUsage);
         } catch (Exception e) {
             e.printStackTrace();
         }
