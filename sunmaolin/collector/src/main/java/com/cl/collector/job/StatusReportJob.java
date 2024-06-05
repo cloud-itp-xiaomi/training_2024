@@ -1,5 +1,7 @@
 package com.cl.collector.job;
 
+
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.cl.collector.service.StatusCollectorService;
@@ -51,8 +53,8 @@ public class StatusReportJob {
 
             status.add(cpuStatue);
             status.add(memStatue);
+            log.info("StatusReportJob.collectAndReportJobHandler.status:{}", JSON.toJSONString(status));
             report(status);
-            System.out.println("cpuStatue: "+cpuStatue+" memStatue: "+memStatue);
         }catch (Exception e){
             XxlJobHelper.log("collectAndReportJobHandler.error:"+e.getMessage());
         }
@@ -79,10 +81,10 @@ public class StatusReportJob {
                 while ((responseLine = br.readLine()) != null) {
                     response.append(responseLine.trim());
                 }
-                System.out.println("Response: " + response.toString());
+                log.info("StatusReportJob.report.response:{}", JSON.toJSONString(response));
             }
         } else {
-            System.out.println("Error: " + responseCode+";Message: "+conn.getResponseMessage());
+            log.info("StatusReportJob.report.response.message:{}", conn.getResponseMessage());
         }
     }
 }

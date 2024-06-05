@@ -16,38 +16,42 @@ public class StatusCollectorServiceImpl implements StatusCollectorService {
 
     @Override
     public Double getCpuUsage() throws IOException {
-        FileReader fileReader = new FileReader("/proc/stat");
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        BufferedReader reader = new BufferedReader(new FileReader("/proc/stat"));
         String line;
         long totalTime = 0;
         long idleTime = 0;
-        while ((line = bufferedReader.readLine()) != null) {
+        while ((line = reader.readLine()) != null) {
             if (line.startsWith("cpu ")) {
-                String[] tokens = line.split("\\s+");
-                totalTime = Arrays.stream(tokens)
+                String[] parts = line.split("\\s+");
+                totalTime = Arrays.stream(parts)
                         .skip(1)
                         .mapToLong(Long::parseLong)
                         .sum();
-                idleTime = Long.parseLong(tokens[4]);
+                idleTime = Long.parseLong(parts[4]);
             }
         }
-        return 100 * (totalTime - idleTime)*1.0 / totalTime;
+        reader.close();
+        return Double.parseDouble(String.format("%.2f",100 * ((totalTime-idleTime)*1.0 / totalTime)));
     }
 
     @Override
     public Double getMemUsage() throws IOException {
-        FileReader fileReader = new FileReader("/proc/meminfo");
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        BufferedReader reader = new BufferedReader(new FileReader("/proc/meminfo"));
         String line;
-        long totalMemory = 0;
-        long freeMemory = 0;
-        while ((line = bufferedReader.readLine()) != null) {
+        long totalMemory = 0,freeMemory = 0,Buffers=0,Cached=0;
+        while ((line = reader.readLine()) != null) {
             if (line.startsWith("MemTotal:")) {
                 totalMemory = Long.parseLong(line.split("\\s+")[1]);
             } else if (line.startsWith("MemFree:")) {
                 freeMemory = Long.parseLong(line.split("\\s+")[1]);
+            }else if (line.startsWith("Buffers:")) {
+                Buffers = Long.parseLong(line.split("\\s+")[1]);
+            }else if (line.startsWith("Cached:")) {
+                Cached = Long.parseLong(line.split("\\s+")[1]);
             }
         }
-        return 100 * (totalMemory - freeMemory)*1.0 / totalMemory;
+        reader.close();
+        return Double.parseDouble(String.format("%.2f",100 * ((totalMemory - freeMemory - Buffers - Cached)*1.0 / totalMemory)));
     }
 }
+
