@@ -32,6 +32,7 @@
         <lombok.version>1.18.30</lombok.version>
         <spring-cache.version>2.7.3</spring-cache.version>
         <spring-data-redis.version>2.7.3</spring-data-redis.version>
+        <hutool.version>5.8.18</hutool.version>
     </properties>
 
     <dependencyManagement>
@@ -85,8 +86,24 @@
                 <version>${spring-cache.version}</version>
             </dependency>
 
+            <!-- hutool -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
