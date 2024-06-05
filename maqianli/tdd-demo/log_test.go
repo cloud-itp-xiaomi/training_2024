@@ -1,40 +1,9 @@
 package tdd_demo
 
 import (
-	"bufio"
-	"fmt"
-	"os"
-	"strings"
 	"testing"
 )
 import "github.com/stretchr/testify/assert"
-
-type Log struct {
-	Hostname string
-	File     string
-	Logs     []string
-}
-
-type MemoryServer struct {
-	savedLogs []Log
-}
-
-func (s *MemoryServer) saveLog(log Log) error {
-	return s.saveLogs([]Log{log})
-}
-
-func (s *MemoryServer) readLog() Log {
-	return s.savedLogs[0]
-}
-
-func (s *MemoryServer) saveLogs(logs []Log) error {
-	s.savedLogs = logs
-	return nil
-}
-
-func (s *MemoryServer) readLogs() []Log {
-	return s.savedLogs
-}
 
 func TestSaveOneLog(t *testing.T) {
 	log := Log{}
@@ -105,52 +74,6 @@ func TestSaveAndReadTwoLogs(t *testing.T) {
 	assert.Equal(t, logs1, logs2)
 }
 
-type FileServer struct {
-}
-
-func (s FileServer) saveLog(log Log, fileName string) error {
-	file, err := os.Create(fileName)
-	if err != nil {
-		return err
-	}
-	defer file.Close()
-
-	writer := bufio.NewWriter(file)
-	lines := serializeLog(log)
-	for _, line := range lines {
-		_, err := writer.WriteString(line + "\n")
-		if err != nil {
-			return err
-		}
-	}
-
-	err = writer.Flush()
-	if err != nil {
-		return err
-	}
-	return nil
-}
-
-func (s FileServer) readLog(fileName string) Log {
-	file, err := os.Open(fileName)
-	if err != nil {
-		return Log{}
-	}
-	defer file.Close()
-
-	var lines []string
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		line := scanner.Text()
-		lines = append(lines, line)
-	}
-	if err := scanner.Err(); err != nil {
-		return Log{}
-	}
-
-	return deserializeLog(lines)
-}
-
 func TestFileServerSaveOneLog(t *testing.T) {
 	log := Log{}
 	server := FileServer{}
@@ -203,33 +126,4 @@ func TestDeserializeLog(t *testing.T) {
 		},
 	}
 	assert.Equal(t, expected, log)
-}
-
-func deserializeLog(lines []string) Log {
-	var hostname string
-	var file string
-	var logs []string
-	for _, line := range lines {
-		parts := strings.Split(line, "|")
-		if len(parts) != 3 {
-			continue
-		}
-		hostname = parts[0]
-		file = parts[1]
-		logs = append(logs, parts[2])
-
-	}
-	return Log{
-		Hostname: hostname,
-		File:     file,
-		Logs:     logs,
-	}
-}
-
-func serializeLog(log Log) []string {
-	var lines []string
-	for _, line := range log.Logs {
-		lines = append(lines, fmt.Sprintf("%s|%s|%s", log.Hostname, log.File, line))
-	}
-	return lines
 }
