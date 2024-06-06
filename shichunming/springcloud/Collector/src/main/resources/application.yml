@@ -1,0 +1,24 @@
+server:
+  port: 9091
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: SCM15172008724mysql
+    url: jdbc:mysql://localhost:3306/xm_training?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+# 配置mybatis实体和xml映射
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.springcloud.po
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+schedule:
+  scheduledTime: 0 */1 * * * * ? # 每分钟执行一次
+  quartzTime: 60  # 定时任务时间间隔，单位：秒
+  url: http://localhost:9090/api/metric/upload
