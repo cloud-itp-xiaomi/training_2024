@@ -1,0 +1,45 @@
+2024-06-04 13:53:15.215 ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter  :40   main [32m                [0;39m 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.winter.es.ESLogDataDao' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.winter.es.ESLogDataDao' in your configuration.
+
+2024-06-04 14:12:12.329 ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter  :40   main [32m                [0;39m 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.winter.es.ESLogDataService required a bean of type 'com.winter.es.ESLogDataDao' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.winter.es.ESLogDataDao' in your configuration.
+
+2024-06-04 14:13:54.819 ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter  :40   main [32m                [0;39m 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.winter.es.ESLogDataService required a bean of type 'com.winter.es.ESLogDataDao' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.winter.es.ESLogDataDao' in your configuration.
+

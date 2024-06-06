@@ -1,0 +1,809 @@
+2024-05-31 11:02:02.793 INFO  org.hibernate.validator.internal.util.Version     :21   background-preinit [32m                [0;39m HV000001: Hibernate Validator 8.0.0.Final
+2024-05-31 11:02:02.854 INFO  com.winter.config.CollectorApplication            :51   main [32m                [0;39m Starting CollectorApplication using Java 17.0.7 with PID 10581 (/usr/workspace/PerformanceMonitorSystem/collector/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-31 11:02:02.858 INFO  com.winter.config.CollectorApplication            :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-31 11:02:04.412 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=a23cb201-7028-3818-bb75-d6f62c5f4750
+2024-05-31 11:02:04.488 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'com.winter.feign.ServerFeign' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:02:04.542 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:02:04.603 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'createRocketMQMessageConverter' of type [org.apache.rocketmq.spring.support.RocketMQMessageConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:02:04.612 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:02:04.618 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:02:04.627 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$594/0x000000080138f770] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:02:04.630 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:02:04.638 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'rocketmq-org.apache.rocketmq.spring.autoconfigure.RocketMQProperties' of type [org.apache.rocketmq.spring.autoconfigure.RocketMQProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:02:04.640 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:02:04.977 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8007 (http)
+2024-05-31 11:02:04.988 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8007"]
+2024-05-31 11:02:04.990 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-31 11:02:04.993 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-31 11:02:05.107 INFO  o.a.c.c.C.[Tomcat].[localhost].[/collector]       :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-31 11:02:05.108 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 2081 ms
+2024-05-31 11:02:05.329 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext:592  main [32m                [0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'logService' defined in file [/usr/workspace/PerformanceMonitorSystem/collector/target/classes/com/winter/service/LogService.class]: Failed to instantiate [com.winter.service.LogService]: Constructor threw exception
+2024-05-31 11:02:05.333 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Stopping service [Tomcat]
+2024-05-31 11:02:05.353 INFO  o.s.b.a.logging.ConditionEvaluationReportLogger   :82   main [32m                [0;39m 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-05-31 11:02:05.382 ERROR org.springframework.boot.SpringApplication        :820  main [32m                [0;39m Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'logService' defined in file [/usr/workspace/PerformanceMonitorSystem/collector/target/classes/com/winter/service/LogService.class]: Failed to instantiate [com.winter.service.LogService]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1306)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1198)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:915)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at com.winter.config.CollectorApplication.main(CollectorApplication.java:24)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.winter.service.LogService]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:223)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1300)
+	... 15 common frames omitted
+Caused by: java.lang.NullPointerException: Cannot invoke "com.winter.config.CFGConfig.getFiles()" because "this.cfgConfig" is null
+	at com.winter.service.LogService.<init>(LogService.java:83)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:197)
+	... 17 common frames omitted
+2024-05-31 11:04:50.814 INFO  org.hibernate.validator.internal.util.Version     :21   background-preinit [32m                [0;39m HV000001: Hibernate Validator 8.0.0.Final
+2024-05-31 11:04:50.852 INFO  com.winter.config.CollectorApplication            :51   main [32m                [0;39m Starting CollectorApplication using Java 17.0.7 with PID 11033 (/usr/workspace/PerformanceMonitorSystem/collector/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-31 11:04:50.854 INFO  com.winter.config.CollectorApplication            :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-31 11:04:52.043 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=6e2e5d78-d64a-3f57-b5f0-774f9d72f80d
+2024-05-31 11:04:52.103 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'com.winter.feign.ServerFeign' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:04:52.171 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:04:52.207 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'createRocketMQMessageConverter' of type [org.apache.rocketmq.spring.support.RocketMQMessageConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:04:52.214 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:04:52.220 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:04:52.221 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$595/0x000000080138f770] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:04:52.222 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:04:52.235 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'rocketmq-org.apache.rocketmq.spring.autoconfigure.RocketMQProperties' of type [org.apache.rocketmq.spring.autoconfigure.RocketMQProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:04:52.237 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:04:52.416 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8007 (http)
+2024-05-31 11:04:52.422 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8007"]
+2024-05-31 11:04:52.423 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-31 11:04:52.424 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-31 11:04:52.548 INFO  o.a.c.c.C.[Tomcat].[localhost].[/collector]       :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-31 11:04:52.551 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1635 ms
+2024-05-31 11:04:52.830 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.apache.rocketmq.spring.autoconfigure.RocketMQAutoConfiguration
+2024-05-31 11:04:52.853 INFO  o.a.r.s.autoconfigure.RocketMQAutoConfiguration   :121  main [32m                [0;39m a producer (default) init on namesrv http://47.98.115.49:9876
+2024-05-31 11:04:53.509 INFO  org.quartz.impl.StdSchedulerFactory               :1220 main [32m                [0;39m Using default implementation for ThreadExecutor
+2024-05-31 11:04:53.519 INFO  org.quartz.core.SchedulerSignalerImpl             :61   main [32m                [0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2024-05-31 11:04:53.519 INFO  org.quartz.core.QuartzScheduler                   :229  main [32m                [0;39m Quartz Scheduler v.2.3.2 created.
+2024-05-31 11:04:53.520 INFO  org.quartz.simpl.RAMJobStore                      :155  main [32m                [0;39m RAMJobStore initialized.
+2024-05-31 11:04:53.521 INFO  org.quartz.core.QuartzScheduler                   :294  main [32m                [0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2024-05-31 11:04:53.521 INFO  org.quartz.impl.StdSchedulerFactory               :1374 main [32m                [0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2024-05-31 11:04:53.521 INFO  org.quartz.impl.StdSchedulerFactory               :1378 main [32m                [0;39m Quartz scheduler version: 2.3.2
+2024-05-31 11:04:53.521 INFO  org.quartz.core.QuartzScheduler                   :2293 main [32m                [0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@4e974b9e
+2024-05-31 11:04:53.625 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8007"]
+2024-05-31 11:04:53.638 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8007 (http) with context path '/collector'
+2024-05-31 11:04:53.640 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :729  main [32m                [0;39m Starting Quartz Scheduler now
+2024-05-31 11:04:53.642 INFO  org.quartz.core.QuartzScheduler                   :547  main [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2024-05-31 11:04:53.651 INFO  com.winter.config.CollectorApplication            :57   main [32m                [0;39m Started CollectorApplication in 3.361 seconds (process running for 4.452)
+2024-05-31 11:04:53.654 INFO  com.winter.config.CollectorApplication            :25   main [32m                [0;39m 启动成功!!!
+2024-05-31 11:04:53.655 INFO  com.winter.config.CollectorApplication            :26   main [32m                [0;39m 地址	http://127.0.0.18007
+2024-05-31 11:06:16.024 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-31 11:06:16.030 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  SpringApplicationShutdownHook [32m                [0;39m Pausing ProtocolHandler ["http-nio-8007"]
+2024-05-31 11:06:16.031 INFO  org.apache.catalina.core.StandardService          :173  SpringApplicationShutdownHook [32m                [0;39m Stopping service [Tomcat]
+2024-05-31 11:06:16.042 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :847  SpringApplicationShutdownHook [32m                [0;39m Shutting down Quartz Scheduler
+2024-05-31 11:06:16.043 INFO  org.quartz.core.QuartzScheduler                   :666  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2024-05-31 11:06:16.043 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-31 11:06:16.044 INFO  org.quartz.core.QuartzScheduler                   :740  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2024-05-31 11:06:16.064 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 11:06:16.066 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 11:07:47.554 INFO  org.hibernate.validator.internal.util.Version     :21   background-preinit [32m                [0;39m HV000001: Hibernate Validator 8.0.0.Final
+2024-05-31 11:07:47.648 INFO  com.winter.config.CollectorApplication            :51   main [32m                [0;39m Starting CollectorApplication using Java 17.0.7 with PID 11579 (/usr/workspace/PerformanceMonitorSystem/collector/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-31 11:07:47.650 INFO  com.winter.config.CollectorApplication            :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-31 11:07:48.721 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=6e2e5d78-d64a-3f57-b5f0-774f9d72f80d
+2024-05-31 11:07:48.779 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'com.winter.feign.ServerFeign' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:07:48.845 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:07:48.883 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'createRocketMQMessageConverter' of type [org.apache.rocketmq.spring.support.RocketMQMessageConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:07:48.889 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:07:48.895 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:07:48.897 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$595/0x000000080138daf0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:07:48.898 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:07:48.909 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'rocketmq-org.apache.rocketmq.spring.autoconfigure.RocketMQProperties' of type [org.apache.rocketmq.spring.autoconfigure.RocketMQProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:07:48.912 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:07:49.128 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8007 (http)
+2024-05-31 11:07:49.137 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8007"]
+2024-05-31 11:07:49.139 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-31 11:07:49.141 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-31 11:07:49.269 INFO  o.a.c.c.C.[Tomcat].[localhost].[/collector]       :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-31 11:07:49.270 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1568 ms
+2024-05-31 11:07:49.515 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.apache.rocketmq.spring.autoconfigure.RocketMQAutoConfiguration
+2024-05-31 11:07:49.534 INFO  o.a.r.s.autoconfigure.RocketMQAutoConfiguration   :121  main [32m                [0;39m a producer (default) init on namesrv http://47.98.115.49:9876
+2024-05-31 11:07:49.986 INFO  org.quartz.impl.StdSchedulerFactory               :1220 main [32m                [0;39m Using default implementation for ThreadExecutor
+2024-05-31 11:07:49.993 INFO  org.quartz.core.SchedulerSignalerImpl             :61   main [32m                [0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2024-05-31 11:07:49.993 INFO  org.quartz.core.QuartzScheduler                   :229  main [32m                [0;39m Quartz Scheduler v.2.3.2 created.
+2024-05-31 11:07:49.994 INFO  org.quartz.simpl.RAMJobStore                      :155  main [32m                [0;39m RAMJobStore initialized.
+2024-05-31 11:07:49.999 INFO  org.quartz.core.QuartzScheduler                   :294  main [32m                [0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2024-05-31 11:07:50.000 INFO  org.quartz.impl.StdSchedulerFactory               :1374 main [32m                [0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2024-05-31 11:07:50.001 INFO  org.quartz.impl.StdSchedulerFactory               :1378 main [32m                [0;39m Quartz scheduler version: 2.3.2
+2024-05-31 11:07:50.002 INFO  org.quartz.core.QuartzScheduler                   :2293 main [32m                [0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@7bf018dd
+2024-05-31 11:07:50.102 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8007"]
+2024-05-31 11:07:50.111 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8007 (http) with context path '/collector'
+2024-05-31 11:07:50.113 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :729  main [32m                [0;39m Starting Quartz Scheduler now
+2024-05-31 11:07:50.114 INFO  org.quartz.core.QuartzScheduler                   :547  main [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2024-05-31 11:07:50.122 INFO  com.winter.config.CollectorApplication            :57   main [32m                [0;39m Started CollectorApplication in 3.115 seconds (process running for 4.116)
+2024-05-31 11:07:50.126 INFO  com.winter.config.CollectorApplication            :25   main [32m                [0;39m 启动成功!!!
+2024-05-31 11:07:50.126 INFO  com.winter.config.CollectorApplication            :26   main [32m                [0;39m 地址	http://127.0.0.18007
+2024-05-31 11:08:12.485 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-31 11:08:12.496 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :847  SpringApplicationShutdownHook [32m                [0;39m Shutting down Quartz Scheduler
+2024-05-31 11:08:12.497 INFO  org.quartz.core.QuartzScheduler                   :666  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2024-05-31 11:08:12.497 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-31 11:08:12.498 INFO  org.quartz.core.QuartzScheduler                   :740  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2024-05-31 11:08:12.516 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 11:08:12.517 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 11:08:50.876 INFO  org.hibernate.validator.internal.util.Version     :21   background-preinit [32m                [0;39m HV000001: Hibernate Validator 8.0.0.Final
+2024-05-31 11:08:50.978 INFO  com.winter.config.CollectorApplication            :51   main [32m                [0;39m Starting CollectorApplication using Java 17.0.7 with PID 11877 (/usr/workspace/PerformanceMonitorSystem/collector/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-31 11:08:50.992 INFO  com.winter.config.CollectorApplication            :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-31 11:08:52.554 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=6e2e5d78-d64a-3f57-b5f0-774f9d72f80d
+2024-05-31 11:08:52.640 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'com.winter.feign.ServerFeign' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:08:52.697 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:08:52.747 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'createRocketMQMessageConverter' of type [org.apache.rocketmq.spring.support.RocketMQMessageConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:08:52.755 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:08:52.771 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:08:52.775 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$583/0x0000000801382258] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:08:52.777 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:08:52.796 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'rocketmq-org.apache.rocketmq.spring.autoconfigure.RocketMQProperties' of type [org.apache.rocketmq.spring.autoconfigure.RocketMQProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:08:52.798 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:08:53.061 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8007 (http)
+2024-05-31 11:08:53.070 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8007"]
+2024-05-31 11:08:53.071 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-31 11:08:53.072 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-31 11:08:53.169 INFO  o.a.c.c.C.[Tomcat].[localhost].[/collector]       :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-31 11:08:53.172 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1974 ms
+2024-05-31 11:08:53.561 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.apache.rocketmq.spring.autoconfigure.RocketMQAutoConfiguration
+2024-05-31 11:08:53.597 INFO  o.a.r.s.autoconfigure.RocketMQAutoConfiguration   :121  main [32m                [0;39m a producer (default) init on namesrv http://47.98.115.49:9876
+2024-05-31 11:08:54.368 INFO  org.quartz.impl.StdSchedulerFactory               :1220 main [32m                [0;39m Using default implementation for ThreadExecutor
+2024-05-31 11:08:54.394 INFO  org.quartz.core.SchedulerSignalerImpl             :61   main [32m                [0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2024-05-31 11:08:54.395 INFO  org.quartz.core.QuartzScheduler                   :229  main [32m                [0;39m Quartz Scheduler v.2.3.2 created.
+2024-05-31 11:08:54.397 INFO  org.quartz.simpl.RAMJobStore                      :155  main [32m                [0;39m RAMJobStore initialized.
+2024-05-31 11:08:54.398 INFO  org.quartz.core.QuartzScheduler                   :294  main [32m                [0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2024-05-31 11:08:54.399 INFO  org.quartz.impl.StdSchedulerFactory               :1374 main [32m                [0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2024-05-31 11:08:54.400 INFO  org.quartz.impl.StdSchedulerFactory               :1378 main [32m                [0;39m Quartz scheduler version: 2.3.2
+2024-05-31 11:08:54.400 INFO  org.quartz.core.QuartzScheduler                   :2293 main [32m                [0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@7b91d9f
+2024-05-31 11:08:54.526 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8007"]
+2024-05-31 11:08:54.537 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8007 (http) with context path '/collector'
+2024-05-31 11:08:54.543 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :729  main [32m                [0;39m Starting Quartz Scheduler now
+2024-05-31 11:08:54.544 INFO  org.quartz.core.QuartzScheduler                   :547  main [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2024-05-31 11:08:54.555 INFO  com.winter.config.CollectorApplication            :57   main [32m                [0;39m Started CollectorApplication in 4.385 seconds (process running for 9.507)
+2024-05-31 11:08:54.559 INFO  com.winter.config.CollectorApplication            :25   main [32m                [0;39m 启动成功!!!
+2024-05-31 11:08:54.559 INFO  com.winter.config.CollectorApplication            :26   main [32m                [0;39m 地址	http://127.0.0.18007
+2024-05-31 11:09:37.167 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-31 11:09:37.182 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :847  SpringApplicationShutdownHook [32m                [0;39m Shutting down Quartz Scheduler
+2024-05-31 11:09:37.183 INFO  org.quartz.core.QuartzScheduler                   :666  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2024-05-31 11:09:37.183 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-31 11:09:37.183 INFO  org.quartz.core.QuartzScheduler                   :740  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2024-05-31 11:09:37.204 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 11:09:37.204 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 11:10:23.532 INFO  org.hibernate.validator.internal.util.Version     :21   background-preinit [32m                [0;39m HV000001: Hibernate Validator 8.0.0.Final
+2024-05-31 11:10:23.562 INFO  com.winter.config.CollectorApplication            :51   main [32m                [0;39m Starting CollectorApplication using Java 17.0.7 with PID 12210 (/usr/workspace/PerformanceMonitorSystem/collector/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-31 11:10:23.563 INFO  com.winter.config.CollectorApplication            :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-31 11:10:24.742 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=6e2e5d78-d64a-3f57-b5f0-774f9d72f80d
+2024-05-31 11:10:24.797 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'com.winter.feign.ServerFeign' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:10:24.872 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:10:24.915 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'createRocketMQMessageConverter' of type [org.apache.rocketmq.spring.support.RocketMQMessageConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:10:24.925 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:10:24.935 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:10:24.936 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$595/0x000000080138f770] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:10:24.938 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:10:24.959 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'rocketmq-org.apache.rocketmq.spring.autoconfigure.RocketMQProperties' of type [org.apache.rocketmq.spring.autoconfigure.RocketMQProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:10:24.963 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 11:10:25.213 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8007 (http)
+2024-05-31 11:10:25.224 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8007"]
+2024-05-31 11:10:25.228 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-31 11:10:25.229 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-31 11:10:25.315 INFO  o.a.c.c.C.[Tomcat].[localhost].[/collector]       :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-31 11:10:25.319 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1689 ms
+2024-05-31 11:10:25.589 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.apache.rocketmq.spring.autoconfigure.RocketMQAutoConfiguration
+2024-05-31 11:10:25.619 INFO  o.a.r.s.autoconfigure.RocketMQAutoConfiguration   :121  main [32m                [0;39m a producer (default) init on namesrv http://47.98.115.49:9876
+2024-05-31 11:10:26.117 INFO  org.quartz.impl.StdSchedulerFactory               :1220 main [32m                [0;39m Using default implementation for ThreadExecutor
+2024-05-31 11:10:26.127 INFO  org.quartz.core.SchedulerSignalerImpl             :61   main [32m                [0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2024-05-31 11:10:26.128 INFO  org.quartz.core.QuartzScheduler                   :229  main [32m                [0;39m Quartz Scheduler v.2.3.2 created.
+2024-05-31 11:10:26.129 INFO  org.quartz.simpl.RAMJobStore                      :155  main [32m                [0;39m RAMJobStore initialized.
+2024-05-31 11:10:26.130 INFO  org.quartz.core.QuartzScheduler                   :294  main [32m                [0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2024-05-31 11:10:26.131 INFO  org.quartz.impl.StdSchedulerFactory               :1374 main [32m                [0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2024-05-31 11:10:26.131 INFO  org.quartz.impl.StdSchedulerFactory               :1378 main [32m                [0;39m Quartz scheduler version: 2.3.2
+2024-05-31 11:10:26.131 INFO  org.quartz.core.QuartzScheduler                   :2293 main [32m                [0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@2a5abd3c
+2024-05-31 11:10:26.240 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8007"]
+2024-05-31 11:10:26.251 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8007 (http) with context path '/collector'
+2024-05-31 11:10:26.253 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :729  main [32m                [0;39m Starting Quartz Scheduler now
+2024-05-31 11:10:26.254 INFO  org.quartz.core.QuartzScheduler                   :547  main [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2024-05-31 11:10:26.263 INFO  com.winter.config.CollectorApplication            :57   main [32m                [0;39m Started CollectorApplication in 3.435 seconds (process running for 4.46)
+2024-05-31 11:10:26.266 INFO  com.winter.config.CollectorApplication            :25   main [32m                [0;39m 启动成功!!!
+2024-05-31 11:10:26.267 INFO  com.winter.config.CollectorApplication            :26   main [32m                [0;39m 地址	http://127.0.0.18007
+2024-05-31 11:10:45.794 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-31 11:10:45.805 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :847  SpringApplicationShutdownHook [32m                [0;39m Shutting down Quartz Scheduler
+2024-05-31 11:10:45.806 INFO  org.quartz.core.QuartzScheduler                   :666  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2024-05-31 11:10:45.807 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-31 11:10:45.807 INFO  org.quartz.core.QuartzScheduler                   :740  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2024-05-31 11:10:45.825 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 11:10:45.826 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 13:41:16.825 INFO  org.hibernate.validator.internal.util.Version     :21   background-preinit [32m                [0;39m HV000001: Hibernate Validator 8.0.0.Final
+2024-05-31 13:41:16.880 INFO  com.winter.config.CollectorApplication            :51   main [32m                [0;39m Starting CollectorApplication using Java 17.0.7 with PID 19437 (/usr/workspace/PerformanceMonitorSystem/collector/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-31 13:41:16.883 INFO  com.winter.config.CollectorApplication            :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-31 13:41:18.437 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=085dd02f-c9ea-349f-ae8d-f0414fbf1f0d
+2024-05-31 13:41:18.503 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'com.winter.feign.ServerFeign' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 13:41:18.565 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 13:41:18.647 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'createRocketMQMessageConverter' of type [org.apache.rocketmq.spring.support.RocketMQMessageConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 13:41:18.656 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 13:41:18.667 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 13:41:18.669 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$595/0x000000080138daf0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 13:41:18.671 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 13:41:18.683 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'rocketmq-org.apache.rocketmq.spring.autoconfigure.RocketMQProperties' of type [org.apache.rocketmq.spring.autoconfigure.RocketMQProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 13:41:18.687 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 13:41:19.015 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8007 (http)
+2024-05-31 13:41:19.026 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8007"]
+2024-05-31 13:41:19.027 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-31 13:41:19.027 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-31 13:41:19.159 INFO  o.a.c.c.C.[Tomcat].[localhost].[/collector]       :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-31 13:41:19.160 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 2140 ms
+2024-05-31 13:41:19.459 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.apache.rocketmq.spring.autoconfigure.RocketMQAutoConfiguration
+2024-05-31 13:41:19.512 INFO  o.a.r.s.autoconfigure.RocketMQAutoConfiguration   :121  main [32m                [0;39m a producer (default) init on namesrv http://47.98.115.49:9876
+2024-05-31 13:41:20.438 INFO  org.quartz.impl.StdSchedulerFactory               :1220 main [32m                [0;39m Using default implementation for ThreadExecutor
+2024-05-31 13:41:20.450 INFO  org.quartz.core.SchedulerSignalerImpl             :61   main [32m                [0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2024-05-31 13:41:20.451 INFO  org.quartz.core.QuartzScheduler                   :229  main [32m                [0;39m Quartz Scheduler v.2.3.2 created.
+2024-05-31 13:41:20.452 INFO  org.quartz.simpl.RAMJobStore                      :155  main [32m                [0;39m RAMJobStore initialized.
+2024-05-31 13:41:20.453 INFO  org.quartz.core.QuartzScheduler                   :294  main [32m                [0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2024-05-31 13:41:20.454 INFO  org.quartz.impl.StdSchedulerFactory               :1374 main [32m                [0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2024-05-31 13:41:20.457 INFO  org.quartz.impl.StdSchedulerFactory               :1378 main [32m                [0;39m Quartz scheduler version: 2.3.2
+2024-05-31 13:41:20.457 INFO  org.quartz.core.QuartzScheduler                   :2293 main [32m                [0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@61b838f2
+2024-05-31 13:41:20.556 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8007"]
+2024-05-31 13:41:20.572 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8007 (http) with context path '/collector'
+2024-05-31 13:41:20.574 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :729  main [32m                [0;39m Starting Quartz Scheduler now
+2024-05-31 13:41:20.576 INFO  org.quartz.core.QuartzScheduler                   :547  main [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2024-05-31 13:41:20.584 INFO  com.winter.config.CollectorApplication            :57   main [32m                [0;39m Started CollectorApplication in 4.303 seconds (process running for 5.748)
+2024-05-31 13:41:20.587 INFO  com.winter.config.CollectorApplication            :25   main [32m                [0;39m 启动成功!!!
+2024-05-31 13:41:20.588 INFO  com.winter.config.CollectorApplication            :26   main [32m                [0;39m 地址	http://127.0.0.18007
+2024-05-31 13:42:12.386 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-31 13:42:12.398 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :847  SpringApplicationShutdownHook [32m                [0;39m Shutting down Quartz Scheduler
+2024-05-31 13:42:12.399 INFO  org.quartz.core.QuartzScheduler                   :666  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2024-05-31 13:42:12.399 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-31 13:42:12.400 INFO  org.quartz.core.QuartzScheduler                   :740  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2024-05-31 13:42:12.421 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 13:42:12.424 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:00:07.051 INFO  org.hibernate.validator.internal.util.Version     :21   background-preinit [32m                [0;39m HV000001: Hibernate Validator 8.0.0.Final
+2024-05-31 14:00:07.167 INFO  com.winter.config.CollectorApplication            :51   main [32m                [0;39m Starting CollectorApplication using Java 17.0.7 with PID 22188 (/usr/workspace/PerformanceMonitorSystem/collector/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-31 14:00:07.173 INFO  com.winter.config.CollectorApplication            :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-31 14:00:08.634 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=085dd02f-c9ea-349f-ae8d-f0414fbf1f0d
+2024-05-31 14:00:08.721 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'com.winter.feign.ServerFeign' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 14:00:08.794 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 14:00:08.884 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'createRocketMQMessageConverter' of type [org.apache.rocketmq.spring.support.RocketMQMessageConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 14:00:08.893 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 14:00:08.900 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 14:00:08.902 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$583/0x0000000801387c58] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 14:00:08.904 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 14:00:08.916 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'rocketmq-org.apache.rocketmq.spring.autoconfigure.RocketMQProperties' of type [org.apache.rocketmq.spring.autoconfigure.RocketMQProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 14:00:08.918 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-31 14:00:09.297 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8007 (http)
+2024-05-31 14:00:09.307 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8007"]
+2024-05-31 14:00:09.309 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-31 14:00:09.310 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-31 14:00:09.446 INFO  o.a.c.c.C.[Tomcat].[localhost].[/collector]       :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-31 14:00:09.449 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 2173 ms
+2024-05-31 14:00:09.800 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.apache.rocketmq.spring.autoconfigure.RocketMQAutoConfiguration
+2024-05-31 14:00:09.854 INFO  o.a.r.s.autoconfigure.RocketMQAutoConfiguration   :121  main [32m                [0;39m a producer (default) init on namesrv http://47.98.115.49:9876
+2024-05-31 14:00:10.730 INFO  org.quartz.impl.StdSchedulerFactory               :1220 main [32m                [0;39m Using default implementation for ThreadExecutor
+2024-05-31 14:00:10.741 INFO  org.quartz.core.SchedulerSignalerImpl             :61   main [32m                [0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2024-05-31 14:00:10.742 INFO  org.quartz.core.QuartzScheduler                   :229  main [32m                [0;39m Quartz Scheduler v.2.3.2 created.
+2024-05-31 14:00:10.743 INFO  org.quartz.simpl.RAMJobStore                      :155  main [32m                [0;39m RAMJobStore initialized.
+2024-05-31 14:00:10.746 INFO  org.quartz.core.QuartzScheduler                   :294  main [32m                [0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2024-05-31 14:00:10.746 INFO  org.quartz.impl.StdSchedulerFactory               :1374 main [32m                [0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2024-05-31 14:00:10.746 INFO  org.quartz.impl.StdSchedulerFactory               :1378 main [32m                [0;39m Quartz scheduler version: 2.3.2
+2024-05-31 14:00:10.747 INFO  org.quartz.core.QuartzScheduler                   :2293 main [32m                [0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@59e7564b
+2024-05-31 14:00:10.860 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8007"]
+2024-05-31 14:00:10.875 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8007 (http) with context path '/collector'
+2024-05-31 14:00:10.878 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :729  main [32m                [0;39m Starting Quartz Scheduler now
+2024-05-31 14:00:10.880 INFO  org.quartz.core.QuartzScheduler                   :547  main [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2024-05-31 14:00:10.889 INFO  com.winter.config.CollectorApplication            :57   main [32m                [0;39m Started CollectorApplication in 4.237 seconds (process running for 6.185)
+2024-05-31 14:00:10.893 INFO  com.winter.config.CollectorApplication            :25   main [32m                [0;39m 启动成功!!!
+2024-05-31 14:00:10.894 INFO  com.winter.config.CollectorApplication            :26   main [32m                [0;39m 地址	http://127.0.0.18007
+2024-05-31 14:05:18.245 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:06:15.965 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:06:41.444 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:06:43.975 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:06:51.683 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-9 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=a48186d4-3e7f-563e-2897-08761bf1fc1a, timestamp=1717135594801}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:07:46.690 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:07:51.611 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:08:03.634 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-3 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=3b6bac58-8fbc-d6ec-c13e-dba5b407dc15, timestamp=1717135674419}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:08:30.804 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:08:36.525 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:08:39.544 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:08:38.424 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-4 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=8568c354-c51e-0773-8bcf-82b1708ba0ed, timestamp=1717135711620}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:08:51.328 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:08:57.502 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:08:57.534 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-5 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=c7c0ea22-b1f2-1d5e-bc47-982bbd33dc39, timestamp=1717135730868}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:09:16.729 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:09:27.082 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:09:27.980 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-6 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=7ca104f9-4941-1038-e018-234ad04a358d, timestamp=1717135761058}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:09:52.863 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:10:13.006 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:10:15.836 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-8 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=d43091ff-29b0-7723-57be-2cc51ec27491, timestamp=1717135802866}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:10:19.292 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:10:43.566 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:10:43.566 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-9 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=3070e980-0df2-23ad-d4a3-c072e35692da, timestamp=1717135835788}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:11:05.299 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:11:14.343 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:11:14.333 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-1 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=a7ee03cf-58c7-39e7-df5b-92239ec6706c, timestamp=1717135868928}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:11:18.944 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:12:47.556 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:12:53.963 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:12:52.306 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-8 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=f63801ad-a21f-9c1f-2d63-a65a63a6eb39, timestamp=1717135962208}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:12:56.463 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:13:13.605 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:13:14.325 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-10 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=e5e374a5-1cfc-9482-ed63-9244acbb9a9d, timestamp=1717135988655}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:13:19.985 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:13:36.824 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:13:37.554 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-3 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=3b341200-be08-3bd7-cc21-8c227a7e2d02, timestamp=1717136010772}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:13:54.432 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:13:59.530 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:13:59.731 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-2 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=fa5ecee6-65b3-c18d-1f75-b47727acd2d0, timestamp=1717136033652}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:14:11.256 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:14:11.725 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-5 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=dafaf258-95bb-01e5-0d51-19c654e63797, timestamp=1717136044438}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:14:21.279 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:14:26.178 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:14:26.469 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-6 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=c5025d29-f242-8c15-12ca-a63c637700a1, timestamp=1717136060889}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:15:16.788 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:15:20.328 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-3 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=7c433eb2-39ff-efc9-e8ec-f5c7b9ddf3f5, timestamp=1717136109042}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:15:23.167 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:15:53.299 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:16:16.864 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:16:16.833 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-2 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=4d741e7e-1d40-629e-2ba5-4658003f7450, timestamp=1717136166466}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:16:28.740 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:16:29.020 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-5 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=490e0c1a-090a-fb1f-5b18-96c2168c76d6, timestamp=1717136181628}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:16:46.675 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:17:05.673 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-7 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=141a8589-fba5-d123-6c2b-68f774a22de5, timestamp=1717136210454}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:17:10.888 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:17:25.402 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:17:48.871 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:18:28.607 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-8 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=04d606c8-97f2-d6fa-24d2-864ada276393, timestamp=1717136282205}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:18:33.537 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:18:51.509 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:19:15.502 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:19:16.903 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-10 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=a43853da-a2f4-ac8d-a195-9d2fccce86b8, timestamp=1717136347827}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:19:23.048 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:19:51.641 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:19:58.874 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:20:10.591 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-2 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=3343f490-86f7-af38-d06a-4f1310abb1b7, timestamp=1717136397005}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:20:16.611 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:20:24.718 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:20:41.410 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:20:42.349 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-5 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=2324e797-d23d-d306-f7d8-c06731960f73, timestamp=1717136434380}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:20:48.388 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:21:28.129 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:21:38.140 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:21:46.898 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:21:52.478 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-7 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=9a299942-b741-335c-2c70-d020ffa36028, timestamp=1717136500959}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:22:55.541 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:23:00.150 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:23:19.860 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:23:20.509 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-3 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=bda2dbdb-10d2-290d-fac9-668c091cbf48, timestamp=1717136591520}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:23:21.901 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:24:24.282 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:24:24.112 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-6 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=9412e0c3-5b62-84e9-1d3d-c0a6c45f7d33, timestamp=1717136655773}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:24:44.193 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:24:44.193 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-8 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=0b5847a7-befd-8b48-dd30-c3da421a308f, timestamp=1717136677918}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:24:50.803 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:25:10.352 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:25:10.420 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-10 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=8f7494e8-5bd7-491e-39b8-1cc67603124d, timestamp=1717136704976}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:25:16.609 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:26:07.051 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:26:07.951 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-2 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=1a844d2b-a984-c6c9-3b17-626e12064bd8, timestamp=1717136756663}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:26:32.501 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:26:33.302 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-1 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=5bebb583-c147-e4d7-c56b-224f0e4489f8, timestamp=1717136784723}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:26:52.136 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:26:57.822 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:26:58.702 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-4 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=353aa36c-e37f-82c0-0994-106f253beff7, timestamp=1717136808335}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:27:16.486 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-6 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=3ede1bed-efa9-6e0d-0f65-13f157f9f135, timestamp=1717136830511}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:27:21.516 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:27:24.991 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:29:51.948 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:31:21.621 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:32:01.406 ERROR org.apache.rocketmq.spring.core.RocketMQTemplate  :695  quartzScheduler_Worker-4 [32m                [0;39m syncSend failed. destination:LOG_STORAGE, message:GenericMessage [payload=local_file, headers={id=00266b96-b435-2375-8d6e-88164fae427a, timestamp=1717137056609}], detail exception info: 
+org.apache.rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call timeout
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:717)
+	at org.apache.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1426)
+	at org.apache.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:370)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:688)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:488)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:721)
+	at org.apache.rocketmq.spring.core.RocketMQTemplate.syncSend(RocketMQTemplate.java:708)
+	at com.winter.service.StorageMonitor.execute(StorageMonitor.java:50)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2024-05-31 14:32:59.783 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:34:22.185 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true
+2024-05-31 14:37:29.326 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:9876] result: true
+2024-05-31 14:39:08.363 INFO  RocketmqRemoting                                  :130  NettyClientSelector_1 [32m                [0;39m closeChannel: close the connection to remote address[47.98.115.49:10911] result: true

@@ -1,0 +1,333 @@
+2024-05-26 11:17:07.419 INFO  org.hibernate.validator.internal.util.Version     :21   background-preinit [32m                [0;39m HV000001: Hibernate Validator 8.0.0.Final
+2024-05-26 11:17:07.528 INFO  com.winter.config.CollectorApplication            :51   main [32m                [0;39m Starting CollectorApplication using Java 17.0.7 with PID 4364 (/usr/workspace/PerformanceMonitorSystem/collector/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-26 11:17:07.530 INFO  com.winter.config.CollectorApplication            :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-26 11:17:09.367 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=68a73364-bb17-3bfb-b742-4ceb983e69e0
+2024-05-26 11:17:09.405 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'com.winter.feign.ServerFeign' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-26 11:17:09.722 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8007 (http)
+2024-05-26 11:17:09.730 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8007"]
+2024-05-26 11:17:09.731 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-26 11:17:09.732 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-26 11:17:09.875 INFO  o.a.c.c.C.[Tomcat].[localhost].[/collector]       :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-26 11:17:09.876 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 2152 ms
+2024-05-26 11:17:10.384 INFO  org.quartz.impl.StdSchedulerFactory               :1220 main [32m                [0;39m Using default implementation for ThreadExecutor
+2024-05-26 11:17:10.415 INFO  org.quartz.core.SchedulerSignalerImpl             :61   main [32m                [0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2024-05-26 11:17:10.416 INFO  org.quartz.core.QuartzScheduler                   :229  main [32m                [0;39m Quartz Scheduler v.2.3.2 created.
+2024-05-26 11:17:10.417 INFO  org.quartz.simpl.RAMJobStore                      :155  main [32m                [0;39m RAMJobStore initialized.
+2024-05-26 11:17:10.419 INFO  org.quartz.core.QuartzScheduler                   :294  main [32m                [0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2024-05-26 11:17:10.419 INFO  org.quartz.impl.StdSchedulerFactory               :1374 main [32m                [0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2024-05-26 11:17:10.419 INFO  org.quartz.impl.StdSchedulerFactory               :1378 main [32m                [0;39m Quartz scheduler version: 2.3.2
+2024-05-26 11:17:10.419 INFO  org.quartz.core.QuartzScheduler                   :2293 main [32m                [0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@78da899f
+2024-05-26 11:17:10.501 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8007"]
+2024-05-26 11:17:10.555 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8007 (http) with context path '/collector'
+2024-05-26 11:17:10.558 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :729  main [32m                [0;39m Starting Quartz Scheduler now
+2024-05-26 11:17:10.559 INFO  org.quartz.core.QuartzScheduler                   :547  main [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2024-05-26 11:17:10.575 INFO  com.winter.config.CollectorApplication            :57   main [32m                [0;39m Started CollectorApplication in 4.054 seconds (process running for 5.509)
+2024-05-26 11:17:10.591 INFO  com.winter.config.CollectorApplication            :23   main [32m                [0;39m 启动成功!!!
+2024-05-26 11:17:10.595 INFO  com.winter.config.CollectorApplication            :24   main [32m                [0;39m 地址	http://127.0.0.18007
+2024-05-26 11:17:19.762 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 4513 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-26 11:17:19.766 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-26 11:17:20.780 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=d0a8deb4-7347-3b68-8784-7eb61f9ab735
+2024-05-26 11:17:21.063 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-26 11:17:21.069 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-26 11:17:21.072 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-26 11:17:21.073 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-26 11:17:21.156 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-26 11:17:21.160 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1275 ms
+2024-05-26 11:17:21.743 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-26 11:17:21.916 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-26 11:17:21.927 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-26 11:17:21.938 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 2.74 seconds (process running for 3.826)
+2024-05-26 11:17:21.941 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-26 11:17:21.942 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-26 11:17:31.975 INFO  o.a.c.c.C.[Tomcat].[localhost].[/collector]       :173  http-nio-8007-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-26 11:17:31.987 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8007-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-26 11:17:31.997 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8007-exec-1 [32m                [0;39m Completed initialization in 4 ms
+2024-05-26 11:17:32.233 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-26 11:17:32.234 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-26 11:17:32.245 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 11 ms
+2024-05-26 11:17:49.008 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-26 11:17:49.018 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :847  SpringApplicationShutdownHook [32m                [0;39m Shutting down Quartz Scheduler
+2024-05-26 11:17:49.019 INFO  org.quartz.core.QuartzScheduler                   :666  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2024-05-26 11:17:49.020 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-26 11:17:49.020 INFO  org.quartz.core.QuartzScheduler                   :740  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2024-05-26 11:20:14.963 INFO  org.hibernate.validator.internal.util.Version     :21   background-preinit [32m                [0;39m HV000001: Hibernate Validator 8.0.0.Final
+2024-05-26 11:20:15.020 INFO  com.winter.config.CollectorApplication            :51   main [32m                [0;39m Starting CollectorApplication using Java 17.0.7 with PID 5053 (/usr/workspace/PerformanceMonitorSystem/collector/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-26 11:20:15.023 INFO  com.winter.config.CollectorApplication            :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-26 11:20:16.076 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=68a73364-bb17-3bfb-b742-4ceb983e69e0
+2024-05-26 11:20:16.130 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'com.winter.feign.ServerFeign' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-26 11:20:16.387 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8007 (http)
+2024-05-26 11:20:16.394 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8007"]
+2024-05-26 11:20:16.395 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-26 11:20:16.395 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-26 11:20:16.463 INFO  o.a.c.c.C.[Tomcat].[localhost].[/collector]       :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-26 11:20:16.464 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1363 ms
+2024-05-26 11:20:16.806 INFO  org.quartz.impl.StdSchedulerFactory               :1220 main [32m                [0;39m Using default implementation for ThreadExecutor
+2024-05-26 11:20:16.813 INFO  org.quartz.core.SchedulerSignalerImpl             :61   main [32m                [0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2024-05-26 11:20:16.813 INFO  org.quartz.core.QuartzScheduler                   :229  main [32m                [0;39m Quartz Scheduler v.2.3.2 created.
+2024-05-26 11:20:16.814 INFO  org.quartz.simpl.RAMJobStore                      :155  main [32m                [0;39m RAMJobStore initialized.
+2024-05-26 11:20:16.814 INFO  org.quartz.core.QuartzScheduler                   :294  main [32m                [0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2024-05-26 11:20:16.815 INFO  org.quartz.impl.StdSchedulerFactory               :1374 main [32m                [0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2024-05-26 11:20:16.815 INFO  org.quartz.impl.StdSchedulerFactory               :1378 main [32m                [0;39m Quartz scheduler version: 2.3.2
+2024-05-26 11:20:16.815 INFO  org.quartz.core.QuartzScheduler                   :2293 main [32m                [0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@1fecfaea
+2024-05-26 11:20:16.875 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8007"]
+2024-05-26 11:20:16.884 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8007 (http) with context path '/collector'
+2024-05-26 11:20:16.887 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :729  main [32m                [0;39m Starting Quartz Scheduler now
+2024-05-26 11:20:16.888 INFO  org.quartz.core.QuartzScheduler                   :547  main [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2024-05-26 11:20:16.896 INFO  com.winter.config.CollectorApplication            :57   main [32m                [0;39m Started CollectorApplication in 2.399 seconds (process running for 3.379)
+2024-05-26 11:20:16.899 INFO  com.winter.config.CollectorApplication            :23   main [32m                [0;39m 启动成功!!!
+2024-05-26 11:20:16.899 INFO  com.winter.config.CollectorApplication            :24   main [32m                [0;39m 地址	http://127.0.0.18007
+2024-05-26 11:20:59.187 INFO  com.zaxxer.hikari.HikariDataSource                :110  http-nio-8008-exec-4 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-26 11:20:59.333 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  http-nio-8008-exec-4 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@13792092
+2024-05-26 11:20:59.335 INFO  com.zaxxer.hikari.HikariDataSource                :123  http-nio-8008-exec-4 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-26 11:22:47.788 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-26 11:22:47.804 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :847  SpringApplicationShutdownHook [32m                [0;39m Shutting down Quartz Scheduler
+2024-05-26 11:22:47.805 INFO  org.quartz.core.QuartzScheduler                   :666  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2024-05-26 11:22:47.806 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-26 11:22:47.806 INFO  org.quartz.core.QuartzScheduler                   :740  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2024-05-26 11:22:47.820 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-26 11:22:47.824 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-26 11:51:56.374 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 9273 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-26 11:51:56.382 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-26 11:51:57.470 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=d0a8deb4-7347-3b68-8784-7eb61f9ab735
+2024-05-26 11:51:57.839 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-26 11:51:57.847 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-26 11:51:57.848 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-26 11:51:57.848 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-26 11:51:57.977 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-26 11:51:57.978 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1494 ms
+2024-05-26 11:51:58.700 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-26 11:51:58.915 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-26 11:51:58.934 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-26 11:51:58.952 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 3.143 seconds (process running for 4.655)
+2024-05-26 11:51:58.955 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-26 11:51:58.955 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-26 11:52:08.825 INFO  org.hibernate.validator.internal.util.Version     :21   background-preinit [32m                [0;39m HV000001: Hibernate Validator 8.0.0.Final
+2024-05-26 11:52:08.869 INFO  com.winter.config.CollectorApplication            :51   main [32m                [0;39m Starting CollectorApplication using Java 17.0.7 with PID 9423 (/usr/workspace/PerformanceMonitorSystem/collector/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-26 11:52:08.871 INFO  com.winter.config.CollectorApplication            :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-26 11:52:10.130 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=68a73364-bb17-3bfb-b742-4ceb983e69e0
+2024-05-26 11:52:10.178 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'com.winter.feign.ServerFeign' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-26 11:52:10.583 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8007 (http)
+2024-05-26 11:52:10.592 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8007"]
+2024-05-26 11:52:10.593 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-26 11:52:10.594 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-26 11:52:10.923 INFO  o.a.c.c.C.[Tomcat].[localhost].[/collector]       :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-26 11:52:10.931 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1955 ms
+2024-05-26 11:58:21.587 INFO  org.hibernate.validator.internal.util.Version     :21   background-preinit [32m                [0;39m HV000001: Hibernate Validator 8.0.0.Final
+2024-05-26 11:58:21.688 INFO  com.winter.config.CollectorApplication            :51   main [32m                [0;39m Starting CollectorApplication using Java 17.0.7 with PID 9760 (/usr/workspace/PerformanceMonitorSystem/collector/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-26 11:58:21.715 INFO  com.winter.config.CollectorApplication            :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-26 11:58:24.216 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=68a73364-bb17-3bfb-b742-4ceb983e69e0
+2024-05-26 11:58:24.253 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'com.winter.feign.ServerFeign' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-26 11:58:24.606 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8007 (http)
+2024-05-26 11:58:24.613 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8007"]
+2024-05-26 11:58:24.615 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-26 11:58:24.615 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-26 11:58:24.734 INFO  o.a.c.c.C.[Tomcat].[localhost].[/collector]       :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-26 11:58:24.734 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 2840 ms
+2024-05-26 11:58:25.279 INFO  org.quartz.impl.StdSchedulerFactory               :1220 main [32m                [0;39m Using default implementation for ThreadExecutor
+2024-05-26 11:58:25.313 INFO  org.quartz.core.SchedulerSignalerImpl             :61   main [32m                [0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2024-05-26 11:58:25.314 INFO  org.quartz.core.QuartzScheduler                   :229  main [32m                [0;39m Quartz Scheduler v.2.3.2 created.
+2024-05-26 11:58:25.315 INFO  org.quartz.simpl.RAMJobStore                      :155  main [32m                [0;39m RAMJobStore initialized.
+2024-05-26 11:58:25.317 INFO  org.quartz.core.QuartzScheduler                   :294  main [32m                [0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2024-05-26 11:58:25.317 INFO  org.quartz.impl.StdSchedulerFactory               :1374 main [32m                [0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2024-05-26 11:58:25.317 INFO  org.quartz.impl.StdSchedulerFactory               :1378 main [32m                [0;39m Quartz scheduler version: 2.3.2
+2024-05-26 11:58:25.318 INFO  org.quartz.core.QuartzScheduler                   :2293 main [32m                [0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@3fe512d2
+2024-05-26 11:58:25.394 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8007"]
+2024-05-26 11:58:25.430 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8007 (http) with context path '/collector'
+2024-05-26 11:58:25.432 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :729  main [32m                [0;39m Starting Quartz Scheduler now
+2024-05-26 11:58:25.433 INFO  org.quartz.core.QuartzScheduler                   :547  main [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2024-05-26 11:58:25.442 INFO  com.winter.config.CollectorApplication            :57   main [32m                [0;39m Started CollectorApplication in 4.68 seconds (process running for 6.505)
+2024-05-26 11:58:25.447 INFO  com.winter.config.CollectorApplication            :23   main [32m                [0;39m 启动成功!!!
+2024-05-26 11:58:25.447 INFO  com.winter.config.CollectorApplication            :24   main [32m                [0;39m 地址	http://127.0.0.18007
+2024-05-26 11:58:40.891 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-26 11:58:40.902 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :847  SpringApplicationShutdownHook [32m                [0;39m Shutting down Quartz Scheduler
+2024-05-26 11:58:40.903 INFO  org.quartz.core.QuartzScheduler                   :666  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2024-05-26 11:58:40.903 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-26 11:58:40.903 INFO  org.quartz.core.QuartzScheduler                   :740  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2024-05-26 12:01:47.742 INFO  org.hibernate.validator.internal.util.Version     :21   background-preinit [32m                [0;39m HV000001: Hibernate Validator 8.0.0.Final
+2024-05-26 12:01:47.805 INFO  com.winter.config.CollectorApplication            :51   main [32m                [0;39m Starting CollectorApplication using Java 17.0.7 with PID 10343 (/usr/workspace/PerformanceMonitorSystem/collector/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-26 12:01:47.806 INFO  com.winter.config.CollectorApplication            :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-26 12:01:48.637 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=68a73364-bb17-3bfb-b742-4ceb983e69e0
+2024-05-26 12:01:48.663 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:409  main [32m                [0;39m Bean 'com.winter.feign.ServerFeign' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-05-26 12:01:48.858 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8007 (http)
+2024-05-26 12:01:48.865 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8007"]
+2024-05-26 12:01:48.866 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-26 12:01:48.867 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-26 12:01:48.987 INFO  o.a.c.c.C.[Tomcat].[localhost].[/collector]       :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-26 12:01:48.988 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1104 ms
+2024-05-26 12:01:49.429 INFO  org.quartz.impl.StdSchedulerFactory               :1220 main [32m                [0;39m Using default implementation for ThreadExecutor
+2024-05-26 12:01:49.438 INFO  org.quartz.core.SchedulerSignalerImpl             :61   main [32m                [0;39m Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2024-05-26 12:01:49.438 INFO  org.quartz.core.QuartzScheduler                   :229  main [32m                [0;39m Quartz Scheduler v.2.3.2 created.
+2024-05-26 12:01:49.439 INFO  org.quartz.simpl.RAMJobStore                      :155  main [32m                [0;39m RAMJobStore initialized.
+2024-05-26 12:01:49.440 INFO  org.quartz.core.QuartzScheduler                   :294  main [32m                [0;39m Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2024-05-26 12:01:49.440 INFO  org.quartz.impl.StdSchedulerFactory               :1374 main [32m                [0;39m Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2024-05-26 12:01:49.440 INFO  org.quartz.impl.StdSchedulerFactory               :1378 main [32m                [0;39m Quartz scheduler version: 2.3.2
+2024-05-26 12:01:49.440 INFO  org.quartz.core.QuartzScheduler                   :2293 main [32m                [0;39m JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@691124ee
+2024-05-26 12:01:49.507 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8007"]
+2024-05-26 12:01:49.518 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8007 (http) with context path '/collector'
+2024-05-26 12:01:49.520 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :729  main [32m                [0;39m Starting Quartz Scheduler now
+2024-05-26 12:01:49.520 INFO  org.quartz.core.QuartzScheduler                   :547  main [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2024-05-26 12:01:49.532 INFO  com.winter.config.CollectorApplication            :57   main [32m                [0;39m Started CollectorApplication in 2.084 seconds (process running for 3.325)
+2024-05-26 12:01:49.535 INFO  com.winter.config.CollectorApplication            :23   main [32m                [0;39m 启动成功!!!
+2024-05-26 12:01:49.535 INFO  com.winter.config.CollectorApplication            :24   main [32m                [0;39m 地址	http://127.0.0.18007
+2024-05-26 12:01:58.992 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 10493 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-26 12:01:58.995 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-26 12:02:00.276 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=d0a8deb4-7347-3b68-8784-7eb61f9ab735
+2024-05-26 12:02:00.615 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-26 12:02:00.630 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-26 12:02:00.632 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-26 12:02:00.632 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-26 12:02:00.749 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-26 12:02:00.750 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1610 ms
+2024-05-26 12:02:01.544 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-26 12:02:01.794 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-26 12:02:01.829 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-26 12:02:01.844 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 3.351 seconds (process running for 4.591)
+2024-05-26 12:02:01.850 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-26 12:02:01.850 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-26 12:02:59.182 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-26 12:02:59.187 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-26 12:02:59.190 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 2 ms
+2024-05-26 12:02:59.559 INFO  com.zaxxer.hikari.HikariDataSource                :110  http-nio-8008-exec-1 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-26 12:02:59.877 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  http-nio-8008-exec-1 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@56185b65
+2024-05-26 12:02:59.883 INFO  com.zaxxer.hikari.HikariDataSource                :123  http-nio-8008-exec-1 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-26 12:17:32.511 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m39s591ms785µs514ns).
+2024-05-26 12:18:03.051 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m51s226ms968µs921ns).
+2024-05-26 12:39:49.050 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-26 12:39:49.126 INFO  o.s.scheduling.quartz.SchedulerFactoryBean        :847  SpringApplicationShutdownHook [32m                [0;39m Shutting down Quartz Scheduler
+2024-05-26 12:39:49.126 INFO  org.quartz.core.QuartzScheduler                   :666  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2024-05-26 12:39:49.127 INFO  org.quartz.core.QuartzScheduler                   :585  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2024-05-26 12:39:49.127 INFO  org.quartz.core.QuartzScheduler                   :740  SpringApplicationShutdownHook [32m                [0;39m Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2024-05-26 12:40:47.369 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-26 12:40:47.373 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-26 14:52:46.413 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 2853 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-26 14:52:46.421 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-26 14:52:47.706 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=d0a8deb4-7347-3b68-8784-7eb61f9ab735
+2024-05-26 15:22:18.076 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 4051 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-26 15:22:18.095 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-26 15:22:19.801 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=d0a8deb4-7347-3b68-8784-7eb61f9ab735
+2024-05-26 15:22:20.099 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-26 15:22:20.105 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-26 15:22:20.106 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-26 15:22:20.107 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-26 15:22:20.214 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-26 15:22:20.216 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1985 ms
+2024-05-26 15:22:20.954 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-26 15:22:21.324 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-26 15:22:21.396 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-26 15:22:21.417 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 4.012 seconds (process running for 5.181)
+2024-05-26 15:22:21.426 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-26 15:22:21.427 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-26 15:22:38.942 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-26 15:22:38.943 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-26 15:22:38.944 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 1 ms
+2024-05-26 15:24:13.108 INFO  com.zaxxer.hikari.HikariDataSource                :110  http-nio-8008-exec-3 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-26 15:24:13.351 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  http-nio-8008-exec-3 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@2badc39a
+2024-05-26 15:24:13.353 INFO  com.zaxxer.hikari.HikariDataSource                :123  http-nio-8008-exec-3 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-26 15:24:42.805 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  SpringApplicationShutdownHook [32m                [0;39m Pausing ProtocolHandler ["http-nio-8008"]
+2024-05-26 15:24:42.806 INFO  org.apache.catalina.core.StandardService          :173  SpringApplicationShutdownHook [32m                [0;39m Stopping service [Tomcat]
+2024-05-26 15:24:42.824 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-26 15:24:42.828 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-26 15:25:12.703 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 4634 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-26 15:25:12.710 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-26 15:25:14.603 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=d0a8deb4-7347-3b68-8784-7eb61f9ab735
+2024-05-26 15:25:15.235 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-26 15:25:15.251 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-26 15:25:15.256 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-26 15:25:15.258 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-26 15:25:15.542 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-26 15:25:15.546 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 2651 ms
+2024-05-26 15:25:17.395 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-26 15:25:17.841 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-26 15:25:17.913 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-26 15:25:17.933 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 6.405 seconds (process running for 8.939)
+2024-05-26 15:25:17.944 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-26 15:25:17.944 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-26 15:25:22.886 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-26 15:25:22.890 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-26 15:25:22.902 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 4 ms
+2024-05-26 15:25:45.106 INFO  com.zaxxer.hikari.HikariDataSource                :110  http-nio-8008-exec-1 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-26 15:25:45.754 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  http-nio-8008-exec-1 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@4ced4eaa
+2024-05-26 15:25:45.770 INFO  com.zaxxer.hikari.HikariDataSource                :123  http-nio-8008-exec-1 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-26 15:26:35.344 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49s473ms522µs712ns).
+2024-05-26 15:27:38.306 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m2s962ms687µs134ns).
+2024-05-26 15:27:38.356 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-26 15:27:38.369 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-26 15:28:48.557 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 6136 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-26 15:28:48.566 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-26 15:28:50.161 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=d0a8deb4-7347-3b68-8784-7eb61f9ab735
+2024-05-26 15:28:50.532 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-26 15:28:50.540 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-26 15:28:50.543 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-26 15:28:50.545 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-26 15:28:50.660 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-26 15:28:50.660 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1984 ms
+2024-05-26 15:28:51.592 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-26 15:28:51.924 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-26 15:28:51.994 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-26 15:28:52.031 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 4.353 seconds (process running for 5.44)
+2024-05-26 15:28:52.039 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-26 15:28:52.040 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-26 15:29:20.923 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-26 15:29:20.927 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-26 15:29:20.930 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 1 ms
+2024-05-26 15:29:27.949 INFO  com.zaxxer.hikari.HikariDataSource                :110  http-nio-8008-exec-1 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-26 15:29:28.648 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  http-nio-8008-exec-1 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@68d8e271
+2024-05-26 15:29:28.666 INFO  com.zaxxer.hikari.HikariDataSource                :123  http-nio-8008-exec-1 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-26 15:30:57.496 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=57s386ms571µs833ns).
+2024-05-26 15:34:08.461 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m24s718ms2µs462ns).
+2024-05-26 15:34:08.510 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-26 15:34:08.517 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-26 15:34:26.868 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 7743 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-26 15:34:26.872 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-26 15:34:27.604 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=d0a8deb4-7347-3b68-8784-7eb61f9ab735
+2024-05-26 15:34:27.874 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-26 15:34:27.882 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-26 15:34:27.885 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-26 15:34:27.885 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-26 15:34:27.961 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-26 15:34:27.962 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1023 ms
+2024-05-26 15:34:28.355 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-26 15:34:28.490 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-26 15:34:28.507 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-26 15:34:28.517 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 2.148 seconds (process running for 3.074)
+2024-05-26 15:34:28.519 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-26 15:34:28.520 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-26 15:34:39.190 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-26 15:34:39.191 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-26 15:34:39.192 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 1 ms
+2024-05-26 15:34:39.323 INFO  com.zaxxer.hikari.HikariDataSource                :110  http-nio-8008-exec-1 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-26 15:34:39.499 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  http-nio-8008-exec-1 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@51911f7b
+2024-05-26 15:34:39.501 INFO  com.zaxxer.hikari.HikariDataSource                :123  http-nio-8008-exec-1 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-26 15:36:04.019 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  SpringApplicationShutdownHook [32m                [0;39m Pausing ProtocolHandler ["http-nio-8008"]
+2024-05-26 15:36:04.020 INFO  org.apache.catalina.core.StandardService          :173  SpringApplicationShutdownHook [32m                [0;39m Stopping service [Tomcat]
+2024-05-26 15:36:04.021 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  SpringApplicationShutdownHook [32m                [0;39m Destroying Spring FrameworkServlet 'dispatcherServlet'
+2024-05-26 15:36:04.031 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-26 15:36:04.034 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
