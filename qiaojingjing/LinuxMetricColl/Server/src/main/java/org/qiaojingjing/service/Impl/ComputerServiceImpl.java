@@ -53,7 +53,7 @@ public class ComputerServiceImpl implements ComputerService {
 
         System.out.println(metrics);
         // 存入数据库
-        metricMapper.save(metrics);
+        metricMapper.insert2metrics(metrics);
     }
 
     /**
@@ -82,7 +82,7 @@ public class ComputerServiceImpl implements ComputerService {
         }
 
 
-        list = metricMapper.query(metricDTO);
+        list = metricMapper.getMetricsDTOList(metricDTO);
         return list;
     }
 

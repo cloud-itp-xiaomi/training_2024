@@ -9,14 +9,14 @@
         </collection>
     </resultMap>
 
-    <insert id="save">
+    <insert id="insert2metrics">
         INSERT INTO metrics (metric, endpoint, timestamp, step, value)
         VALUES
         <foreach collection="list" separator="," item="item">
             (#{item.metric}, #{item.endpoint}, #{item.timestamp}, #{item.step}, #{item.value})
         </foreach>
     </insert>
-    <select id="query" resultMap="MetricResultMap">
+    <select id="getMetricsDTOList" resultMap="MetricResultMap">
         select metric,timestamp,value from metrics
         <where>
             endpoint=#{endpoint}

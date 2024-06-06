@@ -15,8 +15,8 @@ import java.util.Map;
 public class CollectMem {
     private static final Map<String, Long> memMap = new HashMap<>();
     private static BigDecimal memUsed;
-    private static BigDecimal dividend;
-    private static BigDecimal divisor;
+    private static BigDecimal memUsedDividend;
+    private static BigDecimal memUsedDivisor;
     private static final BigDecimal common = new BigDecimal(100);
     private static final Metric mem = new Metric();
 
@@ -33,7 +33,7 @@ public class CollectMem {
             //MemTotal:        1863028 kB
             String[] split = line.split(":");
             String[] value = split[1].trim().split("\\D+");
-            if (split[0].equals(Param.MEMTOTAL) || Param.MEMFREE.equals(split[0]) || Param.BUFFERS.equals(split[0]) || Param.CACHED.equals(split[0])) {
+            if (split[0].equals(Param.MEM_TOTAL) || Param.MEM_FREE.equals(split[0]) || Param.BUFFERS.equals(split[0]) || Param.CACHED.equals(split[0])) {
                 memMap.put(split[0], Long.parseLong(value[0]));
             }
         }
@@ -41,13 +41,13 @@ public class CollectMem {
         inputStream.close();
 
         //计算内存使用率
-        Long memTotal = memMap.get(Param.MEMTOTAL);
-        Long memFree = memMap.get(Param.MEMFREE);
+        Long memTotal = memMap.get(Param.MEM_TOTAL);
+        Long memFree = memMap.get(Param.MEM_FREE);
         Long buffers = memMap.get(Param.BUFFERS);
         Long cached = memMap.get(Param.CACHED);
-        dividend = BigDecimal.valueOf(memTotal - memFree - buffers - cached);
-        divisor = BigDecimal.valueOf(memTotal);
-        memUsed = common.multiply(dividend.divide(divisor, 4, RoundingMode.HALF_UP));
+        memUsedDividend = BigDecimal.valueOf(memTotal - memFree - buffers - cached);
+        memUsedDivisor = BigDecimal.valueOf(memTotal);
+        memUsed = common.multiply(memUsedDividend.divide(memUsedDivisor, 4, RoundingMode.HALF_UP));
 
         mem.setMetric(Param.MEM);
         mem.setEndpoint(hostname);
@@ -56,8 +56,5 @@ public class CollectMem {
         mem.setTags(null);
 
         return mem;
-
-        //memMap.forEach((s,value)->System.out.println(s+":"+value));
-
     }
 }

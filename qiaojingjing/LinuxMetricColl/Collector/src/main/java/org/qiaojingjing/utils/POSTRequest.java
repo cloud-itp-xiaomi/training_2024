@@ -8,6 +8,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.http.HttpConnectTimeoutException;
+
 public class POSTRequest {
     static RestTemplate restTemplate = new RestTemplate();
     private static final HttpHeaders headers = new HttpHeaders();
@@ -26,7 +28,7 @@ public class POSTRequest {
             HttpEntity<String> httpEntity = new HttpEntity<>(json,headers);
             String response = restTemplate.postForObject("http://server1:8080/api/metric/upload", httpEntity, String.class);
             System.out.println("Response:"+response);
-        } catch (Exception e) {
+        } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
     }
