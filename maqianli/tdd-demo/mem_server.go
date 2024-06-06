@@ -7,6 +7,7 @@ type Log struct {
 }
 
 type MemoryServer struct {
+	Server
 	savedLogs []Log
 }
 

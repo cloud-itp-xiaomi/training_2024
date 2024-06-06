@@ -8,10 +8,11 @@ import (
 )
 
 type FileServer struct {
+	Server
 	fileName string
 }
 
-func (s FileServer) saveLog(log Log) error {
+func (s *FileServer) saveLog(log Log) error {
 	file, err := os.Create(s.fileName)
 	if err != nil {
 		return err
@@ -34,7 +35,7 @@ func (s FileServer) saveLog(log Log) error {
 	return nil
 }
 
-func (s FileServer) readLog() Log {
+func (s *FileServer) readLog() Log {
 	file, err := os.Open(s.fileName)
 	if err != nil {
 		return Log{}

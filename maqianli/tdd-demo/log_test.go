@@ -7,7 +7,7 @@ import "github.com/stretchr/testify/assert"
 
 func TestSaveOneLog(t *testing.T) {
 	log := Log{}
-	server := MemoryServer{}
+	server := getServer(serverType)
 	err := server.saveLog(log)
 	assert.Nil(t, err)
 }
@@ -21,7 +21,7 @@ func TestSaveAndReadOneLog(t *testing.T) {
 			"2024-05-16 10:11:51 +08:00 This is another log",
 		},
 	}
-	server := MemoryServer{}
+	server := getServer(serverType)
 	err := server.saveLog(log1)
 	assert.Nil(t, err)
 
@@ -132,6 +132,8 @@ func TestDeserializeLog(t *testing.T) {
 	assert.Equal(t, expected, log)
 }
 
+var serverType = 1
+
 func TestSaveAndReadOneLogWithDifferentServer(t *testing.T) {
 	log1 := Log{
 		Hostname: "my-computer",
@@ -141,12 +143,23 @@ func TestSaveAndReadOneLogWithDifferentServer(t *testing.T) {
 			"2024-05-16 10:11:51 +08:00 This is another log",
 		},
 	}
-	server := FileServer{
-		fileName: "logs.txt",
-	}
+	server := getServer(serverType)
 	err := server.saveLog(log1)
 	assert.Nil(t, err)
 
 	log2 := server.readLog()
 	assert.Equal(t, log1, log2)
+}
+
+func getServer(serverType int) Server {
+	switch serverType {
+	case 0:
+		return &MemoryServer{}
+	case 1:
+		return &FileServer{
+			fileName: "logs.txt",
+		}
+	default:
+		return nil
+	}
 }
