@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace用于绑定mapper接口-->
+<mapper namespace="com.example.demo.mapper.UserMapper2">
+    <resultMap id="MyMap" type="com.example.demo.bean.User" >
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+    </resultMap>
+    <!--id用于绑定mapper接口方法-->
+    <select id="getOne" resultType="com.example.demo.bean.User">
+        select * from user where id = #{id}
+    </select>
+    <select id="getAll" resultType="com.example.demo.bean.User">
+        select * from user
+    </select>
+    <select id="getAllWithoutId" resultMap="MyMap">
+        select name,age from user
+    </select>
+    <insert id="insert">
+        insert into user(name,age) values(#{name}, #{age})
+    </insert>
+    <update id="update">
+        update user set age=#{age},name=#{name} where id =#{id}
+    </update>
+    <delete id="delete">
+        delete from user where id =#{id}
+    </delete>
+</mapper>

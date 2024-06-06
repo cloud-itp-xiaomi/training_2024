@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="th/layout::head('首页')">
+
+</head>
+<body>
+<div class="container">
+  <div class="text-center my-5">
+    <img th:src="@{/images/login.png}" class="rounded-circle shadow"
+         style="width: 100px;height: 100px;">
+    <h4 class="text-center text-primary my-3">Thymeleaf模板引擎测试</h4>
+<!--    <button class="col-5 offset-2">-->
+<!--      <a th:href="@{/th/create}" class="btn btn-create">创建</a>-->
+<!--    </button>-->
+  </div>
+  <table class="table table-hover text-center">
+    <tr>
+      <th class="col-1">序号</th>
+      <th class="col-3">学号</th>
+      <th class="col-3">姓名</th>
+      <th class="col-3">操作</th>
+    </tr>
+    <tr th:each="stu,stat:${list}">
+      <td th:text="${stat.count}">000</td>
+      <td th:text="${stu.id}">000</td>
+      <td th:text="${stu.name}">nobody</td>
+      <td>
+        <a th:href="@{/th/edit/{id}(id=${stu.id})}"
+           class="btn btn-outline-primary btn-sm">编辑</a>
+        <a th:href="@{/th/delete/{id}(id=${stu.id})}"
+           class="btn btn-outline-danger btn-sm">删除</a>
+      </td>
+    </tr>
+  </table>
+  <div class="alert alert-warning" th:if="${list.size()==0}">没有数据了！</div>
+</div>
+</body>
+</html>

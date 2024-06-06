@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head  th:replace="th/layout::head('创建')">
+
+</head>
+<body>
+<div class="container">
+  <form th:action="@{/th/save}"
+        method="post" class="col-8 mx-auto my-5" >
+    <!-- 第1行-->
+    <div class="row gx-3 mb-3 align-items-center">
+      <div class="col-2 text-end">
+        <label for="id" class="col-form-label">学号</label>
+      </div>
+      <div class="col-8">
+        <input type="text" class="form-control"
+               id="id" name="id" th:value="${stu.id}" placeholder="请输入学号">
+      </div>
+    </div>
+    <!-- 第2行-->
+    <div class="row gx-3 mb-3 align-items-center">
+      <div class="col-2 text-end">
+        <label for="name" class="col-form-label">姓名</label>
+      </div>
+      <div class="col-8">
+        <input type="text" class="form-control" id="name" name="name"
+               th:value="${stu.name}" placeholder="请输入姓名">
+      </div>
+    </div>
+    <!-- 第3行-->
+    <div class="row gx-3 mb-3 align-items-center">
+      <div class="col-5 offset-2">
+        <button type="submit" class="btn btn-success me-3">保存</button>
+        <a th:href="@{/th/}" class="btn btn-primary">取消</a>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>

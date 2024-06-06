@@ -1,0 +1,5 @@
+npm 升级和仓库配置（强烈建议添加镜像）
+cmd中输入以下命令：
+• npm install -g npm    将 npm 升级至最新版本
+• npm config get registry   查看查看 npm 仓库地址 默认是npm官方源地址：https://registry.npmjs.org
+• npm config set registry https://registry.npmmirror.com   添加npm 仓库地址(阿里的npm镜像)，国内下载速度会更快一些（建议使用）

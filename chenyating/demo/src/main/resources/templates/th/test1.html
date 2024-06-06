@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test1</title>
+
+</head>
+<body>
+<!--<p th:text=" '欢迎' + ${stu.name} ">hello</p>-->
+<!--<p th:text=" |欢迎${stu.name}| ">hello</p>-->
+<!--<p th:text=" '欢迎' + ${ stu.name!=null ? stu.name : 'nobody' } ">hello</p>-->
+<!--<p th:text="1+3">结果1</p>-->
+<!--<p th:text="9%2">结果2</p>-->
+
+<!--<div th:object="${stu}" >-->
+<!--  <p th:text="*{id}"></p>-->
+<!--  <p th:text="*{name}"></p>-->
+<!--</div>-->
+
+<!--<img th:src="@{${imgURL}}">-->
+<!--<a th:href="@{ ${url} }" th:text="${site}">链接文字</a>-->
+<!--<a th:href="@{/th/edit/{id}(id=${stu.id})}" th:text="'编辑'+${stu.name}">编辑</a>-->
+
+<!--<div class="content">-->
+<!--<table>-->
+<!--  <tr>-->
+<!--    <th>序号</th>-->
+<!--    <th>学号</th>-->
+<!--    <th>姓名</th>-->
+<!--    <th colspan="2">编辑</th>-->
+<!--  </tr>-->
+<!--  <tr th:each="stu, stat:${list}">-->
+<!--    <td th:text="${stat.count}">序号</td>-->
+<!--    <td th:text="${stu.id}">000</td>-->
+<!--    <td th:text="${stu.name}">nobody</td>-->
+<!--    <td><a th:href="@{/th/edit/{id}(id=${stu.id})}">编辑</a></td>-->
+<!--    <td><a th:href="@{/th/edit/{id}(id=${stu.id})}">删除</a></td>-->
+<!--  </tr>-->
+<!--</table>-->
+<!--<p th:text="'元素总数='+${list.size}"></p>-->
+<!--</div>-->
+
+<form th:action="@{/th/test2}" method="post">
+  <div>
+    <label for="id">学号</label>
+     <!--    <input type="text" id="id" name="id" th:value="${stu.id}">-->
+     <input type="text" th:field="${stu.id}">
+  </div>
+  <div>
+    <label for="name">姓名</label>
+     <!--   <input type="text" id="name" name="name" th:value="${stu.name}">-->
+    <input type="text" th:field="${stu.name}">
+  </div>
+  <button id="btn" type="submit">保存</button>
+</form>
+
+</body>
+</html>
