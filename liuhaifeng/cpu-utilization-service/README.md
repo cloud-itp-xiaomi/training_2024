@@ -10,6 +10,12 @@ linux系统、linux系统上安装Docker、Linux系统上安装DockerCompose
 
 ## 三、将项目部署至Linux
 
+注意：由于用到DockersCompose进行的部署，collector模块和server模块中的application.yml文件和bootstrap.yml文件中的相关配置需要更改成服务名称
+
+- nacos的server-addr属性改成`nacos:8848`
+- mysql的url改成`jdbc:mysql://mysql:3306/cpu_utilization_service?useSSL=false&allowPublicKeyRetrieval=true`
+- redis的host属性改成`redis`
+
 1、用idea打开项目，使用maven的插件将项目通过package打包，打包后会在对应模块下的target目录下生成app.jar文件
 
 2、新建一个文件加cpu用于存放jar包和Dockerfile、docker-compose文件，cpu文件夹的结构如图

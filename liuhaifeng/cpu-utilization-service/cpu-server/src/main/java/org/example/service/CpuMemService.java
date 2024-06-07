@@ -10,14 +10,16 @@ import java.util.List;
 
 
 /**
+ * cpu内存利用率服务类
+ *
  * @author liuhaifeng
  * @date 2024/05/30/21:27
  */
 public interface CpuMemService {
 
-    Result<Void> upload(List<CpuMemInfoDTO> cpuMemInfoDTOList);
+    void upload(List<CpuMemInfoDTO> cpuMemInfoDTOList);
 
-    Result<List<CpuMemQueryVO>> query(CpuMemQueryDTO cpuMemQueryDTO);
+    List<CpuMemQueryVO> query(CpuMemQueryDTO cpuMemQueryDTO);
 
 
 }
