@@ -69,8 +69,8 @@ public class Metric {
         return "Log{" +
                 "id=" + id + '\'' +
                 ", metric='" + metric + '\'' +
-                ", endPoint=' "+endpoint+'\''+
-                ", timeStamp=' "+timestamp+'\''+
+                ", endpoint=' "+endpoint+'\''+
+                ", timestamp=' "+timestamp+'\''+
                 ", step=' "+step+'\''+
                 ", value=' "+value+'\''+
                 '}';
