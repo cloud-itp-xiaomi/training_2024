@@ -1,6 +1,6 @@
 package org.qiaojingjing.collector;
 
-import org.qiaojingjing.cons.Param;
+import org.qiaojingjing.constants.Param;
 import org.qiaojingjing.entity.Metric;
 
 import java.io.*;
@@ -21,26 +21,26 @@ public class CollectMem {
     private static final Metric mem = new Metric();
 
     public static Metric collect() throws IOException {
-        String hostname = Files.readString(Paths.get("/etc/hostname")).trim();
+        String hostname = Files.readString(Paths.get("/etc/hostname"))
+                                                .trim();
         File fileMem = new File("/proc/meminfo");
         InputStream inputStream = new FileInputStream(fileMem);
-        //读取
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
         while ((line = reader.readLine()) != null) {
-            //System.out.println(line);
-            //收集相应指标计算cpu和内存使用率
-            //MemTotal:        1863028 kB
             String[] split = line.split(":");
             String[] value = split[1].trim().split("\\D+");
-            if (split[0].equals(Param.MEM_TOTAL) || Param.MEM_FREE.equals(split[0]) || Param.BUFFERS.equals(split[0]) || Param.CACHED.equals(split[0])) {
-                memMap.put(split[0], Long.parseLong(value[0]));
+            if (split[0].equals(Param.MEM_TOTAL)
+                    || Param.MEM_FREE.equals(split[0])
+                    || Param.BUFFERS.equals(split[0])
+                    || Param.CACHED.equals(split[0])) {
+                memMap.put(split[0],
+                           Long.parseLong(value[0]));
             }
         }
         reader.close();
         inputStream.close();
 
-        //计算内存使用率
         Long memTotal = memMap.get(Param.MEM_TOTAL);
         Long memFree = memMap.get(Param.MEM_FREE);
         Long buffers = memMap.get(Param.BUFFERS);

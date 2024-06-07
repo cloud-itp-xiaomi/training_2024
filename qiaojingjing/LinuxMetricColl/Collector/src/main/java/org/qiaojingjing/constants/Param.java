@@ -1,4 +1,4 @@
-package org.qiaojingjing.cons;
+package org.qiaojingjing.constants;
 
 public class Param {
     public static final String MEM = "mem.used.percent";

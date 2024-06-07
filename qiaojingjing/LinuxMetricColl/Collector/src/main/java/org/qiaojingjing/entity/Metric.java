@@ -13,7 +13,12 @@ public class Metric {
     public Metric() {
     }
 
-    public Metric(String metric, String endpoint, Long timestamp, Long step, Double value, Map<String, String> tags) {
+    public Metric(String metric,
+                  String endpoint,
+                  Long timestamp,
+                  Long step,
+                  Double value,
+                  Map<String, String> tags) {
         this.metric = metric;
         this.endpoint = endpoint;
         this.timestamp = timestamp;

@@ -14,26 +14,24 @@ public class POSTRequest {
     static RestTemplate restTemplate = new RestTemplate();
     private static final HttpHeaders headers = new HttpHeaders();
     private static final ObjectMapper objectMapper = new ObjectMapper();
-    public static void sendPostRequest(Metric[] metrics){
+
+    public static void sendPostRequest(Metric[] metrics) {
 
         try {
-            //设置请求头为 application/json
             headers.setContentType(MediaType.valueOf(MediaType.APPLICATION_JSON_VALUE));
 
-            //转json
             String json = objectMapper.writeValueAsString(metrics);
             System.out.println(json);
 
-            //组装请求信息
-            HttpEntity<String> httpEntity = new HttpEntity<>(json,headers);
-            String response = restTemplate.postForObject("http://server1:8080/api/metric/upload", httpEntity, String.class);
-            System.out.println("Response:"+response);
+            HttpEntity<String> httpEntity = new HttpEntity<>(json, headers);
+            String response = restTemplate.postForObject("http://server1:8080/api/metric/upload",
+                                                              httpEntity,
+                                                              String.class);
+            System.out.println("Response:" + response);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
     }
-
-
 
 
 }

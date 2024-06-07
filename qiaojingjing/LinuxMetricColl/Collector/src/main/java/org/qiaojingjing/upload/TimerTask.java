@@ -2,27 +2,26 @@ package org.qiaojingjing.upload;
 
 import org.qiaojingjing.collector.CollectCpu;
 import org.qiaojingjing.collector.CollectMem;
-import org.qiaojingjing.cons.Param;
+import org.qiaojingjing.constants.Param;
 import org.qiaojingjing.entity.Metric;
 import org.qiaojingjing.utils.POSTRequest;
 
 import java.io.IOException;
 import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * 定时上传 step: 1min
- * @version 0.1.0
+ *
  * @author qiaojingjing
+ * @version 0.1.0
  * @since 0.1.0
  **/
-public class Upload {
+public class TimerTask {
     private Timer timer = new Timer();
     private Metric[] metrics = new Metric[2];
 
-    public Upload(int interval) {
-        // 定时采集
-        TimerTask updateCpuTask = new TimerTask() {
+    public TimerTask(int interval ) {
+        java.util.TimerTask collectorTimer = new java.util.TimerTask() {
             @Override
             public void run() {
                 try {
@@ -34,24 +33,28 @@ public class Upload {
                 }
             }
         };
-        timer.schedule(updateCpuTask, 0, 1000); //每秒采集一次
+        timer.schedule(collectorTimer,
+                 0,
+                1000);
 
-        // 定时上传
-        TimerTask collectAndUploadTask = new TimerTask() {
+        java.util.TimerTask uploadTimer = new java.util.TimerTask() {
             @Override
             public void run() {
-                metrics[0].setTimestamp(System.currentTimeMillis());
-                metrics[1].setTimestamp(System.currentTimeMillis());
+                long uploadTimeMills = System.currentTimeMillis();
+                metrics[0].setTimestamp(uploadTimeMills);
+                metrics[1].setTimestamp(uploadTimeMills);
                 POSTRequest.sendPostRequest(metrics);
                 System.out.println("上传数据");
             }
         };
-        timer.schedule(collectAndUploadTask, 5000, interval); // 每分钟执行一次
+        timer.schedule(uploadTimer,
+                 5000,
+                       interval);
     }
 
 
     public static void main(String[] args) {
-        new Upload(Param.INTERVAL); //60s
+        new TimerTask(Param.INTERVAL);
     }
 
 }
