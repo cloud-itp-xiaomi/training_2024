@@ -1,4 +1,17 @@
-
+# 指标
 周期性采集
 构造请求体
 发送请求
+
+# 日志
+Done 验证日志结构
+Done 将日志多个字段拼接成一个字符串
+Done 将日志一个字符串反序列化
+Done 根据日志hostname、filename 生成分组的 key
+Done 反序列化时将日志分组
+Done 多条日志的序列化与反序列化
+Done 提供 Logger 工场方法
+Done 将日志写到文件里
+Done 分模块
+将日志写到 MySQL 里
+
