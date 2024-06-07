@@ -1,4 +1,4 @@
-package com.example.xiaomi1.entity;
+package com.example.xiaomi1coll.entity;
 
 
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -69,8 +69,8 @@ public class Metric {
         return "Log{" +
                 "id=" + id + '\'' +
                 ", metric='" + metric + '\'' +
-                ", endpoint=' "+endpoint+'\''+
-                ", timestamp=' "+timestamp+'\''+
+                ", endPoint=' "+endpoint+'\''+
+                ", timeStamp=' "+timestamp+'\''+
                 ", step=' "+step+'\''+
                 ", value=' "+value+'\''+
                 '}';
