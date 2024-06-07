@@ -4,29 +4,17 @@ package com.example.xiaomi1.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-
-import java.time.LocalDateTime;
 
 
 @TableName(value = "collection")
 public class Metric {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-
-    private String comName;
-    private double cpuUsedPercent;
-    private double memUsedPercent;
-
-    private long timeStamp;
-
-    public long getTimeStamp() {
-        return timeStamp;
-    }
-
-    public void setTimeStamp(long timeStamp) {
-        this.timeStamp = timeStamp;
-    }
+    private String metric;
+    private String endpoint;
+    private long timestamp;
+    private Integer step;
+    private double value;
 
     public Integer getId() {
         return id;
@@ -36,38 +24,55 @@ public class Metric {
         this.id = id;
     }
 
-    public String getComName() {
-        return comName;
+    public String getMetric() {
+        return metric;
     }
 
-    public void setComName(String comName) {
-        this.comName = comName;
+    public void setMetric(String metric) {
+        this.metric = metric;
     }
 
-    public double getCpuUsedPercent() {
-        return cpuUsedPercent;
+    public String getEndpoint() {
+        return endpoint;
     }
 
-    public void setCpuUsedPercent(double cpuUsedPercent) {
-        this.cpuUsedPercent = cpuUsedPercent;
+    public void setEndpoint(String endpoint) {
+        this.endpoint = endpoint;
     }
 
-    public double getMemUsedPercent() {
-        return memUsedPercent;
+    public long getTimestamp() {
+        return timestamp;
     }
 
-    public void setMemUsedPercent(double memUsedPercent) {
-        this.memUsedPercent = memUsedPercent;
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public Integer getStep() {
+        return step;
+    }
+
+    public void setStep(Integer step) {
+        this.step = step;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
     }
 
     @Override
     public String toString() {
         return "Log{" +
-                "id=" + id +
-                ", comName='" + comName + '\'' +
-                ", cpuUsedPercent=' "+cpuUsedPercent+'\''+
-                ", memUsedPercent=' "+memUsedPercent+'\''+
-                ", timeStamp=' "+timeStamp+'\''+
+                "id=" + id + '\'' +
+                ", metric='" + metric + '\'' +
+                ", endpoint=' "+endpoint+'\''+
+                ", timestamp=' "+timestamp+'\''+
+                ", step=' "+step+'\''+
+                ", value=' "+value+'\''+
                 '}';
     }
 }

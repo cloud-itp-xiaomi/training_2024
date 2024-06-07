@@ -99,7 +99,9 @@ public class CpuMemServiceImpl implements CpuMemService {
             List<CpuMemInfo> cpuMemInfoList = cpuMemInfoMapper.query(endpoint.getId(),
                     TimeFormatUtil.longToLocalDateTime(cpuMemQueryDTO.getStartTs()),
                     TimeFormatUtil.longToLocalDateTime(cpuMemQueryDTO.getEndTs()),
-                    metricTypeEnum.getCode());
+                    metricTypeEnum.getCode(),
+                    0);
+            log.info("查询到的数据：{}", cpuMemInfoList);
             List<CpuMemQueryVO> result = new ArrayList<>();
             CpuMemQueryVO cpuMemQueryVO = new CpuMemQueryVO();
             List<CpuMemQueryVO.Value> valueList = new ArrayList<>();
@@ -118,7 +120,8 @@ public class CpuMemServiceImpl implements CpuMemService {
             List<CpuMemInfo> cpuMemInfoList = cpuMemInfoMapper.query(endpoint.getId(),
                     TimeFormatUtil.longToLocalDateTime(cpuMemQueryDTO.getStartTs()),
                     TimeFormatUtil.longToLocalDateTime(cpuMemQueryDTO.getEndTs()),
-                    null);
+                    null,
+                    0);
             List<CpuMemQueryVO> result = new ArrayList<>();
             CpuMemQueryVO cpuQueryVO = new CpuMemQueryVO();
             cpuQueryVO.setMetric(MetricTypeEnum.CPU_USED_PERCENT.getValue());
