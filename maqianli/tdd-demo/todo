@@ -1,0 +1,3 @@
+DONE 把 FileServer 的 read 改成从文件读取
+要支持不同主机、不同文件的日志的存储和读取
+FileServer 支持读写多条日志
