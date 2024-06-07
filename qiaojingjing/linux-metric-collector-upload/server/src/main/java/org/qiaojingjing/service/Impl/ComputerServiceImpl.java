@@ -29,7 +29,7 @@ public class ComputerServiceImpl implements ComputerService {
 
     /**
      * Redis 作为缓存，
-     * 只存储 Server 接收到的 CPU 利用率和内存利用率数据的最近十条数据。
+     * 只存储 server 接收到的 CPU 利用率和内存利用率数据的最近十条数据。
      *
      * @version 0.1.0
      * @author qiaojingjing

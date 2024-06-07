@@ -11,12 +11,12 @@
     </parent>
 
     <groupId>org.qiaojingjing</groupId>
-    <artifactId>LinuxMetricColl</artifactId>
+    <artifactId>linux-metric-collector-upload</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <module>pojo</module>
-        <module>Server</module>
+        <module>server</module>
     </modules>
 
     <properties>
