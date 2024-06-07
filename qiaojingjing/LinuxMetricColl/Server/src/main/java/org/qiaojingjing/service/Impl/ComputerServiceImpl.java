@@ -36,23 +36,21 @@ public class ComputerServiceImpl implements ComputerService {
      * @since 0.1.0
      **/
     @Override
-    public void upload(List<MetricsDTO> metricsDTO) {
-        //这里采用列表数据结构。1.控制数量方便。 2.插入效率高
-        //设置 key，使用 metricsDTO.getEndpoint() 作为列表的名称
+    public void upload(List<MetricsDTO> metricsDTO ) {
         ListOperations<String, Object> listOps = redisTemplate.opsForList();
-        String key = metricsDTO.get(1).getEndpoint();
+        String key = metricsDTO.get(1)
+                               .getEndpoint();
         List<Metric> metrics = new ArrayList<>();
         for (MetricsDTO dto : metricsDTO) {
             Metric metric = new Metric();
             BeanUtils.copyProperties(dto, metric);
             listOps.leftPush(key, metric);
-            listOps.trim(key, 0, 19);
+            listOps.trim(key,
+                    0,
+                    19);
             metrics.add(metric);
         }
-
-
         System.out.println(metrics);
-        // 存入数据库
         metricMapper.insert2metrics(metrics);
     }
 
@@ -62,32 +60,37 @@ public class ComputerServiceImpl implements ComputerService {
      * @since 0.1.0
      **/
     @Override
-    public List<MetricVO> query(MetricDTO metricDTO) {
+    public List<MetricVO> query(MetricDTO metricDTO ) {
         ListOperations listOperations = redisTemplate.opsForList();
         String key = metricDTO.getEndpoint();
         List<MetricVO> list;
-        //获取所有数据
         List<Metric> metrics = listOperations.range(key, 0, -1);
 
-        Map<String, List<Metric>> metricsMap = metrics.stream().collect(Collectors.groupingBy(Metric::getMetric));
+        Map<String, List<Metric>> metricsMap = metrics.stream()
+                                                      .collect(Collectors.groupingBy(Metric::getMetric));
         Long end = metrics.get(0).getTimestamp();
-        Long start = metrics.get(metrics.size()-1).getTimestamp();
+        Long start = metrics.get(metrics.size()-1)
+                            .getTimestamp();
         Long startTs = metricDTO.getStartTs();
         Long endTs = metricDTO.getEndTs();
-        if (startTs >= start && endTs <= end) {
-            log.info("通过redis查询数据...");
-            list = retrieveDataFromRedis(startTs, endTs, metricsMap);
+        if (startTs >= start
+                && endTs <= end) {
+            log.info("通过redis查询数据，时间范围为{},{}...",startTs,endTs);
+            list = retrieveDataFromRedis(startTs,
+                                         endTs,
+                                         metricsMap);
             return list;
 
         }
-
-
         list = metricMapper.getMetricsDTOList(metricDTO);
+
         return list;
     }
 
-    //从redis从检索数据
-    private List<MetricVO> retrieveDataFromRedis(Long startTs, Long endTs, Map<String, List<Metric>> metricsMap) {
+    private List<MetricVO> retrieveDataFromRedis(Long startTs,
+                                                 Long endTs,
+                                                 Map<String,
+                                                 List<Metric>> metricsMap ) {
         List<MetricVO> list = new ArrayList<>();
         Set<Map.Entry<String, List<Metric>>> entries = metricsMap.entrySet();
         for (Map.Entry<String, List<Metric>> entry : entries) {
@@ -98,7 +101,8 @@ public class ComputerServiceImpl implements ComputerService {
             List<MetricVO.Value> values = new ArrayList<>();
 
             for (Metric metric : metricData) {
-                if (metric.getTimestamp() >= startTs && metric.getTimestamp() <= endTs) {
+                if (metric.getTimestamp() >= startTs
+                        && metric.getTimestamp() <= endTs) {
                     MetricVO.Value value = new MetricVO.Value();
                     value.setTimestamp(metric.getTimestamp());
                     value.setValue(metric.getValue());
@@ -110,6 +114,5 @@ public class ComputerServiceImpl implements ComputerService {
         }
 
         return list;
-
     }
 }

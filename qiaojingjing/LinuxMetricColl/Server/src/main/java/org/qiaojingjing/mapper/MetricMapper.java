@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface MetricMapper {
 
-    void insert2metrics(List<Metric> metrics);
+    void insert2metrics(List<Metric> metrics );
 
-    List<MetricVO> getMetricsDTOList(MetricDTO metricDTO);
+    List<MetricVO> getMetricsDTOList(MetricDTO metricDTO );
 }

@@ -7,7 +7,7 @@ import org.qiaojingjing.pojo.dto.MetricsDTO;
 import java.util.List;
 
 public interface ComputerService {
-    void upload(List<MetricsDTO> metricsDTO);
+    void upload(List<MetricsDTO> metricsDTO );
 
-    List<MetricVO> query(MetricDTO metricDTO);
+    List<MetricVO> query(MetricDTO metricDTO );
 }

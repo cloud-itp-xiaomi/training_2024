@@ -25,7 +25,7 @@ public class Computer {
      * @since 0.1.0
      **/
     @PostMapping("/upload")
-    public Result uploadMetrics(@RequestBody List<MetricsDTO> metricsDTO){
+    public Result uploadMetrics(@RequestBody List<MetricsDTO> metricsDTO ){
         log.info("接收到Collector上传的数据{}",metricsDTO);
         computerService.upload(metricsDTO);
         return Result.success();
@@ -35,8 +35,11 @@ public class Computer {
     public Result query(@RequestParam String endpoint,
                         @RequestParam(required = false) String metric,
                         @RequestParam("start_ts") Long startTs,
-                        @RequestParam("end_ts")Long endTs){
-        MetricDTO metricDTO = new MetricDTO(endpoint,metric,startTs,endTs);
+                        @RequestParam("end_ts")Long endTs ){
+        MetricDTO metricDTO = new MetricDTO(endpoint,
+                                            metric,
+                                            startTs,
+                                            endTs);
         log.info("查询指标:{}",metricDTO);
         List<MetricVO> list = computerService.query(metricDTO);
         return Result.success(list);

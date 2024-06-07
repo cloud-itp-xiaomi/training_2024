@@ -15,8 +15,9 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
  * 序列化和反序列化器
- * @version 0.1.0
+ *
  * @author qiaojingjing
+ * @version 0.1.0
  * @since 0.1.0
  **/
 
@@ -24,14 +25,11 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class RedisConfig {
     @Bean(name = "redisTemplate")
     public RedisTemplate<String, Object> getRedisTemplate(RedisConnectionFactory factory) {
-        //创建RedisTemplate对象
-        RedisTemplate<String,Object> template = new RedisTemplate<>();
-        //设置RedisConnection工厂
+        RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(factory);
-        // 使用 String 序列化方式，序列化 KEY 。
         template.setKeySerializer(RedisSerializer.string());
-        // 使用 String 序列化方式（库是 Jackson ），序列化 VALUE 。
         template.setValueSerializer(RedisSerializer.json());
+
         return template;
     }
 }
