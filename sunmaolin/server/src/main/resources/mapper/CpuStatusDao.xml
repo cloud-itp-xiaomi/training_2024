@@ -46,6 +46,27 @@
         </where>
     </select>
 
+    <!--时间范围查询所有数据-->
+    <select id="queryAllByTimeStamp" resultMap="CpuStatusMap">
+        select
+        id, metric, endpoint, timestamp, step, value
+        from cpu_status
+        <where>
+            <if test="metric != null and metric != ''">
+                and metric = #{metric}
+            </if>
+            <if test="endpoint != null and endpoint != ''">
+                and endpoint = #{endpoint}
+            </if>
+            <if test="sart_ts != null">
+                and timestamp &gt; #{start_ts}
+            </if>
+            <if test="end_ts != null">
+                and timestamp &lt; #{end_ts}
+            </if>
+        </where>
+    </select>
+
     <!--统计总行数-->
     <select id="count" resultType="java.lang.Long">
         select count(1)
