@@ -1,23 +1,29 @@
 package main
 
 import (
-    "fmt"
-    "log"
-    "net/http"
-    "server/db"
-    "server/handler"
+	"database/sql"
+	"fmt"
+	"log"
+	"net/http"
+	"server/databaseOperate"
+	"server/handler"
 )
 
 func main() {
-    fmt.Println("Starting server...")
+	fmt.Println("Starting server...")
 
-    db.InitMySQL("root:123456@tcp(mysql:3306)/task")
-    defer db.DB.Close()
+	databaseOperate.InitMySQL("root:123456@tcp(mysql:3306)/task")
+	defer func(MysqlDatabase *sql.DB) {
+		err := MysqlDatabase.Close()
+		if err != nil {
+			log.Println("Error close mysql:", err)
+		}
+	}(databaseOperate.MysqlDatabase)
 
-    db.InitRedis("redis:6379", "", 0)
+	databaseOperate.InitRedis("redis:6379", "", 0)
 
-    http.HandleFunc("/api/metric/upload", handler.UploadHandler)
-    http.HandleFunc("/api/metric/query", handler.QueryHandler)
+	http.HandleFunc("/api/metric/upload", handler.UploadHandler)
+	http.HandleFunc("/api/metric/query", handler.QueryHandler)
 
-    log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }

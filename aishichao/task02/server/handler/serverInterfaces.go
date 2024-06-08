@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"server/db"
 	"server/models"
+	"server/storageOperate"
 )
 
 func UploadHandler(w http.ResponseWriter, r *http.Request) {
@@ -25,7 +25,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 	switch data.LogStorage {
 	case "local_file":
 		//写入数据
-		dir := "/logs"
+		dir := "/logs" //映射到localLogs文件夹
 		filename := "logs.json"
 		Filepath := filepath.Join(dir, filename)
 		file, err := os.Create(Filepath)
@@ -49,7 +49,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 	case "mysql":
 		//写入数据
 		for _, log := range data.LogInformation {
-			if err := db.InsertLogs(log); err != nil {
+			if err := storageOperate.InsertLogs(log); err != nil {
 				continue
 			}
 		}

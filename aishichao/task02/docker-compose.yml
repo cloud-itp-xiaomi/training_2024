@@ -25,7 +25,7 @@ services:
         dockerfile: Dockerfile
       hostname: asc_mcp
       volumes:
-        - ./server/local_logs:/logs
+        - ./server/localLogs:/logs
       ports:
         - "8080:8080"
       restart: always

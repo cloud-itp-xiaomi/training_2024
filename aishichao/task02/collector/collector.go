@@ -4,13 +4,11 @@ import (
 	"bufio"
 	"bytes"
 	"encoding/json"
+	"io"
 	"io/ioutil"
 	"log"
-	"os"
-	//"strconv"
-	//"strings"
-	//"time"
 	"net/http"
+	"os"
 )
 
 type ConfigData struct {
@@ -74,7 +72,6 @@ func getConfig(jsonFileName string) (*ConfigData, error) {
 
 //获取日志文件数据
 func getLogsInformation(logPaths []string) ([]LogInformation, error) {
-	//获取主机名
 	hostname, err := os.Hostname()
 	if err != nil {
 		log.Println("Error getting hostname:", err)
@@ -89,7 +86,7 @@ func getLogsInformation(logPaths []string) ([]LogInformation, error) {
 			log.Println("open log file error:", logPath)
 			return nil, err
 		}
-		defer file.Close()
+
 		var logs []string
 		scanner := bufio.NewScanner(file)
 		for scanner.Scan() {
@@ -100,8 +97,12 @@ func getLogsInformation(logPaths []string) ([]LogInformation, error) {
 			File:     logPath,
 			Logs:     logs,
 		})
+		err = file.Close()
+		if err != nil {
+			log.Println("close log file error:", logPath)
+			return nil, err
+		}
 	}
-
 	return logInformation, nil
 }
 
@@ -120,7 +121,12 @@ func sendData(data []LogInformation, logStorage string) {
 		//log.Println("Error sending data:", err)
 		return
 	}
-	defer resp.Body.Close()
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			log.Println("close send data body error:")
+		}
+	}(resp.Body)
 
 	if resp.StatusCode != http.StatusOK {
 		log.Println("Received non-OK response:", resp.StatusCode)
