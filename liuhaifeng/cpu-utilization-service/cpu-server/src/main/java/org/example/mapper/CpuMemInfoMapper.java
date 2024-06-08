@@ -19,5 +19,6 @@ public interface CpuMemInfoMapper {
     List<CpuMemInfo> query(@Param("endpointId") Integer endpointId,
                            @Param("startTs") LocalDateTime startTs,
                            @Param("endTs") LocalDateTime endTs,
-                           @Param("metricType") Integer metricType);
+                           @Param("metricType") Integer metricType,
+                           @Param("deleted") Integer deleted);
 }

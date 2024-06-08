@@ -1,11 +1,9 @@
 server:
   port: 8082
-spring:
-  application:
-    name: cpuconllector
-  cloud:
-    nacos:
-      server-addr: localhost:8848 # nacos服务地址
+#spring:
+#  cloud:
+#    nacos:
+#      server-addr: nacos:8848 # nacos服务地址
 
 logging:
   level:
