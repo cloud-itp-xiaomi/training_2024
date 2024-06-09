@@ -29,9 +29,9 @@ public class TestController {
         try {
             double cpuUsage = cpuAndMemUsageService.getCpuUsage();
             return "CPU Usage: " + cpuUsage;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "Error: " + e.getMessage();
+        } catch (Exception exception_1) {
+            exception_1.printStackTrace();
+            return "Error: " + exception_1.getMessage();
         }
     }
 
@@ -40,9 +40,9 @@ public class TestController {
         try {
             double memoryUsage = cpuAndMemUsageService.getMemoryUsage();
             return "Memory Usage: " + memoryUsage;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "Error: " + e.getMessage();
+        } catch (Exception exception_2) {
+            exception_2.printStackTrace();
+            return "Error: " + exception_2.getMessage();
         }
     }
 }
