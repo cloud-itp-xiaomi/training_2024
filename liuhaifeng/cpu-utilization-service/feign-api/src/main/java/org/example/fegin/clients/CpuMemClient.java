@@ -25,5 +25,5 @@ public interface CpuMemClient {
     Result<Void> upload(@RequestBody List<CpuMemInfoDTO> cpuMemInfoDTOList);
 
     @GetMapping("api/metric/query")
-    Result<List<CpuMemQueryVO>> query(@SpringQueryMap CpuMemQueryDTO cpuMemQueryDTO);
+    Result<List<CpuMemQueryVO>> query(CpuMemQueryDTO cpuMemQueryDTO);
 }
