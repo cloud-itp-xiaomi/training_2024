@@ -21,7 +21,7 @@ public class CollectorController {
     private final QuartzService quartzService;
 
     @Autowired
-    public CollectorController(UtilizationCollectJob utilizationCollectJob, UtilizationCollectService utilizationCollectService, QuartzService quartzService) {
+    public CollectorController(QuartzService quartzService) {
         this.quartzService = quartzService;
     }
 

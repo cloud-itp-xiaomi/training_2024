@@ -49,7 +49,6 @@ public class QuartzServiceImpl implements QuartzService {
 
     @Override
     public void pauseJob(String jobName, String jobGroup) {
-        //通过JobName以及JobGroup获得JobKey
         JobKey jobKey = JobKey.jobKey(jobName, jobGroup);
         try {
             scheduler.pauseJob(jobKey);
@@ -60,7 +59,6 @@ public class QuartzServiceImpl implements QuartzService {
 
     @Override
     public void resumeJob(String jobName, String jobGroup) {
-        //通过JobName以及JobGroup获得JobKey
         JobKey jobKey = JobKey.jobKey(jobName, jobGroup);
         try {
             scheduler.resumeJob(jobKey);
@@ -71,7 +69,6 @@ public class QuartzServiceImpl implements QuartzService {
 
     @Override
     public void deleteJob(String jobName, String jobGroup) {
-        //通过JobName以及JobGroup获得JobKey
         JobKey jobKey = JobKey.jobKey(jobName, jobGroup);
         try {
             scheduler.deleteJob(jobKey);

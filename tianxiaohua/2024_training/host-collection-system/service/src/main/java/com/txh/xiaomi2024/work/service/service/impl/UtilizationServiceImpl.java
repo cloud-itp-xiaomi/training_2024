@@ -51,9 +51,4 @@ public class UtilizationServiceImpl implements UtilizationService {
         }
         return utilizationList;
     }
-
-    public String delKey(String key) {
-        redisDao.del(key);
-        return "删除key "+key+ " 成功！";
-    }
 }

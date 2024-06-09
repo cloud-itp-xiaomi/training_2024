@@ -33,10 +33,14 @@ public class UtilizationController {
                                           @RequestParam(value = "endpoint") String endpoint,
                                           @RequestParam(value = "start_ts") long startTs,
                                           @RequestParam(value = "end_ts") long endTs) {
-        List<Utilization> utilizationList = utilizationService.getUtilization(metric, endpoint, startTs, endTs);
+        List<Utilization> utilizationList = utilizationService.getUtilization(
+                metric,
+                endpoint,
+                startTs,
+                endTs);
         List<Map<String,Object>> list = new ArrayList<>();
-        Map<String,Object> map = new HashMap<>();
-        map.put("metric",metric);
+        Map<String,Object> resultMap = new HashMap<>();
+        resultMap.put("metric",metric);
         List<Map<String,Object>> values = new ArrayList<>();
         for (Utilization utilization : utilizationList) {
             Map<String,Object> value = new HashMap<>();
@@ -44,8 +48,8 @@ public class UtilizationController {
             value.put("value",utilization.getValue_metric());
             values.add(value);
         }
-        map.put("values",values);
-        list.add(map);
-        return CommonResult.success(map, "ok");
+        resultMap.put("values",values);
+        list.add(resultMap);
+        return CommonResult.success(resultMap, "ok");
     }
 }

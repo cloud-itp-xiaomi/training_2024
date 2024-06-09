@@ -78,8 +78,6 @@ public class UtilizationCollectServiceImpl implements UtilizationCollectService 
             long memFree = 0;
             long buffer = 0;
             long cached = 0;
-            // 存放计算需要的值
-            long[] buffers = new long[4];
 
             String line = "";
             while ((line = statPointer2.readLine()) != null) {

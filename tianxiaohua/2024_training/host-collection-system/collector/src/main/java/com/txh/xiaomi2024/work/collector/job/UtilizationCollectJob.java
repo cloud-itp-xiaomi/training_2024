@@ -32,10 +32,11 @@ public class UtilizationCollectJob implements Job {
         utilizationCollectService = SpringUtil.getBean(UtilizationCollectService.class);
         utilizationUploadService = SpringUtil.getBean(UtilizationUploadService.class);
         JobDataMap jobDetailMap = jobExecutionContext.getJobDetail().getJobDataMap();
+
         double cpuUtilization = utilizationCollectService.getCpuUtilization();
         double memoryUtilization = utilizationCollectService.getMemoryUtilization();
         long timestamp = System.currentTimeMillis();
-        // 调用service执行存储，将cpuUtilization与memoryUtilization作为参数传递给service
+
         utilizationUploadService.upload("cpu.used.percent", getHostName(), 60, timestamp, cpuUtilization);
         utilizationUploadService.upload("mem.used.percent", getHostName(), 60, timestamp, memoryUtilization);
     }
