@@ -2,7 +2,7 @@ public class Study1 {
     public static List< File > getUserDirectory(String path, List < File > list) {
         // File file = new File(path);
         // if(file.exists()) {
-            // if(file.getName().contains("²»Ëã")) {
+            // if(file.getName().contains("ï¿½ï¿½ï¿½ï¿½")) {
                 // return list;
             // }
             // if(file.isDirectory() && file.getName().matches("\\d+")) {
@@ -10,10 +10,10 @@ public class Study1 {
             // } else {
                 // File[] files = file.listFiles();
                 // if(files.length == 0) {
-                    // System.out.println("ÎÄ¼þ¼ÐÊÇ¿ÕµÄ!");
+                    // System.out.println("ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ç¿Õµï¿½!");
                 // } else {
                     // for(File file2: files) {
-                        // if(file2.getName().contains("²»Ëã")) {
+                        // if(file2.getName().contains("ï¿½ï¿½ï¿½ï¿½")) {
                             // continue;
                         // } else if(file2.isDirectory() && !file2.getName().matches("\\d+")) {
                             // getUserDirectory(file2.getAbsolutePath(), list);
@@ -24,16 +24,16 @@ public class Study1 {
                 // }
             // }
         // } else {
-            // System.out.println("ÎÄ¼þ²»´æÔÚ!");
+            // System.out.println("ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
         // }
         // return list;
-		
+
 		File file = new File(path);
 		if(!file.exists()) {
-            System.out.println("ÎÄ¼þ²»´æÔÚ!");
+            System.out.println("ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
             return list;
 		}
-		if(file.getName().contains("²»Ëã")) {
+		if(file.getName().contains("ï¿½ï¿½ï¿½ï¿½")) {
             return list;
 		}
 		if(file.isDirectory() && file.getName().matches("\\d+")){
@@ -42,14 +42,13 @@ public class Study1 {
 		}
 		File[] files = directory.listFiles();
 		if(files.length == 0) {
-            System.out.println("ÎÄ¼þ¼ÐÊÇ¿ÕµÄ!");
+            System.out.println("ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ç¿Õµï¿½!");
 			return list;
 		}
 		for (File file2 : files) {
-            if (file2.isDirectory() && !file.getName().contains("²»Ëã")) {
+            if (file2.isDirectory() && !file.getName().contains("ï¿½ï¿½ï¿½ï¿½")) {
                 getUserDirectory(file2.getAbsolutePath(), list);
             }
         }
-				
     }
 }
