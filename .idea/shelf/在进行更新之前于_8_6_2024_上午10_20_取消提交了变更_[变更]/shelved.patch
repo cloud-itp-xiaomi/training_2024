@@ -1,0 +1,17 @@
+Index: liuxi/UtilizationCollectionSystem/server/src/main/resources/mybatis/UtilizationMapper.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/liuxi/UtilizationCollectionSystem/server/src/main/resources/mybatis/UtilizationMapper.xml b/liuxi/UtilizationCollectionSystem/server/src/main/resources/mybatis/UtilizationMapper.xml
+new file mode 100644
+--- /dev/null	(date 1717813162796)
++++ b/liuxi/UtilizationCollectionSystem/server/src/main/resources/mybatis/UtilizationMapper.xml	(date 1717813162796)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8" ?>
++<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
++        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
++<mapper namespace="com.lx.server.mapper.UtilizationMapper">
++
++</mapper>
+\ No newline at end of file

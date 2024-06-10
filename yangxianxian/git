@@ -1,0 +1,7 @@
+1. 查询所有数据库：SHOW DATABASES;
+2. 查询当前数据库：SELECT DATABASE()
+3. 创建数据库：CREATE DATABASE [ IF NOT EXISTS ] 数据库名 [ DEFAULT CHARSET 字符集] 
+4. 删除数据库：DROP DATABASE [ IF EXISTS ] 数据库名;
+5. 使用数据库：USE 数据库名;
+6. 查询当前数据库所有表：SHOW TABLES;
+7. 查询指定表的建表语句：SHOW CREATE TABLE 表名;

@@ -1,0 +1,3 @@
+diff --git a/Collector/src/main/java/com/lx/collector/pojo/Host.java b/liuxi/UtilizationCollectionSystem/Collector/src/main/java/com/lx/collector/pojo/Host.java
+rename from Collector/src/main/java/com/lx/collector/pojo/Host.java
+rename to liuxi/UtilizationCollectionSystem/Collector/src/main/java/com/lx/collector/pojo/Host.java

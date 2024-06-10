@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/liuxi.iml" filepath="$PROJECT_DIR$/.idea/liuxi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CodeOptimization/read_directory/read-directory.iml" filepath="$PROJECT_DIR$/CodeOptimization/read_directory/read-directory.iml" />
+    </modules>
+  </component>
+</project>

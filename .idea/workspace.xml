@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="88829ec6-7097-465d-a7e3-66eaf95b8fe5" name="变更" comment="删除package">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MavenRunner">
+    <option name="delegateBuildToMaven" value="true" />
+  </component>
+  <component name="ProjectId" id="2h2Zwm35NA3seG3tioJ5bApegwP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="jdk.selected.JAVA_MODULE" value="17" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="show.run.dashboard.notification" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\java_study\javaProjects\UtilizationCollectionSystem\liuxi\UtilizationCollectionSystem" />
+      <recent name="E:\java_study\javaProjects\UtilizationCollectionSystem" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\java_study\javaProjects\UtilizationCollectionSystem" />
+      <recent name="E:\java_study\javaProjects\UtilizationCollectionSystem\liuxi\UtilizationCollectionSystem" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.lx.collector" />
+      <recent name="com.lx.common" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lx.server.utils" />
+      <recent name="com.lx.server.common" />
+      <recent name="com.lx.server.pojo" />
+      <recent name="com.lx.collector.pojo" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn install" />
+      <command value="mvn clean" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ServerApplication (1)">
+    <configuration name="CollectorApplication$Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lx.collector.CollectorApplication$Main" />
+      <module name="Collector" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lx.collector.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lx.collector.service.impl.Main" />
+      <module name="Collector" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lx.collector.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollectorApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collector" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lx.collector.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lx.collector" />
+      <option name="MAIN_CLASS_NAME" value="com.lx.collector.CollectorApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollectorApplicationTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collector" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lx.collector.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lx.collector" />
+      <option name="MAIN_CLASS_NAME" value="com.lx.collector.CollectorApplicationTests" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server中的com.lx.server.service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lx.server.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lx.server.service" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="UtilizationCollectionSystem" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="UtilizationCollectionSystem" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollectorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Collector" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lx.collector.CollectorApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommonApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="common" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lx.common.CommonApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lx.server.ServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lx.server.ServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UtilizationCollectionSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="UtilizationCollectionSystem" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lx.utilizationcollectionsystem.UtilizationCollectionSystemApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Server中的com.lx.server.service" />
+        <item itemvalue="JUnit.CollectorApplicationTests" />
+        <item itemvalue="JUnit.CollectorApplicationTests.test" />
+        <item itemvalue="应用程序.CollectorApplication$Main" />
+        <item itemvalue="应用程序.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBootOptions">
+    <option name="showAdditionalConfigNotification" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="88829ec6-7097-465d-a7e3-66eaf95b8fe5" name="变更" comment="" />
+      <created>1716794374923</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716794374923</updated>
+      <workItem from="1716794377170" duration="15075000" />
+      <workItem from="1716880195466" duration="43204000" />
+      <workItem from="1717050741028" duration="179000" />
+      <workItem from="1717050933553" duration="133000" />
+      <workItem from="1717051182361" duration="355000" />
+      <workItem from="1717051674997" duration="23152000" />
+      <workItem from="1717206004660" duration="902000" />
+      <workItem from="1717206961355" duration="6413000" />
+      <workItem from="1717221950408" duration="54033000" />
+      <workItem from="1717470765643" duration="9608000" />
+      <workItem from="1717498548303" duration="53067000" />
+      <workItem from="1717724856114" duration="3744000" />
+      <workItem from="1717813048125" duration="161000" />
+      <workItem from="1717813220115" duration="242000" />
+      <workItem from="1717813476038" duration="3859000" />
+      <workItem from="1717982971168" duration="30000" />
+      <workItem from="1717990990792" duration="91000" />
+    </task>
+    <task id="LOCAL-00001" summary="第一次提交">
+      <created>1716968919312</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716968919312</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Collector模块和Server模块功能基本实现">
+      <created>1717384008095</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1717384008095</updated>
+    </task>
+    <task id="LOCAL-00003" summary="作业1">
+      <created>1717640617193</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717640617193</updated>
+    </task>
+    <task id="LOCAL-00004" summary="部署所需配置">
+      <created>1717643642822</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717643642822</updated>
+    </task>
+    <task id="LOCAL-00005" summary="作业1">
+      <created>1717665849545</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717665849545</updated>
+    </task>
+    <task id="LOCAL-00006" summary="调整目录结构">
+      <created>1717667070596</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1717667070596</updated>
+    </task>
+    <task id="LOCAL-00007" summary="检查代码">
+      <created>1717725392515</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1717725392515</updated>
+    </task>
+    <task id="LOCAL-00008" summary="检查代码">
+      <created>1717727123273</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717727123273</updated>
+    </task>
+    <task id="LOCAL-00009" summary="删除package">
+      <created>1717813524664</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1717813524664</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="第一次提交" />
+    <MESSAGE value="Collector模块和Server模块功能基本实现" />
+    <MESSAGE value="部署所需配置" />
+    <MESSAGE value="作业1" />
+    <MESSAGE value="调整目录结构" />
+    <MESSAGE value="检查代码" />
+    <MESSAGE value="删除package" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除package" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/UtilizationCollectionSystem$Servercom_lx_server_service.ic" NAME="Server中的com.lx.server.service 覆盖结果" MODIFIED="1717292979161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.lx.server.service.*</FILTER>
+    </SUITE>
+  </component>
+</project>
