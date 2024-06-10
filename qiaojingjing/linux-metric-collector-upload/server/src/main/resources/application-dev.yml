@@ -17,3 +17,6 @@ spring:
         max-active: 32
         max-idle: 16
         min-idle: 8
+log:
+  storage:
+    type: mysql
