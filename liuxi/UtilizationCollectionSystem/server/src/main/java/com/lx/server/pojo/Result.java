@@ -14,13 +14,13 @@ public class Result {
     private ResUtilization[] data;//返回数据
 
     @Override
-    public String toString(){
+    public String toString() {
 
         StringBuilder sb = new StringBuilder();
         sb.append("{\n").append("  code = " ).append(code).append("\n");
         sb.append("  message = \"").append(message).append("\"").append("\n");
         sb.append("     [\n");
-        for (ResUtilization resUtilization : data){
+        for (ResUtilization resUtilization : data) {
             sb.append("         ").append(resUtilization).append(",\n");
         }
         sb.deleteCharAt(sb.length()-2);

@@ -18,7 +18,7 @@ public class Utilization implements Serializable {
     private Double value;//指标值
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Utilization{" +
                 "id='" + id + '\'' +
                 "metric='" + metric + '\'' +

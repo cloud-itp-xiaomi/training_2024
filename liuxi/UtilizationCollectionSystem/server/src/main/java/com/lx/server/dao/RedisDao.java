@@ -13,34 +13,33 @@ public class RedisDao {
     private ValueOperations<String, Object> operations;
     private static final int MAX_KEYS = 10; //redis中只存储最近的十条数据
 
-    //在缓存中添加数据
-    public void addRedis(Utilization utilization){
+    public void addRedis(Utilization utilization) {
 
         String key = buildStr(utilization.getEndpoint() , utilization.getMetric() , utilization.getTimestamp().toString());//设计存储在redis中的key
-        Set<String> keys = operations.getOperations().keys("*");//redis中全部的key
+        Set<String> keys = operations.getOperations().keys("*");
         if(keys != null && keys.size() == MAX_KEYS){
             delete(keys);
         }
-        operations.set(key , utilization);//添加至redis中
+        operations.set(key , utilization);
     }
 
     //查询相应指标
-    public List<Utilization> queryByMetricRedis(String endpoint , String metric , Long start_ts , Long end_ts){
+    public List<Utilization> queryByMetricRedis(String endpoint , String metric , Long start_ts , Long end_ts) {
 
-        Set<String> keys = operations.getOperations().keys("*");//redis中全部的key
+        Set<String> keys = operations.getOperations().keys("*");
         if(keys == null)
             return null;
         //符合查询条件的key
         List<String> resKey = new ArrayList<>();
         List<Utilization> res = new ArrayList<>();
-       for(String key : keys){
+       for(String key : keys) {
            String[] parts = key.split("_");
            Long timeStamp = Long.parseLong(parts[2]);
-           if(parts[0].equals(endpoint) && parts[1].equals(metric) && timeStamp >= start_ts && timeStamp <= end_ts ){
+           if(parts[0].equals(endpoint) && parts[1].equals(metric) && timeStamp >= start_ts && timeStamp <= end_ts ) {
                resKey.add(key);
            }
        }
-       for(String key : resKey){
+       for(String key : resKey) {
            Utilization utilization = (Utilization) operations.get(key);
            res.add(utilization);
        }
@@ -48,21 +47,21 @@ public class RedisDao {
     }
 
     //查询全部指标
-    public List<Utilization> queryByRedis(String endpoint ,  Long start_ts , Long end_ts){
-        Set<String> keys = operations.getOperations().keys("*");//redis中全部的key
+    public List<Utilization> queryByRedis(String endpoint ,  Long start_ts , Long end_ts) {
+        Set<String> keys = operations.getOperations().keys("*");
         if(keys == null)
             return null;
         //符合查询条件的key
         List<String> resKey = new ArrayList<>();
         List<Utilization> res = new ArrayList<>();
-        for(String key : keys){
+        for(String key : keys) {
             String[] parts = key.split("_");
             Long timeStamp = Long.parseLong(parts[2]);
             if(parts[0].equals(endpoint) && timeStamp >= start_ts && timeStamp <= end_ts ){
                 resKey.add(key);
             }
         }
-        for(String key : resKey){
+        for(String key : resKey) {
             Utilization utilization = (Utilization) operations.get(key);
             res.add(utilization);
         }
@@ -70,15 +69,13 @@ public class RedisDao {
     }
 
     //删除redis中最老的key
-    public void delete(Set<String> keys){
+    public void delete(Set<String> keys) {
         Long old = Long.MAX_VALUE;
         String target = "";
-        for(String key : keys)
-        {
+        for(String key : keys) {
             String[] parts = key.split("_");
             Long timeStamp = Long.parseLong(parts[2]);
-            if(timeStamp < old)
-            {
+            if(timeStamp < old) {
                 old = timeStamp;
                 target = key;
             }
@@ -88,9 +85,9 @@ public class RedisDao {
     }
 
     //构建key
-    public String buildStr(String... strs){
+    public String buildStr(String... strs) {
         StringBuilder sb = new StringBuilder();
-        for(String str : strs){
+        for(String str : strs) {
             sb.append(str);
             sb.append("_");
         }

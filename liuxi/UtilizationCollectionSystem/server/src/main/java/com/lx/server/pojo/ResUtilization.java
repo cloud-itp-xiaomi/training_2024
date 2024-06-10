@@ -16,11 +16,11 @@ public class ResUtilization implements Serializable {
     private String metric;
     private List<Map<String, Object>> values;
 
-    public ResUtilization(){
+    public ResUtilization() {
     }
 
     //为value属性添加元素
-    public void addValue(Utilization utilization){
+    public void addValue(Utilization utilization) {
         Map<String, Object> entry = new HashMap<>();
         entry.put("timestamp" , utilization.getTimestamp());
         entry.put("value" , utilization.getValue());
@@ -35,7 +35,5 @@ public class ResUtilization implements Serializable {
         sb.append('}');
         return sb.toString();
     }
-
-
 
 }
