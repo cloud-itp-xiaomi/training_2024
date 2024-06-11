@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.example.mapper.LogsMapper">
+
+
+    <insert id="insertBatch">
+        insert into logs (endpoint_id, file, log, create_time, update_time, deleted)
+        values
+        <foreach collection="logsList" item="item" separator=",">
+            (#{item.endpointId}, #{item.file}, #{item.log}, #{item.createTime}, #{item.updateTime}, #{item.deleted})
+        </foreach>
+    </insert>
+
+</mapper>
