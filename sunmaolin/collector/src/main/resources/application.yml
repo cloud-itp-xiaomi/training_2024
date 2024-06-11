@@ -1,0 +1,15 @@
+server:
+  port: 6666
+
+xxl:
+  job:
+    admin:
+      addresses: http://117.72.68.247:8088/xxl-job-admin
+    accessToken: default_token
+    executor:
+      appname: collector
+      address:
+      ip: 117.72.68.247
+      port: 9999
+      logpath: /data/applogs/xxl-job/jobhandler
+      logretentiondays: 30
