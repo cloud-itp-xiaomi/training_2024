@@ -99,6 +99,7 @@ public class UtilizationService {
     }
 
 
+    //将指定metric的Utilizaition类型的数组封装成ResUtilization类型数组
     public ResUtilization[] getDataByMetric(List<Utilization> utilizations , String metric) {
 
         ResUtilization[] data = new ResUtilization[1];
@@ -112,6 +113,7 @@ public class UtilizationService {
         return data;
     }
 
+    //将Utilizaition类型的数组封装成ResUtilization类型数组
     public ResUtilization[] getData(List<Utilization> utilizations) {
 
         ResUtilization[] data = new ResUtilization[2];

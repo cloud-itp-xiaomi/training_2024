@@ -17,7 +17,7 @@ public class UtilizationController {
     //查询全部指标下的数据
     @GetMapping("query")
     public Result query(@RequestParam("endpoint") String endpoint,
-                        @RequestParam("start_ts")Long start_ts,
+                        @RequestParam("start_ts") Long start_ts,
                         @RequestParam("end_ts") Long end_ts) {
         return service.query(endpoint , start_ts , end_ts);
     }
@@ -26,8 +26,8 @@ public class UtilizationController {
     @GetMapping("query/by-metric")
     public Result query(@RequestParam("endpoint") String endpoint,
                         @RequestParam("metric") String metric,
-                        @RequestParam("start_ts")Long start_ts,
+                        @RequestParam("start_ts") Long start_ts,
                         @RequestParam("end_ts") Long end_ts) {
-        return service.queryByMetric(endpoint , metric , start_ts , end_ts);
+        return service.queryByMetric(endpoint, metric, start_ts, end_ts);
     }
 }
