@@ -26,9 +26,6 @@ public class LogEventWatcher {
   private Map<Path, List<String>> lastKnownContents = new HashMap<>();
   private String logStorage;
 
-  private Path configPath;
-  private final String configFile = "Logcollector/src/main/resources/cfg.json";
-
   public LogEventWatcher() throws Exception {
     this.watcher = FileSystems.getDefault().newWatchService();
     this.keys = new HashMap<>();
@@ -59,7 +56,7 @@ public class LogEventWatcher {
       while (true) {
         processEvents();
         try {
-          Thread.sleep(100);  // 防止CPU占用过高，可以根据实际情况调整
+          Thread.sleep(100);
         } catch (InterruptedException e) {
           Thread.currentThread().interrupt();
           System.out.println("File watching thread was interrupted");
