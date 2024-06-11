@@ -10,8 +10,11 @@ import java.io.IOException;
  */
 public class MemoryWatcher {
 
+    //    private final String FILE_PATH = "/proc/meminfo";
+    private final String FILE_PATH = "D:/files/mi/meminfo";
+
     public double getMemoryUsage() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(FILE_PATH));
         long memTotal = 0;
         long memAvailable = 0;
         String line;

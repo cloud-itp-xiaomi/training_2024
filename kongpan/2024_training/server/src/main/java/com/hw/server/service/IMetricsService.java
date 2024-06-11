@@ -1,7 +1,7 @@
 package com.hw.server.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.hw.server.domain.Metrics;
+import com.hw.server.domain.po.Metrics;
 import com.hw.server.domain.dto.Result;
 
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
  */
 public interface IMetricsService extends IService<Metrics> {
 
-    Result uploadMetrics(List<Metrics> metrics);
+    Result<?> uploadMetrics(List<Metrics> metrics);
 
-    Result queryMetrics(String endpoint, String metric, Long startTs, Long endTs);
+    Result<?> queryMetrics(String endpoint, String metric, Long startTs, Long endTs);
 }

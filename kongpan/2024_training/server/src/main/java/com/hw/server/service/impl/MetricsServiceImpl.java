@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.hw.server.domain.Metrics;
+import com.hw.server.domain.po.Metrics;
 import com.hw.server.domain.dto.MetricDTO;
 import com.hw.server.domain.dto.Result;
 import com.hw.server.domain.dto.ValueDTO;

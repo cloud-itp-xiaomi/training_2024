@@ -1,7 +1,7 @@
 package com.hw.server.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hw.server.domain.Metrics;
+import com.hw.server.domain.po.Metrics;
 
 /**
  * <p>

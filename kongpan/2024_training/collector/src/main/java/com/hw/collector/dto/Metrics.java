@@ -1,4 +1,4 @@
-package com.hw.server.domain;
+package com.hw.collector.dto;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
