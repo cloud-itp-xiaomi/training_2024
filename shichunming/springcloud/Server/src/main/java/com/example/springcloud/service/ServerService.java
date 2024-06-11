@@ -6,7 +6,7 @@ import com.example.springcloud.controller.response.MetricQueryResponse;
 
 import java.util.List;
 
-public interface CollectorService {
+public interface ServerService {
     /**
      * 上报数据
      */

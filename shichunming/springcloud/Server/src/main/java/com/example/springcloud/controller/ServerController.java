@@ -9,7 +9,7 @@ import com.example.springcloud.base.enums.MetricEnum;
 import com.example.springcloud.controller.request.MetricUploadRequest;
 import com.example.springcloud.controller.request.MetricQueryRequest;
 import com.example.springcloud.controller.response.MetricQueryResponse;
-import com.example.springcloud.service.CollectorService;
+import com.example.springcloud.service.ServerService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ import java.util.Objects;
 @RequestMapping("/metric")
 public class ServerController {
     @Autowired
-    private CollectorService collectorService;
+    private ServerService serverService;
 
     @RequestMapping("/test")
     public String test() {
@@ -51,7 +51,7 @@ public class ServerController {
             if (StringUtils.isBlank(request.getEndpoint())) {
                 throw new MyException(ErrorCode.PARAM_ERROR, "endpoint is null");
             }
-            collectorService.metricUpload(request);
+            serverService.metricUpload(request);
             return null;
         });
     }
@@ -61,7 +61,7 @@ public class ServerController {
         return RestBusinessTemplate.execute(() -> {
             log.info("\n-----------------------------\n" +
                     "metricQuery Request:{}", BaseJsonUtils.writeValue(request));
-            List<MetricQueryResponse> response = collectorService.queryMetric(request);
+            List<MetricQueryResponse> response = serverService.queryMetric(request);
             log.info("\n--------------------------------\n" +
                     "metricQuery Response:{}", BaseJsonUtils.writeValue(response));
             return response;
