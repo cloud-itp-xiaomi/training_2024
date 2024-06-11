@@ -2,12 +2,12 @@ server:
   port: 8081
 spring:
   datasource:
-    url: jdbc:mysql://mysql:3306/cpu_utilization_service?useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://192.168.65.128:3306/cpu_utilization_service?useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: 123
     driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
-    host: redis
+    host: 192.168.65.128
     port: 6379
     database: 0
   cache:

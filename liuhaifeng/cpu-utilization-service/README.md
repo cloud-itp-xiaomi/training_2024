@@ -8,19 +8,25 @@
 
 linux系统、linux系统上安装Docker、Linux系统上安装DockerCompose
 
-## 三、运行该项目的步骤
+## 三、将项目部署至Linux
+
+注意：由于用到DockersCompose进行的部署，collector模块和server模块中的application.yml文件和bootstrap.yml文件中的相关配置需要更改成服务名称
+
+- nacos的server-addr属性改成`nacos:8848`
+- mysql的url改成`jdbc:mysql://mysql:3306/cpu_utilization_service?useSSL=false&allowPublicKeyRetrieval=true`
+- redis的host属性改成`redis`
 
 1、用idea打开项目，使用maven的插件将项目通过package打包，打包后会在对应模块下的target目录下生成app.jar文件
 
 2、新建一个文件加cpu用于存放jar包和Dockerfile、docker-compose文件，cpu文件夹的结构如图
 
-![](.\asset\46ED844AB6AA430343CB25215E45B3F9.png)
+![](asset/1.png)
 
-![](.\asset\F4CDB9E0ADF7E6D59B6916417882DD41.png)
+![](asset/2.png)
 
 
 
-![](.\asset\CA5A2938A1A905AB19856F1184B767B9.png)
+![](asset/3.png)
 
 3、将cpu-collector模块的app.jar放入cpu-collector文件夹、将cpu-server模块的app.jar放入cpu-server文件夹
 
@@ -80,33 +86,33 @@ services:
 
 6、将cpu文件上传到虚拟机，并cd到该目录下
 
-![](.\asset\A1B6FC9C776A1E1C378C907C0BB822CE.png)
+![](asset/4.png)
 
 7、执行`docker-compose up -d`命令部署服务
 
-![](.\asset\afcc8ab7c6269911d1dd104b1fad193f.png)
+![](asset/05.png)
 
 8、执行`docker-compose logs -f nacos`命令查看nacos运行日志
 
-![](.\asset\614DE948BAA2DD59F40CD8368A51B325.png)
+![](asset/6.png)
 
 9、当nacos启动后，可通过linux服务器ip:8848访问到nacos，发现服务并未启动成功，原因是nacos启动比cpu-collector和cpu-server慢导致服务注册不上nacos
 
-![](.\asset\35AC15B1D67B4BF056115D43DE925B30.png)
+![](asset/7.png)
 
 10、重启服务`docker-compose restart cpu-server cpu-collector`
 
-![](.\asset\E692BDF734792921AEFC6086052E2C45.png)
+![](asset/8.png)
 
 11、通过`docker-compose logs -f`查看日志，发现项目启动成功
 
-![](.\asset\38bfaa57ba22d63d9c714ea18a371945.png)
+![](asset/9.png)
 
 12、通过Apifox请求接口
 
-![](.\asset\8E450AF446C017A352306DBB9B52CD37.png)
+![](asset/10.png)
 
-![](.\asset\FC6452DC45ECCFB5176EF3302B54B3AC.png)
+![](asset/11.png)
 
 
 
