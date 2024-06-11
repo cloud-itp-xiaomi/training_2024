@@ -26,6 +26,8 @@ import java.util.List;
 
 
 /**
+ * cpu内存利用率服务类
+ *
  * @author liuhaifeng
  * @date 2024/05/29/15:24
  */
@@ -41,7 +43,7 @@ public class CpuMemServiceImpl implements CpuMemService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public Result<Void> upload(List<CpuMemInfoDTO> cpuMemInfoDTOList) {
+    public void upload(List<CpuMemInfoDTO> cpuMemInfoDTOList) {
         if (CollectionUtils.isEmpty(cpuMemInfoDTOList)) {
             throw new BaseException("收集到的数据为空");
         }
@@ -80,13 +82,11 @@ public class CpuMemServiceImpl implements CpuMemService {
             cpuMemInfoList.add(cpuMemInfo);
         });
         cpuMemInfoMapper.insertBatch(cpuMemInfoList);
-
-        return Result.success();
     }
 
 
     @Override
-    public Result<List<CpuMemQueryVO>> query(CpuMemQueryDTO cpuMemQueryDTO) {
+    public List<CpuMemQueryVO> query(CpuMemQueryDTO cpuMemQueryDTO) {
         Endpoint endpoint = endpointMapper.getEndpointByName(cpuMemQueryDTO.getEndpoint());
         if (endpoint == null) {
             throw new BaseException("查询的主机不存在");
@@ -114,7 +114,7 @@ public class CpuMemServiceImpl implements CpuMemService {
             });
             cpuMemQueryVO.setValues(valueList);
             result.add(cpuMemQueryVO);
-            return Result.success(result);
+            return result;
         } else {
             //查询所有指标
             List<CpuMemInfo> cpuMemInfoList = cpuMemInfoMapper.query(endpoint.getId(),
@@ -144,7 +144,7 @@ public class CpuMemServiceImpl implements CpuMemService {
             memQueryVO.setValues(memValueList);
             result.add(cpuQueryVO);
             result.add(memQueryVO);
-            return Result.success(result);
+            return result;
         }
     }
 }
