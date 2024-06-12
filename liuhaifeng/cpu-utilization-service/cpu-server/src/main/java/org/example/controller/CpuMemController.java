@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
+ * cpu和内存利用率相关接口
+ *
  * @author liuhaifeng
  * @date 2024/05/30/21:20
  */
@@ -31,14 +33,16 @@ public class CpuMemController {
     @CacheEvict(cacheNames = "cpuMemCache*", allEntries = true)
     public Result<Void> upload(@RequestBody List<CpuMemInfoDTO> cpuMemInfoDTOList) {
         log.info("cpu-service 接收到数据：{}", cpuMemInfoDTOList);
-        return cpuMemService.upload(cpuMemInfoDTOList);
+        cpuMemService.upload(cpuMemInfoDTOList);
+        return Result.success();
     }
 
     @GetMapping("/query")
     @Cacheable(cacheNames = "cpuMemCache", key = "#cpuMemQueryDTO.endpoint + #cpuMemQueryDTO.metric + #cpuMemQueryDTO.startTs + '-' + #cpuMemQueryDTO.endTs")
     public Result<List<CpuMemQueryVO>> query(@SpringQueryMap CpuMemQueryDTO cpuMemQueryDTO) {
         log.info("查询主机信息：{}", cpuMemQueryDTO);
-        return cpuMemService.query(cpuMemQueryDTO);
+        List<CpuMemQueryVO> query = cpuMemService.query(cpuMemQueryDTO);
+        return Result.success(query);
     }
 
 }
