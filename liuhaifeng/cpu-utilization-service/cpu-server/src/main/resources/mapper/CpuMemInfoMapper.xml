@@ -28,6 +28,9 @@
             <if test="endTs != null">
                 and timestamp &lt;= #{endTs}
             </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
         </where>
         order by create_time desc;
     </select>

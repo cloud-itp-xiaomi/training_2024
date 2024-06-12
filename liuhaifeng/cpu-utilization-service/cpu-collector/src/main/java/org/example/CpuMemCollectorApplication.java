@@ -6,6 +6,7 @@ import org.example.fegin.config.DefaultFeignConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author liuhaifeng
@@ -13,9 +14,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @Slf4j
 @SpringBootApplication
+@EnableScheduling // 开启注解方式的任务调度
 @EnableFeignClients(clients = {CpuMemClient.class}, defaultConfiguration = DefaultFeignConfiguration.class)
 public class CpuMemCollectorApplication {
     public static void main(String[] args) {
         SpringApplication.run(CpuMemCollectorApplication.class, args);
+        log.info("cpu-collector启动成功");
     }
 }

@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: collector-service
+  cloud:
+    nacos:
+      server-addr: 192.168.80.128:8848
