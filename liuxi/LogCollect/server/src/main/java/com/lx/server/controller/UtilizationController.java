@@ -7,7 +7,7 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/metric")
+@RequestMapping("api")
 @DependsOn(value = "getBeanUtil")
 @CrossOrigin
 public class UtilizationController {

@@ -16,7 +16,7 @@ class CollectServiceImplTest {
     }
     @Test
     void collectMem() {
-        double cpuUtilization = service.collectMem("src/test/java/com/lx/collector/service/impl/meminfo");
-        System.out.println(cpuUtilization);
+        double memUtilization = service.collectMem("src/test/java/com/lx/collector/service/impl/meminfo");
+        System.out.println(memUtilization);
     }
 }
