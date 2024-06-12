@@ -20,17 +20,4 @@ public interface HostResourceUsageMapper extends BaseMapper<HostResourceUsageEnt
                                                     @Param("start_ts") Long start_ts,
                                                     @Param("end_ts") Long end_ts);
 
-//    @Select("SELECT timestamp, value " +
-//            "FROM resource_usage " +
-//            "WHERE endpoint = #{endpoint}AND timestamp BETWEEN #{start_ts} AND #{end_ts}")
-//    List<QueryData.TimeWithValue> selectWithoutMetricByTimestamp(@Param("endpoint") String endpoint,
-//                                                    @Param("start_ts") Long start_ts,
-//                                                    @Param("end_ts") Long end_ts);
-//
-//    @Select("SELECT distinct metric " +
-//            "FROM resource_usage " +
-//            "WHERE endpoint = #{endpoint} AND timestamp BETWEEN #{start_ts} AND #{end_ts}")
-//    List<String> getMetricList(@Param("endpoint") String endpoint,
-//                               @Param("start_ts") Long start_ts,
-//                               @Param("end_ts") Long end_ts);
 }

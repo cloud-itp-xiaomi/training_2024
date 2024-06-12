@@ -26,8 +26,6 @@ public class MonitorController {
     private MonitorService monitorService;
 
     /**
-     * @Author: WangYF
-     * @Date: 2024/05/27
      * @Description: 上报接口
      */
     @ResponseBody
@@ -41,8 +39,6 @@ public class MonitorController {
 
 
     /**
-     * @Author: WangYF
-     * @Date: 2024/05/27
      * @Description: 查询
      */
     @ResponseBody

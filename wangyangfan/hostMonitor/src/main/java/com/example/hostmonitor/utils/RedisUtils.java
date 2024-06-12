@@ -39,40 +39,6 @@ public class RedisUtils {
         return "HM:" + metric + ":ID:001";
     }
 
-//    /**
-//     * @Description: 设置键值对
-//     */
-//    public <K, V> void set(K key, V value){
-//        try{
-//            redisTemplate.opsForValue().set(key, value);
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    /**
-//     * @Description: 设置键值对，带过期时间
-//     */
-//    public <K, V> void set(K key, V value, long time){
-//        try{
-//            if(time > 0){
-//                redisTemplate.opsForValue().set(key, value, time, TimeUnit.SECONDS);
-//            } else {
-//                redisTemplate.opsForValue().set(key, value);
-//            }
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    /**
-//     * @Description: 由键获取值
-//     */
-//    public <K, V> V get(K key){
-//        BoundValueOperations<K, V> boundValueOperations = redisTemplate.boundValueOps(key);
-//        return boundValueOperations.get();
-//    }
-
     /**
      * @Description: 从列表右边插入
      */

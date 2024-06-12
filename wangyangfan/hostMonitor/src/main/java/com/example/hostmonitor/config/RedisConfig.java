@@ -19,23 +19,20 @@ public class RedisConfig {
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
-        //设置value的序列化方式json
         redisTemplate.setValueSerializer(redisSerializer());
-        //设置key序列化方式String
         redisTemplate.setKeySerializer(new StringRedisSerializer());
-        //设置hash key序列化方式String
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
-        //设置hash value序列化json
         redisTemplate.setHashValueSerializer(redisSerializer());
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
     }
 
+    /**
+     * 自定义json序列化器，并且可以序列化实体类对象
+     */
     public RedisSerializer<Object> redisSerializer() {
-        //创建JSON序列化器
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-        //必须设置，否则无法序列化实体类对象
         objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, ObjectMapper.DefaultTyping.NON_FINAL);
         return new GenericJackson2JsonRedisSerializer(objectMapper);
     }
