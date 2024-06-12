@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+  position: relative;
+}
+
+.right {
+  position: absolute;
+  right: 0;
+  /* margin: 10px; */
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightUp,
+.rightBottom {
+  display: flex;
+  /* gap: 20px; */
+}
+
+.rightBottom {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  top: 40px;
+}
+
+.icon:hover {
+  background-color: #e1e1e1;
+}
+
+.pin {
+  background-color: #e1e1e1;
+  color: #06b258;
+}
+
+.ellips {
+  color: #06b258;
+}

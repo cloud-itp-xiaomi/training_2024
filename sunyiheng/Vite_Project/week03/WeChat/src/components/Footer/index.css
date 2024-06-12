@@ -1,0 +1,43 @@
+.footerTopLeft {
+  display: flex;
+  gap: 10px;
+}
+
+.phone {
+  margin-left: auto;
+}
+
+.submitForm {
+  position: relative;
+}
+
+.submitInput {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: inherit;
+  outline: none;
+  font-size: large;
+}
+
+.submitButton {
+  display: flex;
+  margin-top: 50px;
+  margin-left: auto;
+  background-color: #e9e9e9;
+  border: none;
+  width: 100px;
+  height: 30px;
+  border-radius: 3px;
+  align-items: center;
+  justify-content: center;
+  color: #06b258;
+}
+
+.submitButton:hover {
+  background-color: #d2d2d2;
+}
+
+.ellips {
+  color: #06b258;
+}
