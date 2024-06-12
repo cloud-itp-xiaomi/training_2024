@@ -22,6 +22,7 @@
 项目部署及运行：
 
 1.部署
+
 通过maven打包Java项目为jar文件之后，在任意磁盘的任意目录下创建一个新的文件夹，
 然后在该Java项目下找到Dockerfile文件，将已打包的jar文件以及这个Dockerfile放入此文件夹，
 命令行进入此文件夹
@@ -31,6 +32,7 @@
 docker build -t server1 .
 ```
 2.运行
+
 部署之后，
 输入
 ```
@@ -38,4 +40,5 @@ docker run -d -p 8080:8080 --name server1-test server1:latest
 ```
 即可启动项目
 3.项目描述
+
 以上述方法部署完collect以及server之后，启动客户端文件（或可打包为jar），输入参数即可调用查询接口
