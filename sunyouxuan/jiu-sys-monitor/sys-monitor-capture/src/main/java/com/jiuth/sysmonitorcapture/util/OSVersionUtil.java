@@ -1,64 +1,34 @@
 package com.jiuth.sysmonitorcapture.util;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class OSVersionUtil {
 
-    public static String getLinuxDistribution() {
-        String distribution = "Unknown";
-        BufferedReader reader = null;
+    public static String getSystemVersion() {
+        String version = "Unknown";
 
-        try {
-            Process process = Runtime.getRuntime().exec("lsb_release -d");
-            reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        try (BufferedReader reader = new BufferedReader(new FileReader("/etc/os-release"))) {
             String line;
 
             while ((line = reader.readLine()) != null) {
-                if (line.startsWith("Description:")) {
-                    distribution = line.substring(line.indexOf(':') + 1).trim();
+                if (line.startsWith("PRETTY_NAME=")) {
+                    version = line.substring(line.indexOf('=') + 1).trim().replaceAll("\"", "");
                     break;
                 }
             }
-
-            process.waitFor(); // Wait for the command to finish execution
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
 
-        return distribution;
-    }
-
-    public static String getLinuxVersion() {
-        String version = "Unknown";
-        String distributionInfo = getLinuxDistribution();
-
-        // Try to extract version number from distribution info
-        if (!distributionInfo.equals("Unknown")) {
-            if (distributionInfo.contains("Ubuntu")) {
-                version = distributionInfo.substring(distributionInfo.indexOf(' ') + 1);
-            } else if (distributionInfo.contains("Fedora")) {
-                version = distributionInfo.substring(distributionInfo.indexOf(' ') + 1, distributionInfo.lastIndexOf(' '));
-            } // Add more conditions for other distributions if needed
-        }
-
+                // 去除版本号中的空格
+        version = version.replace(" ", "");
         return version;
     }
 
     public static void main(String[] args) {
-        String distribution = getLinuxDistribution();
-        String version = getLinuxVersion();
-
-        System.out.println("Linux Distribution: " + distribution);
-        System.out.println("Linux Version: " + version);
+        String version = getSystemVersion();
+        System.out.println("System Version: " + version);
     }
 }

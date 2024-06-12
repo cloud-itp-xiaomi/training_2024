@@ -4,10 +4,11 @@
 DEFAULT_API_URL="http://127.0.0.1:8080/api/metric/query"
 
 # 默认值
-DEFAULT_ENDPOINT="my-computer"
+DEFAULT_ENDPOINT="jiuth@Ubuntu 24.04 LTS"
+#DEFAULT_ENDPOINT="jiuth@Ubuntu%2024.04%20LTS"
 DEFAULT_METRIC="cpu.used.percent"
 DEFAULT_START_TS="1715765640"
-DEFAULT_END_TS="1717483816"
+DEFAULT_END_TS="1718102384"
 
 # 解析命令行参数
 while [[ $# -gt 0 ]]; do
@@ -54,6 +55,9 @@ ENDPOINT="${ENDPOINT:-$DEFAULT_ENDPOINT}"
 METRIC="${METRIC:-$DEFAULT_METRIC}"
 START_TS="${START_TS:-$DEFAULT_START_TS}"
 END_TS="${END_TS:-$DEFAULT_END_TS}"
+
+# 空格转换防止出错
+ENDPOINT="${ENDPOINT// /%20}"
 
 # 构造GET请求的URL
 QUERY_URL="${API_URL}?endpoint=${ENDPOINT}&metric=${METRIC}&start_ts=${START_TS}&end_ts=${END_TS}"

@@ -9,11 +9,14 @@ import com.jiuth.sysmonitorserver.util.converter.Convert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+        import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author jiuth
+ */
 @RestController
 @RequestMapping("/api/metric")
 public class SysInfoCaptureController {
@@ -26,36 +29,24 @@ public class SysInfoCaptureController {
 
     @GetMapping
     public ApiResponse<List<SysInfoCapture>> getAllSysInfo() {
-        try {
-            List<SysInfoCapture> sysInfoCaptures = sysInfoCaptureService.findAll();
-            return ApiResponse.success(sysInfoCaptures);
-        } catch (Exception e) {
-            return ApiResponse.error(e.getMessage());
-        }
+        List<SysInfoCapture> sysInfoCaptures = sysInfoCaptureService.findAll();
+        return ApiResponse.success(sysInfoCaptures);
     }
 
     @PostMapping("/upload")
     public ApiResponse<Void> createSysInfo(@RequestBody List<SysInfoCaptureDTO> sysInfoCaptureDTOs) {
-        try {
-            List<SysInfoCapture> sysInfoCaptures = Convert.toEntityList(sysInfoCaptureDTOs);
-//            sysInfoCaptureService.saveAll(sysInfoCaptures);
-//            return ResponseEntity.ok(ApiResponse.success(null));
+        List<SysInfoCapture> sysInfoCaptures = Convert.toEntityList(sysInfoCaptureDTOs);
+        sysInfoCaptureService.saveAll(sysInfoCaptures);
 
-            sysInfoCaptureService.saveAll(sysInfoCaptures);
-
-            for (SysInfoCaptureDTO dto : sysInfoCaptureDTOs) {
-                if ("cpu.used.percent".equals(dto.getMetric())) {
-                    sysInfoCaptureRedisService.cacheCpuUsage(dto);
-                } else if ("mem.used.percent".equals(dto.getMetric())) {
-                    sysInfoCaptureRedisService.cacheMemUsage(dto);
-                }
+        for (SysInfoCaptureDTO dto : sysInfoCaptureDTOs) {
+            if ("cpu.used.percent".equals(dto.getMetric())) {
+                sysInfoCaptureRedisService.cacheCpuUsage(dto);
+            } else if ("mem.used.percent".equals(dto.getMetric())) {
+                sysInfoCaptureRedisService.cacheMemUsage(dto);
             }
-
-            return ApiResponse.success(null);
-        } catch (Exception e) {
-            //TODO 能够返回redis错误信息
-            return ApiResponse.error(e.getMessage());
         }
+
+        return ApiResponse.success(null);
     }
 
     @GetMapping("/query")
@@ -65,7 +56,6 @@ public class SysInfoCaptureController {
             @RequestParam long start_ts,
             @RequestParam long end_ts
     ) {
-
         List<SysInfoCapture> captures = sysInfoCaptureService.query(endpoint, metric, start_ts, end_ts);
         Map<String, List<Map<String, Object>>> result = new HashMap<>();
 
@@ -94,26 +84,18 @@ public class SysInfoCaptureController {
 
     @GetMapping("/{id}")
     public ApiResponse<SysInfoCapture> getSysInfoById(@PathVariable Long id) {
-        try {
-            SysInfoCapture sysInfoCapture = sysInfoCaptureService.findById(id);
-            if (sysInfoCapture != null) {
-                return ApiResponse.success(sysInfoCapture);
-            } else {
-                return ApiResponse.error("Data not found");
-            }
-        } catch (Exception e) {
-            return ApiResponse.error(e.getMessage());
+        SysInfoCapture sysInfoCapture = sysInfoCaptureService.findById(id);
+        if (sysInfoCapture != null) {
+            return ApiResponse.success(sysInfoCapture);
+        } else {
+            return ApiResponse.error("未找到数据");
         }
     }
 
     @DeleteMapping("/{id}")
     public ApiResponse<Void> deleteSysInfo(@PathVariable Long id) {
-        try {
-            sysInfoCaptureService.deleteById(id);
-            return ApiResponse.success(null);
-        } catch (Exception e) {
-            return ApiResponse.error(e.getMessage());
-        }
+        sysInfoCaptureService.deleteById(id);
+        return ApiResponse.success(null);
     }
 }
 
