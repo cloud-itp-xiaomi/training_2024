@@ -4,6 +4,31 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+public enum DirectoryFilter {
+    EXCLUDE_KEYWORD_1("不算"),
+    EXCLUDE_KEYWORD_2("其他关键词1"),
+    EXCLUDE_KEYWORD_3("其他关键词2");
+
+    private final String keyword;
+
+    DirectoryFilter(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public static boolean containsExcludeKeyword(String fileName) {
+        for (DirectoryFilter filter : DirectoryFilter.values()) {
+            if (fileName.contains(filter.getKeyword())) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
 public class Study1Format {
 
     /**
@@ -55,7 +80,7 @@ public class Study1Format {
      * @return 是否需要排除
      */
     private static boolean isExcluded(File file) {
-        return file.getName().contains("不算");
+         return DirectoryFilter.containsExcludeKeyword(file.getName()) 
     }
 
     public static void main(String[] args) {
