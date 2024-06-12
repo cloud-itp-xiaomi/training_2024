@@ -1,4 +1,4 @@
-package com.example.xiaomi1coll.entity;
+package com.example.xiaomi1.entity;
 
 
 import com.baomidou.mybatisplus.annotation.IdType;
