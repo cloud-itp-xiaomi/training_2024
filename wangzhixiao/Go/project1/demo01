@@ -3,10 +3,6 @@ package main
 import "fmt"
 
 func main() {
-	name := "wzx"
-	age := 18
-
-	fmt.Println(name, age)
-	fmt.Printf("%T,%T", name, age)
+	var name = "wzx"
+	fmt.Println(name)
 }
-
