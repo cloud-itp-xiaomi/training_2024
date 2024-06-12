@@ -14,6 +14,8 @@ import com.example.springcloud.service.ServerService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,6 +34,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @Service
+@RefreshScope
 public class ServerServiceImpl implements ServerService {
     @Resource
     private XmCollectorMapper xmCollectorMapper;
@@ -39,6 +42,8 @@ public class ServerServiceImpl implements ServerService {
     private SnowflakeIdGenerator snowflakeIdGenerator;
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
+    @Value("${redis_config.TTL_Time}")
+    private Integer TTL_Time;
 
     @Override
     @Transactional
@@ -77,7 +82,7 @@ public class ServerServiceImpl implements ServerService {
 
     private boolean shouldQueryFromRedis(Long startTs) {
         long currentTimeMillis = System.currentTimeMillis();
-        long thirtyMinutesAgo = currentTimeMillis - 30 * 60 * 1000;
+        long thirtyMinutesAgo = currentTimeMillis - TTL_Time * 60 * 1000;
         return startTs >= thirtyMinutesAgo;
     }
 
@@ -104,7 +109,7 @@ public class ServerServiceImpl implements ServerService {
                 // 过滤掉null值以及不符合时间戳条件的项
                 .filter(newPo -> newPo != null && newPo.getTimestamp() >= start_ts && newPo.getTimestamp() <= end_ts)
                 .collect(Collectors.toList());
-        return Objects.isNull(poList) ? new ArrayList<>() : poList;
+        return poList;
     }
 
     private String generateQueryKey(String metric, String endpoint, Long start_ts, Long end_ts) {
@@ -165,12 +170,12 @@ public class ServerServiceImpl implements ServerService {
 
     public String saveToRedis(MetricUploadRequest request) {
         String cacheKey = generateUpdateKey(request.getMetric(), request.getEndpoint(), request.getTimestamp());
-        if (redisTemplate.hasKey(cacheKey)) {
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(cacheKey))) {
             log.info("redis中已存在该key，更新");
             redisTemplate.opsForValue().set(cacheKey, BaseJsonUtils.writeValue(request));
         } else {
             log.info("redis中不存在该key，新增");
-            redisTemplate.opsForValue().set(cacheKey, BaseJsonUtils.writeValue(request), 30, TimeUnit.MINUTES);
+            redisTemplate.opsForValue().set(cacheKey, BaseJsonUtils.writeValue(request), TTL_Time, TimeUnit.MINUTES);
         }
         return cacheKey;
     }

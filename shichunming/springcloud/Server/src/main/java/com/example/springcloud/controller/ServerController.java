@@ -13,8 +13,12 @@ import com.example.springcloud.service.ServerService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
 
@@ -27,15 +31,17 @@ import java.util.Objects;
  **/
 @RestController
 @Slf4j
+@RefreshScope
 @RequestMapping("/metric")
 public class ServerController {
     @Autowired
     private ServerService serverService;
-
+    @Value("${pattern.dateformat}")
+    private String dateFormat;
     @RequestMapping("/test")
     public String test() {
-        log.info("test");
-        return "test";
+        log.info("test你好");
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(dateFormat));
     }
     @PostMapping("/upload")
     public Response<Void> metricUpload(@RequestBody MetricUploadRequest request) {

@@ -3,20 +3,24 @@ server:
   servlet:
     context-path: /api
 spring:
+  cloud:
+    nacos:
+      discovery:
+        namespace: 3cf0a2ce-0e41-4b86-9cb0-a5ff821d3051   #fat环境命名空间
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: SCM15172008724mysql
-    url: jdbc:mysql://localhost:3306/xm_training?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
+    password: 123456
+    url: jdbc:mysql://mysql:3306/xm_training?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
   redis:
     database: 0
-    host: 127.0.0.1
+    host: redis
     port: 6379
-    password:
+    password: 123456
       # 密码
       #配置jedis客户端，这里也可以jedis替换为lettuce客户端，下级配置都一样
     jedis:
