@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise对象</title>
+  </head>
+  <body>
+    <script>
+      // Promise 是一个对象，从它可以获取异步操作的消息
+      // Promise异步操作有三种状态：pending（进行中）、fulfilled（已成功）和 rejected（已失败）。除了异步操作的结果，任何其他操作都无法改变这个状态
+      // Promise对象只有：从 pending 变为 fulfilled 和从 pending 变为 rejected 的状态改变。只要处于 fulfilled 和 rejected ，状态就不会再变了即 resolved（已定型）
+      const p = new Promise(function (resolve, reject) {
+        resolve(1);
+      })
+        .then(function (value) {
+          // 第一个then
+          console.log(value); // 1
+          return value * 2;
+        })
+        .then(function (value) {
+          // 第二个then
+          console.log(value); // 2
+        })
+        .then(function (value) {
+          // 第三个then
+          console.log(value); // undefined
+          return Promise.resolve("resolve");
+        })
+        .then(function (value) {
+          // 第四个then
+          console.log(value); // resolve
+          return Promise.reject("reject");
+        })
+        .then(
+          // 第五个then
+          function (value) {
+            console.log("resolve:" + value); //这里不会打印,因为上一个then方法返回的是一个reject状态的promise
+          },
+          function (err) {
+            console.log("reject:" + err); // 此行会打印reject:reject, 因第五个than只能接受 resolve状态的promise, 而第四个than返回的是reject状态的promise,所以会被本行 err 捕获
+          }
+        );
+      // Promise可以减少回调地狱，且提供了.catch() 方法，可以捕获链中任何地方抛出的错误，从而使得错误处理更加统一和方便。
+    </script>
+  </body>
+</html>

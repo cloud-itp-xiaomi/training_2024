@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proxy和Reflect</title>
+  </head>
+  <body>
+    <body>
+      <h1></h1>
+      <script>
+        // Proxy和Reflect实现一个计时器
+        const obj = {
+          name: "bob",
+          age: 18
+        }
+        const h1 = document.querySelector('h1')
+        h1.innerHTML = `你好，我是${obj.name},今年${obj.age}岁`
+
+        const p = new Proxy(obj, {
+          get(target, prop) {
+            return Reflect.get(target, prop)
+          },
+          set(target, prop, value) {
+            const success = Reflect.set(target, prop, value); // 使用Reflect来设置属性
+                if (success) {
+                    h1.innerHTML = `你好，我是${p.name},今年${p.age}岁`;
+                }
+                return success;
+          }
+        })
+        setInterval(function () {
+          p.age++
+        }, 2000)
+
+      </script>
+  </body>
+</html>

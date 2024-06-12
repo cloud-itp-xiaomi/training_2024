@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>解构赋值</title>
+  </head>
+  <body>
+    <script>
+      // 数组解构是将数组的单元值快速批量赋值给一系列变量的简洁语法
+      const arr = [100, 60, 80];
+      const [max, min, arg] = arr;
+      // const max = arr[0]
+      // const min = arr[1]
+      // const arg = arr[2]
+      console.log("最大值max：" + max);
+
+      // 数组解构典型应用之交换两个变量
+      let a = 1;
+      let b = 2; //数组开头的时候一定要加分号
+      [b, a] = [a, b];
+      console.log("交换后：" + a, b);
+      console.log("------------------------------");
+
+      // 对象解构是将对象属性和方法快速批量赋值给一系列变量的简洁语法
+      // 要求属性名和变量名必须一致
+      // const { uname, age } = { uname: '小猪佩奇', age: 18 }
+
+      // 但是如果全局里面有变量名了,可以重新改名,旧变量名:新变量名
+      const uname = "小猪乔治";
+      const { uname: username, age } = { uname: "小猪佩奇", age: 18 };
+      console.log("新变量名:" + username);
+      console.log(age);
+      console.log("------------------------------");
+
+      // 解构数组对象
+      const pig = [
+        {
+          uname1: "猪妈妈",
+          age1: 38,
+        },
+      ];
+      const [{ uname1, age1 }] = pig;
+      console.log(uname1);
+      console.log(age1);
+
+      // 多级对象的解构
+      const pig1 = {
+        name: "佩奇",
+        family: {
+          mother: "猪妈妈",
+          father: "猪爸爸",
+          sister: "乔治",
+        },
+        age2: 6,
+      };
+
+      const {
+        name,
+        family: { mother, father, sister },
+        age2,
+      } = pig1;
+      console.log(father);
+    </script>
+  </body>
+</html>

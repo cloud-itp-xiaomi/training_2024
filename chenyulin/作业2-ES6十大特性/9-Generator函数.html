@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generator函数</title>
+  </head>
+  <body>
+    <script>
+      // Generator函数可以通过yield关键字，把函数的执行流挂起，为改变执行流程提供了可能，从而为异步编程提供解决方案
+      // 其中 * 用来表示函数为 Generator 函数，yield 用来定义函数内部的状态
+      function* sendParameter() {
+        console.log("start");
+        const x = yield "2";
+        console.log("one:" + x);
+        const y = yield "3";
+        console.log("two:" + y);
+        console.log("total:" + (x + y));
+      }
+
+      const sendp1 = sendParameter();
+      // next 方法不传入参数的时候，yield表达式的返回值是undefined
+      sendp1.next();
+      // start
+      // {value: "2", done: false}
+      // 第一次调用next方法时，从Generator函数的头部开始执行，先是打印了start,执行到yield就停下来，并将yield后边表达式的值'2'，作为返回对象的 value 属性值，此时函数还没有执行完，返回对象的done属性值是false
+      sendp1.next();
+      // one:undefined
+      // {value: "3", done: false}
+      sendp1.next();
+      // two:undefined
+      // total:NaN
+      // {value: undefined, done: true} 此时函数已经结束，多以done属性值为true
+
+      // 当next传入参数的时候，该参数会作为上一步yield的返回值
+      const sendp2 = sendParameter();
+      sendp2.next(10);
+      // start
+      // {value: "2", done: false}
+      sendp2.next(20);
+      // one:20
+      // {value: "3", done: false}
+      sendp2.next(30);
+      // two:30
+      // total:50
+      // {value: undefined, done: true}
+
+      // return方法返回给定值，并结束遍历Generator函数。return方法提供参数时，返回该参数；不提供参数时，返回undefined
+      const sendp3 = sendParameter();
+      sendp3.next();
+      // start
+      // {value: "2", done: false}
+      sendp3.return("foo");
+      // {value: 'foo', done: true}
+      sendp3.next();
+      // {value: undefined, done: true}
+
+      // yield* 表达式表示yield返回一个遍历器对象，用于在Generator函数内部，调用另一个Generator函数
+      function* callee() {
+        console.log("callee: " + (yield));
+      }
+
+      function* caller() {
+        while (true) {
+          yield* callee();
+        }
+      }
+      const callerObj = caller();
+      callerObj.next();
+      // {value: undefined, done: false}
+      callerObj.next("a");
+      // callee: a
+      // {value: undefined, done: false}
+      callerObj.next("b");
+      // callee: b
+      // {value: undefined, done: false}
+
+      // 等价于：
+      // function* caller() {
+      //     while (true) {
+      //         for (var value of callee) {
+      //           yield value;
+      //         }
+      //     }
+      // }
+
+      // 适用场景：为不具备Iterator接口的对象提供遍历方法
+      function* objectEntries(obj) {
+        const propKeys = Reflect.ownKeys(obj); // Reflect.ownKeys(obj)返回一个包含对象obj所有自身属性的数组
+        console.log(propKeys); // ['first', 'last']
+        for (const propKey of propKeys) {
+          yield [propKey, obj[propKey]];
+        }
+      }
+      const name = { first: "Jane", last: "Doe" };
+      for (const [key, value] of objectEntries(name)) {
+        console.log(`${key}: ${value}`);
+      }
+      // first: Jane
+      // last: Doe
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>let和const</title>
+  </head>
+  <body>
+    <script>
+      // 1.let声明变量
+      // 1.1 let只在代码块内有效，且只能声明一次，常用于for循环内
+      function fn1() {
+        let sum = 0;
+        for (let i = 0; i < 10; i++) {
+          sum += i;
+        }
+        return sum;
+      }
+      // 无法在函数外使用sum变量
+      console.log("循环的结果为：" + fn1());
+
+      // 1.2 let不存在变量提升，需要先声明后使用
+      let num1 = 1;
+      console.log("先声明后调用：" + num1);
+      // 报错：Uncaught ReferenceError: Cannot access 'num2' before initialization
+      // console.log(num2);
+      // let num2 = 2;
+
+      // 2.const声明常量
+      // 2.1 const声明的变量不得改变值且必须立马赋初识值，不能留到以后赋值
+      const PI = 3.1415926;
+      console.log("π的值为：" + PI);
+      // 报错：Uncaught TypeError: Assignment to constant variable.
+      // PI = 3;
+      // 报错：Uncaught SyntaxError: Missing initializer in const declaration
+      // const a;
+
+      // 2.2 const也需要先声明后调用且不可重复声明
+      const n1 = 3;
+      console.log("先声明后调用：" + n1);
+      // 报错：Uncaught ReferenceError: Cannot access 'n2' before initialization
+      // console.log(n2);
+      // const n2 = 4;
+    </script>
+  </body>
+</html>
