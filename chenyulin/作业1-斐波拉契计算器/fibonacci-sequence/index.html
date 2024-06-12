@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>斐波拉契函数</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 20px;
+      }
+
+      .ipt {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .opt {
+        width: 500px;
+        height: 200px;
+        overflow: auto;
+        font-size: 16px;
+        word-wrap: break-word;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    请输入非负数字：<input type="number" class="ipt" min="0" />
+
+    结果：
+    <div class="opt"></div>
+
+    <script>
+      const ipt = document.querySelector(".ipt");
+      const opt = document.querySelector(".opt");
+
+      // 输入框改变时
+      ipt.addEventListener("change", function () {
+        const n = parseInt(ipt.value);
+        if (n < 0) {
+          opt.innerText = "请输入有效的正数或零";
+          return;
+        }
+        opt.innerText = fib(n).toString();
+        console.log(fib(n));
+      });
+
+      // 斐波那契函数
+      const fib = (n) => {
+        if (n === 0 || n === 1) return BigInt(n);
+        let tempArr = [BigInt(0), BigInt(1)];
+        // 如果n大于等于2
+        for (let i = 2; i <= n; i++) {
+          // 添加新的元素
+          tempArr.push(tempArr[0] + tempArr[1]);
+          // 移除第一个元素
+          tempArr.shift();
+        }
+        // 返回第二个元素
+        return tempArr[1];
+      };
+    </script>
+  </body>
+</html>
