@@ -41,6 +41,12 @@ public class Collector {
         this.executorService = Executors.newFixedThreadPool(4);
     }
 
+    public Collector(RestTemplate restTemplate, OperatingSystemMXBean osBean, ExecutorService executorService) {
+        this.restTemplate = restTemplate;
+        this.osBean = osBean;
+        this.executorService = executorService;
+    }
+
     @Scheduled(fixedRate = 60000) // 每分钟执行一次
     // @Scheduled(fixedRate = 3000) // 测试，3秒一次
     public void collectAndReport() {
@@ -77,7 +83,7 @@ public class Collector {
     }
 
     // 上报数据
-    private void sendMetric(Metric metric) {
+    public void sendMetric(Metric metric) {
         // 构造HTTP请求
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -85,7 +91,7 @@ public class Collector {
 
         try {
             // 发送POST请求到服务器的API接口
-            ResponseEntity<String> response = restTemplate.exchange("http://172.17.0.4:8080/api/metric/upload",
+            ResponseEntity<String> response = restTemplate.exchange("http://localhost:8080/api/metric/upload",
                     HttpMethod.POST, requestEntity, String.class);
 
             // 记录响应的状态码和内容
@@ -103,7 +109,7 @@ public class Collector {
 
 
     // 获取主机内存使用率
-    private double getMemoryUsage() {
+    public double getMemoryUsage() {
         long totalMemory = osBean.getTotalMemorySize();
         long freeMemory = osBean.getFreeMemorySize();
 
@@ -116,7 +122,7 @@ public class Collector {
 
 
     // 获取主机cpu使用率
-    private double getCpuUsage() {
+    public double getCpuUsage() {
         double systemCpuLoad = osBean.getCpuLoad();
         if (systemCpuLoad < 0) {
             return Double.NaN;

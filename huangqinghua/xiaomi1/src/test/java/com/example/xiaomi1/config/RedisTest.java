@@ -1,3 +1,4 @@
+
 package com.example.xiaomi1.config;
 
 import org.junit.Test;
@@ -15,7 +16,6 @@ public class RedisTest {
     @Test
     public void contextLoads() {
         redisTemplate.opsForValue().set("user1","user");
-//      redisTemplate.opsForValue().increment("login_error_count_1");
         Object o = redisTemplate.opsForValue().get("user1");
         System.out.println(o);
     }
