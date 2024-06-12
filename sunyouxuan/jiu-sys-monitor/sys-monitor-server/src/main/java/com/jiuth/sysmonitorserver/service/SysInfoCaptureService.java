@@ -1,6 +1,6 @@
 package com.jiuth.sysmonitorserver.service;
 
-import com.jiuth.sysmonitorserver.enity.SysInfoCapture;
+import com.jiuth.sysmonitorserver.dao.enity.SysInfoCapture;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +20,10 @@ public interface SysInfoCaptureService {
     void deleteById(Long id);
 
 
+    List<SysInfoCapture> query (String endpoint,
+                                String metric,
+                                long start_ts,
+                                long end_ts);
     //捕获信息的获取
 
 
