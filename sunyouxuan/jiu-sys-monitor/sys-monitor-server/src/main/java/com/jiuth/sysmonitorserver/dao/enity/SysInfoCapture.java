@@ -1,4 +1,4 @@
-package com.jiuth.sysmonitorserver.enity;
+package com.jiuth.sysmonitorserver.dao.enity;
 
 
 import jakarta.persistence.*;
