@@ -1,6 +1,5 @@
 package com.example.xiaomi1.config;
 
-import com.example.xiaomi1.entity.Metric;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
