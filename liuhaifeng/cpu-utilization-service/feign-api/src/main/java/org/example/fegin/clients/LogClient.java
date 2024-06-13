@@ -17,9 +17,8 @@ import java.util.List;
  * @author liuhaifeng
  * @date 2024/06/05/16:27
  */
-@FeignClient("cpuserver")
+@FeignClient("server")
 public interface LogClient {
-
 
     /**
      * 上传日志
@@ -36,5 +35,4 @@ public interface LogClient {
      */
     @GetMapping("api/log/query")
     Result<LogQueryVO> query(LogQueryDTO logQueryDTO);
-
 }
