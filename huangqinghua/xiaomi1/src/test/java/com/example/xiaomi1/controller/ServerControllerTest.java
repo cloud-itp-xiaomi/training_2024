@@ -62,7 +62,6 @@ public class ServerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"code\":200,\"message\":\"ok\",\"data\":\"\"}"));
 
-
         // 后查
         MetricData metricData = new MetricData("cpu.used.percent",1000000000,10.22);
 

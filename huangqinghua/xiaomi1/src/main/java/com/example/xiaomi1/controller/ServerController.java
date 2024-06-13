@@ -1,9 +1,8 @@
 package com.example.xiaomi1.controller;
 
-import com.example.xiaomi1.entity.Metric;
-import com.example.xiaomi1.entity.MetricData;
-import com.example.xiaomi1.entity.MetricResponse;
+import com.example.xiaomi1.entity.*;
 import com.example.xiaomi1.result.Result;
+import com.example.xiaomi1.service.LogService;
 import com.example.xiaomi1.service.MetricService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +20,10 @@ public class ServerController {
     @Autowired
     private MetricService metricService;
 
-    // 上报接口
+    @Autowired
+    private LogService logService;
+
+    // 指标上报接口
     @PostMapping("/metric/upload")
     public Result receiveMetric(@RequestBody Metric metric) {
         try {
@@ -33,8 +35,7 @@ public class ServerController {
         }
     }
 
-
-    // 查询接口
+    // 指标查询接口
     @GetMapping("/metric/query")
     public Result queryMetrics(
             @RequestParam String endpoint,
@@ -71,4 +72,53 @@ public class ServerController {
         return new Result().success(responseList);  // 返回成功的结果，并带上转换后的数据
     }
 
+    // 日志上报接口，本地文件存储版
+    @PostMapping("/log/upload/local")
+    public Result receiveLogLocal(@RequestBody Logs logs) {
+        System.out.println(logs);
+        try {
+            for (String log : logs.getLogs()) {
+                Log log1 = createLog(logs.getHostname(), logs.getFile(), log);
+                logService.saveLogLocal(log1);
+            }
+            return new Result().success("");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result().failure(500, "Error saving log in local: " + e.getMessage());
+        }
+    }
+
+    // 日志上报接口，MySQL存储版
+    @PostMapping("/log/upload/mysql")
+    public Result receiveLogMysql(@RequestBody Logs logs) {
+        System.out.println(logs);
+        try {
+            for (String log : logs.getLogs()) {
+                Log log1 = createLog(logs.getHostname(), logs.getFile(), log);
+                logService.saveLogMysql(log1);
+            }
+            return new Result().success("");  // 返回成功的结果，并带上接收到的数据
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result().failure(500, "Error saving log in MySQL: " + e.getMessage());
+        }
+    }
+
+    // 日志查询接口
+    @GetMapping("/log/query")
+    public Result queryLogs(
+            @RequestParam String hostname,
+            @RequestParam String file){
+
+
+        return null;
+    }
+
+    public Log createLog(String hostname, String file, String logContent) {
+        Log log = new Log();
+        log.setHostname(hostname);
+        log.setFile(file);
+        log.setLog(logContent);
+        return log;
+    }
 }

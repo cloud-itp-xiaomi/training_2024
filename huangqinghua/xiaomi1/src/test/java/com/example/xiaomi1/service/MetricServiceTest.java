@@ -51,4 +51,9 @@ public class MetricServiceTest {
         assertEquals(1000000000, capturedMetric.getTimestamp());
         assertEquals(10.22, capturedMetric.getValue());
     }
+
+    @Test
+    public void getMetrics() {
+        Metric metric = new Metric();
+    }
 }
