@@ -22,13 +22,13 @@ public class Metric {
 
     @Override
     public String toString() {
-        return "Log{" +
-                "id=" + id + '\'' +
+        return "Metric{" +
+                "id='" + id + '\'' +
                 ", metric='" + metric + '\'' +
-                ", endpoint=' "+endpoint+'\''+
-                ", timestamp=' "+timestamp+'\''+
-                ", step=' "+step+'\''+
-                ", value=' "+value+'\''+
+                ", endpoint='" + endpoint+'\''+
+                ", timestamp='" + timestamp+'\''+
+                ", step='" + step + '\''+
+                ", value='" + value + '\''+
                 '}';
     }
 }

@@ -110,8 +110,40 @@ public class ServerController {
             @RequestParam String hostname,
             @RequestParam String file){
 
+        List<Log> logs = logService.getLog(hostname, file);
+        return getResult(hostname, file, logs);
+    }
 
-        return null;
+    @GetMapping("/log/query/by-MySQL")
+    public Result queryLogsByMysql(
+            @RequestParam String hostname,
+            @RequestParam String file){
+
+        List<Log> logs = logService.getLogByMysql(hostname, file);
+        return getResult(hostname, file, logs);
+    }
+
+    @GetMapping("/log/query/by-local")
+    public Result queryLogsByLocal(
+            @RequestParam String hostname,
+            @RequestParam String file){
+
+        List<Log> logs = logService.getLogByLocal(hostname, file);
+        return getResult(hostname, file, logs);
+    }
+
+    // 日志封装返回查询结果
+    private Result getResult(@RequestParam String hostname, @RequestParam String file, List<Log> logs) {
+        LogResponse logResponse = new LogResponse();
+        logResponse.setHostname(hostname);
+        logResponse.setFile(file);
+
+        List<String> logMessages = logs.stream()
+                .map(Log::getLog)
+                .collect(Collectors.toList());
+        logResponse.setLogs(logMessages);
+
+        return new Result().success(logResponse);
     }
 
     public Log createLog(String hostname, String file, String logContent) {

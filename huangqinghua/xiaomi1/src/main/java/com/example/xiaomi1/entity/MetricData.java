@@ -19,10 +19,10 @@ public class MetricData {
 
     @Override
     public String toString() {
-        return "Log{" +
-                ", metric='" + metric + '\'' +
-                ", timestamp=' "+timestamp+'\''+
-                ", value=' "+value+'\''+
+        return "MetricData{" +
+                "metric='" + metric + '\'' +
+                ", timestamp='" + timestamp + '\''+
+                ", value='" + value+'\'' +
                 '}';
     }
 }

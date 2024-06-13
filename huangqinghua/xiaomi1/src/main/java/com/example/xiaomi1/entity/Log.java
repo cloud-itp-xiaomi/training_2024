@@ -20,10 +20,10 @@ public class Log {
     @Override
     public String toString() {
         return "Log{" +
-                "id=" + id + '\'' +
+                "id='" + id + '\'' +
                 ", hostname='" + hostname + '\'' +
-                ", file=' "+file+'\''+
-                ", log=' "+log+'\''+
+                ", file='"+file+'\''+
+                ", log='"+log+'\''+
                 '}';
     }
 

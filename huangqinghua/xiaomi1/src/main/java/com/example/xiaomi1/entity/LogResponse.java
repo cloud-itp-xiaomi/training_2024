@@ -7,17 +7,17 @@ import java.util.List;
 
 @Setter
 @Getter
-public class Logs {
+public class LogResponse {
     private String hostname;
     private String file;
     private List<String> logs;
 
     @Override
     public String toString() {
-        return "Logs{" +
+        return "LogResponse{" +
                 "hostname='" + hostname + '\'' +
-                ", file='"+file+'\''+
-                ", log='"+logs.toString()+'\''+
+                ", file='" + file + '\'' +
+                ", logs=" + logs +
                 '}';
     }
 }
