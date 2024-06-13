@@ -1,0 +1,31 @@
+{
+    "screenWidth": 640,
+    "screenHeight": 480,
+    "title": "投喂鲨鱼",
+
+    "bgColor": {
+        "r": 230,
+        "g": 230,
+        "b": 230,
+        "a": 255
+    },
+
+    "sharkSpeedFactor":3,
+
+    "foodWidth":3,
+    "foodHeight":15,
+    "foodSpeedFactor":1,
+    "foodColor":{
+      "r":255,
+      "g":165,
+      "b":0,
+      "a":255
+    },
+    "maxFoodNum":50,
+    "foodInterval":50,
+
+    "titleFontSize":36,
+    "fontSize":24,
+    "smallFontSize":12
+
+}
