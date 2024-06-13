@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.qiaojingjing.mapper.LogMapper" >
+    <insert id="insertLogs">
+        INSERT INTO log(hostname,file,content,create_time,update_time)
+        VALUES
+        <foreach collection="logList" separator="," item="log">
+            (#{log.hostname},#{log.file},#{log.content},#{log.createTime},#{log.updateTime})
+        </foreach>
+    </insert>
+    <select id="queryLogsByHostnameAndFile" resultType="org.qiaojingjing.pojo.vo.LogMysqlVO">
+        SELECT hostname, file, content
+        from log
+        WHERE hostname = #{hostname}
+          and file = #{file}
+    </select>
+
+</mapper>

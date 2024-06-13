@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "id": {
+      "type": "long"
+    },
+    "hostname": {
+      "type": "keyword"
+    },
+    "file": {
+      "type": "keyword"
+    },
+    "log": {
+      "type": "keyword"
+    },
+    "timestamp": {
+      "type": "date",
+      "format": "yyyy-MM-dd HH:mm:ss||strict_date_optional_time||yyyy-MM-dd||epoch_millis"
+    }
+  }
+}

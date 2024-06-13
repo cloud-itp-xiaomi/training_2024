@@ -1,6 +1,6 @@
 package com.jiuth.sysmonitorserver.util.converter;
 
-import com.jiuth.sysmonitorserver.enity.SysInfoCapture;
+import com.jiuth.sysmonitorserver.dao.enity.SysInfoCapture;
 import com.jiuth.sysmonitorserver.dto.SysInfoCaptureDTO;
 
 import java.util.List;

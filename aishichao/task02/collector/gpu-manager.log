@@ -1,0 +1,64 @@
+log_file: /var/log/gpu-manager.log
+last_boot_file: /var/lib/ubuntu-drivers-common/last_gfx_boot
+new_boot_file: /var/lib/ubuntu-drivers-common/last_gfx_boot
+can't access /opt/amdgpu-pro/bin/amdgpu-pro-px
+Looking for nvidia modules in /lib/modules/5.15.0-107-generic/kernel
+Looking for nvidia modules in /lib/modules/5.15.0-107-generic/kernel/nvidia-535srv-open
+Found nvidia.ko module in /lib/modules/5.15.0-107-generic/kernel/nvidia-535srv-open/nvidia.ko
+Looking for amdgpu modules in /lib/modules/5.15.0-107-generic/kernel
+Looking for amdgpu modules in /lib/modules/5.15.0-107-generic/updates/dkms
+Is nvidia loaded? yes
+Was nvidia unloaded? no
+Is nvidia blacklisted? no
+Is intel loaded? no
+Is radeon loaded? no
+Is radeon blacklisted? no
+Is amdgpu loaded? yes
+Is amdgpu blacklisted? no
+Is amdgpu versioned? no
+Is amdgpu pro stack? no
+Is nouveau loaded? no
+Is nouveau blacklisted? yes
+Is nvidia kernel module available? yes
+Is amdgpu kernel module available? no
+Vendor/Device Id: 1002:1638
+BusID "PCI:5@0:0:0"
+Is boot vga? yes
+Vendor/Device Id: 10de:1f97
+BusID "PCI:1@0:0:0"
+can't open /sys/bus/pci/devices/0000:01:00.0/boot_vga
+Is boot vga? no
+can't open /sys/bus/pci/devices/0000:01:00.0/boot_vga
+Chassis type: "10"
+Laptop detected
+can't access /etc/u-d-c-nvidia-runtimepm-override file
+Found json file: /usr/share/doc/nvidia-driver-535-server/supported-gpus.json
+File /usr/share/doc/nvidia-driver-535-server/supported-gpus.json not found
+Is nvidia runtime pm supported for "0x1f97"? yes
+Trying to create new file: /run/nvidia_runtimepm_supported
+Checking power status in /proc/driver/nvidia/gpus/0000:01:00.0/power
+Runtime D3 status:          ?
+Is nvidia runtime pm enabled for "0x1f97"? no
+Found "/dev/dri/card0", driven by "amdgpu"
+output 0:
+	card0-eDP-1
+Number of connected outputs for /dev/dri/card0: 1
+Skipping "/dev/dri/card0", driven by "amdgpu"
+Skipping "/dev/dri/card1", driven by "nvidia-drm"
+Skipping "/dev/dri/card0", driven by "amdgpu"
+Skipping "/dev/dri/card1", driven by "nvidia-drm"
+Skipping "/dev/dri/card0", driven by "amdgpu"
+Skipping "/dev/dri/card1", driven by "nvidia-drm"
+Does it require offloading? no
+last cards number = 2
+Has amd? yes
+Has intel? no
+Has nvidia? yes
+How many cards? 2
+Has the system changed? No
+Takes 0ms to wait for nvidia udev rules completed.
+AMD IGP detected
+NVIDIA hybrid system
+Creating /usr/share/X11/xorg.conf.d/11-nvidia-offload.conf
+Setting power control to "auto" in /sys/bus/pci/devices/0000:01:00.0/power/control
+Trying to create new file: /lib/modprobe.d/nvidia-runtimepm.conf
