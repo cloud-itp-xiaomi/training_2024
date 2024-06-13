@@ -2,6 +2,7 @@ package org.qiaojingjing.collector;
 
 import org.qiaojingjing.constants.Param;
 import org.qiaojingjing.entity.Metric;
+import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -9,11 +10,12 @@ import java.math.RoundingMode;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+@Service
 public class CollectCpu {
     private static final Metric cpu = new Metric();
     private static Long[] lastValues = null;
 
-    public static Metric collect() throws IOException {
+    public Metric collect() throws IOException {
         String hostname = Files.readString(Paths.get("/etc/hostname"))
                                                 .trim();
         String statLine = getFirstLine();
@@ -52,11 +54,6 @@ public class CollectCpu {
         BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
         return br.readLine();
-    }
-    public static Long[] getCurrentCpuValues() throws IOException {
-        String line = getFirstLine();
-
-        return string2Long(line);
     }
 
     private static Long getSum(Long[] values) {

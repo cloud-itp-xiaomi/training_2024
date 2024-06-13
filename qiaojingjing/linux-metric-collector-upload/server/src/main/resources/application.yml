@@ -3,7 +3,7 @@ server:
 
 spring:
   profiles:
-    active: dev
+    active: local
   main:
     allow-circular-references: true
   datasource:
@@ -29,13 +29,9 @@ mybatis:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-log:
-  storage:
-    type: ${log.storage.type}
 
 local:
   storage:
     parentPath: ${local.storage.parentPath}
-
 
 

@@ -6,6 +6,7 @@ import org.qiaojingjing.constant.ExceptionConstant;
 import org.qiaojingjing.enums.StorageTypeEnum;
 import org.qiaojingjing.exception.MyIllegalParamException;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -22,6 +23,7 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Configuration
+@DependsOn("logStorageProperties")
 public class StorageTypeHandlerFactory {
     private static StorageTypeHandler storageTypeHandler;
     @Resource
@@ -43,7 +45,8 @@ public class StorageTypeHandlerFactory {
                 storageTypeHandler = mysqlStorageHandler;
                 break;
             default:
-                log.error("不支持的存储类型:{}",storageType);
+                log.error("不支持的存储类型:{},采用本地存储日志方式",storageType);
+                storageTypeHandler = localFileStorageHandler;
                 throw new MyIllegalParamException(ExceptionConstant.ILLEGAL_TYPE);
         }
     }
