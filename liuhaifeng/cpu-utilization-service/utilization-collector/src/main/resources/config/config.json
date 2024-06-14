@@ -1,7 +1,7 @@
 {
   "files": [
-    "/home/work/a.log",
-    "/home/work/b.log"
+    "/tmp/a.log",
+    "/tmp/b.log"
   ],
   "log_storage": "mysql"
 }

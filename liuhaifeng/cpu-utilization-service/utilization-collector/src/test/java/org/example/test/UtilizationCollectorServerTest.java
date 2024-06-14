@@ -10,11 +10,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 /**
+ * 利用率采集服务测试类
+ *
  * @author liuhaifeng
  * @date 2024/06/07/19:50
  */
 @SpringBootTest
-public class CollectorServerTest {
+public class UtilizationCollectorServerTest {
 
     @Autowired
     private UtilizationClient utilizationClient;
@@ -24,5 +26,4 @@ public class CollectorServerTest {
         Result<List<UtilizationQueryVO>> cpuUtilization = utilizationClient.query("my-computer", null, 1717228800L, 1718106896L);
         System.out.println(cpuUtilization);
     }
-
 }

@@ -1,7 +1,7 @@
 package org.example.task;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.service.CollectorService;
+import org.example.service.UtilizationCollectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 public class CollectorTask {
 
     @Autowired
-    private CollectorService collectorService;
+    private UtilizationCollectorService utilizationCollectorService;
 
     /**
      * 每60秒执行一次
@@ -27,6 +27,6 @@ public class CollectorTask {
     @Scheduled(cron = "0 * * * * ? ")
     public void collectCpuMemInfo() {
         log.info("开始定时采集Cpu和内存利用率,{}", LocalDateTime.now());
-        collectorService.upload();
+        utilizationCollectorService.upload();
     }
 }

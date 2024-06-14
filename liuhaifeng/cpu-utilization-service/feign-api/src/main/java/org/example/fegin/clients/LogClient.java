@@ -17,7 +17,7 @@ import java.util.List;
  * @author liuhaifeng
  * @date 2024/06/05/16:27
  */
-@FeignClient("server")
+@FeignClient(name = "server", contextId = "logClient")
 public interface LogClient {
 
     /**
