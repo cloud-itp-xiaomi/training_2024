@@ -18,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 import java.lang.management.ManagementFactory;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+
 import java.time.Instant;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -84,7 +85,7 @@ public class Collector {
 
         try {
             // 发送POST请求到服务器的API接口
-            ResponseEntity<String> response = restTemplate.exchange("http://localhost:8080/api/metric/upload",
+            ResponseEntity<String> response = restTemplate.exchange("http://172.17.0.4:8080/api/metric/upload",
                     HttpMethod.POST, requestEntity, String.class);
 
             // 记录响应的状态码和内容
@@ -129,4 +130,6 @@ public class Collector {
         BigDecimal bigDecimal = new BigDecimal(doubleValue).setScale(2, RoundingMode.HALF_UP);
         return bigDecimal.doubleValue();
     }
+
+
 }

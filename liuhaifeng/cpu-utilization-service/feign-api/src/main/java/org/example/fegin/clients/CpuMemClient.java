@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 /**
- * fegin的api接口
+ * cpu和内存利用率相关接口
  *
  * @author liuhaifeng
  * @date 2024/05/30/21:12
@@ -21,9 +21,19 @@ import java.util.List;
 @FeignClient("cpuserver")
 public interface CpuMemClient {
 
+    /**
+     * 上传cpu和内存利用率
+     * @param cpuMemInfoDTOList
+     * @return
+     */
     @PostMapping("api/metric/upload")
     Result<Void> upload(@RequestBody List<CpuMemInfoDTO> cpuMemInfoDTOList);
 
+    /**
+     * 查询cpu和内存利用率
+     * @param cpuMemQueryDTO
+     * @return
+     */
     @GetMapping("api/metric/query")
     Result<List<CpuMemQueryVO>> query(CpuMemQueryDTO cpuMemQueryDTO);
 }

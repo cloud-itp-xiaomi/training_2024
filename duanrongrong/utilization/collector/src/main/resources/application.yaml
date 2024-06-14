@@ -1,0 +1,8 @@
+server:
+  port: 8081
+
+param:
+  utilization-url: http://192.168.192.1:8080/api/metric/upload
+  log-url: http://192.168.192.1:8080/api/log/upload
+  cpu-path: /proc/stat
+  memory-path: /proc/meminfo
