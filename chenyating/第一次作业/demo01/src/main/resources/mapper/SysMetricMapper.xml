@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace用于绑定mapper接口-->
+<mapper namespace="com.example.demo01.mapper.DataMapper">
+
+<!--    定义映射关系-->
+    <resultMap id="resultMap" type="com.example.demo01.bean.DataItem">
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createId" column="create_id"/>
+        <result property="endpoint" column="endpoint"/>
+        <result property="timestamp" column="timestamp"/>
+        <result property="metricName" column="metric_name"/>
+        <result property="percentValue" column="percent_value"/>
+        <result property="step" column="step"/>
+    </resultMap>
+
+<!--    它列出了查询系统指标所需的一组字段-->
+    <sql id="sysMetricSql">
+        endpoint, metric_name, `timestamp`, percent_value, step,
+        create_id, create_time, update_time, is_deleted
+    </sql>
+
+    <!--id用于绑定mapper接口方法，resultType对应返回值(要写完整包名)-->
+    <insert id="insert" parameterType="com.example.demo01.bean.DataItem">
+        insert into sys_metric (endpoint, metric_name, percent_value,
+                                step, timestamp, create_id)
+        values (#{endpoint,jdbcType=VARCHAR}, #{metricName,jdbcType=VARCHAR},
+                #{percentValue,jdbcType=DECIMAL}, #{step,jdbcType=INTEGER},
+                #{timestamp,jdbcType=BIGINT}, #{createId,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="selectByCondition" resultType="com.example.demo01.bean.MetricVO">
+        select metric_name metric, `timestamp`, avg(percent_value) as value
+        from sys_metric
+        where endpoint = #{endpoint}
+        <if test="metric !=null and metric!=''">
+            and metric_name = #{metric}
+        </if>
+        and `timestamp` <![CDATA[ >= ]]> #{startTime}
+        and `timestamp` <![CDATA[ <= ]]> #{endTime}
+        and is_deleted = 0
+        group by metric_name, `timestamp`
+    </select>
+
+    <select id="selectByLimit" resultType="com.example.demo01.bean.MetricVO">
+        select `timestamp`, percent_value as value
+        from sys_metric
+        where metric_name = #{metric}
+          and is_deleted = 0
+        order by `timestamp` desc
+        limit #{limit}
+    </select>
+
+</mapper>
