@@ -1,6 +1,10 @@
 package com.txh.xiaomi2024.work.collector.service.impl;
 
-import com.txh.xiaomi2024.work.collector.job.CollectJob;
+import com.txh.xiaomi2024.work.collector.common.CommonResult;
+import com.txh.xiaomi2024.work.collector.common.JobType;
+import com.txh.xiaomi2024.work.collector.common.ResultCode;
+import com.txh.xiaomi2024.work.collector.job.CollectLogJob;
+import com.txh.xiaomi2024.work.collector.job.CollectUtilizationJob;
 import com.txh.xiaomi2024.work.collector.service.QuartzService;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
@@ -13,28 +17,34 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class QuartzServiceImpl implements QuartzService {
-    private final Scheduler scheduler;
-
-    @Autowired
-    public QuartzServiceImpl() throws SchedulerException {
-        SchedulerFactory schedulerFactory = new StdSchedulerFactory();
-        this.scheduler = schedulerFactory.getScheduler();
-    }
 
     @Override
-    public void startJob(String jobName,
-                         String jobGroup) {
+    public CommonResult<?> startJob(String jobName,
+                                    String jobGroup,
+                                    String triggerName,
+                                    String triggerGroup,
+                                    Scheduler scheduler) {
         // 1.定义jobDetail
-        JobDetail jobDetail = JobBuilder.newJob(CollectJob.class)
-                .usingJobData("jobDetail_collector", "获取主机cpu和内存利用率")
-                .withIdentity(jobName, jobGroup)
-                .build();
+        JobDetail jobDetail = null;
+        if (jobName.equals(JobType.LOG.getJobDetail())) {
+            jobDetail = JobBuilder.newJob(CollectLogJob.class)
+                    .withIdentity(jobName, jobGroup)
+                    .build();
+        } else if (jobName.equals(JobType.UTILIZATION.getJobDetail())) {
+            jobDetail = JobBuilder.newJob(CollectUtilizationJob.class)
+                    .withIdentity(jobName, jobGroup)
+                    .build();
+        }
+
+        // 返回采纳书校验失败
+        if (jobDetail == null) {
+            return CommonResult.validateFailed("jobDetail is null");
+        }
         // 2、构建Trigger实例,每隔1分钟执行一次
         SimpleScheduleBuilder ssb = SimpleScheduleBuilder.repeatMinutelyForever(1);
         // 3、设置misfire策略
         ssb.withMisfireHandlingInstructionIgnoreMisfires();
-        Trigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger_work", "trigger_group")
-                .usingJobData("trigger_work", "这是jobDetail_collector的trigger")
+        Trigger trigger = TriggerBuilder.newTrigger().withIdentity(triggerName, triggerGroup)
                 .startNow()//立即生效
                 .withSchedule(ssb)//调度
                 .build();
@@ -46,49 +56,65 @@ public class QuartzServiceImpl implements QuartzService {
                     trigger);
             scheduler.start();
         } catch (SchedulerException e) {
-            throw new RuntimeException(e);
+            return CommonResult.failed("scheduler error");
         }
+        return CommonResult.success("start job success");
     }
 
     @Override
-    public void pauseJob(String jobName,
-                         String jobGroup) {
+    public CommonResult<?> pauseJob(String jobName,
+                         String jobGroup,
+                         Scheduler scheduler) {
+        if (!jobName.equals(JobType.LOG.getJobDetail()) && !jobName.equals(JobType.UTILIZATION.getJobDetail())) {
+            return CommonResult.validateFailed("jobName not match");
+        }
         // 通过JobName以及JobGroup获得JobKey
         JobKey jobKey = JobKey.jobKey(
                 jobName,
                 jobGroup);
         try {
             scheduler.pauseJob(jobKey);
+            return CommonResult.success("pause job success");
         } catch (SchedulerException e) {
-            throw new RuntimeException(e);
+            return CommonResult.failed("pause job error");
         }
     }
 
     @Override
-    public void resumeJob(String jobName,
-                          String jobGroup) {
+    public CommonResult<?> resumeJob(String jobName,
+                          String jobGroup,
+                          Scheduler scheduler) {
+        if (!jobName.equals(JobType.LOG.getJobDetail()) && !jobName.equals(JobType.UTILIZATION.getJobDetail())) {
+            return CommonResult.validateFailed("jobName not match");
+        }
         // 通过JobName以及JobGroup获得JobKey
         JobKey jobKey = JobKey.jobKey(
                 jobName,
                 jobGroup);
         try {
             scheduler.resumeJob(jobKey);
+            return CommonResult.success("resume job success");
         } catch (SchedulerException e) {
-            throw new RuntimeException(e);
+            return CommonResult.failed("resume job error");
         }
     }
 
     @Override
-    public void deleteJob(String jobName,
-                          String jobGroup) {
-        // 通过JobName以及JobGroup获得JobKey
+    public CommonResult<?> deleteJob(String jobName,
+                          String jobGroup,
+                          Scheduler scheduler) {
+        if (!jobName.equals(JobType.LOG.getJobDetail()) && !jobName.equals(JobType.UTILIZATION.getJobDetail())) {
+            return CommonResult.validateFailed("jobName not match");
+        }
+            // 通过JobName以及JobGroup获得JobKey
         JobKey jobKey = JobKey.jobKey(
                 jobName,
                 jobGroup);
         try {
             scheduler.deleteJob(jobKey);
+            return CommonResult.success("delete job success");
         } catch (SchedulerException e) {
-            throw new RuntimeException(e);
+            return CommonResult.failed("delete job error");
         }
     }
 }
