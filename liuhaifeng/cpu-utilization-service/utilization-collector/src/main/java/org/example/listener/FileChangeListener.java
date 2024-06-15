@@ -53,7 +53,7 @@ public class FileChangeListener extends FileAlterationListenerAdaptor {
         List<String> strList = new ArrayList<>();
         try {
             while (randomAccessFile.getFilePointer() != randomAccessFile.length()) {
-                String str = randomAccessFile.readLine();
+                String str = new String(randomAccessFile.readLine().getBytes("ISO-8859-1"), "UTF-8");
                 // 过滤掉行尾的空字符
                 if (!StringUtils.isEmpty(str)) {
                     strList.add(str);
