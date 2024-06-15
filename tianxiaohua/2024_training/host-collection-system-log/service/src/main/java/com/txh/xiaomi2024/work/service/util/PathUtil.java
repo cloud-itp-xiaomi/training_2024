@@ -1,5 +1,6 @@
 package com.txh.xiaomi2024.work.service.util;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 public class PathUtil {
     /**
      * 连接root和levels生成文件路径
@@ -28,5 +29,25 @@ public class PathUtil {
             }
         }
         return path.toString();
+    }
+
+    /**
+     * 判断是否是有效的路径
+     *
+     * @param input 输入字符串
+     * @return 是否是路径
+     */
+    public static boolean isValidFilePath(String input) {
+        // 定义正则表达式模式
+        String unixPattern = "^/.*";
+
+        // 编译正则表达式模式
+        Pattern unixPatternRegex = Pattern.compile(unixPattern);
+
+        // 使用 Matcher 执行匹配
+        Matcher unixMatcher = unixPatternRegex.matcher(input);
+
+        // 返回匹配结果
+        return unixMatcher.matches();
     }
 }

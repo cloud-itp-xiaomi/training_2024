@@ -1,13 +1,13 @@
 package com.txh.xiaomi2024.work.service.service.impl;
 
-import com.txh.xiaomi2024.work.service.bean.Log;
 import com.txh.xiaomi2024.work.service.constant.ESConst;
 import com.txh.xiaomi2024.work.service.dao.ESDao;
 import com.txh.xiaomi2024.work.service.dao.RedisDao;
 import com.txh.xiaomi2024.work.service.domian.po.LogDocument;
 import com.txh.xiaomi2024.work.service.service.LogQueryService;
 import com.txh.xiaomi2024.work.service.service.LogUploadESService;
-import com.txh.xiaomi2024.work.service.util.IdGeneratorUtils;
+import com.txh.xiaomi2024.work.service.util.IdGeneratorUtil;
+import io.lettuce.core.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,7 +36,7 @@ public class LogUploadES implements LogUploadESService {
                          List<String> logs,
                          long lastUpdateTime) {
         LogDocument logDocument = LogDocument.builder()
-                .id(IdGeneratorUtils.standAloneSnowFlake())
+                .id(IdGeneratorUtil.standAloneSnowFlake())
                 .hostname(hostname)
                 .file(file)
                 .logs(logs)
@@ -49,8 +49,13 @@ public class LogUploadES implements LogUploadESService {
         if (document != null) {
             logDocument.setId(document.getId());
             // 同时在redis删除旧数据
-            redisDao.lRemove("log_es", 1, document);
-            redisDao.lPush("log_es", logDocument);
+            try {
+                redisDao.lRemove("log_es", 1, document);
+                redisDao.lPush("log_es", logDocument);
+            } catch (RedisCommandTimeoutException | RedisConnectionException | RedisCommandExecutionException |
+                     RedisCommandInterruptedException e) {
+                throw new RedisException(e);
+            }
         } else { // 否则就将新数据存入redis
             setLatestInRedis("log_es", logDocument);
         }
@@ -65,18 +70,24 @@ public class LogUploadES implements LogUploadESService {
                                   String file) {
         LogDocument logResult = null;
         // 先去redis缓存查询
-        List<Object> list = redisDao.lRange(
-                "log_es",
-                0,
-                redisDao.lSize("log_es"));
-        for (Object o : list) {
-            LogDocument document = (LogDocument) o;
-            if (hostname.equals(document.getHostname())
-                    && file.equals(document.getFile())) {
-                logResult = document;
-                break;
+        try {
+            List<Object> list = redisDao.lRange(
+                    "log_es",
+                    0,
+                    redisDao.lSize("log_es"));
+            for (Object o : list) {
+                LogDocument document = (LogDocument) o;
+                if (hostname.equals(document.getHostname())
+                        && file.equals(document.getFile())) {
+                    logResult = document;
+                    break;
+                }
             }
+        } catch (RedisCommandTimeoutException | RedisConnectionException | RedisCommandExecutionException |
+                 RedisCommandInterruptedException e) {
+            throw new RedisException(e);
         }
+
         // 再去es查询
         if (logResult == null) {
             LogDocument logDocument = logQueryService.getLogFromES(
@@ -98,13 +109,12 @@ public class LogUploadES implements LogUploadESService {
      */
     private void setLatestInRedis(String key,
                                   LogDocument logDocument) {
-        redisDao.lPush(
-                key,
-                logDocument);
-        long size = redisDao.lSize(key);
-        // 如果redis中存储的数据量大于10，就删除最开始插入的数据
-        if (size > 10) {
-            redisDao.leftPop(key);
+        try {
+            redisDao.lPush(key, logDocument);
+            redisDao.trim(key, -10,-1);
+        } catch (RedisCommandTimeoutException | RedisConnectionException | RedisCommandExecutionException |
+                 RedisCommandInterruptedException e) {
+            throw new RedisException(e);
         }
     }
 
@@ -113,13 +123,8 @@ public class LogUploadES implements LogUploadESService {
      * @param document
      */
     private void logArchive(LogDocument document) {
-        // 没有 id 就自动生成
-        String archiveId;
-        if (document.getId() != null) {
-            archiveId = String.valueOf(document.getId());
-        } else {
-            archiveId = String.valueOf(IdGeneratorUtils.standAloneSnowFlake());
-        }
+        // 判断id是否存在以及封装在document.getId()内部
+        String archiveId = String.valueOf(document.getId());
 
         try {
             if (esDao.existsById(ESConst.Index.LOG.value(), archiveId)) {

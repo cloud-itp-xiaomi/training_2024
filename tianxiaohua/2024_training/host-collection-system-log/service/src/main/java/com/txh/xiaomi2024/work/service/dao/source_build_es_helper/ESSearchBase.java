@@ -1,5 +1,7 @@
 package com.txh.xiaomi2024.work.service.dao.source_build_es_helper;
 
+import com.txh.xiaomi2024.work.service.dao.source_build_es_helper.strategy.SourceBuildStrategy;
+import com.txh.xiaomi2024.work.service.dao.source_build_es_helper.strategy.SourceBuildStrategyFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
@@ -80,16 +82,10 @@ public class ESSearchBase {
             if (content.getSize() < size) {
                 size = content.getSize(); // 找最小的一个
             }
-            if (content.getType().equals(SourceBuildParaType.Query) && content.getQueryBuilder() != null) {
-                sourceBuilder.query(content.getQueryBuilder());
-            } else if (content.getType().equals(SourceBuildParaType.Agg) && content.getAggregationBuilder() != null) {
-                sourceBuilder.aggregation(content.getAggregationBuilder());
-            } else if (content.getType().equals(SourceBuildParaType.Sort) && content.getSortBuilder() != null) {
-                sourceBuilder.sort(content.getSortBuilder());
-            } else if (content.getType().equals(SourceBuildParaType.PagingQuery) && content.getPagingQueryInfo() != null) {
-                isExistPage = true;
-                sourceBuilder.from(content.getPagingQueryInfo().getFrom());
-                sourceBuilder.size(content.getPagingQueryInfo().getSize());
+            //策略模式改进
+            SourceBuildStrategy strategy = SourceBuildStrategyFactory.createStrategy(content.getType());
+            if (strategy != null) {
+                strategy.apply(content, sourceBuilder);
             } else {
                 log.error("缺少 builder 或 SourceBuilder 无法匹配 QueryBuilder 、 AggregationBuilder 、 SortBuilder.");
                 return null;

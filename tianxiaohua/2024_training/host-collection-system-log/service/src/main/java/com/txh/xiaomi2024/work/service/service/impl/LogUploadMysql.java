@@ -1,10 +1,15 @@
 package com.txh.xiaomi2024.work.service.service.impl;
 
+import com.mysql.cj.jdbc.exceptions.MySQLQueryInterruptedException;
+import com.mysql.cj.jdbc.exceptions.MySQLStatementCancelledException;
+import com.mysql.cj.jdbc.exceptions.MySQLTransactionRollbackException;
 import com.txh.xiaomi2024.work.service.bean.Log;
 import com.txh.xiaomi2024.work.service.dao.LogMysqlMapper;
 import com.txh.xiaomi2024.work.service.dao.RedisDao;
 import com.txh.xiaomi2024.work.service.service.LogQueryService;
 import com.txh.xiaomi2024.work.service.service.LogUploadMysqlService;
+import io.lettuce.core.*;
+import org.mybatis.spring.MyBatisSystemException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,27 +50,37 @@ public class LogUploadMysql implements LogUploadMysqlService {
                 lastUpdateTime);
         // 若存在就直接更新
         if (logFile != null) {
-            logMysqlMapper.updateLog(log1);
+            try {
+                logMysqlMapper.updateLog(log1);
+            } catch (MyBatisSystemException e) {
+                throw new MyBatisSystemException(e);
+            }
             // 同时在redis删除旧数据,新增新数据
-            redisDao.lRemove(
-                    "log",
-                    1,
-                    logFile);
-            redisDao.lPush(
-                    "log",
-                    log1);
+            try {
+                redisDao.lRemove(
+                        "log",
+                        1,
+                        logFile);
+                redisDao.lPush(
+                        "log",
+                        log1);
+            } catch (RedisCommandTimeoutException | RedisConnectionException | RedisCommandExecutionException |
+                     RedisCommandInterruptedException e) {
+                throw new RedisException(e);
+            }
         }
         // 否则新增
         else {
-            logMysqlMapper.insertLog(log1);
-            // 获取新添加的数据，存储到redis
-            Log log2 = logMysqlMapper.queryLog(
-                    hostname,
-                    file);
+            try {
+                logMysqlMapper.insertLog(log1);
+            } catch (MyBatisSystemException e) {
+                throw new MyBatisSystemException(e);
+            }
+
             // 将最新的数据存储到redis
             setLatestInRedis(
                     "log",
-                    log2);
+                    log1);
         }
 
         return "上报数据并完成存储！";
@@ -76,27 +91,37 @@ public class LogUploadMysql implements LogUploadMysqlService {
                                   String file) {
         Log logResult = null;
         // 先去redis缓存查询
-        List<Object> list = redisDao.lRange(
-                "log",
-                0,
-                redisDao.lSize("log"));
-        for (Object o : list) {
-            Log log = (Log) o;
-            if (hostname.equals(log.getHostname())
-                    && file.equals(log.getFile())) {
-                logResult = log;
-                break;
+        try {
+            List<Object> list = redisDao.lRange(
+                    "log",
+                    0,
+                    redisDao.lSize("log"));
+            for (Object o : list) {
+                Log log = (Log) o;
+                if (hostname.equals(log.getHostname())
+                        && file.equals(log.getFile())) {
+                    logResult = log;
+                    break;
+                }
             }
+        } catch (RedisCommandTimeoutException | RedisConnectionException | RedisCommandExecutionException |
+                 RedisCommandInterruptedException e) {
+            throw new RedisException(e);
         }
+
         // 再去mysql查询
         if (logResult == null) {
-            Log log = logMysqlMapper.queryLog(
-                    hostname,
-                    file);
-            if (log == null) {
-                return 0;
+            try {
+                Log log = logMysqlMapper.queryLog(
+                        hostname,
+                        file);
+                if (log == null) {
+                    return 0;
+                }
+                logResult = log;
+            } catch (MyBatisSystemException e) {
+                throw new MyBatisSystemException(e);
             }
-            logResult = log;
         }
 
         return logResult.getLast_update_time();
@@ -109,13 +134,12 @@ public class LogUploadMysql implements LogUploadMysqlService {
      */
     private void setLatestInRedis(String key,
                                   Log log) {
-        redisDao.lPush(
-                key,
-                log);
-        long size = redisDao.lSize(key);
-        // 如果redis中存储的数据量大于10，就删除最开始插入的数据
-        if (size > 10) {
-            redisDao.leftPop(key);
+        try {
+            redisDao.lPush(key, log);
+            redisDao.trim(key, -10,-1);
+        } catch (RedisCommandTimeoutException | RedisConnectionException | RedisCommandExecutionException |
+                 RedisCommandInterruptedException e) {
+            throw new RedisException(e);
         }
     }
 }

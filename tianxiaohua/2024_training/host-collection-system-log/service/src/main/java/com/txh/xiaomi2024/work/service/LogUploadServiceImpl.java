@@ -3,8 +3,10 @@ package com.txh.xiaomi2024.work.service;
 import com.txh.xiaomi2024.work.LogUploadService;
 import com.txh.xiaomi2024.work.service.service.LogUploadESService;
 import com.txh.xiaomi2024.work.service.service.LogUploadMysqlService;
+import com.txh.xiaomi2024.work.service.util.PathUtil;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 @DubboService// 通过这个配置可以基于 Spring Boot 去发布 Dubbo 服务
@@ -25,6 +27,13 @@ public class LogUploadServiceImpl implements LogUploadService {
                          List<String> logs,
                          String logStorage,
                          long lastUpdateTime) {
+        // 参数校验
+        if (StringUtils.isEmpty(hostname)
+                || StringUtils.isEmpty(file)
+                || !PathUtil.isValidFilePath(file)
+                || lastUpdateTime < 0) {
+            throw new IllegalArgumentException("参数校验失败：参数不能为空且 file为有效的路径、时间戳不能小于0");
+        }
         switch (logStorage) {
             case "mysql":
                 return logUploadMysql.upload(
@@ -47,6 +56,12 @@ public class LogUploadServiceImpl implements LogUploadService {
     public long oldLogFileUpdateTime(String hostname,
                                      String file,
                                      String logStorage) {
+        // 参数校验
+        if (StringUtils.isEmpty(hostname)
+                || StringUtils.isEmpty(file)
+                || !PathUtil.isValidFilePath(file)) {
+            throw new IllegalArgumentException("参数校验失败：参数不能为空且 file为有效的路径");
+        }
         switch (logStorage) {
             case "mysql":
                 return logUploadMysql.getLastUpdateTime(

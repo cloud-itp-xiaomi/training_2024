@@ -6,7 +6,7 @@ import org.apache.commons.lang3.SystemUtils;
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
 
-public class IdGeneratorUtils {
+public class IdGeneratorUtil {
 
     private static final SnowFlake standAloneSnowFlake = new SnowFlake(0L, 0L);
     private static final SnowFlake distributeSnowFlake = new SnowFlake(getWorkId(), getDataCenterId());

@@ -34,6 +34,25 @@ import java.time.Duration;
  */
 @Component
 public class BaseRedisConfig {
+    private static final Jackson2JsonRedisSerializer<Object> JSON_SERIALIZER = createJsonRedisSerializer();
+
+
+    private static Jackson2JsonRedisSerializer<Object> createJsonRedisSerializer() {
+        // 创建JSON序列化器
+        Jackson2JsonRedisSerializer<Object> serializer = new Jackson2JsonRedisSerializer<>(Object.class);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setVisibility(
+                PropertyAccessor.ALL,
+                JsonAutoDetect.Visibility.ANY);
+        // 必须设置，否则无法将JSON转化为对象，会转化成Map类型
+        objectMapper.activateDefaultTyping(
+                LaissezFaireSubTypeValidator.instance,
+                ObjectMapper.DefaultTyping.NON_FINAL);
+        serializer.setObjectMapper(objectMapper);
+        return serializer;
+    }
+
+
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisSerializer<Object> serializer = redisSerializer();
@@ -47,20 +66,14 @@ public class BaseRedisConfig {
         return redisTemplate;
     }
 
+    /**
+     * JSON_SERIALIZER静态实例，并在 createJsonRedisSerializer() 方法中初始化了 Jackson2JsonRedisSerializer
+     * 每次调用 redisSerializer() 方法时，都返回该静态实例，确保只创建一次 Jackson2JsonRedisSerializer 对象，并实现了对象的单例模式
+     * @return
+     */
     @Bean
     public RedisSerializer<Object> redisSerializer() {
-        // 创建JSON序列化器
-        Jackson2JsonRedisSerializer<Object> serializer = new Jackson2JsonRedisSerializer<>(Object.class);
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.setVisibility(
-                PropertyAccessor.ALL,
-                JsonAutoDetect.Visibility.ANY);
-        // 必须设置，否则无法将JSON转化为对象，会转化成Map类型
-        objectMapper.activateDefaultTyping(
-                LaissezFaireSubTypeValidator.instance,
-                ObjectMapper.DefaultTyping.NON_FINAL);
-        serializer.setObjectMapper(objectMapper);
-        return serializer;
+        return JSON_SERIALIZER;
     }
 
     @Bean

@@ -9,23 +9,6 @@ import java.util.List;
 import java.util.Map;
 public class BeanMapUtil {
     /**
-     * 对象转Map
-     */
-    public static Map<String, Object> beanToMap(Object object) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        Field[] fields = object.getClass().getDeclaredFields();
-        for (Field field : fields) {
-            field.setAccessible(true);
-            try {
-                map.put(field.getName(), field.get(object));
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-        }
-        return map;
-    }
-
-    /**
      * map转对象
      */
     public static <T> T mapToBean(Map<String, Object> map,
@@ -62,26 +45,5 @@ public class BeanMapUtil {
         }
         return object;
 
-    }
-
-    public static List<Map<String, Object>> beansToMaps(List<Object> beanList) {
-        List<Map<String, Object>> list = new ArrayList<>();
-        if (beanList != null
-                && beanList.size() > 0) {
-            Map<String, Object> map = null;
-            for (Object t : beanList) {
-                list.add(beanToMap(t));
-            }
-        }
-        return list;
-    }
-
-    public static <T> List<T> mapsToBeans(List<Map<String, Object>> maps,
-                                          Class<T> beanClass) {
-        ArrayList<T> objects = new ArrayList<>();
-        for (Map<String, Object> map : maps) {
-            objects.add(mapToBean(map, beanClass));
-        }
-        return objects;
     }
 }
