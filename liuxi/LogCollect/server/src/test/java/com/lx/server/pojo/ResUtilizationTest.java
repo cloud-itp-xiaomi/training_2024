@@ -14,5 +14,6 @@ class ResUtilizationTest {
         utilization.setStep(60L);
         utilization.setValue(81.5);
         resUtilization.addValue(utilization);
+
     }
 }
