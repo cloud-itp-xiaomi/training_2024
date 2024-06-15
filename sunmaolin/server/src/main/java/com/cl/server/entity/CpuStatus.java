@@ -4,15 +4,10 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-/**
- * (CpuStatus)实体类
- *
- * @author tressures
- * @date 2024-05-26 17:05:59
- */
+
 @Data
 public class CpuStatus implements Serializable {
-    private static final long serialVersionUID = 271764723178635140L;
+    private static final long serialVersionUID = 271764723178638140L;
     
     private Integer id;
     
@@ -25,7 +20,6 @@ public class CpuStatus implements Serializable {
     private Long step;
     
     private Double value;
-
 
 }
 

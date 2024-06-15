@@ -1,0 +1,39 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: server-service
+  cloud:
+    nacos:
+      server-addr: 192.168.80.128:8848
+  datasource:
+    url: jdbc:mysql://192.168.80.128:3306/mi
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  redis:
+    host: 192.168.80.128
+    port: 6379
+    password: 123456
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 1
+        time-between-eviction-runs: 10s
+  elasticsearch:
+    uris: http://192.168.80.128:9200
+
+
+mybatis-plus:
+  type-aliases-package: com.hw.server.domain     # 别名扫描包
+
+#easy-es:
+#  enable: true
+#  address: 192.168.80.128:9200
+#  banner: false
+
+logging:
+  level:
+    com.hw.server: debug
