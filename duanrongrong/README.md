@@ -7,13 +7,13 @@
 
 ## 架构
 
-<img src="C:\Users\91475\AppData\Roaming\Typora\typora-user-images\image-20240614115556315.png" alt="image-20240614115556315" style="zoom:50%;" />
+<img src="https://github.com/Rshmly/training_2024/blob/main/duanrongrong/pic/mi-1-framework.png?raw=true" style="zoom:67%;" />
 
-<img src="C:\Users\91475\AppData\Roaming\Typora\typora-user-images\image-20240614115609675.png" alt="image-20240614115609675" style="zoom:50%;" />
+<img src="https://github.com/Rshmly/training_2024/blob/main/duanrongrong/pic/mi-2-framework.png?raw=true" style="zoom:67%;" />
 
 ## 目录结构
 
-<img src="C:\Users\91475\AppData\Roaming\Typora\typora-user-images\image-20240614115815759.png" alt="image-20240614115815759" style="zoom:67%;" />
+<img src="https://github.com/Rshmly/training_2024/blob/main/duanrongrong/pic/dir.png?raw=true" style="zoom:67%;" />
 
 - collector为采集器，有日志采集和利用率采集。
 - mi-1是server端。
@@ -23,7 +23,7 @@
 
 1. 进入collector文件夹，运行 docker build -t collector . 来构建镜像。（DockerFile已经写好了，jar包在jar目录下。）
 
-<img src="C:\Users\91475\AppData\Roaming\Typora\typora-user-images\image-20240614120011220.png" alt="image-20240614120011220" style="zoom:67%;" />
+<img src="https://github.com/Rshmly/training_2024/blob/main/duanrongrong/pic/dir-collector.png?raw=true" style="zoom:67%;" />
 
 2. 进入vue文件夹，运行 npm run dev 来启动前端。
 
@@ -31,13 +31,13 @@
 
 全部运行以后，从前端操作，启动容器开启收集，可以实时查看信息，更换存储方式。
 
-![30e282f5ce5593a41b9423334a43997](G:\wx_file\WeChat Files\wxid_nc1nv9xzcxja22\FileStorage\Temp\30e282f5ce5593a41b9423334a43997.png)
+<img src="https://github.com/Rshmly/training_2024/blob/main/duanrongrong/pic/vue.png?raw=true" style="zoom:67%;" />
 
 ## 实现原理
 
 ### collector
 
-<img src="C:\Users\91475\AppData\Roaming\Typora\typora-user-images\image-20240614120604947.png" alt="image-20240614120604947" style="zoom:67%;" />
+<img src="https://github.com/Rshmly/training_2024/blob/main/duanrongrong/pic/dir-code-collector.png?raw=true" style="zoom:67%;" />
 
 分成三部分：
 
@@ -173,7 +173,7 @@ public Float getMemUtilization() throws IOException {
 
 server主要是提供接口给collector来收集利用率和日志进行存储，以及提供给前端查询接口的工作，目录结构如下：
 
-<img src="C:\Users\91475\AppData\Roaming\Typora\typora-user-images\image-20240614121227404.png" alt="image-20240614121227404" style="zoom:67%;" />
+<img src="https://github.com/Rshmly/training_2024/blob/main/duanrongrong/pic/dir-code-server.png?raw=true" style="zoom:67%;" />
 
 ### 存储方式
 
