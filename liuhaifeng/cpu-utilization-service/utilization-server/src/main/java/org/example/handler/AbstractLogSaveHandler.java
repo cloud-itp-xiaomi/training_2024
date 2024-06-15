@@ -1,6 +1,8 @@
 package org.example.handler;
 
-import org.example.pojo.entity.Log;
+import org.example.fegin.pojo.dto.LogQueryDTO;
+import org.example.fegin.pojo.dto.LogUploadDTO;
+import org.example.fegin.pojo.vo.LogQueryVO;
 
 import java.util.List;
 
@@ -15,17 +17,15 @@ public interface AbstractLogSaveHandler {
     /**
      * 日志上传
      *
-     * @param logsList
+     * @param logUploadDTOList
      */
-    void upload(List<Log> logsList);
+    void save(List<LogUploadDTO> logUploadDTOList);
 
     /**
      * 日志查询
      *
-     * @param endpointId
-     * @param filePathId
-     * @param deleted
+     * @param logQueryDTO
      * @return
      */
-    List<Log> query(Integer endpointId, Integer filePathId, Integer deleted);
+    LogQueryVO query(LogQueryDTO logQueryDTO);
 }

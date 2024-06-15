@@ -1,7 +1,7 @@
 {
   "files": [
-    "/tmp/a.log",
-    "/tmp/b.log"
+    "C:/Users/Lenovo/Desktop/a.log",
+    "C:/Users/Lenovo/Desktop/b.log"
   ],
-  "log_storage": "mysql"
+  "log_storage": "local_file"
 }

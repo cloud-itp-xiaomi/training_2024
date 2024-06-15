@@ -50,19 +50,19 @@ public class FileChangeListener extends FileAlterationListenerAdaptor {
     public void onFileChange(File file) {
         log.info("修改文件：{}", file.getAbsolutePath());
         // 读取新增内容
-        List<String> log = new ArrayList<>();
+        List<String> strList = new ArrayList<>();
         try {
             while (randomAccessFile.getFilePointer() != randomAccessFile.length()) {
                 String str = randomAccessFile.readLine();
                 // 过滤掉行尾的空字符
                 if (!StringUtils.isEmpty(str)) {
-                    log.add(str);
+                    strList.add(str);
                 }
             }
+            log.info("新增日志内容：{}", strList);
             // 文件改变时，重新定位到文件末尾
             randomAccessFile.seek(randomAccessFile.length());
-            // TODO: 2024-06-14 将日志上传
-            uploadLog(file.getAbsolutePath(), log);
+            uploadLog(file.getAbsolutePath(), strList);
         } catch (IOException e) {
             throw new BaseException("读取日志文件失败");
         }

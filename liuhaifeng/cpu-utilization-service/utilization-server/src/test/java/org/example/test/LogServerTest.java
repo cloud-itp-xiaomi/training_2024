@@ -7,6 +7,7 @@ import org.example.fegin.pojo.dto.LogQueryDTO;
 import org.example.fegin.pojo.dto.LogUploadDTO;
 import org.example.fegin.pojo.vo.LogQueryVO;
 import org.example.pojo.entity.LogConfigEntity;
+import org.example.service.LogService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,6 +26,9 @@ public class LogServerTest {
 
     @Autowired
     private LogController logController;
+
+    @Autowired
+    private LogService logService;
 
     @Test
     public void parseJSONConfigTest() {
@@ -58,7 +62,16 @@ public class LogServerTest {
     }
 
     @Test
-    public void logQueryTest() {
+    public void logQueryTest1() {
+        LogQueryDTO logQueryDTO = new LogQueryDTO();
+        logQueryDTO.setHostname("my-computer");
+        logQueryDTO.setFile("/home/work/a.log");
+        Result<LogQueryVO> query = logController.query(logQueryDTO);
+        System.out.println(query);
+    }
+
+    @Test
+    public void logQueryTest2() {
         LogQueryDTO logQueryDTO = new LogQueryDTO();
         logQueryDTO.setHostname("my-computer");
         logQueryDTO.setFile("/home/work/b.log");
