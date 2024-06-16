@@ -22,7 +22,7 @@ public class Metric {
 
     @Override
     public String toString() {
-        return "Log{" +
+        return "Metric{" +
                 "id=" + id + '\'' +
                 ", metric='" + metric + '\'' +
                 ", endpoint=' "+endpoint+'\''+
