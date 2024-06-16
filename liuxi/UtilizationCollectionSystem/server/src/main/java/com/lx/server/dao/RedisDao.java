@@ -10,7 +10,7 @@ import java.util.*;
 public class RedisDao {
 
     @Resource(name = "redisTemplate")
-    private ValueOperations<String, Object> operations;
+    private ValueOperations<String, Object> operations ;
     private static final int MAX_KEYS = 10; //redis中只存储最近的十条数据
 
     public void addRedis(Utilization utilization) {
