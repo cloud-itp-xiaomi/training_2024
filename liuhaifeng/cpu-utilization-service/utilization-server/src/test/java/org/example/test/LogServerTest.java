@@ -1,13 +1,13 @@
 package org.example.test;
 
 import org.example.common.utils.JSONParseUtil;
+import org.example.config.nacos.NacosConfigLocalCatch;
 import org.example.controller.LogController;
 import org.example.fegin.pojo.Result;
 import org.example.fegin.pojo.dto.LogQueryDTO;
 import org.example.fegin.pojo.dto.LogUploadDTO;
 import org.example.fegin.pojo.vo.LogQueryVO;
 import org.example.pojo.entity.LogConfigEntity;
-import org.example.service.LogService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,7 +28,7 @@ public class LogServerTest {
     private LogController logController;
 
     @Autowired
-    private LogService logService;
+    private NacosConfigLocalCatch nacosConfigLocalCatch;
 
     @Test
     public void parseJSONConfigTest() {
@@ -77,5 +77,11 @@ public class LogServerTest {
         logQueryDTO.setFile("/home/work/b.log");
         Result<LogQueryVO> query = logController.query(logQueryDTO);
         System.out.println(query);
+    }
+
+    @Test
+    public void NacosConfigTest() {
+        LogConfigEntity logConfigEntity = nacosConfigLocalCatch.get("logConfig", LogConfigEntity.class);
+        System.out.println(logConfigEntity);
     }
 }

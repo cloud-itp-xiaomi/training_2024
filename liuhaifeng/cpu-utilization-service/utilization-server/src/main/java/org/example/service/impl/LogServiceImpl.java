@@ -26,12 +26,13 @@ import java.util.List;
 @Service
 public class LogServiceImpl implements LogService {
 
-    @Value("${utilization-server.config.file.path}")
-    private String path;
+    @Value("${utilization-server.config.file-path}")
+    private String configFilePath;
 
     @Override
     public void upload(List<LogUploadDTO> logUploadDTOList) {
         LogSaveTypeEnum saveType = getLogSaveTypeEnum();
+        log.info("日志上传类型为：{}", saveType);
         AbstractLogSaveHandler handler = LogSaveHandlerFactory.getHandler(saveType);
         handler.save(logUploadDTOList);
     }
@@ -39,12 +40,13 @@ public class LogServiceImpl implements LogService {
     @Override
     public LogQueryVO query(LogQueryDTO logQueryDTO) {
         LogSaveTypeEnum saveType = getLogSaveTypeEnum();
+        log.info("日志查询类型为：{}", saveType);
         AbstractLogSaveHandler handler = LogSaveHandlerFactory.getHandler(saveType);
         return handler.query(logQueryDTO);
     }
 
     private LogSaveTypeEnum getLogSaveTypeEnum() {
-        LogConfigEntity logConfigEntity = JSONParseUtil.parseJSONFile(path);
+        LogConfigEntity logConfigEntity = JSONParseUtil.parseJSONFile(configFilePath);
         if (logConfigEntity == null) {
             throw new BaseException("配置文件解析失败");
         }

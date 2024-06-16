@@ -6,6 +6,7 @@ import org.example.fegin.pojo.dto.LogQueryDTO;
 import org.example.fegin.pojo.dto.LogUploadDTO;
 import org.example.fegin.pojo.vo.LogQueryVO;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -20,9 +21,10 @@ import java.util.List;
  * @date 2024/06/15/1:09
  */
 @Component
+@RefreshScope
 public class LocalFileLogSaveHandle implements AbstractLogSaveHandler {
 
-    @Value("${utilization-server.local.file.path}")
+    @Value("${utilization-server.local.file-path}")
     private String localFilePath;
 
     @PostConstruct
@@ -35,7 +37,6 @@ public class LocalFileLogSaveHandle implements AbstractLogSaveHandler {
         for (LogUploadDTO logUploadDTO : logUploadDTOList) {
             for (String logContent : logUploadDTO.getLogs()) {
                 String str = logUploadDTO.getHostname() + " " + logUploadDTO.getFile() + "\n" + logContent + "\n";
-                System.out.print(str);
                 File file = new File(localFilePath);
                 try {
                     if (!file.exists()) {

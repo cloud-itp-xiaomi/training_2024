@@ -29,8 +29,6 @@ logging:
 
 utilization-server:
   config:
-      file:
-        path: config/config.json
+      file-path: config/config.json
   local:
-     file:
-        path: C:/Users/Lenovo/Desktop/local_file.log
+     file-path: C:/Users/Lenovo/Desktop/local_file.log

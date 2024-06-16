@@ -24,5 +24,4 @@ feign:
 
 utilization-collector:
   config:
-      file:
-        path: config/config.json
+      file-path: config/config.json

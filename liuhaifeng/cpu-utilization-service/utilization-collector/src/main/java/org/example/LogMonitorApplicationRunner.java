@@ -25,7 +25,7 @@ import java.util.List;
 @Component
 public class LogMonitorApplicationRunner implements ApplicationRunner {
 
-    @Value("${utilization-collector.config.file.path}")
+    @Value("${utilization-collector.config.file-path}")
     private String configFilePath;
 
     @Autowired
