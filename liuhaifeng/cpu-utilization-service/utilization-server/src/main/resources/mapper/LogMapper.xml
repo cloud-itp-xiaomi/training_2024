@@ -9,4 +9,20 @@
             (#{item.endpointId}, #{item.filePathId}, #{item.logContent}, #{item.createTime}, #{item.updateTime}, #{item.deleted})
         </foreach>
     </insert>
+    <select id="query" resultType="org.example.pojo.entity.Log">
+        select *
+        from log
+        <where>
+            <if test="endpointId != null">
+                and endpoint_id = #{endpointId}
+            </if>
+            <if test="filePathId != null">
+                and file_path_id = #{filePathId}
+            </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
+        </where>
+        order by id desc;
+    </select>
 </mapper>

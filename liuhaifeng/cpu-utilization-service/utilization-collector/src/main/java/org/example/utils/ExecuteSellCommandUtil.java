@@ -31,7 +31,7 @@ public class ExecuteSellCommandUtil {
     public static String getEndpoint() {
         String[] command = {"/bin/sh", "-c", ENDPOINT};
         String endpoint = RuntimeUtil.execForStr(command);
-        return endpoint;
+        return endpoint.trim();
     }
 
     /**

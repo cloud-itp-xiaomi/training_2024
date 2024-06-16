@@ -12,7 +12,9 @@ import org.example.handler.LogSaveHandlerFactory;
 import org.example.pojo.entity.LogConfigEntity;
 import org.example.service.LogService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -24,10 +26,14 @@ import java.util.List;
  */
 @Slf4j
 @Service
+@RefreshScope
 public class LogServiceImpl implements LogService {
 
     @Value("${utilization-server.config.file-path}")
     private String configFilePath;
+
+    @Value("${utilization-server.log-storage}")
+    private String logStorage;
 
     @Override
     public void upload(List<LogUploadDTO> logUploadDTOList) {
@@ -39,6 +45,12 @@ public class LogServiceImpl implements LogService {
 
     @Override
     public LogQueryVO query(LogQueryDTO logQueryDTO) {
+        if (logQueryDTO == null) {
+            throw new BaseException("日志查询参数不能为空");
+        }
+        if (StringUtils.isEmpty(logQueryDTO.getHostname())) {
+            throw new BaseException("主机名不能为空");
+        }
         LogSaveTypeEnum saveType = getLogSaveTypeEnum();
         log.info("日志查询类型为：{}", saveType);
         AbstractLogSaveHandler handler = LogSaveHandlerFactory.getHandler(saveType);
@@ -49,6 +61,10 @@ public class LogServiceImpl implements LogService {
         LogConfigEntity logConfigEntity = JSONParseUtil.parseJSONFile(configFilePath);
         if (logConfigEntity == null) {
             throw new BaseException("配置文件解析失败");
+        }
+        if (!logConfigEntity.getLogStorage().equals(logStorage)) {
+            log.info("日志存储方式更改为：{}", logStorage);
+            logConfigEntity.setLogStorage(logStorage);
         }
         LogSaveTypeEnum saveType = LogSaveTypeEnum.getByValue(logConfigEntity.getLogStorage());
         if (saveType == null) {

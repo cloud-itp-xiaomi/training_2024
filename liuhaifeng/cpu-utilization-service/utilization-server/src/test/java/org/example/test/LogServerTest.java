@@ -1,7 +1,6 @@
 package org.example.test;
 
 import org.example.common.utils.JSONParseUtil;
-import org.example.config.nacos.NacosConfigLocalCatch;
 import org.example.controller.LogController;
 import org.example.fegin.pojo.Result;
 import org.example.fegin.pojo.dto.LogQueryDTO;
@@ -26,9 +25,6 @@ public class LogServerTest {
 
     @Autowired
     private LogController logController;
-
-    @Autowired
-    private NacosConfigLocalCatch nacosConfigLocalCatch;
 
     @Test
     public void parseJSONConfigTest() {
@@ -77,11 +73,5 @@ public class LogServerTest {
         logQueryDTO.setFile("/home/work/b.log");
         Result<LogQueryVO> query = logController.query(logQueryDTO);
         System.out.println(query);
-    }
-
-    @Test
-    public void NacosConfigTest() {
-        LogConfigEntity logConfigEntity = nacosConfigLocalCatch.get("logConfig", LogConfigEntity.class);
-        System.out.println(logConfigEntity);
     }
 }
