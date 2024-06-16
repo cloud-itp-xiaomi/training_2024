@@ -24,7 +24,7 @@ public class CollectorTask {
     /**
      * 每60秒执行一次
      */
-//    @Scheduled(cron = "0 * * * * ? ")
+    @Scheduled(cron = "0 * * * * ? ")
     public void collectCpuMemInfo() {
         log.info("开始定时采集Cpu和内存利用率,{}", LocalDateTime.now());
         utilizationCollectorService.upload();

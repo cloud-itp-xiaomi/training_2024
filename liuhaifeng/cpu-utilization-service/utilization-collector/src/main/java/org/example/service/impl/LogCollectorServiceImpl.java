@@ -26,9 +26,9 @@ public class LogCollectorServiceImpl implements LogCollectorService {
 
     @Override
     public void upload(List<LogUploadDTO> logUploadDTOList) {
-//        String hostname = ExecuteSellCommandUtil.getEndpoint();
+        String hostname = ExecuteSellCommandUtil.getEndpoint();
         for (LogUploadDTO logUploadDTO : logUploadDTOList) {
-            logUploadDTO.setHostname("my-computer");
+            logUploadDTO.setHostname(hostname);
         }
         Result<Void> upload = logClient.upload(logUploadDTOList);
         if (upload.getCode() != 1) {
