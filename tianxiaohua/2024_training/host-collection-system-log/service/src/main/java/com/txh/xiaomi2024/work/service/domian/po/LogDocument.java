@@ -21,4 +21,11 @@ public class LogDocument {
     private String file; // 日志文件
     private List<String> logs; // 日志列表
     private Long last_update_time; // 最后更新时间
+
+    public Long getId() {
+        if (id == null) {
+            id = IdGeneratorUtil.standAloneSnowFlake();
+        }
+        return id;
+    }
 }
