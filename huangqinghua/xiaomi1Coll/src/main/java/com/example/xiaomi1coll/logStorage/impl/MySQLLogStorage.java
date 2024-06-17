@@ -11,7 +11,7 @@ public class MySQLLogStorage implements LogStorageStrategy {
     // MySQL存储
 
     private static final Logger logger = LoggerFactory.getLogger(MySQLLogStorage.class);
-    private static final String MYSQL_LOG_UPLOAD_URL = "http://localhost:8080/api/log/upload/mysql";
+    private static final String MYSQL_LOG_UPLOAD_URL = "http://localhost:8080/api/log/upload/MySQL";
 
     @Override
     public void storeLog(Logs logs) {

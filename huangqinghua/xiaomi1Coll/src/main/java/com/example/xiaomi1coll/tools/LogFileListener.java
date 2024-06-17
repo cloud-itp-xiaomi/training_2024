@@ -30,7 +30,7 @@ public class LogFileListener extends FileAlterationListenerAdaptor {
      *
      * @param file        要监听的文件。
      * @param hostname    主机名。
-     * @param logStorage  日志存储方式（如 "local_file" 或 "mysql"）。
+     * @param logStorage  日志存储方式（"local_file" 或 "mysql"）。
      */
     public LogFileListener(File file, String hostname, String logStorage) {
         this.file = file;
@@ -48,16 +48,19 @@ public class LogFileListener extends FileAlterationListenerAdaptor {
             try {
                 if (file.lastModified() > lastModified) {
                     List<String> newLogs = readNewLines(file, lastLength);
-                    System.out.println(newLogs);
                     Logs logs = new Logs();
                     logs.setHostname(hostname);
-                    logs.setFile(file.getAbsolutePath());
+
+                    // 将文件路径中的反斜杠替换为正斜杠
+                    String normalizedFilePath = file.getAbsolutePath().replace("\\", "/");
+                    logs.setFile(normalizedFilePath);
+
                     logs.setLogs(newLogs);
 
-
                     // 调用上报接口
-                    System.out.println(logs);
-                    // logStorageStrategy.storeLog(logs);
+                    logStorageStrategy.storeLog(logs);
+
+                    // 更新指针
                     lastModified = file.lastModified();
                     lastLength = file.length();
                 }

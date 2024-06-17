@@ -1,7 +1,6 @@
 package com.example.xiaomi1coll.collector;
 
 import com.example.xiaomi1coll.entity.Metric;
-import com.example.xiaomi1coll.tools.HttpTools;
 import com.sun.management.OperatingSystemMXBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

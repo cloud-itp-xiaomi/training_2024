@@ -3,6 +3,6 @@
     "F:/log/a.log",
     "D:/log/b.log"
   ],
-  "log_storage": "local_file"
+  "log_storage": "mysql"
 }
 
