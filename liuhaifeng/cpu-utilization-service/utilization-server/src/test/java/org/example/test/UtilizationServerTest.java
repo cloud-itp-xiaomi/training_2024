@@ -2,6 +2,7 @@ package org.example.test;
 
 import org.example.common.utils.TimeFormatUtil;
 import org.example.controller.UtilizationController;
+import org.example.enums.MetricTypeEnum;
 import org.example.fegin.pojo.Result;
 import org.example.fegin.pojo.dto.UtilizationUploadDTO;
 import org.example.fegin.pojo.vo.UtilizationQueryVO;
@@ -75,7 +76,14 @@ public class UtilizationServerTest {
     }
 
     @Test
-    public void Test() {
-
+    public void metricTypeEnumTest() {
+        MetricTypeEnum cpuUsedPercent = MetricTypeEnum.getByCode(1);
+        MetricTypeEnum memUsedPercent = MetricTypeEnum.getByCode(2);
+        MetricTypeEnum cpuUsedPercent1 = MetricTypeEnum.getByValue("cpu.used.percent");
+        MetricTypeEnum memUsedPercent1 = MetricTypeEnum.getByValue("mem.used.percent");
+        Assertions.assertEquals(MetricTypeEnum.CPU_USED_PERCENT, cpuUsedPercent);
+        Assertions.assertEquals(MetricTypeEnum.CPU_USED_PERCENT, cpuUsedPercent1);
+        Assertions.assertEquals(MetricTypeEnum.MEM_USED_PERCENT, memUsedPercent);
+        Assertions.assertEquals(MetricTypeEnum.MEM_USED_PERCENT, memUsedPercent1);
     }
 }

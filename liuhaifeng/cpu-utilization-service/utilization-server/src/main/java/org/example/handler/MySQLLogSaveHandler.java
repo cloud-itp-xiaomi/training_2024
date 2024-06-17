@@ -28,7 +28,7 @@ import java.util.List;
  * @date 2024/06/09/17:39
  */
 @Component
-public class MysqlLogSaveHandler implements AbstractLogSaveHandler {
+public class MySQLLogSaveHandler implements AbstractLogSaveHandler {
 
     @Autowired
     private LogMapper logMapper;

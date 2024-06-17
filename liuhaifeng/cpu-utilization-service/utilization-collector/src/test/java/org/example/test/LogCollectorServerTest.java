@@ -2,7 +2,6 @@ package org.example.test;
 
 import org.example.LogMonitorApplicationRunner;
 import org.example.pojo.entity.LogConfigEntity;
-import org.example.service.LogCollectorService;
 import org.example.utils.JSONParseUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +17,6 @@ import java.util.List;
  */
 @SpringBootTest
 public class LogCollectorServerTest {
-
-    @Autowired
-    private LogCollectorService logCollectorService;
 
     @Autowired
     private LogMonitorApplicationRunner logMonitorApplicationRunner;
