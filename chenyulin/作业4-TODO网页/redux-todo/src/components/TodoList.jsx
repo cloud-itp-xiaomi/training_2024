@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 
 function TodoList() {
   // 设置输入框内容的状态
-  const [input, setinput] = useState("");
+  const [input, setInput] = useState("");
   // useSelector()用来加载state中的数据
   const todos = useSelector((state) => state.todoList.todos);
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ function TodoList() {
         })
       );
       // 清空输入框
-      setinput("");
+      setInput("");
     }
   };
 
@@ -38,19 +38,29 @@ function TodoList() {
         type="text"
         value={input}
         // 改变的时候更新数值
-        onChange={(e) => setinput(e.target.value)}
+        onChange={(e) => setInput(e.target.value)}
         // 按下enter也可以增加清单
         onKeyDown={(e) => e.key === "Enter" && handleAddTodo()}
       />
       <button onClick={handleAddTodo}>新增清单</button>
       <ul>
         {todos.map((todo) => (
-          <li
-            key={todo.id}
-            onClick={() => handleToggleTodo(todo.id)}
-            style={{ textDecoration: todo.complete ? "line-through" : "none" }}
-          >
-            {todo.text}
+          <li key={todo.id} style={{ listStyle: "none" }}>
+            {/* 复选框 */}
+            <input
+              type="checkbox"
+              checked={todo.complete}
+              onChange={() => handleToggleTodo(todo.id)}
+            />
+            {/* 清单列表 */}
+            <span
+              onClick={() => handleToggleTodo(todo.id)}
+              style={{
+                textDecoration: todo.complete ? "line-through" : "none",
+              }}
+            >
+              {todo.text}
+            </span>
           </li>
         ))}
       </ul>
