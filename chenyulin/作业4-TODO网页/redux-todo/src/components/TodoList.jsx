@@ -12,16 +12,19 @@ function TodoList() {
 
   // 新增
   const handleAddTodo = () => {
-    dispatch(
-      add({
-        id: uuidv4(),
-        text: input,
-        // 默认未完成
-        complete: false,
-      })
-    );
-    // 清空输入框
-    setinput("");
+    // 检查输入是否为空
+    if (input.trim()) {
+      dispatch(
+        add({
+          id: uuidv4(),
+          text: input,
+          // 默认未完成
+          complete: false,
+        })
+      );
+      // 清空输入框
+      setinput("");
+    }
   };
 
   // 切换完成状态
