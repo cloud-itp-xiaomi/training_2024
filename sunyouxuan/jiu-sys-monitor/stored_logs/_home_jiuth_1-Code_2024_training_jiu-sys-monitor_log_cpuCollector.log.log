@@ -1,0 +1,6 @@
+2024-06-17 16:39:23.969 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 2.182 seconds (process running for 3.298)
+2024-06-17 17:02:03.213 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 2.844 seconds (process running for 3.888)
+2024-06-17 18:13:29.355 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 2.851 seconds (process running for 3.728)
+2024-06-17 18:13:29.545 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-17 18:13:30.025 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@34e6652f
+2024-06-17 18:13:30.032 [RMI TCP Connection(2)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.

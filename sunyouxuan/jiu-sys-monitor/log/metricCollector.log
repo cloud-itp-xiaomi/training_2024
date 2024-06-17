@@ -1,0 +1,5 @@
+2024-06-17 18:26:03.403 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 2.834 seconds (process running for 3.695)
+2024-06-17 18:26:03.419 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 12.914602279399013
+2024-06-17 18:26:03.419 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 78.00473644260106
+2024-06-17 18:26:03.441 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":12.914602279399013,"timestamp":1718619963},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":78.00473644260106,"timestamp":1718619963}]
+2024-06-17 18:26:03.541 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}

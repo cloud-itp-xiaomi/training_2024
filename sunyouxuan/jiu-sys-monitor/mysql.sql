@@ -24,3 +24,15 @@ CREATE TABLE `sys_info_capture` (
                                   `tags` json
 );
 
+CREATE TABLE log_infos (
+                           id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                           hostname VARCHAR(255),
+                           file VARCHAR(255)
+);
+
+CREATE TABLE log_messages (
+                              id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                              log_info_id BIGINT,
+                              message TEXT,
+                              FOREIGN KEY (log_info_id) REFERENCES log_infos(id)
+);

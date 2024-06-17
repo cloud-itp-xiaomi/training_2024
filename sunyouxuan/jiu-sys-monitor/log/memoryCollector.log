@@ -1,0 +1,3 @@
+2024-06-17 18:26:03.403 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 2.834 seconds (process running for 3.695)
+2024-06-17 18:26:03.417 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083704 KB
+2024-06-17 18:26:03.418 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6305672 KB

@@ -15,12 +15,17 @@ import org.springframework.web.client.RestTemplate;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.jiuth.sysmonitorcapture.util.CommonUtil.initializeEndpoint;
+
 @Component
 @Slf4j
 public class MetricCollector {
 
-    @Value("${server.url}")
+    @Value("${serverl.api.base}")
     private String serverUrl;
+
+    @Value("${serverl.api.metric}")
+    private String api;
 
     @Value("${interval}")
     private long interval;
@@ -45,7 +50,7 @@ public class MetricCollector {
      */
     @PostConstruct
     private void initialize() {
-        endpoint = initializeEndpoint();
+        endpoint = initializeEndpoint(serverUrl);
     }
 
     @Scheduled(fixedRateString = "${interval}")
@@ -75,25 +80,14 @@ public class MetricCollector {
 
         // 发送指标到服务器
         try {
-            String response = restTemplate.postForObject(serverUrl, metricsArray, String.class);
+            String response = restTemplate.postForObject(serverUrl+api, metricsArray, String.class);
             log.info("服务器响应 JSON: {}", response);
         } catch (Exception e) {
             log.error("发送指标到服务器出错: {}", e.getMessage());
         }
     }
 
-    private String initializeEndpoint() {
-        String username = System.getProperty("user.name", "UnknownUser");
-        String systemVersion = OSVersionUtil.getSystemVersion();
-        String ipAddress = null;
-        if (serverUrl != null && (serverUrl.contains("127.0.0.1") || serverUrl.contains("http://localhost"))) {
-            ipAddress = "127.0.0.1";
-        } else {
-            ipAddress = IpUtil.getLocalIpAddress();
-        }
 
-        return username + "@" + systemVersion + "@" + ipAddress;
-    }
 
 
     private Map<String, Object> createMetric(String metricName, double value, long timestamp) {
