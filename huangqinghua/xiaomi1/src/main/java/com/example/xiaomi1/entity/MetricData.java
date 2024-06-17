@@ -1,6 +1,5 @@
 package com.example.xiaomi1.entity;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
