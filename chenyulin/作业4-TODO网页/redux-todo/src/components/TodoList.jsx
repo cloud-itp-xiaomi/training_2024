@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { add } from "../store/modules/todoListStore";
+import { add, toggle } from "../store/modules/todoListStore";
 import { v4 as uuidv4 } from "uuid";
 
 function TodoList() {
@@ -16,10 +16,17 @@ function TodoList() {
       add({
         id: uuidv4(),
         text: input,
+        // 默认未完成
+        complete: false,
       })
     );
     // 清空输入框
     setinput("");
+  };
+
+  // 切换完成状态
+  const handleToggleTodo = (id) => {
+    dispatch(toggle(id));
   };
 
   return (
@@ -35,7 +42,13 @@ function TodoList() {
       <button onClick={handleAddTodo}>新增清单</button>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.text}</li>
+          <li
+            key={todo.id}
+            onClick={() => handleToggleTodo(todo.id)}
+            style={{ textDecoration: todo.complete ? "line-through" : "none" }}
+          >
+            {todo.text}
+          </li>
         ))}
       </ul>
     </>
