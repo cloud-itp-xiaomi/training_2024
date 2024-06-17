@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.lab1.mapper.MetricMapper">
+    <resultMap id="BaseResultMap" type="com.test.lab1.entity.Metric">
+        <id column="id" property="id" />
+        <result column="metric" property="metric" />
+        <result column="endpoint" property="endpoint" />
+        <result column="step" property="step" />
+        <result column="timestamp" property="timestamp" />
+        <result column="value" property="value" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, metric,endpoint,step,timestamp,value;
+    </sql>
+
+    <insert id="insert" parameterType="com.test.lab1.entity.Metric">
+        INSERT INTO collection (metric,endpoint, step, timestamp,value)
+        VALUES (#{metric}, #{endpoint}, #{step},#{timestamp},#{value})
+    </insert>
+
+    <select id="getMetrics" resultType="com.test.lab1.entity.MetricData">
+        SELECT metric, timestamp, value
+        FROM collection
+        WHERE endpoint = #{endpoint}
+        <if test="metric != null">
+            AND metric = #{metric}
+        </if>
+        AND timestamp BETWEEN #{start_ts} AND #{end_ts}
+    </select>
+</mapper>

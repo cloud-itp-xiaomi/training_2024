@@ -1,0 +1,35 @@
+#spring:
+#  profiles: mi-1
+#  servlet:
+#    multipart:
+#      max-request-size: 8GB
+#      max-file-size: 20GB
+
+elasticsearch:
+  ip: 192.168.49.129
+  port: 9200
+
+# server
+server:
+  port: 8080
+
+
+jdbc:
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/mi?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8
+  username: root
+  password: 123456
+
+redis:
+  host: 127.0.0.1
+  port: 6379
+  max-count: 10
+  max-total: 20
+  max-idle: 10
+  min-idle: 5
+  connection-timeout: 5000
+
+# 日志存储方式：mysql或 elasticsearch
+log:
+  storage:
+    type: mysql

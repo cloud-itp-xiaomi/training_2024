@@ -34,24 +34,10 @@ public class Result<T> {
         return result;
     }
 
-    public static Result fail() {
-        Result result = new Result();
-        result.setCode(ResultCodeEnum.FAIL.getCode());
-        result.setMessage(ResultCodeEnum.FAIL.getDesc());
-        return result;
-    }
 
-    public static <T> Result fail(T data) {
+    public static Result error(String message) {
         Result result = new Result();
-        result.setCode(ResultCodeEnum.FAIL.getCode());
-        result.setMessage(ResultCodeEnum.FAIL.getDesc());
-        result.setData(data);
-        return result;
-    }
-
-    public static Result fail(String message) {
-        Result result = new Result();
-        result.setCode(ResultCodeEnum.FAIL.getCode());
+        result.setCode(ResultCodeEnum.getByDesc(message).code);
         result.setMessage(message);
         return result;
     }

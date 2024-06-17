@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.qiaojingjing.mapper.MetricMapper" >
+    <resultMap id="MetricResultMap" type="org.qiaojingjing.pojo.vo.MetricVO">
+        <id property="metric" column="metric" />
+        <collection property="values" ofType="org.qiaojingjing.pojo.vo.MetricVO$Value">
+            <result property="timestamp" column="timestamp" />
+            <result property="value" column="value" />
+        </collection>
+    </resultMap>
+
+    <insert id="insert2metrics">
+        INSERT INTO metrics (metric, endpoint, timestamp, step, value)
+        VALUES
+        <foreach collection="list" separator="," item="item">
+            (#{item.metric}, #{item.endpoint}, #{item.timestamp}, #{item.step}, #{item.value})
+        </foreach>
+    </insert>
+    <select id="getMetricsDTOList" resultMap="MetricResultMap">
+        select metric,timestamp,value from metrics
+        <where>
+            endpoint=#{endpoint}
+            <if test="metric!=null">and metric=#{metric}</if>
+            and timestamp between #{startTs} and #{endTs}
+        </where>
+    </select>
+</mapper>
