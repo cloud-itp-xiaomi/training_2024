@@ -22,6 +22,9 @@ public class FileMonitor {
     @Value("classpath:cfg.json")
     private Resource configFile;
 
+    @Value("${server.hostname}")
+    private String hostname;
+
     /**
      * 初始化文件监控器，在Spring容器初始化完成后执行
      */
@@ -30,14 +33,16 @@ public class FileMonitor {
         try {
             FileConfig fileConfig = loadConfig();
 
-            FileAlterationObserver observer = new FileAlterationObserver(new File("/"));
             for (String filePath : fileConfig.getFiles()) {
-                observer.addListener(new LogFileListener(new File(filePath)));
-            }
+                File file = new File(filePath);
+                FileAlterationObserver observer = new FileAlterationObserver(file.getParentFile());
+                observer.addListener(new LogFileListener(file, hostname, fileConfig.getLog_storage()));
 
-            FileAlterationMonitor monitor = new FileAlterationMonitor(POLL_INTERVAL, observer);
-            monitor.start();
-            logger.info("Started monitoring files: {}", fileConfig.getFiles());
+                // 创建文件监控器并启动
+                FileAlterationMonitor monitor = new FileAlterationMonitor(POLL_INTERVAL, observer);
+                monitor.start();
+                logger.info("Started monitoring files: {}", fileConfig.getFiles());
+            }
         } catch (Exception e) {
             logger.error("Error starting file monitor", e);
         }

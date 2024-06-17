@@ -89,7 +89,7 @@ public class ServerController {
     }
 
     // 日志上报接口，MySQL存储版
-    @PostMapping("/log/upload/mysql")
+    @PostMapping("/log/upload/MySQL")
     public Result receiveLogMysql(@RequestBody Logs logs) {
         System.out.println(logs);
         try {
