@@ -41,7 +41,7 @@ var db *sql.DB
 
 func main() {
 	fmt.Println("Starting server....")
-	var err error 
+	var err error
 	rdb = redis.NewClient(&redis.Options{
 		Addr:     "redis:6379",
 		Password: "", // no password set
@@ -51,8 +51,10 @@ func main() {
 	http.HandleFunc("/api/metric/query", QueryHandler)
 	db, err = sql.Open("mysql", "root:123456@tcp(mysql:3306)/mi")
 	if err != nil {
-		fmt.Println("err open mysql",err)
+		fmt.Println("err open mysql", err)
+		return
 	}
+	defer db.Close()
 	query := `
 	CREATE TABLE IF NOT EXISTS metric (
 		Metric VARCHAR(255) NOT NULL,
@@ -64,11 +66,8 @@ func main() {
 	);`
 	_, err = db.Exec(query)
 	if err != nil {
-	log.Fatalf("Could not create table: %v", err)
+		log.Fatalf("Could not create table: %v", err)
 	}
-
-	fmt.Println("Table 'metric' checked/created")
-	defer db.Close()
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
@@ -94,7 +93,7 @@ func UploadHandler(writer http.ResponseWriter, request *http.Request) {
 		}
 		lPushResult := rdb.LPush(ctx, key, jsonData)
 		lTrimResult := rdb.LTrim(ctx, key, 0, 9)
-		
+
 		// Process the results
 		if lPushResult.Err() != nil {
 			http.Error(writer, "store data to redis erro", http.StatusInternalServerError)
@@ -118,13 +117,13 @@ func UploadHandler(writer http.ResponseWriter, request *http.Request) {
 		// if err != nil {
 		// 	log.Fatalf("Could not create table: %v", err)
 		// }
-		
+
 		// fmt.Println("Table 'metric' checked/created")
 
 		_, err = db.Exec("INSERT INTO metric (Metric, Endpoint, Timestamp, Step, Value) VALUES(?,?,?,?,?)",
 			metric.Metric, metric.Endpoint, metric.Timestamp, metric.Step, metric.Value)
 		if err != nil {
-			fmt.Println("Store data to mysql erro")
+			log.Println("Store data to mysql erro", err)
 			http.Error(writer, "store data to mysql erro", http.StatusInternalServerError)
 			return
 		}

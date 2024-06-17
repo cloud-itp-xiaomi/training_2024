@@ -54,10 +54,10 @@ func main() {
 		}
 		resp, err := http.Post("http://localhost:8080/api/metric/upload", "application/json", bytes.NewBuffer(jsonData))
 		if err != nil {
-			fmt.Println("Post err: ", err)
-			return
+			log.Println("Post err: ", err)
+			continue
 		}
-		defer resp.Body.Close()
+		resp.Body.Close()
 		fmt.Println("Response: ", resp.Status)
 		time.Sleep(time.Minute)
 	}
@@ -113,6 +113,7 @@ func MemoryUsage() float64 {
 		value, err := strconv.ParseUint(fields[1], 10, 64)
 		if err != nil {
 			log.Fatalf("Failed to parse %s: %v", fields[1], err)
+			return 0
 		}
 		switch key {
 		case "MemTotal:":

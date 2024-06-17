@@ -13,7 +13,7 @@ import (
 	// "math"
 	"net/http"
 	// "strconv"
-	"io/ioutil"
+
 	"strings"
 
 	// "github.com/go-redis/redis/v8"
@@ -37,7 +37,11 @@ func main() {
 	fmt.Println("Starting server.........")
 
 	//connect mysql
-	MySqlInit("root:123456@tcp(mysql:3306)/mi")
+	err := MySqlInit("root:123456@tcp(mysql:3306)/mi")
+	if err != nil {
+		return
+	}
+	defer db.Close()
 
 	//connect interface with function
 	http.HandleFunc("/api/metric/upload", UploadHandler)
@@ -47,11 +51,12 @@ func main() {
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
-func MySqlInit(dsn string) {
+func MySqlInit(dsn string) error {
 	var err error
 	db, err = sql.Open("mysql", dsn)
 	if err != nil {
 		fmt.Println("err open mysql", err)
+		return err
 	}
 	query := `
 	CREATE TABLE IF NOT EXISTS Host (
@@ -74,7 +79,9 @@ func MySqlInit(dsn string) {
 	_, err = db.Exec(query)
 	if err != nil {
 		log.Fatalf("Could not create table Host: %v", err)
+		return err
 	}
+	return nil
 }
 
 func UploadHandler(writer http.ResponseWriter, request *http.Request) {
@@ -126,7 +133,7 @@ func FileWriteLogsTo(logData LogData) error {
 	content := strings.Join(logData.Logs, "\n")
 
 	// add data to file
-	err := ioutil.WriteFile(filename, []byte(content), 0644)
+	err := os.WriteFile(filename, []byte(content), 0644)
 
 	if err != nil {
 		return err

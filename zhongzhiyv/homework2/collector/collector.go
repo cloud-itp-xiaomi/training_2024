@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -95,14 +94,13 @@ func getConfigMessage(configFilePath string) (*LogConfig, error) {
 	jsonData, err := ioutil.ReadFile(configFilePath)
 
 	if err != nil {
-		fmt.Println("Error reading JSON file:", configFilePath, err)
+		log.Println("Error reading JSON file:", configFilePath, err)
 		return nil, err
 	}
 	var config LogConfig
 	err = json.Unmarshal(jsonData, &config)
 	if err != nil {
-		fmt.Println(string(jsonData))
-		fmt.Println(configFilePath, "Error unmarshalling JSON:", err)
+		log.Println(configFilePath, "Error unmarshalling JSON:", err)
 		return nil, err
 	}
 	return &config, nil
