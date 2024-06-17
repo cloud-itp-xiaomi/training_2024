@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://172.17.0.4:3306/xiaomi?serverTimezone=GMT%2B8&useSSL=FALSE&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    druid: #配置数据库连接池，提高数据库IO性能
+      initial-size: 10
+      min-idle: 10
+      max-active: 200
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: true
+      test-on-return: false
+      max-pool-prepared-statement-per-connection-size: 20
+      pool-prepared-statements: false
+  redis:
+    host: 172.17.0.3 #本机docker安装的Redis的ip
+    port: 6379
+#    password: 123456
+    database: 0
+    jedis:
+      pool:
+        max-active: 50
+        max-wait: 3000
+        max-idle: 20
+        min-idle: 2
+    timeout: 5000

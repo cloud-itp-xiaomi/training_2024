@@ -15,14 +15,17 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.3.0</version>
             </plugin>
         </plugins>
     </build>

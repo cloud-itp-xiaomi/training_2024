@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="server" />
+        <module name="Logcollector" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
+      <module name="demo (1)" target="1.8" />
+      <module name="demo (2)" target="1.8" />
+      <module name="MetricServer" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Logcollector" options="-parameters" />
+      <module name="MetricServer" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="demo (1)" options="-parameters" />
+      <module name="demo (2)" options="-parameters" />
+      <module name="server" options="-parameters" />
+    </option>
+  </component>
+</project>
