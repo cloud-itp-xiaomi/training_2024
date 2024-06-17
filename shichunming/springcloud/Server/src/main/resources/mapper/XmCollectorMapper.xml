@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springcloud.mapper.XmCollectorMapper">
+
+    <!--2. 基于xml的方式-->
+    <insert id="insert" parameterType="com.example.springcloud.po.XmCollectorPo">
+        insert into xm_collector
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="endpoint != null">endpoint,</if>
+            <if test="metric != null">metric,</if>
+            <if test="tags != null">tags,</if>
+            <if test="timestamp != null">timestamp,</if>
+            <if test="value != null">value,</if>
+            <if test="step != null">step,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="isDelete != null">is_delete,</if>
+        </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id},</if>
+                <if test="endpoint != null">#{endpoint},</if>
+                <if test="metric != null">#{metric},</if>
+                <if test="tags != null">#{tags},</if>
+                <if test="timestamp != null">#{timestamp},</if>
+                <if test="value != null">#{value},</if>
+                <if test="step != null">#{step},</if>
+            </trim>
+    </insert>
+
+    <select id="selectByEndpointAndMetricAndTime" resultType="com.example.springcloud.po.XmCollectorPo">
+        SELECT *
+        FROM xm_collector
+        WHERE
+        endpoint = #{endpoint}
+        AND timestamp BETWEEN #{start_ts} AND #{end_ts}
+        <if test="metric != null">
+            AND metric = #{metric}
+        </if>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>
