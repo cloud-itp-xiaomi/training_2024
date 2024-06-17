@@ -2,8 +2,6 @@ package com.jiuth.sysmonitorcapture.collector;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jiuth.sysmonitorcapture.util.IpUtil;
-import com.jiuth.sysmonitorcapture.util.OSVersionUtil;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 

@@ -3,7 +3,6 @@ package com.jiuth.sysmonitorcapture.storage;
 
 import com.jiuth.sysmonitorcapture.dao.LogEntry;
 import com.jiuth.sysmonitorcapture.mapper.LogMapper;
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

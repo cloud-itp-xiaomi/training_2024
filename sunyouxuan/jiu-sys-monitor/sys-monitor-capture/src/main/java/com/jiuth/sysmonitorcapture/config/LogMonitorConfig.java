@@ -2,11 +2,9 @@ package com.jiuth.sysmonitorcapture.config;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Data;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -26,10 +24,6 @@ public class LogMonitorConfig {
 
     @Bean
     public Config logMonitorConfiguration(ObjectMapper objectMapper) throws IOException {
-//        return objectMapper.readValue(
-//                getClass().getClassLoader().getResource("cfg.json"),
-//                Config.class
-//        );
 
         Config config = objectMapper.readValue(
                 getClass().getClassLoader().getResource("cfg.json"),

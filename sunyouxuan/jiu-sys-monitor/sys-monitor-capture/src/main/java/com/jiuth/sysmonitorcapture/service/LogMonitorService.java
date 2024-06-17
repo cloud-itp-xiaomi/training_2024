@@ -42,8 +42,7 @@ public class LogMonitorService {
 
     @Autowired
     private LogStorageFactory logStorageFactory;
-    //    private final LogStorageService logStorageService;
-//
+
     @Autowired
     public LogMonitorService(LogMonitorConfig.Config logMonitorConfig, ObjectMapper objectMapper, RestTemplate restTemplate) {
         this.logMonitorConfig = logMonitorConfig;

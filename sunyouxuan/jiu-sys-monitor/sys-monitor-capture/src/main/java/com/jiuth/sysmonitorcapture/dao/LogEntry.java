@@ -1,8 +1,6 @@
 package com.jiuth.sysmonitorcapture.dao;
 
 import lombok.Data;
-
-import java.security.Timestamp;
 import java.time.LocalDateTime;
 
 /**
@@ -15,12 +13,10 @@ public class LogEntry {
 
     private String hostname;
 
-
     private String file;
 
     private String log;
 
-    //String timestamp;
     private LocalDateTime timestamp;
 
     // Getters and setters
