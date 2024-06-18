@@ -260,6 +260,7 @@ cp：是否覆盖"/etc/my.cnf"？ y
 - 解压缩 PHP 并安装
 
 [root@localhost lnmp]# tar -xf php-7.1.29.tar.gz 
+
 [root@localhost lnmp]# cd php-7.1.29/
 
 [root@localhost php-7.1.29]# ./configure --prefix=/usr/local/php/ --with-config-file-path=/usr/local/php/etc/ --with-mysqli=/usr/local/mysql/bin/mysql_config --enable-soap --enable-mbstring=all --enable-sockets --with-pdo-mysql=/usr/local/mysql --with-gd --without-pear --enable-fpm && make && make install
@@ -348,20 +349,28 @@ i love xiaomi.
 
 - 配置yum源
 
-
 \[root@localhost ~]# mkdir /mnt/cdrom
+
 \[root@localhost ~]# mount -t iso9660 /dev/cdrom /mnt/cdrom/
+
 \[root@localhost ~]# cd /etc/yum.repos.d/
+
 [root@localhost yum.repos.d]# mkdir back
+
 [root@localhost yum.repos.d]# mv * back/
+
 [root@localhost yum.repos.d]# cp -a back/CentOS-Media.repo .
+
 [root@localhost yum.repos.d]# vim CentOS-Media.repo
+
+
 
 ![](image/yum.png)
 
 
 
 [root@localhost yum.repos.d]# yum clean all
+
 [root@localhost yum.repos.d]# yum -y install gcc gcc-c++ lrzsz
 
 - 打开路由转发功能
@@ -400,6 +409,7 @@ i love xiaomi.
 - 添加 ipvsadm 节点
 
 [root@localhost ~]# ipvsadm -a -t 192.168.142.203:80 -r 192.168.6.201:80 -m
+
 [root@localhost ~]# ipvsadm -a -t 192.168.142.203:80 -r 192.168.6.202:80 -m
 
 - 保存 ipvs 集群设置到文件进行持久化
