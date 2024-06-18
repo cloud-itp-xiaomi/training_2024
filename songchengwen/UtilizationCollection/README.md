@@ -14,15 +14,17 @@ java -jar server-0.0.1-SNAPSHOT.jar
 ```java
 java -jar collector-0.0.1-SNAPSHOT.jar
 ```
-###（3）在collector添加了一个手动触发采集的接口，可以检验是否正常采集数据
+### 3、在collector添加了一个手动触发采集的接口，可以检验是否正常采集数据
 
 http://localhost:8080/api/collector/collect
 
-###（4）查询接口
+### 4、查询接口
 
 查询特定指标的主机对应的数据，例如metric=cpu.used.percent
+
 http://localhost:8081/api/metric/query?endpoint=my-computer&start_ts=1718700358999&end_ts=1718700358999&metric=cpu.used.percent
 
 查询所有指标的主机对应的数据
+
 http://localhost:8081/api/metric/query?endpoint=my-computer&start_ts=1718700358999&end_ts=1718700358999
 
