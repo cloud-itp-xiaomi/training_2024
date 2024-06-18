@@ -1,31 +1,35 @@
 package com.xiaomi.server.storage.Impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.xiaomi.server.Entity.LogEntry;
+import com.xiaomi.server.mapper.LogEntryMapper;
+import com.xiaomi.server.service.LogEntryService;
 import com.xiaomi.server.storage.LogStorage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+
+
 @Component
 public class MySQLLogStorage implements LogStorage {
+
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private LogEntryMapper logEntryMapper;
 
     @Override
-    public void store(List<LogEntry> logEntries) {
-        for (LogEntry entry : logEntries) {
-            String sql = "INSERT INTO logs (hostname, file, log) VALUES (?, ?, ?)";
-            for (String log : entry.getLogs()) {
-                jdbcTemplate.update(sql, entry.getHostname(), entry.getFile(), log);
-            }
+    public void saveLogEntries(List<LogEntry> logEntries) {
+        for (LogEntry logEntry : logEntries) {
+            logEntryMapper.insert(logEntry);
         }
     }
 
     @Override
-    public List<String> query(String hostname, String file) {
-        String sql = "SELECT log FROM logs WHERE hostname = ? AND file = ?";
-        return jdbcTemplate.queryForList(sql, new Object[]{hostname, file}, String.class);
+    public List<LogEntry> getLogEntries(String hostname, String file) {
+        QueryWrapper<LogEntry> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("hostname", hostname).eq("file", file);
+        return logEntryMapper.selectList(queryWrapper);
     }
 }
