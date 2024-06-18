@@ -1,0 +1,27 @@
+server:
+  port: 8082
+
+logging:
+  level:
+    org.example: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+
+cpuserver: # 要做配置的微服务名称
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 负载均衡规则
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000 #单位毫秒
+        readTimeout: 10000 #单位毫秒
+  httpclient:
+    enabled: true # 支持HttpClient的开关
+    max-connections: 200 # 最大连接数
+    max-connections-per-route: 50 # 单个路径的最大连接数
+
+utilization-collector:
+  config:
+      file-path: config/config.json
