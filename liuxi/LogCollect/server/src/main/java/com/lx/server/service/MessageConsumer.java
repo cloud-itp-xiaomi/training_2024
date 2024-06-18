@@ -23,7 +23,6 @@ public class MessageConsumer implements RocketMQListener<String> {
             ObjectMapper objectMapper = new ObjectMapper();
             Utilization utilization = objectMapper.readValue(json, Utilization.class);
             utilizationService.add(utilization);
-
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

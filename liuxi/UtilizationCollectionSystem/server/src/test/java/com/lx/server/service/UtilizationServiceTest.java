@@ -15,25 +15,21 @@ class UtilizationServiceTest {
 
     @Autowired
     private UtilizationService utilizationService;
-
     @Test
     void add() {
         Utilization utilization = getUtilization();
         utilizationService.add(utilization);
     }
-
     @Test
     void queryByMetric() {
         Result result = utilizationService.queryByMetric("6853817426de", "cpu.used.percent",611062457L, 611062557L);
         System.out.println(result);
     }
-
     @Test
     void query() {
         Result result = utilizationService.query("6853817426de",611062457L, 611062557L);
         System.out.println(result);
     }
-
     @Test
     void getDataByMetric() {
         List<Utilization> utilizationList = new ArrayList<>();
@@ -43,7 +39,6 @@ class UtilizationServiceTest {
             System.out.println(resUtilization);
         }
     }
-
     @Test
     void getData() {
         List<Utilization> utilizationList = new ArrayList<>();
@@ -53,7 +48,6 @@ class UtilizationServiceTest {
             System.out.println(resUtilization);
         }
     }
-
     public Utilization getUtilization() {
         Utilization utilization = new Utilization();
         utilization.setEndpoint("095dc3f39ca1");
