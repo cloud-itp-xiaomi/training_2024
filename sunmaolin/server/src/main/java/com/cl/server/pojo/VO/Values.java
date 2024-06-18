@@ -1,4 +1,4 @@
-package com.cl.server.entity.VO;
+package com.cl.server.pojo.VO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
