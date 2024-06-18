@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/xiaomi_task01
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  port: 8081
