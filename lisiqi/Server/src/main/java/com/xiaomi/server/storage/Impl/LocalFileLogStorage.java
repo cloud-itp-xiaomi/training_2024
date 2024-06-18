@@ -4,21 +4,30 @@ import com.xiaomi.server.Entity.LogEntry;
 import com.xiaomi.server.storage.LogStorage;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.nio.file.Files;
+
+import java.io.*;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Component
 public class LocalFileLogStorage implements LogStorage {
-    private static final String STORAGE_PATH = "logs/";
+    private static final String LOG_DIRECTORY = "D:/2024_training/localfileStorage/";
 
     @Override
-    public void store(List<LogEntry> logEntries) {
-        for (LogEntry entry : logEntries) {
+    public void saveLogEntries(List<LogEntry> logEntries) {
+        for (LogEntry logEntry : logEntries) {
             try {
-                String logFilePath = STORAGE_PATH + entry.getHostname() + "_" + entry.getFile().replace("/", "_") + ".log";
-                Files.write(Paths.get(logFilePath), entry.getLogs());
+                String sanitizedFilePath = logEntry.getFile().replace("/", "_");
+                String filePath = Paths.get(LOG_DIRECTORY, logEntry.getHostname() + "_" + sanitizedFilePath).toString();
+                try (FileWriter fw = new FileWriter(filePath, true);
+                     BufferedWriter bw = new BufferedWriter(fw);
+                     PrintWriter out = new PrintWriter(bw)) {
+                    for (String log : logEntry.getLogs()) {
+                        out.println(log);
+                    }
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -26,14 +35,20 @@ public class LocalFileLogStorage implements LogStorage {
     }
 
     @Override
-    public List<String> query(String hostname, String file) {
-        try {
-            String logFilePath = STORAGE_PATH + hostname + "_" + file.replace("/", "_") + ".log";
-            return Files.readAllLines(Paths.get(logFilePath));
+    public List<LogEntry> getLogEntries(String hostname, String file) {
+        List<LogEntry> logEntries = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(LOG_DIRECTORY + hostname + "_" + file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                LogEntry logEntry = new LogEntry();
+                logEntry.setHostname(hostname);
+                logEntry.setFile(file);
+                logEntry.setLogs(Collections.singletonList(line));
+                logEntries.add(logEntry);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return logEntries;
     }
-
 }

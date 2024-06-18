@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: server
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 117.72.68.247:8848
+        prefix: ${spring.application.name}
+        group: DEFAULT_GROUP
+        namespace:
+        file-extension: yaml
+      discovery:
+        enabled: true
+        server-addr: 117.72.68.247:8848
+        username: nacos
+        password: nacos

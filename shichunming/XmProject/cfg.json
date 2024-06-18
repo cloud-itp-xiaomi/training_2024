@@ -1,0 +1,7 @@
+{
+  "files": [
+    "./home/work/a.log",
+    "./home/work/b.log"
+  ],
+  "log_storage": "local_file"
+}
