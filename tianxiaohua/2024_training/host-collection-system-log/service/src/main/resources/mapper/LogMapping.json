@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "id": {
+      "type": "long"
+    },
+    "hostname": {
+      "type": "keyword"
+    },
+    "file": {
+      "type": "keyword"
+    },
+    "logs": {
+      "type": "keyword"
+    },
+    "last_update_time": {
+      "type": "long"
+    }
+  }
+}

@@ -8,6 +8,9 @@ import java.io.Serializable;
 @Data //自动实现get、set方法
 @AllArgsConstructor
 @NoArgsConstructor
+/**
+ * 主机利用率
+ */
 public class Utilization implements Serializable {
 
     private Long id;//id号

@@ -1,0 +1,49 @@
+Jun  5 18:18:06 zzy-virtual-machine systemd-logind[765]: New seat seat0.
+Jun  5 18:18:06 zzy-virtual-machine systemd-logind[765]: Watching system buttons on /dev/input/event0 (Power Button)
+Jun  5 18:18:06 zzy-virtual-machine systemd-logind[765]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+Jun  5 18:18:06 zzy-virtual-machine gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session opened for user gdm(uid=128) by (uid=0)
+Jun  5 18:18:06 zzy-virtual-machine systemd-logind[765]: New session c1 of user gdm.
+Jun  5 18:18:06 zzy-virtual-machine systemd: pam_unix(systemd-user:session): session opened for user gdm(uid=128) by (uid=0)
+Jun  5 18:18:09 zzy-virtual-machine polkitd(authority=local): Registered Authentication Agent for unix-session:c1 (system bus name :1.37 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun  5 18:18:27 zzy-virtual-machine gdm-password]: pam_unix(gdm-password:auth): authentication failure; logname= uid=0 euid=0 tty=/dev/tty1 ruser= rhost=  user=zzy
+Jun  5 18:18:31 zzy-virtual-machine gdm-password]: gkr-pam: unable to locate daemon control file
+Jun  5 18:18:31 zzy-virtual-machine gdm-password]: gkr-pam: stashed password to try later in open session
+Jun  5 18:18:31 zzy-virtual-machine gdm-password]: pam_unix(gdm-password:session): session opened for user zzy(uid=1000) by (uid=0)
+Jun  5 18:18:31 zzy-virtual-machine systemd-logind[765]: New session 2 of user zzy.
+Jun  5 18:18:31 zzy-virtual-machine systemd: pam_unix(systemd-user:session): session opened for user zzy(uid=1000) by (uid=0)
+Jun  5 18:18:31 zzy-virtual-machine gdm-password]: gkr-pam: gnome-keyring-daemon started properly and unlocked keyring
+Jun  5 18:18:32 zzy-virtual-machine dbus-daemon[714]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+Jun  5 18:18:33 zzy-virtual-machine gnome-keyring-daemon[1712]: The Secret Service was already initialized
+Jun  5 18:18:33 zzy-virtual-machine gnome-keyring-daemon[1712]: The PKCS#11 component was already initialized
+Jun  5 18:18:33 zzy-virtual-machine gnome-keyring-daemon[1712]: The SSH agent was already initialized
+Jun  5 18:18:33 zzy-virtual-machine polkitd(authority=local): Registered Authentication Agent for unix-session:2 (system bus name :1.90 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun  5 18:18:36 zzy-virtual-machine gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session closed for user gdm
+Jun  5 18:18:36 zzy-virtual-machine systemd-logind[765]: Session c1 logged out. Waiting for processes to exit.
+Jun  5 18:18:36 zzy-virtual-machine systemd-logind[765]: Removed session c1.
+Jun  5 18:18:36 zzy-virtual-machine polkitd(authority=local): Unregistered Authentication Agent for unix-session:c1 (system bus name :1.37, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)
+Jun  5 18:19:39 zzy-virtual-machine pkexec: pam_unix(polkit-1:session): session opened for user root(uid=0) by (uid=1000)
+Jun  5 18:19:39 zzy-virtual-machine pkexec[3964]: zzy: Executing command [USER=root] [TTY=unknown] [CWD=/home/zzy] [COMMAND=/usr/lib/update-notifier/package-system-locked]
+Jun  5 18:21:25 zzy-virtual-machine sudo: pam_unix(sudo:auth): authentication failure; logname= uid=1000 euid=0 tty=/dev/pts/0 ruser=zzy rhost=  user=zzy
+Jun  5 18:21:30 zzy-virtual-machine sudo:      zzy : TTY=pts/0 ; PWD=/home/zzy/Downloads ; USER=root ; COMMAND=/usr/bin/dpkg -i QQ_3.2.8_240520_amd64_01.deb
+Jun  5 18:21:30 zzy-virtual-machine sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Jun  5 18:21:40 zzy-virtual-machine sudo: pam_unix(sudo:session): session closed for user root
+Jun  5 18:22:11 zzy-virtual-machine dbus-daemon[714]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+Jun  5 18:30:01 zzy-virtual-machine CRON[4781]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Jun  5 18:30:01 zzy-virtual-machine CRON[4781]: pam_unix(cron:session): session closed for user root
+Jun  5 18:32:07 zzy-virtual-machine sudo:      zzy : TTY=pts/0 ; PWD=/home/zzy/Downloads ; USER=root ; COMMAND=/usr/bin/tar -C /usr/local -xzf go1.22.4.linux-amd64.tar.gz
+Jun  5 18:32:07 zzy-virtual-machine sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Jun  5 18:32:08 zzy-virtual-machine sudo: pam_unix(sudo:session): session closed for user root
+Jun  5 18:32:54 zzy-virtual-machine sudo:      zzy : TTY=pts/0 ; PWD=/home/zzy/Downloads ; USER=root ; COMMAND=/usr/bin/gedit /etc/profile
+Jun  5 18:32:54 zzy-virtual-machine sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Jun  5 18:33:00 zzy-virtual-machine sudo: pam_unix(sudo:session): session closed for user root
+Jun  5 18:34:29 zzy-virtual-machine systemd-logind[726]: New seat seat0.
+Jun  5 18:34:29 zzy-virtual-machine systemd-logind[726]: Watching system buttons on /dev/input/event0 (Power Button)
+Jun  5 18:34:29 zzy-virtual-machine systemd-logind[726]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+Jun  5 18:34:29 zzy-virtual-machine gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session opened for user gdm(uid=128) by (uid=0)
+Jun  5 18:34:29 zzy-virtual-machine systemd-logind[726]: New session c1 of user gdm.
+Jun  5 18:34:29 zzy-virtual-machine systemd: pam_unix(systemd-user:session): session opened for user gdm(uid=128) by (uid=0)
+Jun  5 18:34:32 zzy-virtual-machine polkitd(authority=local): Registered Authentication Agent for unix-session:c1 (system bus name :1.38 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun  5 18:34:36 zzy-virtual-machine gdm-password]: pam_unix(gdm-password:auth): authentication failure; logname= uid=0 euid=0 tty=/dev/tty1 ruser= rhost=  user=zzy
+Jun  5 18:34:39 zzy-virtual-machine gdm-password]: gkr-pam: unable to locate daemon control file
+Jun  5 18:34:39 zzy-virtual-machine gdm-password]: gkr-pam: stashed password to try later in open session
+Jun  5 18:34:39 zzy-virtual-machine gdm-password]: pam_unix(gdm-password:session): session opened for user zzy(uid=1000) by (uid=0)
