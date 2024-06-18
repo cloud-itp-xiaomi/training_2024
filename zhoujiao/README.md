@@ -44,7 +44,7 @@ NAT模式的工作原理可以概括为以下几个步骤：
 3. Real Server收到请求后，处理请求并发送响应给LVS。
 4. LVS收到响应后，修改响应的源地址为自己的VIP，然后将响应发送给客户端。
 
-![](image/LVS NAT模式工作逻辑图.png)
+![](image/LVS_NAT模式工作逻辑图.png)
 
   模式特点：真实服务器必须将网关指向负载调度器；RIP 通常都是私有 IP，仅用于各个集群节点通信；负载调度器必须位于客户端和真实服务器之间，充当网关；负载调度器操作系统必须是 Linux ，真实服务器可以使用任意系统，此次作业使用的真实服务器是Linux系统。
 
@@ -87,15 +87,15 @@ server {
 | Nginx（RS1） |                            | 192.169.6.201           |
 | Nginx（RS2） |                            | 192.168.6.202           |
 
-![](image\VMnet1.png)
+![](image/VMnet1.png)
 
-![](image\VMnet8.png)
+![](image/VMnet8.png)
 
-![](image\LVS.png)
+![](image/LVS.png)
 
-![](image\RS1.png)
+![](image/RS1.png)
 
-![](image\RS2.png)
+![](image/RS2.png)
 
 #### 4.1.2  关闭防火墙和selinux（所有服务器）
 
@@ -330,7 +330,7 @@ cp：是否覆盖"/etc/my.cnf"？ y
 
 [root@localhost ~]# vim /usr/local/nginx/conf/nginx.conf
 
-![](image\nginx5.png)
+![](image/nginx5.png)
 
 测试网页
 
@@ -357,7 +357,7 @@ i love xiaomi.
 [root@localhost yum.repos.d]# cp -a back/CentOS-Media.repo .
 [root@localhost yum.repos.d]# vim CentOS-Media.repo
 
-![](image\yum.png)
+![](image/yum.png)
 
 
 
@@ -387,7 +387,7 @@ i love xiaomi.
 
 [root@localhost ~]# iptables -t nat -L
 
-![](image\iptables.png)
+![](image/iptables.png)
 
 
 
@@ -408,18 +408,18 @@ i love xiaomi.
 
 [root@localhost ~]# ipvsadm -Ln
 
-![](image\ipvsadm.png)
+![](image/ipvsadm.png)
 
 - 修改客户端的hosts文件
 
 
-![](image\hosts.png)
+![](image/hosts.png)
 
 - 测试集群
 
-![](image\hello-html.png)
+![](image/hello-html.png)
 
-![](image\mi-html.png)
+![](image/mi-html.png)
 
 ### 4.4  crontab执行脚本（RS1和RS2）
 
