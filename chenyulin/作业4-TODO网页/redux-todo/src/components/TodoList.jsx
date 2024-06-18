@@ -9,6 +9,8 @@ function TodoList() {
   // useSelector()用来加载state中的数据
   const todos = useSelector((state) => state.todoList.todos);
   const dispatch = useDispatch();
+  // 默认显示全部清单
+  const [menu, setMenu] = useState("all");
 
   // 新增
   const handleAddTodo = () => {
@@ -32,6 +34,14 @@ function TodoList() {
     dispatch(toggle(id));
   };
 
+  // 切换不同状态的清单列表
+  const handleMenuTodo = () => {
+    if (menu === "uncompleted") return todos.filter((todo) => !todo.complete);
+    else if (menu === "completed") return todos.filter((todo) => todo.complete);
+    else return todos;
+  };
+  const filteredTodos = handleMenuTodo();
+
   return (
     <>
       <input
@@ -43,8 +53,15 @@ function TodoList() {
         onKeyDown={(e) => e.key === "Enter" && handleAddTodo()}
       />
       <button onClick={handleAddTodo}>新增清单</button>
+
+      {/* 新增三个按钮可以实现切换列表 */}
+      <br></br>
+      <button onClick={() => setMenu("all")}>全部</button>
+      <button onClick={() => setMenu("completed")}>已完成</button>
+      <button onClick={() => setMenu("uncompleted")}>未完成</button>
+
       <ul>
-        {todos.map((todo) => (
+        {filteredTodos.map((todo) => (
           <li key={todo.id} style={{ listStyle: "none" }}>
             {/* 复选框 */}
             <input
