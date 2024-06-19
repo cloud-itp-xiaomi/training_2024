@@ -5,10 +5,11 @@ import TodoInput from "./TodoInput";
 import { useState } from "react";
 import TodoMenu from "./TodoMenu";
 import TodoItem from "./TodoItem";
+import TodoUndoRedo from "./TodoUndoRedo";
 
 function TodoList() {
   // useSelector()用来加载state中的数据
-  const todos = useSelector((state) => state.todoList.todos);
+  const todos = useSelector((state) => state.todoList.present.todos);
   // 筛选不同状态的清单列表
   const [filteredTodos, setfilteredTodos] = useState(todos);
 
@@ -26,6 +27,9 @@ function TodoList() {
           <TodoItem key={todo.id} todo={todo} />
         ))}
       </ul>
+
+      {/* 撤回和恢复 */}
+      <TodoUndoRedo></TodoUndoRedo>
     </>
   );
 }

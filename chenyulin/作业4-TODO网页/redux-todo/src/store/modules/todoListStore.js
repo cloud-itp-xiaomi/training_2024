@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import undoable, { includeAction } from "redux-undo";
 
 const todoListStore = createSlice({
   name: "todoList",
@@ -23,4 +24,6 @@ const todoListStore = createSlice({
 
 export const { add, toggle } = todoListStore.actions;
 
-export default todoListStore.reducer;
+export default undoable(todoListStore.reducer, {
+  filter: includeAction([add.type, toggle.type]),
+});
