@@ -3,6 +3,7 @@ package com.cl.server.handler.storage.impl;
 import com.cl.server.entity.LogAddress;
 import com.cl.server.entity.LogInfo;
 import com.cl.server.enums.IsDeletedFlagEnum;
+import com.cl.server.exception.BaseException;
 import com.cl.server.mapper.LogAddressDao;
 import com.cl.server.mapper.LogInfoDao;
 import com.cl.server.pojo.DTO.LogInfoDTO;
@@ -76,7 +77,10 @@ public class MysqlStorageHandler implements StorageTypeHandler {
         logAddress.setHostName(logQueryDTO.getHostname());
         logAddress.setFile(logQueryDTO.getFile());
         logAddress.setIsDelete(IsDeletedFlagEnum.UN_DELETED.getCode());
-        int addressId = logAddressDao.queryByLimit(logAddress);
+        Integer addressId = logAddressDao.queryByLimit(logAddress);
+        if(addressId == null){
+            throw new BaseException("主机或日志路径不存在");
+        }
         LogInfo logInfo = new LogInfo();
         logInfo.setLogAddressId(addressId);
         List<LogInfo> logInfos = logInfoDao.queryAllByLimit(logInfo);

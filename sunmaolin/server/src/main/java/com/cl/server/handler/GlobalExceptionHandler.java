@@ -16,9 +16,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler
-    public Result<String> exceptionHandler(BaseException baseException) {
+    public Result exceptionHandler(BaseException baseException) {
         log.error("异常原因：{}",baseException.getMessage());
         return Result.error(baseException.getMessage());
     }
-
 }
