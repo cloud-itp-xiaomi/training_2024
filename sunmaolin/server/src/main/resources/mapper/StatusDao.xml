@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cl.server.mapper.StatusDao">
+
+    <resultMap type="com.cl.server.entity.Status" id="StatusMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="metric" column="metric" jdbcType="VARCHAR"/>
+        <result property="endpoint" column="endpoint" jdbcType="VARCHAR"/>
+        <result property="timestamp" column="timestamp" jdbcType="INTEGER"/>
+        <result property="step" column="step" jdbcType="INTEGER"/>
+        <result property="value" column="value" jdbcType="NUMERIC"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="isDelete" column="is_delete" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="StatusMap">
+        select
+          id, metric, endpoint, timestamp, step, value, create_time, update_time, is_delete
+        from status
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="StatusMap">
+        select
+          id, metric, endpoint, timestamp, step, value, create_time, update_time, is_delete
+        from status
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="metric != null and metric != ''">
+                and metric = #{metric}
+            </if>
+            <if test="endpoint != null and endpoint != ''">
+                and endpoint = #{endpoint}
+            </if>
+            <if test="timestamp != null">
+                and timestamp = #{timestamp}
+            </if>
+            <if test="step != null">
+                and step = #{step}
+            </if>
+            <if test="value != null">
+                and value = #{value}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="isDelete != null">
+                and is_delete = #{isDelete}
+            </if>
+        </where>
+    </select>
+
+    <!--时间范围查询所有数据-->
+    <select id="queryAllByTimeStamp" resultMap="StatusMap">
+        select
+        id, metric, endpoint, timestamp, step, value, create_time, update_time, is_delete
+        from status
+        <where>
+            <if test="endpoint != null and endpoint != ''">
+                and endpoint = #{endpoint}
+            </if>
+            <if test="metric != null and metric != ''">
+                and metric = #{metric}
+            </if>
+            <if test="start_ts != null">
+                and timestamp &gt; #{start_ts}
+            </if>
+            <if test="end_ts != null">
+                and timestamp &lt; #{end_ts}
+            </if>
+        </where>
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from status
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="metric != null and metric != ''">
+                and metric = #{metric}
+            </if>
+            <if test="endpoint != null and endpoint != ''">
+                and endpoint = #{endpoint}
+            </if>
+            <if test="timestamp != null">
+                and timestamp = #{timestamp}
+            </if>
+            <if test="step != null">
+                and step = #{step}
+            </if>
+            <if test="value != null">
+                and value = #{value}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="isDelete != null">
+                and is_delete = #{isDelete}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into status(metric, endpoint, timestamp, step, value, create_time, update_time, is_delete)
+        values (#{metric}, #{endpoint}, #{timestamp}, #{step}, #{value}, #{createTime}, #{updateTime}, #{isDelete})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into status(metric, endpoint, timestamp, step, value, create_time, update_time, is_delete)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.metric}, #{entity.endpoint}, #{entity.timestamp}, #{entity.step}, #{entity.value}, #{entity.createTime}, #{entity.updateTime}, #{entity.isDelete})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into status(metric, endpoint, timestamp, step, value, create_time, update_time, is_delete)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.metric}, #{entity.endpoint}, #{entity.timestamp}, #{entity.step}, #{entity.value}, #{entity.createTime}, #{entity.updateTime}, #{entity.isDelete})
+        </foreach>
+        on duplicate key update
+        metric = values(metric),
+        endpoint = values(endpoint),
+        timestamp = values(timestamp),
+        step = values(step),
+        value = values(value),
+        create_time = values(create_time),
+        update_time = values(update_time),
+        is_delete = values(is_delete)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update status
+        <set>
+            <if test="metric != null and metric != ''">
+                metric = #{metric},
+            </if>
+            <if test="endpoint != null and endpoint != ''">
+                endpoint = #{endpoint},
+            </if>
+            <if test="timestamp != null">
+                timestamp = #{timestamp},
+            </if>
+            <if test="step != null">
+                step = #{step},
+            </if>
+            <if test="value != null">
+                value = #{value},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from status where id = #{id}
+    </delete>
+
+</mapper>
+

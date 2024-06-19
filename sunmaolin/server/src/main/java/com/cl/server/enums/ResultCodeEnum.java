@@ -15,6 +15,7 @@ public enum ResultCodeEnum {
     PARAM_EMPTY(400,"参数为空"),
     PARAM_BODY_EMPTY(401,"获取指标为空"),
     HOST_NOT_EXIST(403, "主机不存在"),
+    PARAM_ERROR(404,"参数异常"),
     INTERNAL_SERVER_ERROR(500,"服务器内部错误");
 
     public int code;
@@ -36,7 +37,7 @@ public enum ResultCodeEnum {
     }
     public static ResultCodeEnum getByDesc(String desc){
         for(ResultCodeEnum resultCodeEnum : ResultCodeEnum.values()){
-            if(resultCodeEnum.desc == desc){
+            if(resultCodeEnum.desc.equals(desc)){
                 return resultCodeEnum;
             }
         }
