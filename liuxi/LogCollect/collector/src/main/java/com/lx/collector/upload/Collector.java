@@ -24,7 +24,7 @@ public class Collector {
     private static final String TOPIC = "HOST_UTILIZATION_TOPIC";
     private Long count = 0L;//发送消息总数
 
-    @Scheduled(fixedRate = 60000) // 每分钟执行一次
+//    @Scheduled(fixedRate = 60000) // 每分钟执行一次
     public void collectAndReport() {
 
         Utilization cpuUtilization = new Utilization();

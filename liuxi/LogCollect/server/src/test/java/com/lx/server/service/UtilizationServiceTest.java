@@ -61,4 +61,5 @@ class UtilizationServiceTest {
         utilization.setValue(81.5);
         return utilization;
     }
+
 }

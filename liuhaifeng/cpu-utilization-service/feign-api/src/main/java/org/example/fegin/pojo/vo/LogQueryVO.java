@@ -1,6 +1,9 @@
 package org.example.fegin.pojo.vo;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -11,6 +14,9 @@ import java.util.List;
  * @date 2024/06/05/16:30
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class LogQueryVO {
 
     /**
