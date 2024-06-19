@@ -24,6 +24,6 @@ server模块在消费主题为”HOST_CONFIG_TOPIC“的消息时，会改变存
    docker run -d -p 9876:9876 -v /home/UtilizeApp/log/namesrv:/root/logs -v /home/UtilizeApp/data/namesrv:/root/store --name rmqnamesrv -e "MAX_POSSIBLE_HEAP=100000000" rocketmqinc/rocketmq sh mqnamesrv
    docker run -d --name rmqconsole -p 8180:8180 --link rmqnamesrv:namesrv -e "JAVA_OPTS=-Drocketmq.namesrv.addr=namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"  -t styletang/rocketmq-console-ng
 4. 在浏览器中输入 http://hostName:port/api/log/query?hostName=param1&file=param2即可访问query接口
-##注意
+## 注意
 如需监听windows主机中的文件时，由于其文件全路径在浏览器中直接输入会存在编码问题，在查询时需要使用%5C代替斜杠,例如：
 http://localhost:8083/api/log/query?hostName=DESKTOP-F02F9FG&file=E%3A%5Cjava_study%5CjavaProjects%5ClogCollect%5Ccollector%5Csrc%5Cmain%5Cjava%5Ccom%5Clx%5Ccollector%5Clog%5Ca.log
