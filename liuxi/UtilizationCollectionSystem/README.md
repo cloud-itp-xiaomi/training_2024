@@ -1,13 +1,13 @@
 # 作业一
 ## 项目详情
-作业一整合了Mysql，Redis,RocketMQ，Collector模块负责采集主机利用率信息，是RocketMQ的生产者<br/>
+作业一整合了MySQL，Redis,RocketMQ，Collector模块负责采集主机利用率信息，是RocketMQ的生产者<br/>
 Server模块负责消费信息并存储至Mysql和Redis中<br/>
 该项目所有模块以及使用的组件均部署在Docker中<br/>
 Linux系统中需要安装jdk17和Docker<br/>
 防火墙需要关闭或者放行相应端口<br/>
 打包好的Collector和Server模块和Dockerfile文件要放在同一目录下
 ## 目录说明
-config中为Redis、Mysql、RocketMQ相应的配置文件
+config中为Redis、MySQL、RocketMQ相应的配置文件
 ## 运行
 1. 在linux系统下创建如下目录<br/>
    ![image text](images/dir1.png)
@@ -37,4 +37,4 @@ config中为Redis、Mysql、RocketMQ相应的配置文件
     ```
     docker build -f ./Dockerfile2 -t server .
     docker run -d -p 8083:8083 --name server ser
-8. 在浏览器中输入 http://hostName:port/api/query?endpint=param1&start_ts=param2&end_ts=param3 即可访问query接口,queryByMetris同理
+8. 在浏览器中输入 http://hostName:port/api/metric/query?endpint=param1&start_ts=param2&end_ts=param3 即可访问query接口,queryByMetris同理
