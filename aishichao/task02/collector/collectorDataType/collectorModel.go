@@ -1,4 +1,9 @@
-package models
+package collectorDataType
+
+type ConfigData struct {
+	Files      []string `json:"files"`
+	LogStorage string   `json:"log_storage"`
+}
 
 type LogInformation struct {
 	Hostname string   `json:"hostname"`

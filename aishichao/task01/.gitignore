@@ -3,5 +3,3 @@
 *.tar.gz
 *.deb
 
-##goLand##
-.idea/
