@@ -11,7 +11,7 @@ type Values struct {
 	Value     float64
 }
 
-func startQuery() {
+func startQueryUtilization() {
 	r := gin.Default()
 	r.GET("/api/metric/query", func(c *gin.Context) {
 		// 获取查询参数
@@ -41,6 +41,25 @@ func startQuery() {
 			"metric":   metric,
 			"endpoint": endpoint,
 			"values":   values,
+		})
+	})
+	r.Run()
+}
+
+func startQueryLog() {
+	r := gin.Default()
+	r.GET("/api/log/query", func(c *gin.Context) {
+		// 获取查询参数
+		hostname := c.Query("hostname")
+		file := c.Query("file")
+
+		server := getServer("file")
+		logs := server.readLog(hostname, file)
+		// 返回查询参数
+		c.JSON(http.StatusOK, gin.H{
+			"hostname": hostname,
+			"file":     file,
+			"logs":     logs.Logs,
 		})
 	})
 	r.Run()

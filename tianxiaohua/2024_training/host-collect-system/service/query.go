@@ -38,3 +38,10 @@ func queryUtilizationS(metric string, endpoint string, start, end int64) []Utili
 	}
 	return utilizations
 }
+
+func queryLogs(hostname string, file string) Log {
+	db := connectServer()
+	defer db.Close()
+	log := queryLog(hostname, file, db)
+	return log
+}

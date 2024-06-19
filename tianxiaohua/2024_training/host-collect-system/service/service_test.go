@@ -17,6 +17,21 @@ func TestInsertUtilization(t *testing.T) {
 	insertUtilization(utilization, db)
 }
 
+func TestInsertLog(t *testing.T) {
+	log := Log{
+		Hostname: "Slave1",
+		File:     "/home/txh/work/a.log",
+		Logs: []string{
+			"2024-05-16 10:11:51 +08:00 This is a log",
+			"2024-05-16 10:11:51 +08:00 This is another log",
+		},
+		FileLastUpdateTime: 1718686814000,
+	}
+	db := connectServer()
+	defer db.Close()
+	insertLog(log, db)
+}
+
 func TestQueryUtilization(t *testing.T) {
 	db := connectServer()
 	defer db.Close()
@@ -25,6 +40,32 @@ func TestQueryUtilization(t *testing.T) {
 	for i := 0; i < len(utilizations); i++ {
 		fmt.Println(utilizations[i].CollectTime, utilizations[i].Value)
 	}
+}
+
+func TestQueryLog(t *testing.T) {
+	db := connectServer()
+	defer db.Close()
+	log := queryLog("Slave1", "/home/txh/work/a.log", db)
+
+	fmt.Println(log.Logs, log.FileLastUpdateTime)
+
+}
+
+func TestUpdateLog(t *testing.T) {
+	log := Log{
+		Hostname: "Slave1",
+		File:     "/home/txh/work/a.log",
+		Logs: []string{
+			"2024-05-16 10:11:51 +08:00 This is a log",
+			"2024-05-16 10:11:51 +08:00 This is another log",
+			"2024-05-16 10:11:51 +08:00 Tssss",
+			"2024-05-16 10:11:51 +08:00 Thddddd",
+		},
+		FileLastUpdateTime: 1718686814000,
+	}
+	db := connectServer()
+	defer db.Close()
+	updateLog(log, db)
 }
 
 func TestConnectRedis(t *testing.T) {
@@ -68,5 +109,24 @@ func TestLLen(t *testing.T) {
 }
 
 func TestQueryAll(t *testing.T) {
-	startQuery()
+	startQueryUtilization()
+}
+
+func TestFileServerSaveAndReadOneLog(t *testing.T) {
+	log1 := Log{
+		Hostname: "my-computer",
+		File:     "/home/work/a.log",
+		Logs: []string{
+			"2024-05-16 10:11:51 +08:00 This is a log",
+			"2024-05-16 10:11:51 +08:00 ccccc",
+		},
+	}
+	server := FileServer{
+		fileName: "logs.txt",
+	}
+	server.updateLog(log1)
+}
+
+func TestQueryLogs(t *testing.T) {
+	startQueryLog()
 }

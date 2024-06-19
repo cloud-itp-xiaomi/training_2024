@@ -219,8 +219,6 @@ host-collection-system-log
 
 - 该项目模块是用go实现的作业
 
-- 目前完成作业1
-
 - 目录结构如下
 
   ```go
@@ -230,6 +228,8 @@ host-collection-system-log
   │   ├── collect_test.go // 测试
   │   ├── go.mod // mudule
   │   ├── go.sum
+  │   ├── log_collect.go // 日志采集
+  │   ├── log.json // 配置文件
   │   └── utilization_collect.go // 利用率采集
   ├── collector.iml
   ├── go.mod
@@ -237,10 +237,12 @@ host-collection-system-log
   ├── host-collect-system.iml
   ├── service
   │   ├── bean.go // 定义的数据库存储字段的映射bean
-  │   ├── common.go // 
+  │   ├── common.go // server接口与redis序列化的定义
+  │   ├── file_server.go // log存到文件
   │   ├── go.mod
   │   ├── go.sum
   │   ├── mysql_dao.go // mysql数据库操作
+  │   ├── mysql_server.go // 将日志存到mysql
   │   ├── query.go // 检索
   │   ├── redis_dao.go // redis操作
   │   ├── service.go // 总的接口实现

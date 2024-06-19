@@ -11,5 +11,5 @@ type Log struct {
 	Hostname           string
 	File               string
 	Logs               []string
-	FileLastUpdateTime string
+	FileLastUpdateTime int64
 }

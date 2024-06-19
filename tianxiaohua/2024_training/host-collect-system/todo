@@ -1,3 +1,8 @@
 DONE 上报的参数校验
 DONE 接口实现
 DONE redis
+
+DONE 作业2日志采集
+DONE 存储到local_file
+DONE 存储到mysql
+DONE 可以查询

@@ -26,9 +26,28 @@ func TestGetHostName(t *testing.T) {
 }
 
 func TestStartCollect(t *testing.T) {
-	startCollect()
+	startCollectUtilization()
 }
 
 func TestUpload(t *testing.T) {
 	upload()
+}
+
+func TestGetFilesAndMemType(t *testing.T) {
+	fmt.Println(getFilesAndMemType())
+}
+
+func TestGetLogsFromLogFile(t *testing.T) {
+	files := getFilesAndMemType().Files
+
+	for _, file := range files {
+		fi := getLogsFromLogFile(file)
+		for _, f := range fi {
+			fmt.Println(f)
+		}
+	}
+}
+
+func TestUploadLog(t *testing.T) {
+	uploadLog()
 }
