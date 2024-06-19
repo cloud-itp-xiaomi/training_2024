@@ -10,9 +10,9 @@ Linux系统中需要安装jdk17和Docker<br/>
 config中为Redis、Mysql、RocketMQ相应的配置文件
 ## 运行
 1. 在linux系统下创建如下目录<br/>
-   ![image text](https://github.com/gigilx/training_2024/blob/master/liuxi/UtilizationCollectionSystem/images/dir1.png)
+   ![image text](images/dir1.png)
 2. 在config下创建如下目录，配置文件在主目录config文件夹下<br/>
-   ![image text2](https://github.com/gigilx/training_2024/blob/master/liuxi/UtilizationCollectionSystem/images/dir2.png)
+   ![image text2](images/dir2.png)
 3. 创建并运行mysql容器
    ```
    docker pull mysql:latest 
