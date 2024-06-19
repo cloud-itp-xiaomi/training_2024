@@ -1,32 +1,16 @@
-/* eslint-disable react/prop-types */
 // 右侧聊天区域
 
 import Message from "./Message";
+import { judgeTime } from "../utils/timeUtils";
+import Icon from "./Icon";
 
 function ChatArea({ currentChat, sendMessage, input, setInput }) {
-  //将时间转换为总分钟
-  const timeToMinutes = (times) => {
-    const [hours, minutes, seconds] = times.split(":").map(Number);
-    return hours * 3600 + minutes * 60 + seconds;
-  };
-
-  // 判断相隔时间超没超过两分钟
-  const judgeTime = (current, prev) => {
-    if (!prev) return true;
-    const diff =
-      timeToMinutes(current.timestamp) - timeToMinutes(prev.timestamp);
-    if (diff > 120) return true;
-  };
-
   return (
     <div className="chat-area">
       {/* 群聊区域顶部 */}
       <div className="chat-header">
         <div>{currentChat.name}</div>
-        <svg className="icon-3" aria-hidden="true">
-          <title>聊天信息</title>
-          <use xlinkHref="#icon-gengduo"></use>
-        </svg>
+        <Icon iconHref="#icon-gengduo" title="聊天信息" className="icon-3" />
       </div>
       {/* 聊天内容区域 */}
       <div className="message-area">
@@ -49,28 +33,25 @@ function ChatArea({ currentChat, sendMessage, input, setInput }) {
         {/* 输入区域顶部的各种工具 */}
         <div className="input-top">
           <div className="input-left">
-            <svg className="icon-2" aria-hidden="true">
-              <title>表情</title>
-              <use xlinkHref="#icon-biaoqing"></use>
-            </svg>
-            <svg className="icon-2" aria-hidden="true">
-              <title>发送文件</title>
-              <use xlinkHref="#icon-wenjian2"></use>
-            </svg>
-            <svg className="icon-2" aria-hidden="true">
-              <title>截图</title>
-              <use xlinkHref="#icon-jietu"></use>
-            </svg>
-            <svg className="icon-2" aria-hidden="true">
-              <title>聊天记录</title>
-              <use xlinkHref="#icon-liaotianjilu"></use>
-            </svg>
+            <Icon iconHref="#icon-biaoqing" title="表情" className="icon-2" />
+            <Icon
+              iconHref="#icon-wenjian2"
+              title="发送文件"
+              className="icon-2"
+            />
+            <Icon iconHref="#icon-jietu" title="截图" className="icon-2" />
+            <Icon
+              iconHref="#icon-liaotianjilu"
+              title="聊天记录"
+              className="icon-2"
+            />
           </div>
           <div className="input-right">
-            <svg className="icon-2" aria-hidden="true">
-              <title>语音聊天</title>
-              <use xlinkHref="#icon-shipindianhua"></use>
-            </svg>
+            <Icon
+              iconHref="#icon-shipindianhua"
+              title="语音聊天"
+              className="icon-2"
+            />
           </div>
         </div>
 

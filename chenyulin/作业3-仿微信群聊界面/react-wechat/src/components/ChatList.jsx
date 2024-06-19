@@ -1,15 +1,12 @@
-/* eslint-disable react/prop-types */
 // 左侧聊天列表
+
+import { formatTimestamp } from "../utils/timeUtils";
+import Icon from "./Icon";
 
 function ChatList({ sortedChatGroups, setCurrentChatId, currentChatId }) {
   // 切换群聊
   const handleChatClick = (chatId) => {
     setCurrentChatId(chatId);
-  };
-
-  //格式化时间
-  const formatTimestamp = (timestamp) => {
-    return timestamp.substring(0, 5);
   };
 
   return (
@@ -18,16 +15,13 @@ function ChatList({ sortedChatGroups, setCurrentChatId, currentChatId }) {
       <div className="sidebar-top">
         {/* 搜索 */}
         <div className="search">
-          <svg className="icon-4" aria-hidden="true">
-            <use xlinkHref="#icon-search"></use>
-          </svg>
+          <Icon className="icon-5" iconHref="#icon-search" title="" />
+
           <input type="text" placeholder="搜索" />
         </div>
         {/* 创建群聊 */}
         <div className="creat">
-          <svg className="icon-5" aria-hidden="true">
-            <use xlinkHref="#icon-faqiqunliao"></use>
-          </svg>
+          <Icon className="icon-5" iconHref="#icon-faqiqunliao" title="" />
         </div>
       </div>
 

@@ -1,12 +1,7 @@
-/* eslint-disable react/prop-types */
 // 每条的具体消息
+import { formatTimestamp } from "../utils/timeUtils";
 
 function Message({ message, showTime }) {
-  //格式化时间
-  const formatTimestamp = (timestamp) => {
-    return timestamp.substring(0, 5);
-  };
-
   return (
     <div className={`message ${message.senderId === 0 ? "right" : "left"}`}>
       {/* 如果超过了两分钟才显示时间 */}
