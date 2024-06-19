@@ -3,5 +3,5 @@
     "E:\\java_study\\javaProjects\\LogCollect\\collector\\src\\main\\java\\com\\lx\\collector\\log\\a.log",
     "E:\\java_study\\javaProjects\\LogCollect\\collector\\src\\main\\java\\com\\lx\\collector\\log\\b.log"
   ],
-  "log_storage": "local_file"
+  "log_storage": "mysql"
 }

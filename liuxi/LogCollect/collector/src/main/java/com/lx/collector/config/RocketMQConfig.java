@@ -12,7 +12,7 @@ public class RocketMQConfig {
     @Bean
     public RocketMQTemplate rocketMQTemplate() throws MQClientException {
         DefaultMQProducer producer = new DefaultMQProducer("group01");
-        producer.setNamesrvAddr("192.168.138.134:9876");
+        producer.setNamesrvAddr("192.168.183.29:9876");
         RocketMQTemplate rocketMQTemplate = new RocketMQTemplate();
         rocketMQTemplate.setProducer(producer);
         return rocketMQTemplate;

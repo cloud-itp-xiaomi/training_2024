@@ -18,7 +18,7 @@ import java.util.List;
 @DependsOn(value = "getBeanUtil")
 public class MysqlLogStorage implements LogStorage {
 
-    private LogMapper logMapper = GetBeanUtil.getBean(LogMapper.class);
+   private LogMapper logMapper = GetBeanUtil.getBean(LogMapper.class);
 
     @Override
     public boolean storeLog(LogMessage logMessage) {
@@ -27,12 +27,13 @@ public class MysqlLogStorage implements LogStorage {
             for(String log : logs) {
                 LogMysql logMysql = new LogMysql();
                 logMysql.setHostName(logMessage.getHostName());
-                logMysql.setFile(logMysql.getFile());
+                logMysql.setFile(logMessage.getFile());
                 logMysql.setLog(log);
                 logMapper.insert(logMysql);
             }
             System.out.println("add a logMessage into table log!!!");
         }catch(Exception e) {
+            e.printStackTrace();
             System.out.println("add a logMessage failed!!!");
             return false;
         }
@@ -40,12 +41,12 @@ public class MysqlLogStorage implements LogStorage {
     }
 
     @Override
-    public LogResult queryLog(String hostName, String file) {
+    public LogResult queryLog(String hostName, String filePath) {
         try {
-            List<LogMysql> logMysqls = logMapper.query(hostName, file);
+            List<LogMysql> logMysqls = logMapper.query(hostName, filePath);
             ResLog resLog = new ResLog();
             resLog.setHostName(hostName);
-            resLog.setFile(file);
+            resLog.setFile(filePath);
             List<String> logs = new ArrayList<>();
             for (LogMysql logMysql : logMysqls) {
                 logs.add(logMysql.getLog());

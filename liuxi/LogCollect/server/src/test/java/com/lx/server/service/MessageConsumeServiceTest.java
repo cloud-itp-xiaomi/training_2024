@@ -1,40 +1,31 @@
-package com.lx.server;
+package com.lx.server.service;
 
 import cn.hutool.json.JSONUtil;
 import com.lx.server.pojo.ResUtilization;
 import com.lx.server.pojo.Utilization;
-import com.lx.server.service.MessageConsumeService;
 import com.lx.server.utils.GetBeanUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.DependsOn;
-
 import javax.annotation.PostConstruct;
-
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @DependsOn(value = "getBeanUtil")
-class ServerApplicationTests {
+class MessageConsumeServiceTest {
 
     @Autowired
     private GetBeanUtil getBeanUtil;
 
-    private MessageConsumeService messageConsumer ;
+    private MessageConsumeService messageConsumer;
 
-    public ServerApplicationTests(){
-    }
 
     /**
      * 初始化属性
      */
     @PostConstruct
     public void testGetBeanUtil() {
-        assertNotNull(getBeanUtil);
-        ApplicationContext applicationContext = GetBeanUtil.applicationContext;
-        assertNotNull(GetBeanUtil.applicationContext);
         messageConsumer = getBeanUtil.getBean(MessageConsumeService.class);
     }
 
@@ -49,7 +40,7 @@ class ServerApplicationTests {
         utilization.setValue(81.5);
         String strJson = JSONUtil.toJsonStr(resUtilization);
         messageConsumer.onMessage(strJson);
+        assertNotNull(resUtilization);
+        assertNotNull(messageConsumer);
     }
-
-
 }
