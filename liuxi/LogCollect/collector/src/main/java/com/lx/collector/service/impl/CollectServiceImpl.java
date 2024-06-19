@@ -28,8 +28,9 @@ public class CollectServiceImpl implements CollectService {
         try(BufferedReader reader = new BufferedReader(new FileReader(proc_stat_path))) {
             // 读取输入流
             String line;
-            if((line = reader.readLine()) != null)
+            if((line = reader.readLine()) != null) {
                 collectMsg.append(line);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -63,7 +64,6 @@ public class CollectServiceImpl implements CollectService {
 
         double memUsage = 0;
         StringBuilder collectMsg = new StringBuilder();
-
         try(BufferedReader reader = new BufferedReader(new FileReader(proc_mem_path))) {
 
             // 读取输入流

@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+   mysql:
+      image: mysql:latest
+      environment:
+        MYSQL_ROOT_PASSWORD: 123456
+        MYSQL_DATABASE: mi
+      ports:
+        - "3305:3306"
+        
+   redis:
+      image: redis:latest
+      ports:
+        - "6378:6379"
+      
+   server:
+      build:
+        context: ./server
+        dockerfile: Dockerfile
+      ports:
+        - "8080:8080"
+      restart: always
+      depends_on:
+         - redis
+         - mysql
+
+      

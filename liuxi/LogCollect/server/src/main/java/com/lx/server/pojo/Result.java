@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * 最终返回给客户端的结果
+ */
 @Data
 @AllArgsConstructor //包含全部参数的构造函数
 @NoArgsConstructor  //无参构造函数

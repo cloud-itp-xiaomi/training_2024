@@ -6,6 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 /**
+ * server模块启动类
+ *
  * @author: tressures
  * @date: 2024-05-26 17:06:02
  */
