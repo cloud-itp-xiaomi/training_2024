@@ -1,6 +1,6 @@
 # 作业一
 ## 项目详情
-作业一整合了MySQL、Redis与RocketMQ,Collector模块负责采集主机利用率信息，是RocketMQ的生产者<br/>
+作业一整合了MySQL、Redis与RocketMQ, Collector模块负责采集主机利用率信息，是RocketMQ的生产者<br/>
 Server模块负责消费信息并存储至MySQL和Redis中<br/>
 该项目所有模块以及使用的组件均部署在Docker中<br/>
 Linux系统中需要安装JDK17和Docker<br/>
