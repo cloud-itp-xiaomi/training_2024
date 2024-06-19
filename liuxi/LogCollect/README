@@ -7,7 +7,7 @@ server模块在消费主题为”HOST_LOG_TOPIC“的消息时，会根据存储
 server模块在消费主题为”HOST_CONFIG_TOPIC“的消息时，会改变存储日志的方式<br/>
 该项目所使用的MySQL与RocketMQ组件部署在Docker中<br/>
 ## 运行
-1. 创建并运行MySQLl容器
+1. 创建并运行MySQL容器
    ```
    docker pull mysql:latest
    docker run -d -p 3306:3306 -v /usr/local/mysql/conf:/etc/mysql/conf.d -v /usr/local/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name  mysql mysql:latest
