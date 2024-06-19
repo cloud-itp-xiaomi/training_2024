@@ -37,4 +37,4 @@ config中为Redis、MySQL、RocketMQ相应的配置文件
     ```
     docker build -f ./Dockerfile2 -t server .
     docker run -d -p 8083:8083 --name server ser
-8. 在浏览器中输入 http://hostName:port/api/metric/query?endpint=param1&start_ts=param2&end_ts=param3 即可访问query接口,queryByMetris同理
+8. 在浏览器中输入 http://hostName:port/api/metric/query?endpint=param1&start_ts=param2&end_ts=param3 即可访问query接口,queryByMetric同理
