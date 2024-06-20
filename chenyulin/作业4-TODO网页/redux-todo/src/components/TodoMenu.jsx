@@ -1,6 +1,7 @@
 // 展示不同状态的清单列表
 
 import React, { useEffect, useState } from "react";
+import classes from "./TodoMenu.module.css";
 
 function TodoMenu({ todos, setfilteredTodos }) {
   const [menu, setMenu] = useState("all");
@@ -18,12 +19,20 @@ function TodoMenu({ todos, setfilteredTodos }) {
   }, [menu, todos]);
 
   return (
-    <>
-      <br></br>
-      <button onClick={() => setMenu("all")}>全部</button>
-      <button onClick={() => setMenu("completed")}>已完成</button>
-      <button onClick={() => setMenu("uncompleted")}>未完成</button>
-    </>
+    <div className={classes.menu}>
+      <button className={classes.menuitem} onClick={() => setMenu("all")}>
+        全部
+      </button>
+      <button className={classes.menuitem} onClick={() => setMenu("completed")}>
+        已完成
+      </button>
+      <button
+        className={classes.menuitem}
+        onClick={() => setMenu("uncompleted")}
+      >
+        未完成
+      </button>
+    </div>
   );
 }
 

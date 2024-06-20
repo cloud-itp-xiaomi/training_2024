@@ -2,6 +2,7 @@
 
 import { useDispatch } from "react-redux";
 import { toggle } from "../store/modules/todoListStore";
+import classes from "./TodoItem.module.css";
 
 function TodoItem({ todo }) {
   const dispatch = useDispatch();
@@ -12,9 +13,10 @@ function TodoItem({ todo }) {
 
   return (
     <>
-      <li style={{ listStyle: "none" }}>
+      <li>
         {/* 复选框 */}
         <input
+          className={classes.check}
           type="checkbox"
           checked={todo.complete}
           onChange={() => handleToggleTodo(todo.id)}

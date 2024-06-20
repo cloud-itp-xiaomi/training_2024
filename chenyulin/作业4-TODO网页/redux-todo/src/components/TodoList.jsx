@@ -6,6 +6,7 @@ import { useState } from "react";
 import TodoMenu from "./TodoMenu";
 import TodoItem from "./TodoItem";
 import TodoUndoRedo from "./TodoUndoRedo";
+import classes from "./TodoList.module.css";
 
 function TodoList() {
   // useSelector()用来加载state中的数据
@@ -15,21 +16,27 @@ function TodoList() {
 
   return (
     <>
-      {/* 输入框 */}
-      <TodoInput />
+      <div className={classes.todolist}>
+        <div className={classes.list}>
+          <h1>陈雨霖的清单列表</h1>
 
-      {/* 选择不同的清单列表状态 */}
-      <TodoMenu todos={todos} setfilteredTodos={setfilteredTodos} />
+          {/* 输入框 */}
+          <TodoInput />
 
-      {/* 每个清单 */}
-      <ul>
-        {filteredTodos.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} />
-        ))}
-      </ul>
+          {/* 选择不同的清单列表状态 */}
+          <TodoMenu todos={todos} setfilteredTodos={setfilteredTodos} />
 
-      {/* 撤回和恢复 */}
-      <TodoUndoRedo></TodoUndoRedo>
+          {/* 每个清单 */}
+          <ul>
+            {filteredTodos.map((todo) => (
+              <TodoItem key={todo.id} todo={todo} />
+            ))}
+          </ul>
+
+          {/* 撤回和恢复 */}
+          <TodoUndoRedo></TodoUndoRedo>
+        </div>
+      </div>
     </>
   );
 }
