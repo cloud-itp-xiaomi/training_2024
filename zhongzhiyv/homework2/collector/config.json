@@ -1,0 +1,8 @@
+{
+  "files": [
+    "a.log",
+    "b.log"
+  ],
+  "log_storage": "local_file"
+}
+

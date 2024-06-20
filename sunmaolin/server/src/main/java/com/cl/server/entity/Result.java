@@ -2,7 +2,6 @@ package com.cl.server.entity;
 
 import com.cl.server.enums.ResultCodeEnum;
 import lombok.Data;
-
 /**
  * result统一
  * 

@@ -1,0 +1,24 @@
+package main
+
+import "fmt"
+
+func main() {
+	var x int
+	var y float64
+
+	//定义了两个变量，想用键盘来录入这两个变量
+	//fmt包中的函数
+	//Println函数  打印并换行
+	//Printf函数  格式化输出
+	//Print函数  打印输出
+
+	//Scanln函数 接收打印并换行
+	//Scanf函数 接收格式化输出
+	//Scan函数  接受打印输出
+
+	fmt.Println("请输入两个数 1、整数，2、浮点数")
+	fmt.Scanln(&x, &y)
+	fmt.Println("x:", x)
+	fmt.Println("y:", y)
+}
+
