@@ -1,0 +1,21 @@
+package main
+
+import "fmt"
+
+func main() {
+	a := 5 //int
+	b := 5.0
+
+	//需求：将int类型的a转换为float64类型
+	c := float64(a)
+	d := int(b)
+	//转换为bool类型 不可以
+	//e := bool(a)
+
+	fmt.Printf("%T", a)
+	fmt.Printf("\n%T", b)
+	fmt.Printf("\n%T", c)
+	fmt.Printf("\n%T", d)
+	//fmt.Printf("\n%T", e)
+}
+
