@@ -1,2 +1,10 @@
 server:
   port: 30000
+
+upload:
+  server:
+    url: http://localhost:9092/api/log/upload
+  local:
+    url: http://localhost:9092/api/log/uploadToLocal
+
+

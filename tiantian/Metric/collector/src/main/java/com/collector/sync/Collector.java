@@ -66,7 +66,9 @@ public class Collector {
             reqMap.put("timestamp", new Date().getTime()/1000);
         	reqMap.put("value", memoryUsageRate);
         	listReq.add(reqMap);
+
         	client.dataUpload(listReq);
+
 			Thread.sleep(1000);
 		} catch (InterruptedException | UnknownHostException e) {
 			// TODO Auto-generated catch block

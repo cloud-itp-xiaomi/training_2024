@@ -62,10 +62,10 @@ public class RevicerControler {
 //			if(StringUtils.isEmpty(end_ts)) {
 //				throw new Exception("结束时间不能为空！");
 //			}
-//			List listCpu = new ArrayList();
-//			List listMem = new ArrayList();
-			List<Map<String, Object>> listCpu = new ArrayList<>();
-			List<Map<String, Object>> listMem = new ArrayList<>();
+			List listCpu = new ArrayList();
+			List listMem = new ArrayList();
+//			List<Map<String, Object>> listCpu = new ArrayList<>();
+//			List<Map<String, Object>> listMem = new ArrayList<>();
 			List<Metric> list = rService.getMetric(endpoint, metric, Integer.valueOf(start_ts), Integer.valueOf(end_ts));
 
 			for (Metric m : list) {
