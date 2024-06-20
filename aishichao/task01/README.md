@@ -1,31 +1,37 @@
-# 1.ÏîÄ¿ÃèÊö
-  ±¾ÏîÄ¿ÔÚubuntuÏµÍ³ÏÂ,»ùÓÚgolang¿ª·¢£¬²¿ÊğÔÚdockerÉÏÔËĞĞ£¬ÓÃÓÚ²É¼¯¼ÆËã»úcpuºÍÄÚ´æÀûÓÃÂÊ£¬²¢¿ÉÔÚshellÖÕ¶ËÉÏ²éÑ¯Êı¾İ¡£  
-# 2.ÏîÄ¿²¿Êğ
-  ## (1).°²×°docker
-      curl -fsSL https://test.docker.com -o test-docker.sh  
-      Èç¹ûÌáÊ¾ÎªÕÒµ½ÃüÁîcurl,Ğè°²×°£ºsudo apt-get install curl  
-      sudo sh test-docker.sh  
-  ## (2).°²×°ddocker-compose  
-      sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose  
-      sudo chmod +x /usr/local/bin/docker-compose  
-  ## (3).½øÈëµ½ÏîÄ¿¸ùÄ¿Â¼£¬Æô¶¯ÏîÄ¿  
-      sudo docker-compose up --build
-      ´ËÊ±»áÌáÊ¾ÕÒ²»µ½mysql±í£¬Ğè½øĞĞÅäÖÃ  
-  ## (4).mysqlÅäÖÃ  
-      ÕÒµ½mysqlÈİÆ÷id:sudo docker ps -a  
-      ½øÈëmysql£ºsudo docker exec -it <ID> /bin/bash  
-      ½øÈëtask¿â£ºuse tasks;  
-      ´´½¨±í£ºcreate table metric(  
-                 id int AUTO_INCREMENT PRIMARY KEY,  
-                 Metric varchar(255) not null,  
-                 Endpoint varchar(255) not null,  
-                 Timestamp bigint not null,  
-                 Step bigint not null,  
-                 Value double precision not null);  
-  ## (5).ÏîÄ¿²¿ÊğÍê³É  
-    
-# 3.ÏîÄ¿Ê¹ÓÃ  
-  (1).°²×°jq¹¤¾ß£º`sudo-apt-get install jq`</p>  
-  (2).ÔÚÏîÄ¿¸ùÄ¿Â¼Ö´ĞĞ:Ìí¼Ó½Å±¾Ö´ĞĞÈ¨ÏŞ£º`chmod +x reader.sh`</p>   
-  (3).ÔÚÏîÄ¿¸ùÄ¿Â¼Ö´ĞĞ£º./reader.sh ¸ù¾İÌáÊ¾½øĞĞ²éÑ¯</p>  
-      
+# 1.é¡¹ç›®æè¿°
+    æœ¬é¡¹ç›®åœ¨Ubuntuç³»ç»Ÿä¸‹,åŸºäºGolangå¼€å‘ï¼Œéƒ¨ç½²åœ¨Dockerä¸Šè¿è¡Œï¼Œç”¨äºé‡‡é›†è®¡ç®—æœºcpuå’Œå†…å­˜åˆ©ç”¨ç‡ï¼›
+    é¡¹ç›®é€šè¿‡collectorç«¯ï¼Œæ¯åˆ†é’Ÿé‡‡é›†ä¸€æ¬¡æ•°æ®ï¼Œå¹¶ä½¿ç”¨uploadæ¥å£ä¸Šä¼ æ•°æ®åˆ°serverç«¯ï¼›
+    serverç«¯æä¾›uploadæ¥å£æ¥æ”¶å¹¶å­˜å‚¨æ•°æ®åˆ°MySQLå’ŒRedisï¼›æä¾›queryæ¥å£ä¾›æŸ¥è¯¢æ•°æ®ï¼›
+    ç”¨æˆ·å¯åˆ©ç”¨Shellè„šæœ¬å’Œqueryæ¥å£åœ¨ç»ˆç«¯ä¸ŠæŸ¥è¯¢æ•°æ®ã€‚
+# 2.é¡¹ç›®éƒ¨ç½²
+## (1).å®‰è£…Docker
+    curl -fsSL https://test.docker.com -o test-docker.sh
+    å¦‚æœæç¤ºæœªæ‰¾åˆ°å‘½ä»¤curl,éœ€å®‰è£…ï¼šsudo apt-get install curl
+    sudo sh test-docker.sh
+    è¿™ä¸€æ­¥ä¸ä¹‹åçš„composeå®‰è£…å’Œè¿è¡Œå¯èƒ½ä¼šå‡ºç°timeouté”™è¯¯ï¼Œå»ºè®®é…ç½®é•œåƒæºæˆ–ç½‘ç»œä»£ç†ã€‚
+## (2).å®‰è£…docker-compose
+    sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    æ·»åŠ å¯æ‰§è¡Œæƒé™ï¼š
+    sudo chmod +x /usr/local/bin/docker-compose
+## (3).è¿›å…¥åˆ°é¡¹ç›®æ ¹ç›®å½•ï¼Œå¯åŠ¨é¡¹ç›®
+    sudo docker-compose up --build
+    æ­¤æ—¶ä¼šæç¤ºæ‰¾ä¸åˆ°MySQLè¡¨ï¼Œéœ€è¿›è¡Œé…ç½®
+## (4).MySQLé…ç½®
+    æ‰¾åˆ°MySQLå®¹å™¨id:sudo docker ps -a
+    è¿›å…¥MySQLï¼šsudo docker exec -it (ID) /bin/bash
+    åˆ›å»ºæ•°æ®åº“ï¼šCREATE DATABASE IF NOT EXISTS task;
+    è¿›å…¥taskåº“ï¼šuse task;
+    åˆ›å»ºè¡¨ï¼šcreate table metric(
+             id int AUTO_INCREMENT PRIMARY KEY,
+             Metric varchar(255) not null,
+             Endpoint varchar(255) not null,
+             Timestamp bigint not null,
+             Step bigint not null,
+             Value double precision not null);
+## (5).é¡¹ç›®éƒ¨ç½²å®Œæˆ
+
+# 3.é¡¹ç›®ä½¿ç”¨
+    å®‰è£…jqå·¥å…·ï¼š`sudo-apt-get install jq`
+    åœ¨é¡¹ç›®æ ¹ç›®å½•æ‰§è¡Œ:æ·»åŠ è„šæœ¬æ‰§è¡Œæƒé™ï¼š`chmod +x reader.sh`
+    åœ¨é¡¹ç›®æ ¹ç›®å½•æ‰§è¡Œï¼š./reader.sh æ ¹æ®æç¤ºè¿›è¡ŒæŸ¥è¯¢
+    æŸ¥è¯¢æ”¯æŒç›¸å…³æ•°æ®ç¼ºå¤±ï¼Œä»¥æŸ¥è¯¢å¯¹åº”æ‰€æœ‰å€¼çš„æ•°æ®

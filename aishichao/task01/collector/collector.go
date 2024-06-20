@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"bytes"
+	"collector/collectorDataType"
 	"encoding/json"
 	"fmt"
 	"github.com/shirou/gopsutil/v3/cpu"
@@ -14,14 +15,6 @@ import (
 	"strings"
 	"time"
 )
-
-type MetricData struct {
-	Metric    string  `json:"metric"`
-	Endpoint  string  `json:"endpoint"`
-	Timestamp int64   `json:"timestamp"`
-	Step      int64   `json:"step"`
-	Value     float64 `json:"value"`
-}
 
 func main() {
 	fmt.Println("Starting collector...")
@@ -104,7 +97,7 @@ func getHostName() string {
 	return hostname
 }
 
-func sendData(data []MetricData) {
+func sendData(data []collectorDataType.MetricData) {
 	jsonData, err := json.Marshal(data)
 	if err != nil {
 		log.Println("Error marshalling data:", err)
@@ -128,16 +121,14 @@ func sendData(data []MetricData) {
 	}
 }
 
-func collectData() []MetricData {
+func collectData() []collectorDataType.MetricData {
 	hostname := getHostName()
 
-	//采集CPU利用率
 	cpuUsage, err := getCpuUsage()
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	// 采集内存利用率
+	
 	memoryUsage, err := getMemoryUsage()
 	if err != nil {
 		log.Fatal(err)
@@ -145,7 +136,7 @@ func collectData() []MetricData {
 
 	timestamp := time.Now().Unix()
 
-	return []MetricData{
+	return []collectorDataType.MetricData{
 		{
 			Metric:    "cpu.used.percent",
 			Endpoint:  hostname,
