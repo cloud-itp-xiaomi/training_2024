@@ -69,7 +69,7 @@ public class MetricService {
             } else if (resultMetrics.size() == 10) {
                 // 缓存的数据全符合要求，在MySQL中查询是否有符合的数据
 
-                // 修改end_ts为缓存中的最早一条数据的时间，假设为(a,b)，Redis可以获取（c,b)之内的所有时间，（a,c）需要在MySQL中查询
+                // 修改end_ts（结束时间）为缓存中的最早一条数据的时间，假设为(a,b)，Redis 可以获取 (c,b) 之内的所有时间，(a,c) 则需要在MySQL中查询
                 long end_new_ts = resultMetrics.stream().mapToLong(MetricData::getTimestamp).min().orElse(0) - 1;
                 List<MetricData> newMetrics = metricMapper.getMetrics(endpoint, metric, start_ts, end_new_ts);
                 resultMetrics.addAll(newMetrics);
