@@ -38,7 +38,7 @@ class ServiceTests {
     @Test
     @Transactional
     @Rollback(true)
-    void testUploadAndQuery() {
+    void testUpload() {
         CollectorUploadRequest request1 = new CollectorUploadRequest();
         request1.setStep(60);
         request1.setValue(88.8);
