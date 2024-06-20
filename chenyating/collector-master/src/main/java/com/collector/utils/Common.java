@@ -70,7 +70,6 @@ public class Common {
                 log.info("文件创建成功： " + file.getAbsolutePath());
             }
         } catch (IOException e) {
-            // 处理异常情况
             e.printStackTrace();
         }
     }

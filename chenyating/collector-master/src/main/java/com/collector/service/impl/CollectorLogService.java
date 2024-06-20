@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 import java.util.*;
 
 @Service
-public class CollectorLogServiceImpl extends ServiceImpl<CollectorLogMapper, CollectorLogUploadEntity> implements ICollectorLogService {
+public class CollectorLogService extends ServiceImpl<CollectorLogMapper, CollectorLogUploadEntity> implements ICollectorLogService {
     @Resource
     private Common common;
     @Resource
@@ -41,6 +41,8 @@ public class CollectorLogServiceImpl extends ServiceImpl<CollectorLogMapper, Col
                     .filter(t -> Objects.equals(t.getLogId(), collectorLogUploadEntity.getId()))
                     .map(CollectorDetailLogEntity::getLogs).toArray(String[]::new));
             BeanUtils.copyProperties(collectorLogUploadEntity,response);
+        }else{
+            throw new RuntimeException("日志信息不存在！");
         }
         return response;
     }
@@ -58,7 +60,7 @@ public class CollectorLogServiceImpl extends ServiceImpl<CollectorLogMapper, Col
                 int logId = response.getId();
                 collectorLogMapper.deleteDetailLogInfo(logId);
                 for (String requestLog : request.getLogs()) {
-                    collectorLogMapper.saveDetailLogInfo(logId,requestLog);
+                    collectorLogMapper.saveDetailLogInfo(logId, requestLog, new Date());
                 }
             } else {
                 CollectorLogUploadEntity entity = new CollectorLogUploadEntity();
@@ -71,7 +73,7 @@ public class CollectorLogServiceImpl extends ServiceImpl<CollectorLogMapper, Col
                 if(insert > 0){
                     int logId = entity.getId();
                     for (String requestLog : request.getLogs()) {
-                        collectorLogMapper.saveDetailLogInfo(logId,requestLog);
+                        collectorLogMapper.saveDetailLogInfo(logId, requestLog, new Date());
                     }
                 }
             }

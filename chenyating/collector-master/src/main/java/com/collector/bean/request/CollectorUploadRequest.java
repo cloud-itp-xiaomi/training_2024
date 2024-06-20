@@ -7,7 +7,6 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class CollectorUploadRequest {
-
     @NotBlank(message = "当前主机名称不能为空")
     private String endpoint;
 

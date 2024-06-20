@@ -9,7 +9,6 @@ import java.util.Date;
 @Data
 @TableName("collector_detail_log")
 public class CollectorDetailLogEntity {
-
     private Integer logId;
 
     private String logs;

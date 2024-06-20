@@ -4,7 +4,7 @@
 <mapper namespace="com.collector.mapper.CollectorLogMapper">
 
     <insert id="saveDetailLogInfo">
-        insert into collector_detail_log(log_id,logs,create_time) values(#{logId},#{logs},now())
+        insert into collector_detail_log(log_id,logs,create_time) values(#{logId},#{logs},#{createTime})
     </insert>
 
     <delete id="deleteDetailLogInfo">

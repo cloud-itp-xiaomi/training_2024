@@ -14,7 +14,6 @@ import java.util.List;
 @Component
 @Slf4j
 public class SaveLogByMysql implements SaveLogParent{
-
     @Resource
     private Common common;
     @Resource

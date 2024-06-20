@@ -37,7 +37,7 @@ public class SaveLogByFile implements SaveLogParent{
             String line;
             while ((line = reader.readLine()) != null) {
                 writer.write(line);
-                writer.newLine(); // 写入一个新行字符
+                writer.newLine();
             }
         } catch (IOException e) {
             e.printStackTrace();

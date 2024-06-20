@@ -2,9 +2,10 @@ package com.collector;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootApplication
-class CollectorApplicationTest {
+@SpringBootTest
+class CollectorApplicationTests {
     @Test
     void contextLoads() {
     }

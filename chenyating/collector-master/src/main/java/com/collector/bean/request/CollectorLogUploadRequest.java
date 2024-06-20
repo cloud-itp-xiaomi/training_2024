@@ -6,7 +6,6 @@ import javax.validation.constraints.NotEmpty;
 
 @Data
 public class CollectorLogUploadRequest {
-
     @NotBlank(message = "当前主机名称不能为空")
     private String hostname;
 

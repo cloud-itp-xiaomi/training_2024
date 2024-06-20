@@ -38,8 +38,9 @@ public class CollectorUploadTask {
 
         List<CollectorUploadRequest> requests = new ArrayList<>();
         try{
-            // 获取当前时间戳,13位
+            // 获取当前时间戳,13位,转为10位
             long timeMillis = System.currentTimeMillis();
+            int timestamp = Integer.valueOf(String.valueOf(timeMillis/1000));
             // cpu利用率
             double cpuUtilization = 0;
             // 内存利用率
@@ -52,7 +53,7 @@ public class CollectorUploadTask {
             request.setStep(60);
             request.setValue(cpuUtilization);
             request.setEndpoint(hostName);
-            request.setTimestamp((int) timeMillis);
+            request.setTimestamp(timestamp);
             request.setMetric(MetricEnum.CPU.getMessage());
             requests.add(request);
 
@@ -60,7 +61,7 @@ public class CollectorUploadTask {
             request.setStep(60);
             request.setValue(memoryUtilization);
             request.setEndpoint(hostName);
-            request.setTimestamp((int) timeMillis);
+            request.setTimestamp(timestamp);
             request.setMetric(MetricEnum.MEM.getMessage());
             requests.add(request);
 

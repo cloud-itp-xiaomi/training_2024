@@ -6,12 +6,12 @@ import com.collector.bean.entity.CollectorLogUploadEntity;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
 public interface CollectorLogMapper extends BaseMapper<CollectorLogUploadEntity> {
-
-    int saveDetailLogInfo(@Param("logId")int logId,@Param("logs")String logs);
+    int saveDetailLogInfo(@Param("logId")int logId, @Param("logs")String logs, @Param("createTime")Date createTime);
 
     int deleteDetailLogInfo(@Param("logId")int logId);
 

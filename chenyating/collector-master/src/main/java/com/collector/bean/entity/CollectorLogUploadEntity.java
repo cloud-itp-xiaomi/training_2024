@@ -11,7 +11,6 @@ import java.util.Date;
 @Data
 @TableName("collector_log")
 public class CollectorLogUploadEntity {
-
     // 主键
     @TableId(type = IdType.AUTO)
     private int id;

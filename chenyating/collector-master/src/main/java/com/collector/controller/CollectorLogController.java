@@ -14,7 +14,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/log")
 public class CollectorLogController {
-
     @Resource
     private ICollectorLogService iCollectorLogService;
 

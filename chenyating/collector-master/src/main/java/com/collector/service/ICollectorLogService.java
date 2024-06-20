@@ -9,7 +9,6 @@ import com.collector.bean.response.CollectorLogResponse;
 import java.util.List;
 
 public interface ICollectorLogService extends IService<CollectorLogUploadEntity> {
-
     Boolean upload(List<CollectorLogUploadRequest> requests);
 
     CollectorLogResponse queryLogInfo(CollectorLogQueryRequest request);

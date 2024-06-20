@@ -28,10 +28,10 @@ public class MyResult<T> implements Serializable {
 
     @Override
     public String toString() {
-        return "{" +
-                "code=" + code + ",\n" +
-                "message=" + message + ",\n" +
-                "data=" + data +
-                "}";
+        return "{\n" +
+                "\"code\" : " + code + ",\n" +
+                "\"message\" : \"" + message + "\",\n" +
+                "\"data\" : " + data +""+
+                "\n}";
     }
 }

@@ -10,7 +10,6 @@ import java.util.Date;
 @Data
 @TableName("cms_collector")
 public class CollectorUploadEntity {
-
     @TableId(type = IdType.AUTO)
     private Integer id;
 

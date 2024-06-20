@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 
 // redis基本方法
 public interface CacheClient {
-
     void saveLatestData(String key, String value);
 
     List<Object> getLatestData(String key);

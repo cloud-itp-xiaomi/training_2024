@@ -12,6 +12,7 @@ import com.collector.utils.Common;
 import com.collector.utils.RedisConstants;
 import com.collector.mapper.CollectorMapper;
 import com.collector.service.ICollectorService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class CollectorServiceImpl extends ServiceImpl<CollectorMapper, CollectorUploadEntity> implements ICollectorService {
+public class CollectorService extends ServiceImpl<CollectorMapper, CollectorUploadEntity> implements ICollectorService {
     @Resource
     private CollectorMapper collectorMapper;
     @Resource
@@ -76,11 +77,17 @@ public class CollectorServiceImpl extends ServiceImpl<CollectorMapper, Collector
         // 在数据库查，LambdaQueryWrapper是MyBatis-Plus提供的一种查询构建器，相当于sql语句
         // 通过Lambda表达式来构建查询条件，使用起来比传统的SQL语句更加简洁和易读
         LambdaQueryWrapper<CollectorUploadEntity> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(CollectorUploadEntity::getEndpoint, request.getEndpoint())
-                .eq(CollectorUploadEntity::getMetric, request.getMetric())
-                .between(CollectorUploadEntity::getTimestamp, request.getStart_ts(), request.getEnd_ts());
-        List<CollectorUploadEntity> collectorUploadEntities = collectorMapper.selectList(lambdaQueryWrapper);
+        lambdaQueryWrapper.eq(CollectorUploadEntity::getEndpoint, request.getEndpoint());
+        if(StringUtils.isNotBlank(request.getMetric())){
+            // metric不为空的时候 才加查询条件
+            lambdaQueryWrapper.eq(CollectorUploadEntity::getMetric, request.getMetric());
+        }
+        lambdaQueryWrapper.between(CollectorUploadEntity::getTimestamp, request.getStart_ts(), request.getEnd_ts());
 
+        List<CollectorUploadEntity> collectorUploadEntities = collectorMapper.selectList(lambdaQueryWrapper);
+        if(collectorUploadEntities.isEmpty()){
+            throw new RuntimeException("没有查询到数据");
+        }
         getCollectorResponse(collectorUploadEntities, collectorResponses);
         return collectorResponses;
     }
