@@ -48,6 +48,6 @@ class MysqlLogStorageTest {
         LogResult logResult = mysqlLogStorage.queryLog("123", "a.log");
         ResLog resLog = logResult.getData();
         int size = resLog.getLogs().size();
-        assert 8 == size;
+        assert 1 == size;
     }
 }

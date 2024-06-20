@@ -12,9 +12,9 @@ public class LogStorageFactory {
     public LogStorage getLogStorage() {
         String logStorage = ConfigMessageConsumeService.logStorage;
         if("local_file".equals(logStorage)) {
-            return new LocalLogStorage();
+            return LocalLogStorage.getLocalStorage();
         }else {
-            return new MysqlLogStorage();
+            return MysqlLogStorage.getMysqlLogStorage();
         }
     }
 }

@@ -20,6 +20,16 @@ import java.util.regex.Pattern;
 public class LocalLogStorage implements LogStorage {
 
     private final String parent = "E:\\java_study\\javaProjects\\LogCollect\\server\\src\\main\\java\\local-logs";//存储日志文件的目录
+    private final static LocalLogStorage localLogStorage = new LocalLogStorage();
+
+    private LocalLogStorage() {
+
+    }
+
+    //单例模式
+    public static LocalLogStorage getLocalStorage() {
+        return localLogStorage;
+    }
 
     @Override
     public boolean storeLog(LogMessage logMessage) {
@@ -32,8 +42,8 @@ public class LocalLogStorage implements LogStorage {
         File file = new File(filePath);
         String fileName = file.getName();
         File file1 = createFile(hostName, fileName, curTime);
-        for(String log : logMessage.getLogs()) {
-            try (FileWriter fw =new FileWriter(file1)) {
+        for (String log : logMessage.getLogs()) {
+            try (FileWriter fw = new FileWriter(file1)) {
                 fw.write(log);
                 fw.write("\n");
             } catch (IOException e) {
@@ -55,16 +65,16 @@ public class LocalLogStorage implements LogStorage {
         File file = new File(filePath);
         String fileName = file.getName();
         List<File> files = listFiles(hostName, fileName);
-        for(File file1 : files) {
+        for (File file1 : files) {
             //读取文件
             try (Scanner sc = new Scanner(new FileReader(file1))) {
                 while (sc.hasNextLine()) {
                     String line = sc.nextLine();
-                    if(!line.trim().isEmpty()) {
+                    if (!line.trim().isEmpty()) {
                         logs.add(line);
                     }
                 }
-            }catch (FileNotFoundException e) {
+            } catch (FileNotFoundException e) {
                 return new LogResult(StatusCode.FILE_NOT_EXIST.getCode(), StatusCode.FILE_NOT_EXIST.getMsg(), null);
             }
         }
@@ -72,19 +82,19 @@ public class LocalLogStorage implements LogStorage {
         return new LogResult(StatusCode.SUCCESS.getCode(), StatusCode.SUCCESS.getMsg(), resLog);
     }
 
-    public File createFile(String hostName , String fileName , String curTime) {
+    public File createFile(String hostName, String fileName, String curTime) {
         StringBuilder sb = new StringBuilder();
         sb.append(hostName).append("-");
         sb.append(fileName).append("-");
         sb.append(curTime).append(".log");
         String child = sb.toString();
         File file1 = new File(parent, child);
-        if(!file1.exists()) {
+        if (!file1.exists()) {
             try {
                 boolean res = file1.createNewFile();
-                if(res) {
+                if (res) {
                     System.out.println(file1.getName() + " create successfully");
-                }else {
+                } else {
                     System.out.println(file1.getName() + " create failed");
                 }
             } catch (IOException e) {
@@ -95,7 +105,7 @@ public class LocalLogStorage implements LogStorage {
     }
 
     //获取指定目录下满足要求的文件
-    public List<File> listFiles(String hostName, String fileName){
+    public List<File> listFiles(String hostName, String fileName) {
         List<File> res = new ArrayList<>();
         File dir = new File(parent);
         if (!dir.exists()) {
@@ -105,10 +115,10 @@ public class LocalLogStorage implements LogStorage {
         String regex = "^" + hostName + "-" + fileName + "-" + "\\d+" + ".log" + "$";
         Pattern pattern = Pattern.compile(regex);
         File[] files = dir.listFiles();
-        for(File file : files) {
+        for (File file : files) {
             String fileName1 = file.getName();//获取文件的绝对路径
             Matcher matcher = pattern.matcher(fileName1);
-            if(matcher.matches()) {
+            if (matcher.matches()) {
                 res.add(file);
             }
         }

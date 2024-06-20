@@ -18,13 +18,22 @@ import java.util.List;
 @DependsOn(value = "getBeanUtil")
 public class MysqlLogStorage implements LogStorage {
 
-   private LogMapper logMapper = GetBeanUtil.getBean(LogMapper.class);
+    private LogMapper logMapper = GetBeanUtil.getBean(LogMapper.class);
+
+    private static final MysqlLogStorage mysqlLogStorage = new MysqlLogStorage();
+
+    private MysqlLogStorage() {
+    }
+
+    public static MysqlLogStorage getMysqlLogStorage() {
+        return mysqlLogStorage;
+    }
 
     @Override
     public boolean storeLog(LogMessage logMessage) {
         List<String> logs = logMessage.getLogs();
         try {
-            for(String log : logs) {
+            for (String log : logs) {
                 LogMysql logMysql = new LogMysql();
                 logMysql.setHostName(logMessage.getHostName());
                 logMysql.setFile(logMessage.getFile());
@@ -32,7 +41,7 @@ public class MysqlLogStorage implements LogStorage {
                 logMapper.insert(logMysql);
             }
             System.out.println("add a logMessage into table log!!!");
-        }catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("add a logMessage failed!!!");
             return false;
@@ -53,7 +62,7 @@ public class MysqlLogStorage implements LogStorage {
             }
             resLog.setLogs(logs);
             return new LogResult(StatusCode.SUCCESS.getCode(), StatusCode.SUCCESS.getMsg(), resLog);
-        }catch (Exception e) {
+        } catch (Exception e) {
             return new LogResult(StatusCode.FAIL.getCode(), StatusCode.FAIL.getMsg(), null);
         }
     }
