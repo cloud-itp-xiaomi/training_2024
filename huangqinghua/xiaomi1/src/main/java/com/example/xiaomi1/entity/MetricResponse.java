@@ -18,4 +18,12 @@ public class MetricResponse {
         private double value;
 
     }
+
+    @Override
+    public String toString() {
+        return "MetricResponse{" +
+                "metric='" + metric + '\'' +
+                ", values='" + values.toString() + '\'' +
+                '}';
+    }
 }
