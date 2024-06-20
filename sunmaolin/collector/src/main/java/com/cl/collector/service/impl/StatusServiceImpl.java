@@ -47,9 +47,9 @@ public class StatusServiceImpl implements StatusService {
                 totalMemory = Long.parseLong(line.split("\\s+")[1]);
             } else if (line.startsWith("MemFree:")) {
                 freeMemory = Long.parseLong(line.split("\\s+")[1]);
-            }else if (line.startsWith("Buffers:")) {
+            } else if (line.startsWith("Buffers:")) {
                 Buffers = Long.parseLong(line.split("\\s+")[1]);
-            }else if (line.startsWith("Cached:")) {
+            } else if (line.startsWith("Cached:")) {
                 Cached = Long.parseLong(line.split("\\s+")[1]);
             }
         }

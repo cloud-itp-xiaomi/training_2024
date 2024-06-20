@@ -16,14 +16,14 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * log测试类
+ * status测试类
  *
  * @author: tressures
  * @date: 2024/6/13
  */
 @Slf4j
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes =ServerApplication.class)
+@SpringBootTest(classes = ServerApplication.class)
 public class LogTest {
 
     @Resource
@@ -34,10 +34,10 @@ public class LogTest {
         List<LogInfoDTO> logInfoDTOS = new ArrayList<>();
         logInfoDTOS.add(new LogInfoDTO( "my-computer", "/home/work/a.log",
                 Arrays.asList("2024-05-16 10:11:51 +08:00 This is a log",
-                "2024-05-16 10:11:51 +08:00 This is another log")));
+                        "2024-05-16 10:11:51 +08:00 This is another log")));
         logInfoDTOS.add(new LogInfoDTO("my-computer", "/home/work/b.log",
                 Arrays.asList("2024-05-16 10:11:51 +08:00 ERROR tcp_ping::metric src/metric.rs:95 - Report one chunk done, error: Connection refused",
-        "2024-05-16 10:11:51 +08:00 ERROR tcp_ping::metric src/metric.rs:95 - Report one chunk done, error: Connection refused")));
+                        "2024-05-16 10:11:51 +08:00 ERROR tcp_ping::metric src/metric.rs:95 - Report one chunk done, error: Connection refused")));
         logStorageService.uploadLogs(logInfoDTOS);
     }
 
