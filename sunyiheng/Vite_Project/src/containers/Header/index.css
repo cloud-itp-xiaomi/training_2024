@@ -1,0 +1,9 @@
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title img {
+  height: 2em;
+}
