@@ -1,0 +1,43 @@
+package main
+
+import "fmt"
+
+func main() {
+	//函数的调用
+	printinfo()
+	myprint("haha")
+	add1(5, 6)
+	e := mul(3, 5)
+	fmt.Println(e)
+	x, y := swap("666", "888")
+	fmt.Println(x, y)
+
+}
+
+// 无参无返回值函数  (仅打印一段信息）
+func printinfo() {
+	fmt.Println("hello world")
+}
+
+//有一个参数的函数
+
+func myprint(msg string) {
+	fmt.Println(msg)
+}
+
+// 有两个参数的函数
+func add1(a, b int) {
+	fmt.Println(a + b)
+}
+
+// 有一个返回值的函数  有返回值的函数，就需要接收函数的返回值
+func mul(c, d int) int {
+	e := c * d
+	return e
+}
+
+// 有多个返回值的函数
+func swap(x, y string) (string, string) {
+	return y, x
+}
+

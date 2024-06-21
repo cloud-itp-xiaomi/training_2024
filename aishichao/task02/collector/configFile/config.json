@@ -1,0 +1,7 @@
+{
+    "files": [
+    "/configFiles/gpu-manager.log",
+    "/configFiles/access_log"
+    ],
+    "log_storage": "local_file"
+}

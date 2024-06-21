@@ -1,0 +1,20 @@
+package main
+
+import "fmt"
+
+func main() {
+	//先定义变量，定义后再赋值
+	var (
+		name string
+		age  int
+		addr string
+	)
+	//定义后再赋值
+	name = "wzx"
+	age = 18
+	addr = "武汉"
+	// sttring默认值为空
+	//int 默认值为0
+	fmt.Println(name, age, addr)
+}
+

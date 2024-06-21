@@ -1,0 +1,8 @@
+DONE 把 FileServer 的 read 改成从文件读取
+DONE FileServer 支持读写多条日志
+
+DONE 从配置文件获取需要读取的日志文件，并获取日志信息
+DONE 从配置文件设置日志存储的方式
+DONE 要支持不同主机、不同文件的日志的存储和读取
+
+DONE 连接到mysql

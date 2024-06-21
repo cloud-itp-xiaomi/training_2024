@@ -1,0 +1,14 @@
+# 使用官方的Java 17镜像作为基础镜像
+FROM eclipse-temurin:17-jdk-focal
+
+# 挂载点
+VOLUME /vol/collector
+RUN mkdir -p /vol/collector
+
+COPY Collector-0.0.1-SNAPSHOT.jar /vol/collector/Collector-0.0.1-SNAPSHOT.jar
+
+# 暴露应用程序端口
+EXPOSE 8080
+
+# 设置容器启动时执行的命令
+ENTRYPOINT ["java","-jar","/vol/collector/Collector-0.0.1-SNAPSHOT.jar"]
