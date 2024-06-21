@@ -3,5 +3,5 @@
     "D:/2024_training/watchObject/a.log",
     "D:/2024_training/watchObject/b.log"
   ],
-  "logStorage": "local_storage"
+  "logStorage": "local_file"
 }

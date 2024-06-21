@@ -20,9 +20,16 @@ public class LogEntryController {
     public Result uploadLogs(@RequestBody UploadLogsRequest request) {
         try {
             String logStorage = request.getLogStorage();
+            if (logStorage == null || logStorage.isEmpty()) {
+                return Result.error("logStorage is required");
+            }
+
             List<LogEntryRequest> logEntryRequests = request.getLogs();
 
+            System.out.println("logEntryRequests:"+logEntryRequests);
+
             List<LogEntry> logEntries = new ArrayList<>();
+
             for (LogEntryRequest logEntryRequest : logEntryRequests) {
                 for (String log : logEntryRequest.getLogs()) {
                     LogEntry logEntry = new LogEntry();
@@ -34,7 +41,7 @@ public class LogEntryController {
                 }
             }
 
-            logEntryService.saveLogEntries(logEntries);
+            logEntryService.saveLogEntries(logStorage,logEntries);
 
 
             return Result.success("succeed to upload logs！");
@@ -42,8 +49,5 @@ public class LogEntryController {
             return Result.error("Failed to upload logs: " + e.getMessage());
         }
     }
-
-
-
 
 }
