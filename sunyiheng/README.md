@@ -34,9 +34,27 @@ npm run dev
 - router：路由案例，实现单页面路由，`src/pages`是路由组件，`components`是正常组件
 - WeChat：React作业，实现仿微信群聊天静态界面，三个成员，模拟发送消息并显示到消息列表
 
+## 大作业
 
+文件夹：
 
+`public`：存放静态文件
 
+`src`：主项目文件夹
 
+大作业启动方式：
 
+```cmd
+cd Vite_Project
+npm install
+npm run dev
+```
+
+实现了带有撤销和重做功能的待办事项列表功能
+
+利用==redux==集中管理待办事项列表状态以及变更操作列表的方法
+
+利用==router==对页面的筛选功能实现路由切换功能
+
+主要框架和语法：`react+redux+es6`
 
