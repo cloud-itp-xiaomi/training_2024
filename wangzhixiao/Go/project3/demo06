@@ -1,0 +1,26 @@
+package main
+
+import "fmt"
+
+func main() {
+	//函数体内的局部变量
+	temp := 100
+
+	//if语句内的局部变量
+	if b := 1; b <= 10 {
+		temp := 50
+		fmt.Println(temp) //局部变量，就近原则
+		fmt.Println(b)
+	}
+	fmt.Println(temp)
+	//fmt.Println(b) //不可以使用if语句内部定义的变量b
+}
+func f1() {
+	a := 1
+	fmt.Println(a)
+}
+
+func f2() {
+	//fmt.Println(a) //不能使用在其他函数里定义的变量a
+}
+

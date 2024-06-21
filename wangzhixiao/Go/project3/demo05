@@ -1,0 +1,20 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	//引用传递
+	//引用传递传递的是引用类型数据的地址
+	//切片，可以扩容的数组
+	s1 := []int{1, 2, 3, 4}
+	update2(s1)
+	fmt.Println("调用后的数据：", s1) //发现调用后数据变了
+}
+
+func update2(s []int) {
+	fmt.Println("传递的数据：", s)
+	s[0] = 100
+	fmt.Println("修改后的数据：", s)
+}
+

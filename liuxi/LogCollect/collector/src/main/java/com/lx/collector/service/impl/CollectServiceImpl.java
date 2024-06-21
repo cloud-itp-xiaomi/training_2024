@@ -28,8 +28,9 @@ public class CollectServiceImpl implements CollectService {
         try(BufferedReader reader = new BufferedReader(new FileReader(proc_stat_path))) {
             // 读取输入流
             String line;
-            if((line = reader.readLine()) != null)
+            if((line = reader.readLine()) != null) {
                 collectMsg.append(line);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -63,7 +64,6 @@ public class CollectServiceImpl implements CollectService {
 
         double memUsage = 0;
         StringBuilder collectMsg = new StringBuilder();
-
         try(BufferedReader reader = new BufferedReader(new FileReader(proc_mem_path))) {
 
             // 读取输入流
@@ -88,12 +88,12 @@ public class CollectServiceImpl implements CollectService {
     }
 
     //从meminfo文件中的每一行解析出内存数值大小
-    private Long parseMemStr(String s){
+    private Long parseMemStr(String s) {
         String[] parts = s.split(":");
         if(parts.length >= 2) {
             String value = parts[1].split("\s+")[1].trim();
             return Long.parseLong(value);
         }
-        return 0L ;
+        return 0L;
     }
 }

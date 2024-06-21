@@ -1,0 +1,21 @@
+package main
+
+import "fmt"
+
+func main() {
+	var a int = 10
+	var b int = 3
+	//var c int
+
+	//+ - * / % ++ --
+	fmt.Printf("a+b等于:%d\n", a+b)
+	fmt.Printf("a-b等于:%d\n", a-b)
+	fmt.Printf("a*b等于:%d\n", a*b)
+	fmt.Printf("a/b等于:%d\n", a/b)
+	fmt.Printf("a%b等于:%d\n", a%b)
+	a++ //这个需要先定义出来
+	fmt.Printf("a++等于：:%d\n", a)
+	a-- //这个也是需要先定义
+	fmt.Printf("a--等于：:%d\n", a)
+}
+

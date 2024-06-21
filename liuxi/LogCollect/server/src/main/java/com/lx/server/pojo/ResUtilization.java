@@ -1,23 +1,22 @@
 package com.lx.server.pojo;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Data
 /*
 将返回的多个Utilization对象封装成ResUtilization对象
 */
+@Data
+@NoArgsConstructor
 public class ResUtilization implements Serializable {
 
     private String metric;
     private List<Map<String, Object>> values;
-
-    public ResUtilization() {
-    }
 
     //为value属性添加元素
     public void addValue(Utilization utilization) {
@@ -35,5 +34,4 @@ public class ResUtilization implements Serializable {
         sb.append('}');
         return sb.toString();
     }
-
 }
