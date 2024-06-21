@@ -1,0 +1,93 @@
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: log_file: /var/log/gpu-manager.log
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: last_boot_file: /var/lib/ubuntu-drivers-common/last_gfx_boot
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: new_boot_file: /var/lib/ubuntu-drivers-common/last_gfx_boot
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: can't access /opt/amdgpu-pro/bin/amdgpu-pro-px
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Looking for nvidia modules in /lib/modules/5.15.0-107-generic/kernel
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Looking for nvidia modules in /lib/modules/5.15.0-107-generic/kernel/nvidia-535srv-open
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Found nvidia.ko module in /lib/modules/5.15.0-107-generic/kernel/nvidia-535srv-open/nvidia.ko
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Looking for amdgpu modules in /lib/modules/5.15.0-107-generic/kernel
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Looking for amdgpu modules in /lib/modules/5.15.0-107-generic/updates/dkms
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is nvidia loaded? yes
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Was nvidia unloaded? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is nvidia blacklisted? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is intel loaded? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is radeon loaded? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is radeon blacklisted? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is amdgpu loaded? yes
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is amdgpu blacklisted? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is amdgpu versioned? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is amdgpu pro stack? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is nouveau loaded? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is nouveau blacklisted? yes
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is nvidia kernel module available? yes
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is amdgpu kernel module available? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Vendor/Device Id: 1002:1638
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: BusID "PCI:5@0:0:0"
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is boot vga? yes
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Vendor/Device Id: 10de:1f97
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: BusID "PCI:1@0:0:0"
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: can't open /sys/bus/pci/devices/0000:01:00.0/boot_vga
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is boot vga? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: can't open /sys/bus/pci/devices/0000:01:00.0/boot_vga
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Chassis type: "10"
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Laptop detected
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: can't access /etc/u-d-c-nvidia-runtimepm-override file
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Found json file: /usr/share/doc/nvidia-driver-535-server/supported-gpus.json
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: File /usr/share/doc/nvidia-driver-535-server/supported-gpus.json not found
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is nvidia runtime pm supported for "0x1f97"? yes
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Trying to create new file: /run/nvidia_runtimepm_supported
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Checking power status in /proc/driver/nvidia/gpus/0000:01:00.0/power
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Runtime D3 status:          ?
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Is nvidia runtime pm enabled for "0x1f97"? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Found "/dev/dri/card0", driven by "amdgpu"
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: output 0:
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: 	card0-eDP-1
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Number of connected outputs for /dev/dri/card0: 1
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Skipping "/dev/dri/card0", driven by "amdgpu"
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Skipping "/dev/dri/card1", driven by "nvidia-drm"
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Skipping "/dev/dri/card0", driven by "amdgpu"
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Skipping "/dev/dri/card1", driven by "nvidia-drm"
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Skipping "/dev/dri/card0", driven by "amdgpu"
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Skipping "/dev/dri/card1", driven by "nvidia-drm"
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Does it require offloading? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: last cards number = 2
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Has amd? yes
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Has intel? no
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Has nvidia? yes
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: How many cards? 2
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Has the system changed? No
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Takes 0ms to wait for nvidia udev rules completed.
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: AMD IGP detected
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: NVIDIA hybrid system
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Creating /usr/share/X11/xorg.conf.d/11-nvidia-offload.conf
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Setting power control to "auto" in /sys/bus/pci/devices/0000:01:00.0/power/control
+Hostname: asc_mcp, File: /configFiles/gpu-manager.log, Log: Trying to create new file: /lib/modprobe.d/nvidia-runtimepm.conf
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:00:01:06 +0800] "POST / HTTP/1.1" 200 349 Create-Printer-Subscriptions successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:00:01:06 +0800] "POST / HTTP/1.1" 200 176 Create-Printer-Subscriptions successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:00:04:21 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:01:02:41 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:02:01:01 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:02:59:21 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:03:57:41 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:04:56:01 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:05:54:21 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:06:52:41 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:07:51:01 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:08:49:21 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:09:47:41 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:09:59:38 +0800] "POST / HTTP/1.1" 200 151 Cancel-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:09:59:38 +0800] "POST / HTTP/1.1" 200 151 Cancel-Subscription client-error-not-found
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:09:59:38 +0800] "POST / HTTP/1.1" 401 123 Cancel-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - root [05/Jun/2024:09:59:38 +0800] "POST / HTTP/1.1" 200 123 Cancel-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:09:59:38 +0800] "POST / HTTP/1.1" 200 152 Cancel-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:10:02:02 +0800] "POST / HTTP/1.1" 200 349 Create-Printer-Subscriptions successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:10:02:02 +0800] "POST / HTTP/1.1" 200 176 Create-Printer-Subscriptions successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:10:02:20 +0800] "POST / HTTP/1.1" 200 359 Create-Printer-Subscriptions successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:11:00:40 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:11:59:00 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:12:57:20 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:13:55:40 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:14:54:01 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:15:52:21 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:16:50:41 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok
+Hostname: asc_mcp, File: /configFiles/access_log, Log: localhost - - [05/Jun/2024:17:49:01 +0800] "POST / HTTP/1.1" 200 182 Renew-Subscription successful-ok

@@ -37,27 +37,27 @@ public class Collector {
         Long curTime = Long.parseLong(format);
 
         //采集数据
-        double cpuUtilization = collectService.collectCPU( "/proc/stat");
-        double memUtilization = collectService.collectMem("/proc/meminfo");
+        double cpuUtilizationValue = collectService.collectCPU( "/proc/stat");
+        double memUtilizationValue = collectService.collectMem("/proc/meminfo");
 
         //cpu利用率
         cpuUtilization.setMetric("cpu.used.percent");
         cpuUtilization.setEndpoint(hostName);
         cpuUtilization.setTimestamp(curTime);
-        cpuUtilization.setValue(cpuUtilization);
+        cpuUtilization.setValue(cpuUtilizationValue);
 
         //内存利用率
         memUtilization.setMetric("mem.used.percent");
         memUtilization.setEndpoint(hostName);
         memUtilization.setTimestamp(curTime);
-        memUtilization.setValue(memUtilization);
+        memUtilization.setValue(memUtilizationValue);
 
         //发送消息给消息队列
         rocketMQTemplate.convertAndSend(Collector.TOPIC, cpuUtilization);
         rocketMQTemplate.convertAndSend(Collector.TOPIC, memUtilization);
 
         count += 2 ;
-        System.out.println("The collector has sent" + count + " messages to  " + topic + " ~");
+        System.out.println("The collector has sent" + count + " messages to  " + Collector.TOPIC + " ~");
     }
 
     private String getHostName(){

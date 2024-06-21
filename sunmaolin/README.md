@@ -1,8 +1,10 @@
 # 1. 项目描述
 
-本项目在CentOS 7.6系统下,基于Java开发，部署在服务器上运行，用于采集计算机cpu和内存的利用率以及采集中产生的日志文件，并可在Shell终端上查询数据。
+本项目在CentOS 7.6系统下,基于Java开发，部署在服务器上运行，用于采集计算机cpu和内存的利用率以及监听指定路径下的日志文件变化。
 
-# 2. 项目架构
+# 2. 技术栈
+
+Spring Boot + Spring Cloud Alibaba + Mybatis-Plus + Redis + Mysql + ElasticSearch
 
 # 3. 项目部署、运行
 
@@ -24,9 +26,9 @@ Docker：容器管理
 
 --xxl-job：定时任务管理
 
---Nacos：动态配置（未开发）
+--Nacos：动态配置
 
---Elasticsearch：数据存储与检索（未开发）
+--Elasticsearch：数据存储与检索
 
 ## 3.2 项目部署及运行（Jenkins+shell脚本）
 
@@ -52,6 +54,7 @@ cp -r  你的服务器Maven路径  /var/jenkins_home/
 ![](images/4.jpg)
 
 - 新建模块任务（以server模块为例）
+  
 1.配置git地址
   ![](images/5.jpg)
 

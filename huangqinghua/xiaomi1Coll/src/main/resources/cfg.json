@@ -1,0 +1,8 @@
+{
+  "files": [
+    "F:/log/a.log",
+    "D:/log/b.log"
+  ],
+  "log_storage": "mysql"
+}
+

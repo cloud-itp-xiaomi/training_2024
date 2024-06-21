@@ -16,3 +16,14 @@ CREATE TABLE Metric_Tags (
     PRIMARY KEY (metric_id, tag_key),
     FOREIGN KEY (metric_id) REFERENCES Metric(id) ON DELETE CASCADE
 );
+USE xiaomi;
+
+CREATE TABLE IF NOT EXISTS logs (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    hostname VARCHAR(255) NOT NULL,
+    file VARCHAR(255) NOT NULL,
+    log TEXT NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_hostname_file ON logs (hostname, file);

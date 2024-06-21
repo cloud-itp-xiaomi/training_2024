@@ -1,0 +1,14 @@
+package main
+
+import "fmt"
+
+func main() {
+	//定义一个整型
+	var age int = 18
+	fmt.Printf("%T,%d\n", age, age)
+
+	//定义一个浮点型
+	var money float64 = 3.14
+	fmt.Printf("%T,%f\n", money, money)
+}
+
