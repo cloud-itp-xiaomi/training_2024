@@ -30,7 +30,7 @@ public class LocalStorageHandler implements StorageTypeHandler {
     @Override
     public void upload(List<LogInfoDTO> logInfoDTOS) {
         for (LogInfoDTO logInfoDTO : logInfoDTOS) {
-            String[] parts = logInfoDTO.getFile().split("\\\\");
+            String[] parts = logInfoDTO.getFile().split(File.separator);
             String fileName = parts[parts.length - 1];
             try (FileWriter fileWriter = new FileWriter(PATH + fileName, true);
                  BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
@@ -48,7 +48,7 @@ public class LocalStorageHandler implements StorageTypeHandler {
     @Override
     public LogInfoVO query(LogQueryDTO logQueryDTO) {
         LogInfoVO logInfoVO = new LogInfoVO();
-        String[] parts = logQueryDTO.getFile().split("\\\\");
+        String[] parts = logQueryDTO.getFile().split(File.separator);
         String fileName = parts[parts.length - 1];
         List<String> logs = new ArrayList<>();
         try (FileReader fileReader = new FileReader(PATH + fileName);

@@ -1,6 +1,8 @@
 package com.lx.server.store.impl;
 
 import com.lx.server.pojo.LogMessage;
+import com.lx.server.pojo.LogResult;
+import com.lx.server.pojo.ResLog;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
@@ -30,6 +32,14 @@ class LocalLogStorageTest {
     void listFiles() {
         List<File> files = localLogStorage.listFiles("123", "a.log");
         System.out.println(files);
-        assert 2 == files.size();
+        assert 6 == files.size();
+    }
+
+    @Test
+    void queryLog() {
+        LogResult logResult = localLogStorage.queryLog("123", "a.log");
+        ResLog resLog = logResult.getData();
+        int size = resLog.getLogs().size();
+        assert 7 == size;
     }
 }
