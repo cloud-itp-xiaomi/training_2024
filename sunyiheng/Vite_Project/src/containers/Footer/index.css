@@ -1,0 +1,8 @@
+.footerTop {
+  display: flex;
+  line-height: 32px;
+}
+
+.clearCompletedBtn {
+  margin-left: auto;
+}
