@@ -1,15 +1,14 @@
 package com.cl.collector.job;
 
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.cl.collector.service.StatusCollectorService;
+import com.cl.collector.service.ReportService;
+import com.cl.collector.service.StatusService;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,12 +18,23 @@ import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.URL;
 
+/**
+ * 定时采集任务类
+ *
+ * @author: tressures
+ * @date: 2024/5/26
+ */
 @Component
 @Slf4j
 public class StatusReportJob {
+
     private static final String TO_SERVER_URL = "http://117.72.68.247:8888/api/metric/upload";
+
     @Resource
-    private StatusCollectorService statusCollectorService;
+    private StatusService statusService;
+
+    @Resource
+    private ReportService reportService;
 
     @XxlJob("collectAndReportJobHandler")
     public void collectAndReportJobHandler() {
@@ -33,58 +43,29 @@ public class StatusReportJob {
             InetAddress localHost = InetAddress.getLocalHost();
             String hostName = localHost.getHostName();
             Long timeStamp = System.currentTimeMillis()/1000;
-            Double cpuUsage = statusCollectorService.getCpuUsage();
-            Double memUsage = statusCollectorService.getMemUsage();
+            Double cpuUsage = statusService.getCpuUsage();
+            Double memUsage = statusService.getMemUsage();
             JSONArray status = new JSONArray();
 
             JSONObject cpuStatue = new JSONObject();
             cpuStatue.put("metric", "cpu.used.percent");
             cpuStatue.put("endpoint", hostName);
             cpuStatue.put("timestamp", timeStamp);
-            cpuStatue.put("step", 60);
+            cpuStatue.put("step", 60L);
             cpuStatue.put("value", cpuUsage);
 
             JSONObject memStatue = new JSONObject();
             memStatue.put("metric", "mem.used.percent");
             memStatue.put("endpoint", hostName);
             memStatue.put("timestamp", timeStamp);
-            memStatue.put("step", 60);
+            memStatue.put("step", 60L);
             memStatue.put("value", memUsage);
 
             status.add(cpuStatue);
             status.add(memStatue);
-            log.info("StatusReportJob.collectAndReportJobHandler.status:{}", JSON.toJSONString(status));
-            report(status);
+            reportService.report(status,TO_SERVER_URL);
         }catch (Exception e){
             XxlJobHelper.log("collectAndReportJobHandler.error:"+e.getMessage());
-        }
-    }
-
-
-    public  void report(JSONArray jsonArray) throws IOException{
-
-        URL url = new URL(TO_SERVER_URL);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", "application/json; utf-8");
-        conn.setDoOutput(true);
-        try (OutputStream os = conn.getOutputStream()) {
-            byte[] inputBytes = jsonArray.toString().getBytes("utf-8");
-            os.write(inputBytes, 0, inputBytes.length);
-            os.flush();
-        }
-        int responseCode = conn.getResponseCode();
-        if (responseCode == HttpURLConnection.HTTP_OK) {
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
-                StringBuilder response = new StringBuilder();
-                String responseLine;
-                while ((responseLine = br.readLine()) != null) {
-                    response.append(responseLine.trim());
-                }
-                log.info("StatusReportJob.report.response:{}", JSON.toJSONString(response));
-            }
-        } else {
-            log.info("StatusReportJob.report.response.message:{}", conn.getResponseMessage());
         }
     }
 }

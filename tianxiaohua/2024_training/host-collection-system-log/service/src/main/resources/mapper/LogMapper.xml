@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.txh.xiaomi2024.work.service.dao.LogMysqlMapper">
+
+    <!--创建表的 SQL 语句-->
+    <update id="createTable" parameterType="java.lang.String">
+        CREATE TABLE IF NOT EXISTS log_data
+        (
+            `id`       int(11)      NOT NULL AUTO_INCREMENT COMMENT '主键',
+            `hostname` varchar(20) NULL DEFAULT NULL COMMENT '当前主机',
+            `file` varchar(30) NULL DEFAULT NULL COMMENT '日志文件的全路径',
+            `logs` text NULL DEFAULT NULL COMMENT '日志列表',
+            `last_update_time` bigint NULL DEFAULT NULL COMMENT '日志文件最后更新时间',
+            INDEX result (`hostname`, `file`),
+            PRIMARY KEY (`id`)
+            ) ENGINE = InnoDB
+            AUTO_INCREMENT = 0
+            CHARACTER SET = utf8mb4 COMMENT ='日志采集表';
+    </update>
+
+    <insert id="insertLog" parameterType="com.txh.xiaomi2024.work.service.bean.Log">
+        INSERT INTO log (hostname, file, logs, last_update_time) VALUES (#{hostname}, #{file}, #{logs}, #{last_update_time})
+    </insert>
+
+    <select id="queryLog" parameterType="String" resultType="com.txh.xiaomi2024.work.service.bean.Log">
+        SELECT hostname,file,logs,last_update_time FROM log WHERE hostname = #{hostname} and file = #{file}
+    </select>
+
+    <update id="updateLog" parameterType="com.txh.xiaomi2024.work.service.bean.Log">
+        UPDATE log SET logs = #{logs}, last_update_time = #{last_update_time} WHERE hostname = #{hostname} and file = #{file}
+    </update>
+</mapper>

@@ -14,11 +14,11 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, metric,endpoint,step,timestamp,value;
+        id, metric, endpoint, step, timestamp, value;
     </sql>
 
     <insert id="insert" parameterType="com.example.xiaomi1.entity.Metric">
-        INSERT INTO collection (metric,endpoint, step, timestamp,value)
+        INSERT INTO collection (metric, endpoint, step, timestamp, value)
         VALUES (#{metric}, #{endpoint}, #{step},#{timestamp},#{value})
     </insert>
 

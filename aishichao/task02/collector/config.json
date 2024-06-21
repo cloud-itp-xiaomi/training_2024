@@ -1,7 +1,0 @@
-{
-    "files": [
-    "gpu-manager.log",
-    "access_log"
-    ],
-    "log_storage": "mysql"
-}

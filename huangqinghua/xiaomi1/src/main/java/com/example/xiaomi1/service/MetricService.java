@@ -3,7 +3,6 @@ package com.example.xiaomi1.service;
 import com.example.xiaomi1.entity.Metric;
 import com.example.xiaomi1.mapper.MetricMapper;
 import com.example.xiaomi1.entity.MetricData;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -11,9 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
-
 
 @Service
 public class MetricService {
@@ -24,8 +20,10 @@ public class MetricService {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
-    @Autowired
-    private ObjectMapper objectMapper = new ObjectMapper();
+    public MetricService(MetricMapper metricMapper, RedisTemplate<String, Object> redisTemplate) {
+        this.metricMapper = metricMapper;
+        this.redisTemplate = redisTemplate;
+    }
 
     public void saveMetric(Metric metric) {
         metricMapper.insert(metric);
@@ -50,7 +48,6 @@ public class MetricService {
             // 处理缓存数据
             if (cachedMetrics != null && !cachedMetrics.isEmpty()) {
                 for (Object metricObject : cachedMetrics) {
-
                     if (metricObject instanceof LinkedHashMap) {
                         Metric cachedMetric = mapToMetric((LinkedHashMap<?, ?>) metricObject);
                         if (isMetricMatch(cachedMetric, endpoint, metric, start_ts, end_ts)) {
@@ -64,22 +61,19 @@ public class MetricService {
             }
 
             if (resultMetrics.isEmpty()) {
-                // 只从mysql中获取数据
-
+                // 只从MySQL中获取数据
                 List<MetricData> dbMetrics = metricMapper.getMetrics(endpoint, metric, start_ts, end_ts);
                 System.out.println(dbMetrics);
                 resultMetrics.addAll(dbMetrics);
 
             } else if (resultMetrics.size() == 10) {
-                // 缓存的数据全符合要求，在mysql中查询是否有符合的数据
+                // 缓存的数据全符合要求，在MySQL中查询是否有符合的数据
 
-                // 修改end_ts为缓存中的最早一条数据的时间，假设为(a,b)，redis可以获取（c,b)之内的所有时间，（a,c）需要在mysql中查询
+                // 修改end_ts为缓存中的最早一条数据的时间，假设为(a,b)，Redis可以获取（c,b)之内的所有时间，（a,c）需要在MySQL中查询
                 long end_new_ts = resultMetrics.stream().mapToLong(MetricData::getTimestamp).min().orElse(0) - 1;
                 List<MetricData> newMetrics = metricMapper.getMetrics(endpoint, metric, start_ts, end_new_ts);
                 resultMetrics.addAll(newMetrics);
             }
-
-
             return resultMetrics;
 
         } catch (Exception e) {
@@ -108,5 +102,4 @@ public class MetricService {
                 metric.getTimestamp() >= start_ts &&
                 metric.getTimestamp() <= end_ts;
     }
-
 }
