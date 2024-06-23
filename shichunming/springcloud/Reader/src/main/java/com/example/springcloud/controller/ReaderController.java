@@ -11,7 +11,7 @@ import com.example.springcloud.controller.response.ReaderResponse;
 import com.example.springcloud.service.ReaderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @ClassName ReaderController
@@ -21,10 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @Slf4j
 @RestController
+@RequestMapping("/reader")
 public class ReaderController {
     @Autowired
     private ReaderService readerService;
 
+    @GetMapping("/metric")
     public Response<ReaderResponse> readMsg(String endpoint, Integer metricCode, Long start_ts, Long end_ts) {
         ReaderRequest request = new ReaderRequest();
         request.setEndpoint(endpoint);
@@ -36,7 +38,9 @@ public class ReaderController {
         return readerService.readerMsg(request);
     }
 
-    public Response<LogQueryResponse> readLog(String hostname, String file) {
+    @GetMapping("/log")
+    public Response<LogQueryResponse> readLog(@RequestParam(value = "hostname") String hostname,
+                                              @RequestParam(value = "file") String file) {
         log.info("\n-----------------------\n 发送请求数据 request:{}", hostname+file);
         return readerService.queryLog(hostname, file);
     }

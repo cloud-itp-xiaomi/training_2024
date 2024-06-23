@@ -13,3 +13,6 @@ spring:
           - data-id: cfg.json
             group: DEFAULT_GROUP
             refresh: true
+directory:
+  watch: ./home/work
+  interval: 1000  # 监听间隔
