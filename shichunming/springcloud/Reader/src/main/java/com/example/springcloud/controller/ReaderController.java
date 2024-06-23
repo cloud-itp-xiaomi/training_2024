@@ -4,7 +4,9 @@ package com.example.springcloud.controller;
 import cn.hutool.json.JSONUtil;
 import com.example.springcloud.controller.base.Enum.MetricEnum;
 import com.example.springcloud.controller.base.Response;
+import com.example.springcloud.controller.request.LogQueryRequest;
 import com.example.springcloud.controller.request.ReaderRequest;
+import com.example.springcloud.controller.response.LogQueryResponse;
 import com.example.springcloud.controller.response.ReaderResponse;
 import com.example.springcloud.service.ReaderService;
 import lombok.extern.slf4j.Slf4j;
@@ -32,5 +34,10 @@ public class ReaderController {
         String jsonStr = JSONUtil.toJsonStr(request);
         log.info("\n-----------------------\n 发送请求数据 request:{}", jsonStr);
         return readerService.readerMsg(request);
+    }
+
+    public Response<LogQueryResponse> readLog(String hostname, String file) {
+        log.info("\n-----------------------\n 发送请求数据 request:{}", hostname+file);
+        return readerService.queryLog(hostname, file);
     }
 }

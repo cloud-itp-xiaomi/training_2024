@@ -33,7 +33,7 @@ import java.util.Objects;
 @Slf4j
 @RefreshScope
 @RequestMapping("/metric")
-public class ServerController {
+public class ServerMetricController {
     @Autowired
     private ServerService serverService;
     @Value("${pattern.dateformat}")
@@ -43,6 +43,7 @@ public class ServerController {
         log.info("test你好");
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern(dateFormat));
     }
+
     @PostMapping("/upload")
     public Response<Void> metricUpload(@RequestBody MetricUploadRequest request) {
         return RestBusinessTemplate.execute(() -> {

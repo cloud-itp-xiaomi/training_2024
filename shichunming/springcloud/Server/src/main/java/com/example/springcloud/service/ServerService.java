@@ -12,5 +12,10 @@ public interface ServerService {
      */
     void metricUpload(MetricUploadRequest request);
 
+    /**
+     * 查询数据
+     */
     List<MetricQueryResponse> queryMetric(MetricQueryRequest request);
+
+
 }
