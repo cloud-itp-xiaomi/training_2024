@@ -55,6 +55,7 @@ public class UtilizationService {
                 utilizations = utilizationMapper.queryByMetric(endpoint, metric, start_ts, end_ts);
             }
         }catch(Exception e){
+            e.printStackTrace();
             return new Result(StatusCode.FAIL.getCode(), StatusCode.FAIL.getMsg() , null);
         }
 
@@ -101,7 +102,6 @@ public class UtilizationService {
 
     //将指定metric的Utilizaition类型的数组封装成ResUtilization类型数组
     public ResUtilization[] getDataByMetric(List<Utilization> utilizations , String metric) {
-
         ResUtilization[] data = new ResUtilization[1];
         data[0] = new ResUtilization();
         data[0].setMetric(metric);

@@ -1,8 +1,15 @@
 version: '3.8'
 
 services:
+   mango:
+      image: mongo
+      container_name: mongo
+      hostname: asc_mcp
+      ports:
+        - "27017:27017"
+      
    mysql:
-      image: mysql:8.0
+      image: mysql:latest
       container_name: mysql02
       hostname: asc_mcp
       environment:
@@ -16,6 +23,9 @@ services:
         dockerfile: Dockerfile
       restart: always
       hostname: asc_mcp
+      volumes:
+        - ./collector/configFile:/configFiles
+        - ./collector/fileOffsets:/offsetsFiles
       depends_on:
          - server
       

@@ -58,5 +58,4 @@ public class StatusTest {
         List<StatusResp> statusRespList =statusService.queryMetrics(statusQueryDTO);
         log.info("logInfoVO:{}", JSON.toJSONString(statusRespList));
     }
-
 }

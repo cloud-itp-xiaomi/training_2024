@@ -57,15 +57,18 @@ public class LogService {
             ClassPathResource resource = new ClassPathResource(CFG_CONFIG_PATH);
             ObjectMapper objectMapper = new ObjectMapper();
             cfgConfig = objectMapper.readValue(resource.getInputStream(), CFGConfig.class);
+            lastPositionMap = new HashMap<>();
+            for (String path : cfgConfig.getFiles()){
+                //初始化各个文件指针位置
+                RandomAccessFile file = new RandomAccessFile(path, "r");
+                file.seek(file.length());
+                Long position = file.getFilePointer();
+                lastPositionMap.put(path, position);
+                //将任务加入线程池
+                threadPoolTaskExecutor.execute(() -> watchLogFile(path));
+            }
         }catch (Exception e){
             e.printStackTrace();
-        }
-        lastPositionMap = new HashMap<>();
-        for (String path : cfgConfig.getFiles()){
-            //初始化各个文件指针位置为0
-            lastPositionMap.put(path, 0L);
-            //将任务加入线程池
-            threadPoolTaskExecutor.execute(() -> watchLogFile(path));
         }
     }
 
@@ -126,7 +129,9 @@ public class LogService {
             List<String> logs = new ArrayList<>();
             //读取新增的内容
             while((line = file.readLine()) != null){
+                //去除两端换行符
                 line = line.replaceAll("^\\n+|\\n+$", "");
+                if("".equals(line)) continue;
                 logs.add(line);
             }
             //更新文件指针

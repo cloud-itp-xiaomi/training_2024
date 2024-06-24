@@ -1,12 +1,10 @@
 package com.example.xiaomi1.entity;
 
-
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.Setter;
-
 
 @Setter
 @Getter
@@ -22,13 +20,13 @@ public class Metric {
 
     @Override
     public String toString() {
-        return "Log{" +
-                "id=" + id + '\'' +
+        return "Metric{" +
+                "id='" + id + '\'' +
                 ", metric='" + metric + '\'' +
-                ", endpoint=' "+endpoint+'\''+
-                ", timestamp=' "+timestamp+'\''+
-                ", step=' "+step+'\''+
-                ", value=' "+value+'\''+
+                ", endpoint='" + endpoint+'\''+
+                ", timestamp='" + timestamp+'\''+
+                ", step='" + step + '\''+
+                ", value='" + value + '\''+
                 '}';
     }
 }

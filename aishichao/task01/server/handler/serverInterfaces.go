@@ -2,29 +2,41 @@ package handler
 
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 	"net/http"
-	"server/dataType"
 	"server/databaseOperate"
-	"strconv"
+	"server/serverDataType"
 )
 
 func UploadHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
+		w.Header().Set("Content-Type", "application/json")
+		response := serverDataType.Response{Code: http.StatusMethodNotAllowed, Message: "Invalid request method"}
+		err := json.NewEncoder(w).Encode(response)
+		if err != nil {
+			log.Println("json encode err:", err)
+			return
+		}
 		return
 	}
 
-	//接收数据
-	var data []dataType.MetricData
+	// 接收数据
+	var data []serverDataType.MetricData
 	if err := json.NewDecoder(r.Body).Decode(&data); err != nil {
-		http.Error(w, "Invalid request body", http.StatusBadRequest)
+		w.Header().Set("Content-Type", "application/json")
+		response := serverDataType.Response{Code: http.StatusBadRequest, Message: "Invalid request body"}
+		err := json.NewEncoder(w).Encode(response)
+		if err != nil {
+			log.Println("json encode err:", err)
+			return
+		}
 		return
 	}
 
 	//写入数据
 	for _, metric := range data {
-		if err := databaseOperate.InsertMetric(metric); err != nil {
+		log.Println("metric:", metric.Metric, ", endpoint:", metric.Endpoint, ", timestamp:", metric.Timestamp, ", step:", metric.Step, ", value:", metric.Value)
+		if err := databaseOperate.InsertMetricToMySQL(metric); err != nil {
 			continue
 		}
 		if err := databaseOperate.InsertMetricToRedis(metric); err != nil {
@@ -32,59 +44,79 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Content-Type", "application/json")
+	response := serverDataType.Response{Code: http.StatusOK, Message: "ok"}
+	err := json.NewEncoder(w).Encode(response)
+	if err != nil {
+		return
+	}
 }
 
 func QueryHandler(w http.ResponseWriter, r *http.Request) {
-	//使用map集合存储获取的查询参数
 	params := []string{"metric", "endpoint", "start_ts", "end_ts"}
 	queryParams := make(map[string]string)
 
 	for _, param := range params {
 		value := r.URL.Query().Get(param)
-		if value == "" {
-			http.Error(w, fmt.Sprintf("query error: missing parameter %s", param), http.StatusBadRequest)
-			return
-		}
 		queryParams[param] = value
 	}
 
-	//格式转换
-	startTs, err := strconv.ParseInt(queryParams["start_ts"], 10, 64)
-	if err != nil {
-		http.Error(w, "invalid start_ts", http.StatusBadRequest)
-		return
-	}
-	endTs, err := strconv.ParseInt(queryParams["end_ts"], 10, 64)
-	if err != nil {
-		http.Error(w, "invalid end_ts", http.StatusBadRequest)
-		return
-	}
+	var err error
+	startTs, endTs, metric, endpoint := ConfirmTs(queryParams, w)
 
-	metric := queryParams["metric"]
-	endpoint := queryParams["endpoint"]
-
-	//读取redis数据并获得最早时间戳
+	// 读取redis数据并获得最早时间戳
 	redisMetrics, lastRedisTs, err := databaseOperate.QueryMetricsFromRedis(metric, endpoint, startTs, endTs)
 	if err != nil {
-		http.Error(w, "redis query error!", http.StatusInternalServerError)
+		response := serverDataType.QueryResponse{
+			Code:    http.StatusInternalServerError,
+			Message: "redis query error!",
+			Data:    nil,
+		}
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusInternalServerError)
+		err := json.NewEncoder(w).Encode(response)
+		if err != nil {
+			log.Println("json encode err:", err)
+			return
+		}
 		return
 	}
 
-	//redis之外的在mysql读取
-	var mysqlMetrics []dataType.MetricData
+	//如果redis中没有数据，则将最后的时间戳设置为输入的end_ts
+	if redisMetrics == nil {
+		lastRedisTs = endTs
+	}
+	// redis之外的在mysql读取
+	var mysqlMetrics []serverDataType.MetricData
 	if lastRedisTs > startTs {
-		mysqlMetrics, err = databaseOperate.QueryMetrics(metric, endpoint, startTs, lastRedisTs-1) //避免有边界数据与redis左边界重复
+		mysqlMetrics, err = databaseOperate.QueryMetricsFromMySQL(metric, endpoint, startTs, lastRedisTs-1) //避免有边界数据与redis左边界重复
 		if err != nil {
-			http.Error(w, "mysql query error!", http.StatusInternalServerError)
+			response := serverDataType.QueryResponse{
+				Code:    http.StatusInternalServerError,
+				Message: "mysql query error!",
+				Data:    nil,
+			}
+			w.Header().Set("Content-Type", "application/json")
+			w.WriteHeader(http.StatusInternalServerError)
+			err := json.NewEncoder(w).Encode(response)
+			if err != nil {
+				log.Println("json encode err:", err)
+				return
+			}
 			return
 		}
 	}
 
 	combinedMetrics := append(mysqlMetrics, redisMetrics...)
 
+	response := serverDataType.QueryResponse{
+		Code:    http.StatusOK,
+		Message: "ok",
+		Data:    combinedMetrics,
+	}
+
 	w.Header().Set("Content-Type", "application/json")
-	if err := json.NewEncoder(w).Encode(combinedMetrics); err != nil {
+	if err := json.NewEncoder(w).Encode(response); err != nil {
 		http.Error(w, "Error encoding response", http.StatusInternalServerError)
 	}
 }

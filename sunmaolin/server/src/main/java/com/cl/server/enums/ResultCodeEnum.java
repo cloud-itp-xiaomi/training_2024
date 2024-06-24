@@ -16,6 +16,7 @@ public enum ResultCodeEnum {
     PARAM_BODY_EMPTY(401,"获取指标为空"),
     HOST_NOT_EXIST(403, "主机不存在"),
     PARAM_ERROR(404,"参数异常"),
+    LOG_ADDRESS_NOT_EXIST(405, "主机或日志路径不存在"),
     INTERNAL_SERVER_ERROR(500,"服务器内部错误");
 
     public int code;

@@ -1,10 +1,11 @@
 package com.lx.collector.upload;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lx.collector.pojo.Utilization;
 import com.lx.collector.service.CollectService;
 import com.lx.collector.service.impl.CollectServiceImpl;
 import com.lx.collector.utils.GetBeanUtil;
-import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -24,7 +25,7 @@ public class Collector {
     private static final String TOPIC = "HOST_UTILIZATION_TOPIC";
     private Long count = 0L;//发送消息总数
 
-//    @Scheduled(fixedRate = 60000) // 每分钟执行一次
+    @Scheduled(fixedRate = 60000) // 每分钟执行一次
     public void collectAndReport() {
 
         Utilization cpuUtilization = new Utilization();
@@ -34,13 +35,13 @@ public class Collector {
         String hostName = getHostName();
 
         //去掉年份获取系统当前时间，希望两条数据以同一时间录入
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddhhmmss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddhhmmss");
         String format  = LocalDateTime.now().format(formatter);
         Long curTime = Long.parseLong(format);
 
         //采集数据
-        double cpuUtilizationValue = collectService.collectCPU( "/proc/stat");
-        double memUtilizationValue = collectService.collectMem("/proc/meminfo");
+        double cpuUtilizationValue = collectService.collectCPU( "E:\\java_study\\javaProjects\\LogCollect\\collector\\src\\main\\java\\com\\lx\\collector\\upload\\meminfo");
+        double memUtilizationValue = collectService.collectMem("E:\\java_study\\javaProjects\\LogCollect\\collector\\src\\main\\java\\com\\lx\\collector\\upload\\meminfo");
 
         //cpu利用率
         cpuUtilization.setMetric("cpu.used.percent");
@@ -55,11 +56,17 @@ public class Collector {
         memUtilization.setValue(memUtilizationValue);
 
         //发送消息给消息队列
-        rocketMQTemplate.convertAndSend(Collector.TOPIC, cpuUtilization);
-        rocketMQTemplate.convertAndSend(Collector.TOPIC, memUtilization);
-
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            String cpuJson = objectMapper.writeValueAsString(cpuUtilization);
+            String memJson = objectMapper.writeValueAsString(cpuUtilization);
+            rocketMQTemplate.convertAndSend(Collector.TOPIC, cpuJson);
+            rocketMQTemplate.convertAndSend(Collector.TOPIC, memJson);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
         count += 2 ;
-        System.out.println("The collector has sent" + count + " messages to  " + Collector.TOPIC + " ~");
+        System.out.println("The collector has sent " + count + " messages to  " + Collector.TOPIC + " ~");
     }
 
     private String getHostName(){
