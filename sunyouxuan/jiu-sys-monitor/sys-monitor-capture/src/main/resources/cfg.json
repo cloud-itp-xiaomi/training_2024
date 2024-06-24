@@ -4,5 +4,5 @@
     "./log/memoryCollector.log",
     "./log/cpuCollector.log"
   ],
-  "log_storage": "mysql"
+  "log_storage": "local_file"
 }

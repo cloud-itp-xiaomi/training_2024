@@ -93,13 +93,14 @@ public class LogMonitorService {
             sendJsonTask = scheduler.schedule(() -> {
                 try {
                     if (dataCounter.get() >= logMonitorConfig.getFiles().size()) {
-
-                        sendJsonData();
                         logStorageService.storeLogs(fileLogs);
+                        sendJsonData();
+
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
+
                     dataCounter.set(0);
                     fileLogs.clear();
                 }

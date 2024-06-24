@@ -1,3 +1,473 @@
 2024-06-17 18:26:03.403 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 2.834 seconds (process running for 3.695)
 2024-06-17 18:26:03.417 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083704 KB
 2024-06-17 18:26:03.418 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6305672 KB
+2024-06-23 18:17:29.129 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 2.669 seconds (process running for 3.319)
+2024-06-23 18:17:29.138 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083684 KB
+2024-06-23 18:17:29.139 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6347820 KB
+2024-06-23 18:17:30.591 [RMI TCP Connection(2)-127.0.0.1] WARN  o.s.b.a.j.DataSourceHealthIndicator - DataSource health check failed
+org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:342)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.getProduct(DataSourceHealthIndicator.java:122)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doDataSourceHealthCheck(DataSourceHealthIndicator.java:105)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doHealthCheck(DataSourceHealthIndicator.java:100)
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82)
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:82)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:41)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:76)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:66)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281)
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74)
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:124)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:97)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:803)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	... 44 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:104)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:88)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805)
+	... 57 common frames omitted
+Caused by: java.net.ConnectException: 拒绝连接
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:62)
+	... 60 common frames omitted
+2024-06-23 21:39:16.339 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.833 seconds (process running for 2.236)
+2024-06-23 21:39:16.346 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083668 KB
+2024-06-23 21:39:16.347 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6276764 KB
+2024-06-23 21:42:53.071 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.508 seconds (process running for 1.893)
+2024-06-23 21:42:53.078 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083668 KB
+2024-06-23 21:42:53.079 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6487592 KB
+2024-06-23 21:43:26.434 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.525 seconds (process running for 1.928)
+2024-06-23 21:43:26.441 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083668 KB
+2024-06-23 21:43:26.441 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6619168 KB
+2024-06-23 21:49:23.440 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 2.259 seconds (process running for 3.187)
+2024-06-23 21:49:23.450 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083668 KB
+2024-06-23 21:49:23.451 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6035276 KB
+2024-06-23 21:50:23.448 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083668 KB
+2024-06-23 21:50:23.448 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6033872 KB
+2024-06-23 21:51:23.440 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083668 KB
+2024-06-23 21:51:23.441 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6036612 KB
+2024-06-23 21:55:34.267 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.489 seconds (process running for 2.042)
+2024-06-23 21:55:34.274 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083668 KB
+2024-06-23 21:55:34.275 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6076020 KB
+2024-06-23 21:56:34.268 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083668 KB
+2024-06-23 21:56:34.269 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6116832 KB
+2024-06-23 21:57:28.974 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.497 seconds (process running for 1.949)
+2024-06-23 21:57:28.981 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083668 KB
+2024-06-23 21:57:28.981 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6138212 KB
+2024-06-23 21:58:28.974 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083668 KB
+2024-06-23 21:58:28.975 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6141364 KB
+2024-06-24 12:51:18.564 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.858 seconds (process running for 2.534)
+2024-06-24 12:51:18.571 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 12:51:18.571 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 5721460 KB
+2024-06-24 12:51:19.849 [RMI TCP Connection(3)-127.0.0.1] WARN  o.s.b.a.j.DataSourceHealthIndicator - DataSource health check failed
+org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:342)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.getProduct(DataSourceHealthIndicator.java:122)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doDataSourceHealthCheck(DataSourceHealthIndicator.java:105)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doHealthCheck(DataSourceHealthIndicator.java:100)
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82)
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:82)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:41)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:76)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:66)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281)
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74)
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:124)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:97)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:803)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	... 44 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:104)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:88)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805)
+	... 57 common frames omitted
+Caused by: java.net.ConnectException: 拒绝连接
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:62)
+	... 60 common frames omitted
+2024-06-24 12:51:43.783 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.99 seconds (process running for 2.451)
+2024-06-24 12:51:43.791 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 12:51:43.792 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6183280 KB
+2024-06-24 12:52:43.783 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 12:52:43.784 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6432712 KB
+2024-06-24 12:52:56.047 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.486 seconds (process running for 1.889)
+2024-06-24 12:52:56.053 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 12:52:56.054 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6478752 KB
+2024-06-24 13:03:17.676 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.508 seconds (process running for 1.918)
+2024-06-24 13:03:17.682 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:03:17.683 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6165724 KB
+2024-06-24 13:04:17.676 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:04:17.676 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6130196 KB
+2024-06-24 13:21:25.360 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.878 seconds (process running for 2.438)
+2024-06-24 13:21:25.368 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:21:25.368 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6358168 KB
+2024-06-24 13:22:25.363 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:22:25.364 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6352028 KB
+2024-06-24 13:23:25.362 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:23:25.363 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6410356 KB
+2024-06-24 13:24:25.360 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:24:25.361 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6593496 KB
+2024-06-24 13:46:28.773 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.765 seconds (process running for 2.292)
+2024-06-24 13:46:28.785 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:46:28.786 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6626460 KB
+2024-06-24 13:47:28.768 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:47:28.768 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6720492 KB
+2024-06-24 13:48:28.577 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.643 seconds (process running for 2.071)
+2024-06-24 13:48:28.584 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:48:28.588 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6663848 KB
+2024-06-24 13:49:28.578 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:49:28.579 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6687372 KB
+2024-06-24 13:50:28.577 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:50:28.577 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6675796 KB
+2024-06-24 13:51:28.578 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:51:28.578 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6674168 KB
+2024-06-24 13:52:28.577 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:52:28.578 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6818284 KB
+2024-06-24 13:53:28.577 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:53:28.578 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6797628 KB
+2024-06-24 13:53:46.472 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.585 seconds (process running for 1.992)
+2024-06-24 13:53:46.480 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:53:46.481 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6840016 KB
+2024-06-24 13:54:39.121 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.491 seconds (process running for 1.936)
+2024-06-24 13:54:39.128 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:54:39.129 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6817476 KB
+2024-06-24 13:56:10.510 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.499 seconds (process running for 1.896)
+2024-06-24 13:56:10.516 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:56:10.517 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6869120 KB
+2024-06-24 13:57:40.744 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.468 seconds (process running for 1.865)
+2024-06-24 13:57:40.751 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:57:40.751 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6850368 KB
+2024-06-24 13:59:10.797 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.466 seconds (process running for 1.931)
+2024-06-24 13:59:10.811 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 13:59:10.812 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6854520 KB
+2024-06-24 14:00:10.798 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:00:10.798 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6808876 KB
+2024-06-24 14:01:10.797 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:01:10.797 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6722036 KB
+2024-06-24 14:01:14.835 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.51 seconds (process running for 1.911)
+2024-06-24 14:01:14.841 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:01:14.842 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6745620 KB
+2024-06-24 14:01:57.144 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.592 seconds (process running for 1.991)
+2024-06-24 14:01:57.150 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:01:57.155 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6731768 KB
+2024-06-24 14:02:57.144 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:02:57.144 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6714052 KB
+2024-06-24 14:03:57.146 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:03:57.147 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6706476 KB
+2024-06-24 14:04:16.606 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.504 seconds (process running for 1.907)
+2024-06-24 14:04:16.612 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:04:16.613 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6761804 KB
+2024-06-24 14:05:16.606 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:05:16.606 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6743268 KB
+2024-06-24 14:05:30.124 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.522 seconds (process running for 2.02)
+2024-06-24 14:05:30.130 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:05:30.131 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6738212 KB
+2024-06-24 14:06:25.364 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.502 seconds (process running for 1.934)
+2024-06-24 14:06:25.370 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:06:25.371 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6769616 KB
+2024-06-24 14:07:03.439 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.492 seconds (process running for 1.91)
+2024-06-24 14:07:03.445 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:07:03.446 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6733000 KB
+2024-06-24 14:07:27.552 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.544 seconds (process running for 1.956)
+2024-06-24 14:07:27.558 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:07:27.559 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6856960 KB
+2024-06-24 14:08:27.552 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:08:27.552 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6886104 KB
+2024-06-24 14:08:48.351 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.619 seconds (process running for 2.075)
+2024-06-24 14:08:48.358 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:08:48.359 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6697856 KB
+2024-06-24 14:08:56.562 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.512 seconds (process running for 1.9)
+2024-06-24 14:08:56.568 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:08:56.569 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6691476 KB
+2024-06-24 14:09:42.089 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.536 seconds (process running for 1.92)
+2024-06-24 14:09:42.094 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:09:42.095 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6718228 KB
+2024-06-24 14:10:42.089 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:10:42.090 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6685412 KB
+2024-06-24 14:11:42.090 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:11:42.090 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6681432 KB
+2024-06-24 14:12:18.894 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.512 seconds (process running for 1.942)
+2024-06-24 14:12:18.900 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:12:18.901 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6690332 KB
+2024-06-24 14:13:18.895 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:13:18.895 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6680712 KB
+2024-06-24 14:13:28.487 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.501 seconds (process running for 1.922)
+2024-06-24 14:13:28.493 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:13:28.494 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6702240 KB
+2024-06-24 14:14:28.487 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:14:28.488 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6700892 KB
+2024-06-24 14:14:56.719 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.497 seconds (process running for 1.925)
+2024-06-24 14:14:56.725 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:14:56.726 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6728064 KB
+2024-06-24 14:16:43.683 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.556 seconds (process running for 2.03)
+2024-06-24 14:16:43.690 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:16:43.691 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6726964 KB
+2024-06-24 14:17:43.686 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:17:43.687 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6719764 KB
+2024-06-24 14:18:43.683 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:18:43.683 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6724196 KB
+2024-06-24 14:19:43.684 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:19:43.684 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6723920 KB
+2024-06-24 14:20:43.686 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:20:43.687 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6721004 KB
+2024-06-24 14:21:32.791 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.637 seconds (process running for 2.094)
+2024-06-24 14:21:32.798 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:21:32.799 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6739760 KB
+2024-06-24 14:22:32.791 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:22:32.792 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6736056 KB
+2024-06-24 14:23:32.794 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:23:32.795 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6738444 KB
+2024-06-24 14:24:32.793 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:24:32.794 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6746532 KB
+2024-06-24 14:25:32.793 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:25:32.794 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6754556 KB
+2024-06-24 14:26:32.791 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:26:32.791 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6748084 KB
+2024-06-24 14:27:32.794 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:27:32.795 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6747728 KB
+2024-06-24 14:28:32.793 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:28:32.793 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6742136 KB
+2024-06-24 14:29:32.793 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:29:32.794 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6740496 KB
+2024-06-24 14:30:32.791 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:30:32.791 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6763204 KB
+2024-06-24 14:31:32.791 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:31:32.791 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6760068 KB
+2024-06-24 14:32:32.792 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:32:32.792 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6791596 KB
+2024-06-24 14:33:32.791 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:33:32.792 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6808968 KB
+2024-06-24 14:34:32.791 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:34:32.791 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6829724 KB
+2024-06-24 14:35:24.721 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.7 seconds (process running for 2.233)
+2024-06-24 14:35:24.733 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:35:24.734 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7031208 KB
+2024-06-24 14:35:49.136 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.476 seconds (process running for 1.868)
+2024-06-24 14:35:49.143 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:35:49.144 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7030540 KB
+2024-06-24 14:36:49.137 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:36:49.137 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7010720 KB
+2024-06-24 14:37:02.238 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.601 seconds (process running for 2.061)
+2024-06-24 14:37:02.244 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:37:02.245 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7019552 KB
+2024-06-24 14:38:02.238 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:38:02.238 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7042792 KB
+2024-06-24 14:39:02.240 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:39:02.241 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6990468 KB
+2024-06-24 14:40:02.239 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:40:02.240 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7000348 KB
+2024-06-24 14:41:02.239 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:41:02.239 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6999824 KB
+2024-06-24 14:42:02.238 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:42:02.238 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6887628 KB
+2024-06-24 14:43:02.238 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:43:02.238 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6887516 KB
+2024-06-24 14:53:33.738 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.564 seconds (process running for 1.974)
+2024-06-24 14:53:33.744 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:53:33.745 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6940668 KB
+2024-06-24 14:54:32.380 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.558 seconds (process running for 1.97)
+2024-06-24 14:54:32.386 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:54:32.387 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6897492 KB
+2024-06-24 14:55:32.380 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 14:55:32.380 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6903064 KB
+2024-06-24 15:00:11.067 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.644 seconds (process running for 2.055)
+2024-06-24 15:00:11.074 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:00:11.075 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6979084 KB
+2024-06-24 15:01:11.067 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:01:11.067 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6944064 KB
+2024-06-24 15:08:50.092 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.476 seconds (process running for 2.014)
+2024-06-24 15:08:50.099 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:08:50.100 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7105912 KB
+2024-06-24 15:09:50.093 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:09:50.093 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7092120 KB
+2024-06-24 15:10:50.094 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:10:50.094 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7136172 KB
+2024-06-24 15:11:50.092 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:11:50.093 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7135860 KB
+2024-06-24 15:12:50.092 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:12:50.093 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7056492 KB
+2024-06-24 15:13:50.092 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:13:50.093 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7097524 KB
+2024-06-24 15:14:50.094 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:14:50.095 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7097684 KB
+2024-06-24 15:15:40.924 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.502 seconds (process running for 2.073)
+2024-06-24 15:15:40.931 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:15:40.932 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7078504 KB
+2024-06-24 15:16:00.922 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.529 seconds (process running for 1.949)
+2024-06-24 15:16:00.929 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:16:00.929 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7070080 KB
+2024-06-24 15:17:00.922 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:17:00.923 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7064064 KB
+2024-06-24 15:18:00.922 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:18:00.923 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 7074808 KB
+2024-06-24 15:21:21.407 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.518 seconds (process running for 1.924)
+2024-06-24 15:21:21.414 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:21:21.415 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6832000 KB
+2024-06-24 15:21:48.657 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.507 seconds (process running for 1.905)
+2024-06-24 15:21:48.663 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:21:48.664 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6882744 KB
+2024-06-24 15:22:48.660 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:22:48.662 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6842968 KB
+2024-06-24 15:23:48.658 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:23:48.658 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6940384 KB
+2024-06-24 15:23:59.479 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.645 seconds (process running for 2.081)
+2024-06-24 15:23:59.491 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:23:59.492 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6956236 KB
+2024-06-24 15:24:18.299 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.473 seconds (process running for 1.882)
+2024-06-24 15:24:18.311 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:24:18.311 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6928392 KB
+2024-06-24 15:25:18.302 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:25:18.303 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6936144 KB
+2024-06-24 15:26:18.299 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:26:18.299 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6934300 KB
+2024-06-24 15:27:18.299 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:27:18.299 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6943712 KB
+2024-06-24 15:28:18.299 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:28:18.299 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6937972 KB
+2024-06-24 15:29:18.301 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:29:18.302 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6949704 KB
+2024-06-24 15:30:18.301 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:30:18.302 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6945100 KB
+2024-06-24 15:31:18.299 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:31:18.300 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6966888 KB
+2024-06-24 15:32:18.299 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:32:18.299 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6942196 KB
+2024-06-24 15:33:18.300 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:33:18.300 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6951244 KB
+2024-06-24 15:34:18.300 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:34:18.301 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6959704 KB
+2024-06-24 15:35:06.925 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.573 seconds (process running for 2.225)
+2024-06-24 15:35:06.932 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Total Memory: 8083680 KB
+2024-06-24 15:35:06.933 [scheduling-1] INFO  c.j.s.c.MemoryUtilizationCollector - Used Memory: 6907684 KB
