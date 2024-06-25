@@ -5,7 +5,14 @@ spring:
     active: fat #开发环境，这里是fat
   cloud:
     nacos:
-      server-addr: nacos:8848 # Nacos地址
+      server-addr: localhost:8848 # Nacos地址
       config:
         file-extension: yaml # 文件后缀名
         namespace: 3cf0a2ce-0e41-4b86-9cb0-a5ff821d3051    #fat环境命名空间
+        extension-configs: # 配置文件
+          - data-id: cfg.json
+            group: DEFAULT_GROUP
+            refresh: true
+directory:
+  watch: ./home/work
+  interval: 1000  # 监听间隔
