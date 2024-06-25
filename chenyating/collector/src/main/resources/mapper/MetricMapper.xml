@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace用于绑定mapper接口-->
+<mapper namespace="com.collector.mapper.MetricMapper">
+
+    <!--  定义映射关系，较复杂，明确一下  -->
+    <resultMap id="BaseResultMap" type="com.collector.bean.entity.MetircUploadEntity">
+        <id column="id" property="id"/>
+        <result column="metric" property="metric"/>
+        <result column="endpoint" property="endpoint"/>
+        <result column="timestamp" property="timestamp"/>
+        <result column="step" property="step"/>
+        <result column="value" property="value"/>
+    </resultMap>
+</mapper>
