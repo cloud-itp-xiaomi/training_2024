@@ -1,0 +1,16 @@
+# 环境
+FROM centos:7
+
+# 设置工作目录
+WORKDIR /home/work
+
+# 复制JDK环境
+COPY jdk1.8.0_301 /usr/lib/jvm/jdk1.8.0_301
+# 配置环境变量
+ENV JAVA_HOME=/usr/lib/jvm/jdk1.8.0_301
+ENV PATH=$JAVA_HOME/bin:$PATH
+ENV CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+# 爆漏的端口号
+EXPOSE 80
+# 执行命令
+CMD ["java","-jar","work2-service.jar"]
