@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: config-log
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        group: DEFAULT_GROUP
+        file-extension: yaml
+        shared-configs:
+          - data-id: config-log
+            group: DEFAULT_GROUP
+        prefix: storage

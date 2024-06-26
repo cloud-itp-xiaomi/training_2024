@@ -1,0 +1,17 @@
+server:
+  port: 8011
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  redis:
+    host: ${redis.host}
+    port: ${redis.port}
+    password: ${redis.password}
+    database: ${redis.database}
+    #连接超时
+    connect-timeout: 5s
+    #读超时
+    timeout: 5s

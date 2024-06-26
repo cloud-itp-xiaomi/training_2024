@@ -2,6 +2,7 @@ package org.qiaojingjing.collector;
 
 import org.qiaojingjing.constants.Param;
 import org.qiaojingjing.entity.Metric;
+import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -12,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+@Service
 public class CollectMem {
     private static final Map<String, Long> memMap = new HashMap<>();
     private static BigDecimal memUsed;
@@ -20,7 +22,7 @@ public class CollectMem {
     private static final BigDecimal common = new BigDecimal(100);
     private static final Metric mem = new Metric();
 
-    public static Metric collect() throws IOException {
+    public Metric collect() throws IOException {
         String hostname = Files.readString(Paths.get("/etc/hostname"))
                                                 .trim();
         File fileMem = new File("/proc/meminfo");
