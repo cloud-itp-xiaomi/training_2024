@@ -1,8 +1,0 @@
-{
-    "files": [
-        "/var/miHostInfoSystem/logs/mylog1.log",
-        "/var/miHostInfoSystem/logs/mylog2.log",
-        "/var/miHostInfoSystem/logs/mylog3.log"
-    ],
-    "log_storage": "local_file"
-}
