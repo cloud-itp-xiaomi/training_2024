@@ -1,15 +1,22 @@
 package com.example.springcloud.service.impl;
 
+import com.example.springcloud.base.CfgConfig;
 import com.example.springcloud.base.Enums.MetricEnum;
 import com.example.springcloud.base.SystemInfoUtils;
 import com.example.springcloud.controller.request.CollectorRequest;
+import com.example.springcloud.controller.request.LogUploadRequest;
 import com.example.springcloud.service.CollectorService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * @ClassName CollectorServiceImpl
@@ -30,6 +37,8 @@ public class CollectorServiceImpl implements CollectorService {
     private Integer quartzTime;
     @Value("${schedule.url}")
     private String url;
+    @Autowired
+    private CfgConfig cfgConfig;
     @Override
     public void sendCollector(CollectorRequest request) {
         String postUrl = url;
@@ -59,5 +68,31 @@ public class CollectorServiceImpl implements CollectorService {
         return request;
     }
 
+    @Override
+    public List<LogUploadRequest> getLogRequest() {
+        String hostName = systemInfoUtils.getHostName();
+        List<LogUploadRequest> requestList = new ArrayList<>();
+        if (Objects.isNull(cfgConfig.getFiles())){
+            return requestList;
+        }
+        for (String file : cfgConfig.getFiles()){
+            LogUploadRequest request = new LogUploadRequest();
+            request.setHostName(hostName);
+            request.setFile(file);
+            requestList.add(request);
+        }
+        return requestList;
+    }
 
+    @Override
+    public void logUpload(List<LogUploadRequest> requestList) {
+        if (Objects.isNull(requestList)){
+            return;
+        }
+        for (LogUploadRequest request : requestList){
+            String postUrl = url;
+            restTemplate.postForObject(postUrl,request,String.class);
+            log.info("-------------------发送成功: Metric:"+request.getFile()+request);
+        }
+    }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace用于绑定mapper接口-->
+<mapper namespace="com.collector.mapper.LogMapper">
+
+    <!--insert和delete语句在MyBatis中不需要显式地绑定实体类，因为它们并不涉及从数据库查询数据并映射到Java对象的过程-->
+    <insert id="saveDetailLogInfo">
+        insert into collector_detail_log(log_id,logs,create_time) values(#{logId},#{logs},#{createTime})
+    </insert>
+
+    <delete id="deleteDetailLogInfo">
+        delete from collector_detail_log where log_id = #{logId}
+    </delete>
+
+    <select id="selectDetailLogInfo" resultType="DetailLogEntity">
+        select log_id as logId,logs from collector_detail_log
+        <where>
+--             判断传入的logIds参数是否为空，如果不为空且长度大于0，则执行条件内的语句，构造一个log_id IN (...)的查询条件
+--             open属性指定了开括号-in语句开头，separator属性指定了分隔符，close属性指定了闭括号-in语句闭合
+            <if test="logIds != null and logIds.size() > 0">
+                log_id in
+                <foreach collection="logIds" item="item" index="index" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>

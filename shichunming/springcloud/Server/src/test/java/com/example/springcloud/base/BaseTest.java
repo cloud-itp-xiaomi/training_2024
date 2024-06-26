@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 
 /**
  * @ClassName IdTest
@@ -22,6 +24,16 @@ public class BaseTest {
     private Long workerId;
     @Autowired
     private SnowflakeIdGenerator idGenerator;
+
+    @Autowired
+    private CfgConfig cfgConfig;
+
+    @Test
+    public void cfgTest() {
+        System.out.println(cfgConfig.getFiles());
+        System.out.println(cfgConfig.getLogStorage());
+
+    }
     @Test
     public void idTest() {
         for (int i = 0; i < 100; i++) {

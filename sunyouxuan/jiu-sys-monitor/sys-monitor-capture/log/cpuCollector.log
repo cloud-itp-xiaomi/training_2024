@@ -1,0 +1,6 @@
+2024-06-13 16:33:34.146 [main] INFO  c.j.s.SysMonitorCaptureApplicationTests - Starting SysMonitorCaptureApplicationTests using Java 21.0.3 with PID 556907 (started by jiuth in /home/jiuth/1-Code/2024_training/jiu-sys-monitor/sys-monitor-capture)
+2024-06-13 16:33:34.147 [main] INFO  c.j.s.SysMonitorCaptureApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-06-13 16:33:34.739 [main] INFO  c.j.s.SysMonitorCaptureApplicationTests - Started SysMonitorCaptureApplicationTests in 0.873 seconds (process running for 1.572)
+2024-06-13 16:34:08.859 [main] INFO  c.j.s.SysMonitorCaptureApplicationTests - Starting SysMonitorCaptureApplicationTests using Java 21.0.3 with PID 557014 (started by jiuth in /home/jiuth/1-Code/2024_training/jiu-sys-monitor/sys-monitor-capture)
+2024-06-13 16:34:08.861 [main] INFO  c.j.s.SysMonitorCaptureApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-06-13 16:34:09.292 [main] INFO  c.j.s.SysMonitorCaptureApplicationTests - Started SysMonitorCaptureApplicationTests in 0.631 seconds (process running for 1.169)

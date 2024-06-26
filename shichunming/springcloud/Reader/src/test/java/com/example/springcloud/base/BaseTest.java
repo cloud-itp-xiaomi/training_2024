@@ -4,6 +4,7 @@ import cn.hutool.json.JSONUtil;
 import com.example.springcloud.controller.ReaderController;
 import com.example.springcloud.controller.base.Response;
 import com.example.springcloud.controller.response.ReaderResponse;
+import com.example.springcloud.service.ReaderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class BaseTest {
     @Autowired
     private ReaderController readerController;
+    @Autowired
+    private ReaderService readerService;
     @Test
     public void test() {
         Response<ReaderResponse> readerResponse = readerController.readMsg("scm", 1, 1717598629L, 1717662780L);
@@ -31,5 +34,11 @@ public class BaseTest {
     @Test
     public void test1() {
         System.out.println("test");
+    }
+
+    @Test
+    public void TestGetLog() {
+        String str = JSONUtil.toJsonStr(readerService.queryLog("my-computer", "/home/work/a.log"));
+        System.out.println(str);
     }
 }

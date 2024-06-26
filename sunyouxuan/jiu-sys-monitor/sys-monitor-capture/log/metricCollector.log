@@ -1,0 +1,14 @@
+2024-06-13 16:33:34.146 [main] INFO  c.j.s.SysMonitorCaptureApplicationTests - Starting SysMonitorCaptureApplicationTests using Java 21.0.3 with PID 556907 (started by jiuth in /home/jiuth/1-Code/2024_training/jiu-sys-monitor/sys-monitor-capture)
+2024-06-13 16:33:34.147 [main] INFO  c.j.s.SysMonitorCaptureApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-06-13 16:33:34.739 [main] INFO  c.j.s.SysMonitorCaptureApplicationTests - Started SysMonitorCaptureApplicationTests in 0.873 seconds (process running for 1.572)
+2024-06-13 16:33:34.740 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 1.6737722125136467
+2024-06-13 16:33:34.741 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 73.79703541548321
+2024-06-13 16:33:34.776 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":1.6737722125136467,"timestamp":1718267614},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":73.79703541548321,"timestamp":1718267614}]
+2024-06-13 16:33:34.821 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: I/O error on POST request for "http://127.0.0.1:8080/api/metric/upload": 拒绝连接
+2024-06-13 16:34:08.859 [main] INFO  c.j.s.SysMonitorCaptureApplicationTests - Starting SysMonitorCaptureApplicationTests using Java 21.0.3 with PID 557014 (started by jiuth in /home/jiuth/1-Code/2024_training/jiu-sys-monitor/sys-monitor-capture)
+2024-06-13 16:34:08.861 [main] INFO  c.j.s.SysMonitorCaptureApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-06-13 16:34:09.292 [main] INFO  c.j.s.SysMonitorCaptureApplicationTests - Started SysMonitorCaptureApplicationTests in 0.631 seconds (process running for 1.169)
+2024-06-13 16:34:09.292 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 1.675585933554613
+2024-06-13 16:34:09.293 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 73.46510803968877
+2024-06-13 16:34:09.316 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":1.675585933554613,"timestamp":1718267649},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":73.46510803968877,"timestamp":1718267649}]
+2024-06-13 16:34:09.333 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: I/O error on POST request for "http://127.0.0.1:8080/api/metric/upload": 拒绝连接
