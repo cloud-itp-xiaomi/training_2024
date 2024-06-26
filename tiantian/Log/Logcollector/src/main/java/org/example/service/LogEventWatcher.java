@@ -19,12 +19,14 @@ import org.springframework.scheduling.annotation.Scheduled;
 public class LogEventWatcher {
 
   @Autowired
-  private LogUploaderFactory logUploaderFactory;
-
-  private WatchService watcher;
-  private Map<WatchKey, Path> keys;
-  private Map<Path, List<String>> lastKnownContents = new HashMap<>();
+  private LogUploaderFactory logUploaderFactory; // 工厂实例
+  private WatchService watcher; // 监控文件变化
+  private Map<WatchKey, Path> keys; // 存path得映射
+  private Map<Path, List<String>> lastKnownContents = new HashMap<>(); // 监控文件的最后已知内容
   private String logStorage;
+
+  private Path configPath;
+  private final String configFile = "Logcollector/src/main/resources/cfg.json";
 
   public LogEventWatcher() throws Exception {
     this.watcher = FileSystems.getDefault().newWatchService();
@@ -51,7 +53,9 @@ public class LogEventWatcher {
     }
   }
 
+  // 监控
   private void startWatching() {
+    // 创建线程轮询
     Thread thread = new Thread(() -> {
       while (true) {
         processEvents();
@@ -70,7 +74,9 @@ public class LogEventWatcher {
   private void processEvents() {
     WatchKey key;
     while ((key = watcher.poll()) != null) {
+      // 通过keys得到path
       Path dir = keys.get(key);
+      // 遍历有变化的事件
       for (WatchEvent<?> event : key.pollEvents()) {
         processEvent(event, dir);
         key.reset();
@@ -79,13 +85,15 @@ public class LogEventWatcher {
   }
 
   private void processEvent(WatchEvent<?> event, Path dir) {
+    // 事件类型
     WatchEvent.Kind<?> kind = event.kind();
     WatchEvent<Path> ev = (WatchEvent<Path>) event;
+    // 事件得文件名
     Path name = ev.context();
     Path child = dir.resolve(name);
-    System.out.println(event.kind().name() + ": " + child);
+    // System.out.println(event.kind().name() + ": " + child);
 
-    // 处理逻辑
+    // 修改
     if (kind == ENTRY_MODIFY && lastKnownContents.containsKey(child)) {
       try {
         updateFileContents(child);
@@ -95,6 +103,7 @@ public class LogEventWatcher {
     }
   }
 
+  // 文件变化，上传日志
   private void updateFileContents(Path child) throws IOException {
     List<String> newContents = Files.readAllLines(child);
     List<String> oldContents = lastKnownContents.get(child);

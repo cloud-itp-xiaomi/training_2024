@@ -29,12 +29,13 @@ public class RevicerService {
 	@Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
+	// 将传入的json字符串->metric到mysql和redis
 	@Transactional(rollbackFor = Exception.class)
 	public void saveMetric(String res) {
 		
 		JSONArray jArray = (JSONArray) JSONArray.parse(res);
 		
-		for (int i = 0;jArray!=null && i < jArray.size(); i++) {
+		for (int i = 0; jArray!=null && i < jArray.size(); i++) {
 			JSONObject jObj = (JSONObject) jArray.get(i);
 			String endpoint = jObj.getString("endpoint");
 			String metric = jObj.getString("metric");
@@ -48,7 +49,7 @@ public class RevicerService {
 			dmetric.setTimestamp(timestamp);
 			mMapper.insert(dmetric);
 		}
-		//
+		// 从mysql中获取最新的10条数据保存到redis
 		List<Metric> list = mMapper.getMetric();
 		this.saveMetricsToRedisList(list);
 	}
@@ -82,6 +83,7 @@ public class RevicerService {
 		//查询特定时间段的数据
 		wrapper.le("timestamp",end);
 		wrapper.ge("timestamp",start);
+		// SQL查询，返回Metric对象列表。
 		return mMapper.selectList(wrapper);
 	}
 }
