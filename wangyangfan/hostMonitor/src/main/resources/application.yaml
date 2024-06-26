@@ -1,0 +1,24 @@
+spring:
+  mvc:
+    static-path-pattern: classpath:/resources/static/
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: abc123
+    url: jdbc:mysql://mysql:3306/hostMsg?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+
+mybatis-plus:
+  #mapper配置文件
+  mapper-locations: "classpath:/mapper/**/*.xml"
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+  global-config:
+    db-config:
+      id-type: auto
+      update-strategy: not_null

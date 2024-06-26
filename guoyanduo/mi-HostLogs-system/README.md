@@ -10,7 +10,7 @@
 mi-HostLogs-system
 │
 ├── cmd
-│	└──  main.go 			//	项目的总启动代码
+│	└──  main.go 			// 项目的总启动代码
 │
 ├── collector
 │	├── collector.go		// collector的实现
