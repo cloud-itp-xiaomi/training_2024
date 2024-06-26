@@ -10,7 +10,8 @@ import org.springframework.context.annotation.Configuration;
 /**
  * xxl-job config
  *
- * @author xuxueli 2017-04-28
+ * @author: tressures
+ * @date: 2024/6/1
  */
 @Configuration
 public class XxlJobConfig {
@@ -39,7 +40,6 @@ public class XxlJobConfig {
 
     @Value("${xxl.job.executor.logretentiondays}")
     private int logRetentionDays;
-
 
     @Bean
     public XxlJobSpringExecutor xxlJobExecutor() {
@@ -72,6 +72,4 @@ public class XxlJobConfig {
      *      3、获取IP
      *          String ip_ = inetUtils.findFirstNonLoopbackHostInfo().getIpAddress();
      */
-
-
 }

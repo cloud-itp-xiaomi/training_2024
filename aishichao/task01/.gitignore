@@ -1,0 +1,9 @@
+##others##
+*.jar
+*.tar.gz
+*.deb
+
+##goLand##
+.idea/
+
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.example.mapper.UtilizationMapper">
+
+    <insert id="insertBatch">
+        insert into utilization (endpoint_id, step, value, metric_type, deleted, tags, metric, timestamp, create_time,
+        update_time)
+        values
+        <foreach collection="utilizationList" item="item" separator=",">
+            (#{item.endpointId}, #{item.step}, #{item.value}, #{item.metricType}, #{item.deleted}, #{item.tags},
+            #{item.metric}, #{item.timestamp}, #{item.createTime}, #{item.updateTime})
+        </foreach>
+    </insert>
+    <select id="query" resultType="org.example.pojo.entity.Utilization">
+        select *
+        from utilization
+        <where>
+            <if test="metricType != null">
+                and metric_type = #{metricType}
+            </if>
+            <if test="endpointId != null">
+                and endpoint_id = #{endpointId}
+            </if>
+            <if test="startTs != null">
+                and timestamp &gt;= #{startTs}
+            </if>
+            <if test="endTs != null">
+                and timestamp &lt;= #{endTs}
+            </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
+        </where>
+        order by create_time desc;
+    </select>
+</mapper>

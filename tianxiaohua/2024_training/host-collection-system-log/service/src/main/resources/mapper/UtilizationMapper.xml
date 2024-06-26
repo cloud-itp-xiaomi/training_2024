@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.txh.xiaomi2024.work.service.dao.UtilizationMysqlMapper">
+    <!--创建表的 SQL 语句-->
+    <update id="createTable" parameterType="java.lang.String">
+        CREATE TABLE IF NOT EXISTS `${tableName}`
+        (
+            `id`       int(11)      NOT NULL AUTO_INCREMENT COMMENT '主键',
+            `metric` varchar(20) NULL DEFAULT NULL COMMENT '指标名称',
+            `endpoint` varchar(20) NULL DEFAULT NULL COMMENT '当前主机',
+            `collect_time` bigint NULL DEFAULT NULL COMMENT '采集数据的时间',
+            `step` int(0) NULL DEFAULT NULL COMMENT '采集周期',
+            `value_metric` double NULL DEFAULT NULL COMMENT '利用率值',
+            PRIMARY KEY (`id`)
+            INDEX result (`metric`, `collect_time`, `value_metric`)
+        ) ENGINE = InnoDB
+        AUTO_INCREMENT = 0
+        CHARACTER SET = utf8mb4 COMMENT ='利用率采集表';
+    </update>
+
+    <select id="queryAll" resultType="com.txh.xiaomi2024.work.service.bean.Utilization">
+        SELECT * FROM utilization
+    </select>
+
+    <insert id="insertData" parameterType="com.txh.xiaomi2024.work.service.bean.Utilization">
+        INSERT INTO utilization (metric, endpoint, collect_time, step, value_metric) VALUES (#{metric}, #{endpoint}, #{collect_time}, #{step}, #{value_metric})
+    </insert>
+
+    <select id="queryByTimestamp" parameterType="long" resultType="com.txh.xiaomi2024.work.service.bean.Utilization">
+        SELECT metric,collect_time,value_metric FROM utilization WHERE collect_time between #{start} and #{end}
+    </select>
+
+    <select id="queryByeEndpoint" parameterType="String" resultType="com.txh.xiaomi2024.work.service.bean.Utilization">
+        SELECT metric,collect_time,value_metric FROM utilization WHERE endpoint = #{endpoint}
+    </select>
+
+    <select id="queryByMetric" parameterType="String" resultType="com.txh.xiaomi2024.work.service.bean.Utilization">
+        SELECT metric,collect_time,value_metric FROM utilization WHERE metric = #{metric}
+    </select>
+
+    <select id="query" resultType="com.txh.xiaomi2024.work.service.bean.Utilization">
+        SELECT metric,collect_time,value_metric FROM utilization WHERE metric = #{metric} and endpoint = #{endpoint} and collect_time between #{start} and #{end}
+    </select>
+
+    <select id="queryByEMS" resultType="com.txh.xiaomi2024.work.service.bean.Utilization">
+        SELECT * FROM utilization WHERE metric = #{metric} and endpoint = #{endpoint} and collect_time = #{start}
+    </select>
+</mapper>

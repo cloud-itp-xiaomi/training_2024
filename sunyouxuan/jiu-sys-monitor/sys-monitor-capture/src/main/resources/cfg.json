@@ -1,0 +1,8 @@
+{
+  "files": [
+    "./log/metricCollector.log",
+    "./log/memoryCollector.log",
+    "./log/cpuCollector.log"
+  ],
+  "log_storage": "local_file"
+}

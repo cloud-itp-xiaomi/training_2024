@@ -5,6 +5,7 @@ import com.sun.management.OperatingSystemMXBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -18,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 import java.lang.management.ManagementFactory;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+
 import java.time.Instant;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -38,6 +40,12 @@ public class Collector {
         this.osBean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
         // 创建一个包含4个线程的线程池
         this.executorService = Executors.newFixedThreadPool(4);
+    }
+
+    public Collector(RestTemplate restTemplate, OperatingSystemMXBean osBean, ExecutorService executorService) {
+        this.restTemplate = restTemplate;
+        this.osBean = osBean;
+        this.executorService = executorService;
     }
 
     @Scheduled(fixedRate = 60000) // 每分钟执行一次
@@ -76,7 +84,7 @@ public class Collector {
     }
 
     // 上报数据
-    private void sendMetric(Metric metric) {
+    public void sendMetric(Metric metric) {
         // 构造HTTP请求
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -102,7 +110,7 @@ public class Collector {
 
 
     // 获取主机内存使用率
-    private double getMemoryUsage() {
+    public double getMemoryUsage() {
         long totalMemory = osBean.getTotalMemorySize();
         long freeMemory = osBean.getFreeMemorySize();
 
@@ -115,7 +123,7 @@ public class Collector {
 
 
     // 获取主机cpu使用率
-    private double getCpuUsage() {
+    public double getCpuUsage() {
         double systemCpuLoad = osBean.getCpuLoad();
         if (systemCpuLoad < 0) {
             return Double.NaN;
@@ -129,4 +137,6 @@ public class Collector {
         BigDecimal bigDecimal = new BigDecimal(doubleValue).setScale(2, RoundingMode.HALF_UP);
         return bigDecimal.doubleValue();
     }
+
+
 }
