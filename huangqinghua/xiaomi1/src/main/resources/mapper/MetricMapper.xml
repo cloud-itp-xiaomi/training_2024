@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.xiaomi1.mapper.MetricMapper">
+    <resultMap id="BaseResultMap" type="com.example.xiaomi1.entity.Metric">
+        <id column="id" property="id" />
+        <result column="cpu_used_percent" property="cpuUsedPercent" />
+        <result column="mem_used_percent" property="memUsedPercent" />
+        <result column="timestamp" property="timeStamp" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, com_name,cpu_used_percent, mem_used_percent, time_stamp
+    </sql>
+
+    <insert id="insert" parameterType="com.example.xiaomi1.entity.Metric">
+        INSERT INTO collection (com_name,cpu_used_percent, mem_used_percent, time_stamp)
+        VALUES (#{comName}, #{cpuUsedPercent}, #{memUsedPercent},#{timeStamp})
+    </insert>
+</mapper>
