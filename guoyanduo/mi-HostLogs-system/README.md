@@ -14,7 +14,7 @@ mi-HostLogs-system
 │
 ├── collector
 │	├── collector.go		// collector的实现
-│	├── collector_test.go	// collector的单元测试
+│	├── collector_test.go		// collector的单元测试
 │	└── config.json			// collector的配置文件
 │
 ├── reader
