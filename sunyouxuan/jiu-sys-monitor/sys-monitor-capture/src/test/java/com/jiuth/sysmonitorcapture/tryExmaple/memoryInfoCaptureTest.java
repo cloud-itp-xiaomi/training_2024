@@ -1,4 +1,4 @@
-package com.jiuth.sysmonitorcapture;
+package com.jiuth.sysmonitorcapture.tryExmaple;
 
 import org.junit.jupiter.api.Test;
 

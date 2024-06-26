@@ -1,7 +1,8 @@
 {
   "files": [
-    "/home/jiuth/1-Code/2024_training/1-log/memoryCollector.log",
-    "/home/jiuth/1-Code/2024_training/1-log/cpuCollector.log"
+    "./log/metricCollector.log",
+    "./log/memoryCollector.log",
+    "./log/cpuCollector.log"
   ],
   "log_storage": "local_file"
 }

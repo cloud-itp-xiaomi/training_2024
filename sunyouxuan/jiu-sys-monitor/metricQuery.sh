@@ -4,11 +4,11 @@
 DEFAULT_API_URL="http://127.0.0.1:8080/api/metric/query"
 
 # 默认值
-DEFAULT_ENDPOINT="jiuth@Ubuntu 24.04 LTS"
+DEFAULT_ENDPOINT="jiuth@Ubuntu24.04LTS@127.0.0.1"
 #DEFAULT_ENDPOINT="jiuth@Ubuntu%2024.04%20LTS"
 DEFAULT_METRIC="cpu.used.percent"
 DEFAULT_START_TS="1715765640"
-DEFAULT_END_TS="1718102384"
+DEFAULT_END_TS="1719151108"
 
 # 解析命令行参数
 while [[ $# -gt 0 ]]; do
