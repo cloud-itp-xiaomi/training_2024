@@ -15,7 +15,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.lang.management.ManagementFactory;
 import java.nio.file.*;
 import java.util.*;
@@ -31,8 +33,9 @@ public class CollectorApplication {
 
     private static CFGConfig cfgconfig;
 
+
     public static void main(String[] args) throws IOException{
-        //SpringApplication.run(CollectorApplication.class, args);
+        SpringApplication.run(CollectorApplication.class, args);
         initializeCollector("D:\\2024_training\\Collector\\cfg.json");
     }
 
@@ -112,6 +115,7 @@ public class CollectorApplication {
         }
     }
 
+
     private static void uploadLogs(String filePath, List<String> logs) {
         List<LogEntry> logEntries = Collections.singletonList(
                 new LogEntry("my-computer", filePath, logs)
@@ -119,8 +123,10 @@ public class CollectorApplication {
 
         // 添加 log_storage 配置到请求中
         Map<String, Object> requestBody = new HashMap<>();
-        requestBody.put("log_storage", cfgconfig.getLogStorage());
+        requestBody.put("logStorage", cfgconfig.getLogStorage());
         requestBody.put("logs", logEntries);
+
+        System.out.println("Request Body: " + requestBody);  // 打印请求内容，
 
         RestTemplate restTemplate = new RestTemplate();
         String serverUrl = "http://localhost:9092/api/log/upload";

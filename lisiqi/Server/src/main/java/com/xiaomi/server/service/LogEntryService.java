@@ -6,6 +6,6 @@ import com.xiaomi.server.Entity.LogEntry;
 import java.util.List;
 
 public interface LogEntryService extends IService<LogEntry> {
-    void saveLogEntries(List<LogEntry> logEntries);
+    void saveLogEntries(String logStorage, List<LogEntry> logEntries);
 }
 
