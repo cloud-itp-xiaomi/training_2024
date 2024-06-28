@@ -2,7 +2,10 @@ package com.example.xiaomi1.controller;
 
 import com.example.xiaomi1.entity.Metric;
 import com.example.xiaomi1.entity.MetricData;
+import com.example.xiaomi1.service.LogService;
 import com.example.xiaomi1.service.MetricService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +32,9 @@ public class ServerControllerTest {
     @MockBean
     private MetricService metricService;
 
+    @MockBean
+    private LogService logService;
+
     @Test
     void receiveMetric() throws Exception {
         Mockito.doNothing().when(metricService).saveMetric(any(Metric.class));
@@ -54,11 +60,19 @@ public class ServerControllerTest {
         // 先存
         Mockito.doNothing().when(metricService).saveMetric(metric);
 
-        // 保存数据
+        // 将Metric对象转换为JSON字符串
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonContent = "";
+        try {
+            jsonContent = objectMapper.writeValueAsString(metric);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        // 使用转换后的JSON字符串进行POST请求
         mockMvc.perform(MockMvcRequestBuilders.post("/api/metric/upload")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"metric\":\"cpu.used.percent\",\"endpoint\":\"test-computer\"," +
-                                "\"step\":60,\"timestamp\":1000000000,\"value\":10.22}"))
+                        .content(jsonContent))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"code\":200,\"message\":\"ok\",\"data\":\"\"}"));
 
