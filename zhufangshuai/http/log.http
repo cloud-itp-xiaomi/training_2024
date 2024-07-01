@@ -1,0 +1,16 @@
+GET http://localhost:8008/server/log/query
+Content-Type: application/json
+
+{
+  "hostname":"123",
+  "file":"E:\\PCprogremFiles\\IDEAIU\\workspace\\PerformanceMonitorSystem\\collector\\src\\test\\java\\com\\winter\\collector\\a.log"
+}
+
+###
+GET http://localhost:8008/server/test
+Content-Type: application/json
+
+{
+  "hostname": "fszhu",
+  "file": "/sys/cpu"
+}

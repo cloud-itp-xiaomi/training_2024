@@ -1,0 +1,31 @@
+GET http://localhost:8008/server/hello
+
+###
+
+GET http://localhost:8008/server/findAll
+
+###
+
+POST http://localhost:8008/server/add
+Content-Type: application/json
+
+{
+  "id":88,
+  "hostname":"fs678",
+  "timestamp":525213359,
+  "step":60,
+  "cpu_usage":88.5,
+  "mem_usage":88.6
+}
+
+
+###
+GET http://localhost:8008/server/metric/query
+Content-Type: application/json
+
+{
+  "endpoint":"fszhu",
+  "metric":null,
+  "start_ts":523213555,
+  "end_ts":523213555
+}

@@ -1,0 +1,22 @@
+2024-05-28 00:51:24.925 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 4813 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-28 00:51:24.966 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-28 00:51:28.641 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-28 00:51:28.644 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-28 00:51:28.702 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 26 ms. Found 0 Redis repository interfaces.
+2024-05-28 00:51:29.370 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-28 00:51:30.677 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-28 00:51:30.712 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-28 00:51:30.714 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-28 00:51:30.715 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-28 00:51:30.994 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-28 00:51:30.998 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 5810 ms
+2024-05-28 00:51:33.993 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-28 00:51:34.695 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-28 00:51:34.919 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-28 00:51:34.983 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-28 00:51:35.027 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 11.65 seconds (process running for 16.139)
+2024-05-28 00:51:35.050 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-28 00:51:35.051 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-28 00:51:42.456 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-2 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-28 00:51:42.457 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-2 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-28 00:51:42.459 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-2 [32m                [0;39m Completed initialization in 2 ms

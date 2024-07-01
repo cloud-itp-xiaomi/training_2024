@@ -1,0 +1,339 @@
+2024-05-27 20:37:23.260 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 26856 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-27 20:37:23.263 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-27 20:37:24.369 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-27 20:37:24.371 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-27 20:37:24.396 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2024-05-27 20:37:24.597 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-27 20:37:24.939 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-27 20:37:24.946 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-27 20:37:24.947 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-27 20:37:24.950 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-27 20:37:25.038 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-27 20:37:25.040 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 1713 ms
+2024-05-27 20:37:25.854 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-27 20:37:26.091 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-27 20:37:26.165 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-27 20:37:26.176 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-27 20:37:26.191 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 3.328 seconds (process running for 4.409)
+2024-05-27 20:37:26.196 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-27 20:37:26.197 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-27 20:37:26.633 INFO  com.zaxxer.hikari.HikariDataSource                :110  RMI TCP Connection(2)-172.22.165.166 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-27 20:37:26.783 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  RMI TCP Connection(2)-172.22.165.166 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@23bde566
+2024-05-27 20:37:26.786 INFO  com.zaxxer.hikari.HikariDataSource                :123  RMI TCP Connection(2)-172.22.165.166 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-27 20:37:41.249 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-27 20:37:41.253 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-27 20:37:41.254 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 1 ms
+2024-05-27 20:38:42.502 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-27 20:38:42.508 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-27 20:38:53.631 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 27238 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-27 20:38:53.646 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-27 20:38:55.379 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-27 20:38:55.387 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-27 20:38:55.415 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2024-05-27 20:38:55.776 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-27 20:38:56.244 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-27 20:38:56.254 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-27 20:38:56.256 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-27 20:38:56.256 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-27 20:38:56.372 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-27 20:38:56.373 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 2464 ms
+2024-05-27 20:38:57.423 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-27 20:38:57.803 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-27 20:38:57.870 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-27 20:38:57.890 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-27 20:38:57.909 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 5.666 seconds (process running for 8.266)
+2024-05-27 20:38:57.917 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-27 20:38:57.918 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-27 20:38:58.262 INFO  com.zaxxer.hikari.HikariDataSource                :110  RMI TCP Connection(5)-172.22.165.166 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-27 20:38:58.412 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  RMI TCP Connection(5)-172.22.165.166 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@af02859
+2024-05-27 20:38:58.422 INFO  com.zaxxer.hikari.HikariDataSource                :123  RMI TCP Connection(5)-172.22.165.166 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-27 20:39:15.939 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-27 20:39:15.942 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-27 20:39:15.945 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 3 ms
+2024-05-27 20:40:31.616 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m423ms13µs196ns).
+2024-05-27 20:40:31.785 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-27 20:40:31.789 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-27 20:51:57.285 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 29535 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-27 20:51:57.288 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-27 20:51:58.678 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-27 20:51:58.687 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-27 20:51:58.780 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 34 ms. Found 0 Redis repository interfaces.
+2024-05-27 20:51:59.115 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-27 20:51:59.640 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-27 20:51:59.653 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-27 20:51:59.654 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-27 20:51:59.654 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-27 20:51:59.840 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-27 20:51:59.842 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 2457 ms
+2024-05-27 20:52:01.397 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-27 20:52:01.967 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-27 20:52:02.087 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-27 20:52:02.128 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-27 20:52:02.152 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 5.458 seconds (process running for 7.536)
+2024-05-27 20:52:02.164 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-27 20:52:02.165 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-27 22:26:29.873 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 4348 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-27 22:26:29.885 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-27 22:26:32.618 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-27 22:26:32.622 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-27 22:26:32.690 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 35 ms. Found 0 Redis repository interfaces.
+2024-05-27 22:26:33.137 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-27 22:26:33.744 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-27 22:26:33.762 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:26:33.765 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-27 22:26:33.768 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-27 22:26:34.000 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-27 22:26:34.011 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 3938 ms
+2024-05-27 22:26:35.658 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-27 22:26:36.270 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-27 22:26:36.468 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:26:36.527 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-27 22:26:36.562 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 8.212 seconds (process running for 12.999)
+2024-05-27 22:26:36.575 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-27 22:26:36.576 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-27 22:26:51.756 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-27 22:26:51.757 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-27 22:26:51.779 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 19 ms
+2024-05-27 22:28:39.164 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 5551 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-27 22:28:39.177 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-27 22:28:41.657 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-27 22:28:41.661 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-27 22:28:41.739 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 44 ms. Found 0 Redis repository interfaces.
+2024-05-27 22:28:42.441 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-27 22:28:42.981 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-27 22:28:42.996 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:28:42.997 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-27 22:28:42.998 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-27 22:28:43.299 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-27 22:28:43.313 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 3907 ms
+2024-05-27 22:28:44.882 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-27 22:28:45.639 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-27 22:28:45.913 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:28:45.957 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-27 22:28:45.997 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 8.355 seconds (process running for 10.946)
+2024-05-27 22:28:46.010 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-27 22:28:46.011 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-27 22:28:51.844 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-27 22:28:51.846 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-27 22:28:51.848 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 1 ms
+2024-05-27 22:30:19.415 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 6436 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-27 22:30:19.424 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-27 22:30:22.046 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-27 22:30:22.052 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-27 22:30:22.102 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 21 ms. Found 0 Redis repository interfaces.
+2024-05-27 22:30:22.451 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-27 22:30:22.971 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-27 22:30:22.997 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:30:22.999 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-27 22:30:23.000 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-27 22:30:23.231 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-27 22:30:23.232 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 3606 ms
+2024-05-27 22:30:24.822 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-27 22:30:25.401 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-27 22:30:25.567 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:30:25.636 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-27 22:30:25.727 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 7.787 seconds (process running for 10.766)
+2024-05-27 22:30:25.741 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-27 22:30:25.742 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-27 22:30:26.343 INFO  com.zaxxer.hikari.HikariDataSource                :110  RMI TCP Connection(3)-172.22.165.166 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-27 22:30:26.622 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  RMI TCP Connection(3)-172.22.165.166 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@39806a98
+2024-05-27 22:30:26.631 INFO  com.zaxxer.hikari.HikariDataSource                :123  RMI TCP Connection(3)-172.22.165.166 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-27 22:30:44.177 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-2 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-27 22:30:44.178 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-2 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-27 22:30:44.191 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-2 [32m                [0;39m Completed initialization in 5 ms
+2024-05-27 22:31:12.041 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=45s309ms786µs198ns).
+2024-05-27 22:32:44.705 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=56s857ms353µs555ns).
+2024-05-27 22:34:14.249 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51s569ms505µs315ns).
+2024-05-27 22:34:30.906 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-27 22:34:30.926 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-27 22:37:34.128 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 8141 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-27 22:37:34.140 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-27 22:37:35.570 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-27 22:37:35.573 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-27 22:37:35.600 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2024-05-27 22:37:35.884 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-27 22:37:36.356 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-27 22:37:36.365 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:37:36.368 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-27 22:37:36.369 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-27 22:37:36.473 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-27 22:37:36.475 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 2251 ms
+2024-05-27 22:37:37.386 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-27 22:37:37.775 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-27 22:37:37.913 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:37:37.928 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-27 22:37:37.952 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 4.516 seconds (process running for 5.814)
+2024-05-27 22:37:37.959 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-27 22:37:37.960 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-27 22:37:38.330 INFO  com.zaxxer.hikari.HikariDataSource                :110  RMI TCP Connection(3)-172.22.165.166 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-27 22:37:38.560 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  RMI TCP Connection(3)-172.22.165.166 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@614c5ced
+2024-05-27 22:37:38.568 INFO  com.zaxxer.hikari.HikariDataSource                :123  RMI TCP Connection(3)-172.22.165.166 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-27 22:37:44.971 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-27 22:37:44.975 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-27 22:37:44.979 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 2 ms
+2024-05-27 22:38:00.662 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-27 22:38:00.669 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-27 22:39:25.729 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 8546 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-27 22:39:25.736 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-27 22:39:28.922 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-27 22:39:28.932 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-27 22:39:28.981 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2024-05-27 22:39:29.360 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-27 22:39:29.931 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-27 22:39:29.942 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:39:29.944 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-27 22:39:29.946 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-27 22:39:30.117 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-27 22:39:30.118 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 4161 ms
+2024-05-27 22:39:31.726 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-27 22:39:32.277 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-27 22:39:32.405 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:39:32.445 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-27 22:39:32.475 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 8.06 seconds (process running for 10.438)
+2024-05-27 22:39:32.495 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-27 22:39:32.496 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-27 22:39:33.063 INFO  com.zaxxer.hikari.HikariDataSource                :110  RMI TCP Connection(5)-172.22.165.166 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-27 22:39:33.320 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  RMI TCP Connection(5)-172.22.165.166 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@18ed91c6
+2024-05-27 22:39:33.326 INFO  com.zaxxer.hikari.HikariDataSource                :123  RMI TCP Connection(5)-172.22.165.166 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-27 22:39:38.080 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-27 22:39:38.081 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-27 22:39:38.083 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 1 ms
+2024-05-27 22:41:24.727 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m51s295ms501µs189ns).
+2024-05-27 22:41:39.469 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  SpringApplicationShutdownHook [32m                [0;39m Pausing ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:41:39.470 INFO  org.apache.catalina.core.StandardService          :173  SpringApplicationShutdownHook [32m                [0;39m Stopping service [Tomcat]
+2024-05-27 22:41:39.472 INFO  org.apache.catalina.core.StandardWrapper          :173  SpringApplicationShutdownHook [32m                [0;39m Waiting for [1] instance(s) to be deallocated for Servlet [dispatcherServlet]
+2024-05-27 22:41:39.723 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-27 22:41:39.727 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-27 22:45:31.250 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 10078 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-27 22:45:31.253 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-27 22:45:32.764 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-27 22:45:32.768 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-27 22:45:32.807 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+2024-05-27 22:45:33.127 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-27 22:45:33.525 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-27 22:45:33.534 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:45:33.536 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-27 22:45:33.536 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-27 22:45:33.625 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-27 22:45:33.626 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 2278 ms
+2024-05-27 22:45:34.599 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-27 22:45:35.068 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-27 22:45:35.152 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:45:35.164 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-27 22:45:35.184 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 4.48 seconds (process running for 6.016)
+2024-05-27 22:45:35.191 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-27 22:45:35.192 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-27 22:45:35.703 INFO  com.zaxxer.hikari.HikariDataSource                :110  RMI TCP Connection(2)-172.22.165.166 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-27 22:45:35.867 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  RMI TCP Connection(2)-172.22.165.166 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@22e66752
+2024-05-27 22:45:35.881 INFO  com.zaxxer.hikari.HikariDataSource                :123  RMI TCP Connection(2)-172.22.165.166 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-27 22:46:06.108 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-27 22:46:06.112 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-27 22:46:06.114 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 2 ms
+2024-05-27 22:46:14.011 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-27 22:46:14.016 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-27 22:52:18.241 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 11106 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-27 22:52:18.245 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-27 22:52:19.991 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-27 22:52:19.995 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-27 22:52:20.035 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2024-05-27 22:52:20.388 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-27 22:52:20.921 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-27 22:52:20.932 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:52:20.934 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-27 22:52:20.937 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-27 22:52:21.091 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-27 22:52:21.093 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 2729 ms
+2024-05-27 22:52:22.300 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-27 22:52:22.762 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-27 22:52:22.878 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:52:22.896 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-27 22:52:22.920 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 6.236 seconds (process running for 8.425)
+2024-05-27 22:52:22.929 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-27 22:52:22.929 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-27 22:52:23.086 INFO  com.zaxxer.hikari.HikariDataSource                :110  RMI TCP Connection(5)-172.22.165.166 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-27 22:52:23.241 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  RMI TCP Connection(5)-172.22.165.166 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@7001528a
+2024-05-27 22:52:23.253 INFO  com.zaxxer.hikari.HikariDataSource                :123  RMI TCP Connection(5)-172.22.165.166 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-27 22:52:27.330 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-27 22:52:27.332 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-27 22:52:27.339 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 4 ms
+2024-05-27 22:52:52.691 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-27 22:52:52.696 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-27 22:56:24.620 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 12350 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-27 22:56:24.632 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-27 22:56:26.694 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-27 22:56:26.697 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-27 22:56:26.729 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2024-05-27 22:56:27.018 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-27 22:56:27.463 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-27 22:56:27.476 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:56:27.478 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-27 22:56:27.479 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-27 22:56:27.578 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-27 22:56:27.579 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 2704 ms
+2024-05-27 22:56:28.874 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-27 22:56:29.355 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-27 22:56:29.475 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-27 22:56:29.493 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-27 22:56:29.519 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 6.525 seconds (process running for 8.801)
+2024-05-27 22:56:29.527 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-27 22:56:29.529 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-27 22:56:29.879 INFO  com.zaxxer.hikari.HikariDataSource                :110  RMI TCP Connection(3)-172.22.165.166 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-27 22:56:30.109 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  RMI TCP Connection(3)-172.22.165.166 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@6cbd324f
+2024-05-27 22:56:30.127 INFO  com.zaxxer.hikari.HikariDataSource                :123  RMI TCP Connection(3)-172.22.165.166 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-27 22:56:34.779 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-27 22:56:34.780 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-27 22:56:34.783 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-1 [32m                [0;39m Completed initialization in 1 ms
+2024-05-27 22:57:36.989 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m6s761ms421µs277ns).
+2024-05-27 22:57:37.280 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-27 22:57:37.286 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-27 23:00:30.840 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 13589 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-27 23:00:30.861 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-27 23:00:33.214 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-27 23:00:33.218 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-27 23:00:33.276 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+2024-05-27 23:00:33.685 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-27 23:00:34.377 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-27 23:00:34.392 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-27 23:00:34.393 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-27 23:00:34.394 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-27 23:00:34.597 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-27 23:00:34.601 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 3485 ms
+2024-05-27 23:00:36.125 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-27 23:00:36.622 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-27 23:00:36.727 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-27 23:00:36.747 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-27 23:00:36.775 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 7.574 seconds (process running for 10.303)
+2024-05-27 23:00:36.790 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-27 23:00:36.791 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-27 23:00:37.029 INFO  com.zaxxer.hikari.HikariDataSource                :110  RMI TCP Connection(3)-172.22.165.166 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-27 23:00:37.309 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  RMI TCP Connection(3)-172.22.165.166 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@69aabf3a
+2024-05-27 23:00:37.373 INFO  com.zaxxer.hikari.HikariDataSource                :123  RMI TCP Connection(3)-172.22.165.166 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-27 23:00:42.980 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  http-nio-8008-exec-2 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-27 23:00:42.981 INFO  org.springframework.web.servlet.DispatcherServlet :525  http-nio-8008-exec-2 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-05-27 23:00:42.984 INFO  org.springframework.web.servlet.DispatcherServlet :547  http-nio-8008-exec-2 [32m                [0;39m Completed initialization in 2 ms
+2024-05-27 23:01:16.624 INFO  com.zaxxer.hikari.HikariDataSource                :350  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown initiated...
+2024-05-27 23:01:16.629 INFO  com.zaxxer.hikari.HikariDataSource                :352  SpringApplicationShutdownHook [32m                [0;39m HikariPool-1 - Shutdown completed.
+2024-05-27 23:01:29.146 INFO  com.winter.config.ServerApplication               :51   main [32m                [0;39m Starting ServerApplication using Java 17.0.7 with PID 14456 (/usr/workspace/PerformanceMonitorSystem/server/target/classes started by root in /usr/workspace/PerformanceMonitorSystem)
+2024-05-27 23:01:29.156 INFO  com.winter.config.ServerApplication               :630  main [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-05-27 23:01:30.758 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :294  main [32m                [0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-27 23:01:30.761 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :138  main [32m                [0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-27 23:01:30.802 INFO  o.s.d.r.config.RepositoryConfigurationDelegate    :208  main [32m                [0;39m Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2024-05-27 23:01:31.101 INFO  o.springframework.cloud.context.scope.GenericScope:282  main [32m                [0;39m BeanFactory id=ab864596-7b7a-37e5-80bc-4070171cb0ae
+2024-05-27 23:01:31.558 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :114  main [32m                [0;39m Tomcat initialized with port(s): 8008 (http)
+2024-05-27 23:01:31.565 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Initializing ProtocolHandler ["http-nio-8008"]
+2024-05-27 23:01:31.566 INFO  org.apache.catalina.core.StandardService          :173  main [32m                [0;39m Starting service [Tomcat]
+2024-05-27 23:01:31.567 INFO  org.apache.catalina.core.StandardEngine           :173  main [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.1]
+2024-05-27 23:01:31.687 INFO  o.a.c.c.C.[Tomcat].[localhost].[/server]          :173  main [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-05-27 23:01:31.688 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :291  main [32m                [0;39m Root WebApplicationContext: initialization completed in 2427 ms
+2024-05-27 23:01:32.702 WARN  o.s.core.LocalVariableTableParameterNameDiscoverer:123  main [32m                [0;39m Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.github.pagehelper.autoconfigure.PageHelperStandardProperties
+2024-05-27 23:01:33.140 INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver  :58   main [32m                [0;39m Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-27 23:01:33.262 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  main [32m                [0;39m Starting ProtocolHandler ["http-nio-8008"]
+2024-05-27 23:01:33.279 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :226  main [32m                [0;39m Tomcat started on port(s): 8008 (http) with context path '/server'
+2024-05-27 23:01:33.299 INFO  com.winter.config.ServerApplication               :57   main [32m                [0;39m Started ServerApplication in 4.869 seconds (process running for 6.395)
+2024-05-27 23:01:33.306 INFO  com.winter.config.ServerApplication               :22   main [32m                [0;39m 启动成功！！！
+2024-05-27 23:01:33.307 INFO  com.winter.config.ServerApplication               :23   main [32m                [0;39m 地址	http://127.0.0.18008
+2024-05-27 23:01:33.401 INFO  com.zaxxer.hikari.HikariDataSource                :110  RMI TCP Connection(1)-172.22.165.166 [32m                [0;39m HikariPool-1 - Starting...
+2024-05-27 23:01:33.625 INFO  com.zaxxer.hikari.pool.HikariPool                 :565  RMI TCP Connection(1)-172.22.165.166 [32m                [0;39m HikariPool-1 - Added connection com.mysql.jdbc.JDBC4Connection@32d398e1
+2024-05-27 23:01:33.631 INFO  com.zaxxer.hikari.HikariDataSource                :123  RMI TCP Connection(1)-172.22.165.166 [32m                [0;39m HikariPool-1 - Start completed.
+2024-05-27 23:06:13.375 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51s649ms385µs555ns).
+2024-05-27 23:07:29.267 WARN  com.zaxxer.hikari.pool.HikariPool                 :804  HikariPool-1 housekeeper [32m                [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m10s244ms192µs109ns).

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.winter.mapper.LogMapper">
+    <!--插入日志数据到数据库-->
+    <insert id="add" parameterType="com.winter.domain.LogData">
+        insert into sys_log(id, hostname, file, logs) values(#{logData.id}, #{logData.hostname}, #{logData.file}, #{logData.logs})
+    </insert>
+
+    <!--根据条件查询数据-->
+    <select id="find" parameterType="com.winter.req.LogQueryReq" resultType="com.winter.domain.LogData">
+        select * from sys_log
+        <where>
+            1 = 1
+            <if test="logQueryReq.hostname != null">and hostname = #{logQueryReq.hostname}</if>
+            <if test="logQueryReq.file != null">and file = #{logQueryReq.file}</if>
+        </where>
+    </select>
+</mapper>
