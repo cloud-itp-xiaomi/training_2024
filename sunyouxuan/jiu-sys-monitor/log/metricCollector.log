@@ -1,0 +1,711 @@
+2024-06-17 18:26:03.403 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 2.834 seconds (process running for 3.695)
+2024-06-17 18:26:03.419 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 12.914602279399013
+2024-06-17 18:26:03.419 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 78.00473644260106
+2024-06-17 18:26:03.441 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":12.914602279399013,"timestamp":1718619963},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":78.00473644260106,"timestamp":1718619963}]
+2024-06-17 18:26:03.541 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-23 18:17:29.129 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 2.669 seconds (process running for 3.319)
+2024-06-23 18:17:29.139 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.9520889269832455
+2024-06-23 18:17:29.140 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 78.52632537343123
+2024-06-23 18:17:29.153 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.9520889269832455,"timestamp":1719137849},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":78.52632537343123,"timestamp":1719137849}]
+2024-06-23 18:17:29.209 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok"}
+
+2024-06-23 18:17:30.591 [RMI TCP Connection(2)-127.0.0.1] WARN  o.s.b.a.j.DataSourceHealthIndicator - DataSource health check failed
+org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:342)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.getProduct(DataSourceHealthIndicator.java:122)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doDataSourceHealthCheck(DataSourceHealthIndicator.java:105)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doHealthCheck(DataSourceHealthIndicator.java:100)
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82)
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:82)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:41)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:76)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:66)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281)
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74)
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:124)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:97)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:803)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	... 44 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:104)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:88)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805)
+	... 57 common frames omitted
+Caused by: java.net.ConnectException: 拒绝连接
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:62)
+	... 60 common frames omitted
+2024-06-23 21:39:16.339 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.833 seconds (process running for 2.236)
+2024-06-23 21:39:16.347 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 20.768572431634002
+2024-06-23 21:39:16.347 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 77.64747389427671
+2024-06-23 21:39:16.360 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":20.768572431634002,"timestamp":1719149956},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":77.64747389427671,"timestamp":1719149956}]
+2024-06-23 21:39:16.832 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-23 21:42:53.071 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.508 seconds (process running for 1.893)
+2024-06-23 21:42:53.079 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 19.694148986727534
+2024-06-23 21:42:53.080 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 80.25554735795681
+2024-06-23 21:42:53.092 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":19.694148986727534,"timestamp":1719150173},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":80.25554735795681,"timestamp":1719150173}]
+2024-06-23 21:42:53.115 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-23 21:43:26.434 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.525 seconds (process running for 1.928)
+2024-06-23 21:43:26.442 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 19.629870368780587
+2024-06-23 21:43:26.442 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 81.88322429867233
+2024-06-23 21:43:26.458 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":19.629870368780587,"timestamp":1719150206},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":81.88322429867233,"timestamp":1719150206}]
+2024-06-23 21:43:26.760 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-23 21:49:23.440 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 2.259 seconds (process running for 3.187)
+2024-06-23 21:49:23.451 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 20.25164406723713
+2024-06-23 21:49:23.451 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 74.66011716463368
+2024-06-23 21:49:23.465 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":20.25164406723713,"timestamp":1719150563},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":74.66011716463368,"timestamp":1719150563}]
+2024-06-23 21:49:23.525 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-23 21:50:23.448 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 14.726599682707564
+2024-06-23 21:50:23.448 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 74.64274881155436
+2024-06-23 21:50:23.450 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":14.726599682707564,"timestamp":1719150623},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":74.64274881155436,"timestamp":1719150623}]
+2024-06-23 21:50:23.472 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-23 21:51:23.441 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 11.140263642326653
+2024-06-23 21:51:23.441 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 74.67664431542711
+2024-06-23 21:51:23.442 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":11.140263642326653,"timestamp":1719150683},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":74.67664431542711,"timestamp":1719150683}]
+2024-06-23 21:51:23.452 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-23 21:55:34.267 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.489 seconds (process running for 2.042)
+2024-06-23 21:55:34.275 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 18.469715777077568
+2024-06-23 21:55:34.275 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 75.1641457813458
+2024-06-23 21:55:34.287 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":18.469715777077568,"timestamp":1719150934},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":75.1641457813458,"timestamp":1719150934}]
+2024-06-23 21:55:34.320 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-23 21:56:34.269 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 10.13602271282682
+2024-06-23 21:56:34.269 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 75.6690156003438
+2024-06-23 21:56:34.271 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":10.13602271282682,"timestamp":1719150994},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":75.6690156003438,"timestamp":1719150994}]
+2024-06-23 21:56:34.278 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-23 21:57:28.974 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.497 seconds (process running for 1.949)
+2024-06-23 21:57:28.982 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 18.02035920255376
+2024-06-23 21:57:28.982 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 75.93349949552604
+2024-06-23 21:57:29.000 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":18.02035920255376,"timestamp":1719151048},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":75.93349949552604,"timestamp":1719151048}]
+2024-06-23 21:57:29.041 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-23 21:58:28.975 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 10.187127810625807
+2024-06-23 21:58:28.975 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 75.97249169560155
+2024-06-23 21:58:28.976 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":10.187127810625807,"timestamp":1719151108},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":75.97249169560155,"timestamp":1719151108}]
+2024-06-23 21:58:28.986 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 12:51:18.564 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.858 seconds (process running for 2.534)
+2024-06-24 12:51:18.572 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 12.45722971734814
+2024-06-24 12:51:18.572 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 70.77791302970924
+2024-06-24 12:51:18.590 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":12.45722971734814,"timestamp":1719204678},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":70.77791302970924,"timestamp":1719204678}]
+2024-06-24 12:51:18.631 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 12:51:19.849 [RMI TCP Connection(3)-127.0.0.1] WARN  o.s.b.a.j.DataSourceHealthIndicator - DataSource health check failed
+org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:342)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.getProduct(DataSourceHealthIndicator.java:122)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doDataSourceHealthCheck(DataSourceHealthIndicator.java:105)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doHealthCheck(DataSourceHealthIndicator.java:100)
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82)
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:82)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:41)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:76)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:66)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281)
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74)
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:124)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:97)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:803)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	... 44 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:104)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:88)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805)
+	... 57 common frames omitted
+Caused by: java.net.ConnectException: 拒绝连接
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:62)
+	... 60 common frames omitted
+2024-06-24 12:51:43.783 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.99 seconds (process running for 2.451)
+2024-06-24 12:51:43.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 12.983667327002046
+2024-06-24 12:51:43.793 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 76.49090513231597
+2024-06-24 12:51:43.805 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":12.983667327002046,"timestamp":1719204703},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":76.49090513231597,"timestamp":1719204703}]
+2024-06-24 12:51:43.834 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 12:52:43.784 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 12.54842513053731
+2024-06-24 12:52:43.784 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 79.5765295014152
+2024-06-24 12:52:43.785 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":12.54842513053731,"timestamp":1719204763},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":79.5765295014152,"timestamp":1719204763}]
+2024-06-24 12:52:43.786 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 12:52:56.047 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.486 seconds (process running for 1.889)
+2024-06-24 12:52:56.054 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 13.057102724426194
+2024-06-24 12:52:56.054 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 80.14607208598065
+2024-06-24 12:52:56.065 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":13.057102724426194,"timestamp":1719204776},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":80.14607208598065,"timestamp":1719204776}]
+2024-06-24 12:52:56.087 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 13:03:17.676 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.508 seconds (process running for 1.918)
+2024-06-24 13:03:17.683 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 9.017366015787287
+2024-06-24 13:03:17.683 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 76.27372681748906
+2024-06-24 13:03:17.694 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":9.017366015787287,"timestamp":1719205397},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":76.27372681748906,"timestamp":1719205397}]
+2024-06-24 13:03:17.760 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 13:04:17.677 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 7.26313568263347
+2024-06-24 13:04:17.677 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 75.83422401678443
+2024-06-24 13:04:17.678 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":7.26313568263347,"timestamp":1719205457},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":75.83422401678443,"timestamp":1719205457}]
+2024-06-24 13:04:17.686 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 13:21:25.360 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.878 seconds (process running for 2.438)
+2024-06-24 13:21:25.368 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.817846783283555
+2024-06-24 13:21:25.369 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 78.65437523504146
+2024-06-24 13:21:25.387 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.817846783283555,"timestamp":1719206485},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":78.65437523504146,"timestamp":1719206485}]
+2024-06-24 13:21:25.434 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 13:22:25.364 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.315433975008444
+2024-06-24 13:22:25.365 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 78.5784197296281
+2024-06-24 13:22:25.369 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.315433975008444,"timestamp":1719206545},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":78.5784197296281,"timestamp":1719206545}]
+2024-06-24 13:22:25.389 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 13:23:25.363 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 8.56600189933523
+2024-06-24 13:23:25.364 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 79.29997228984818
+2024-06-24 13:23:25.368 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":8.56600189933523,"timestamp":1719206605},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":79.29997228984818,"timestamp":1719206605}]
+2024-06-24 13:23:25.374 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 404 Not Found: "404 page not found"
+2024-06-24 13:24:25.361 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 10.640493691948016
+2024-06-24 13:24:25.361 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 81.5655246125527
+2024-06-24 13:24:25.362 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":10.640493691948016,"timestamp":1719206665},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":81.5655246125527,"timestamp":1719206665}]
+2024-06-24 13:24:25.364 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 404 Not Found: "404 page not found"
+2024-06-24 13:46:28.773 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.765 seconds (process running for 2.292)
+2024-06-24 13:46:28.786 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.546973996296012
+2024-06-24 13:46:28.787 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 81.97330918591533
+2024-06-24 13:46:28.798 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.546973996296012,"timestamp":1719207988},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":81.97330918591533,"timestamp":1719207988}]
+2024-06-24 13:46:28.835 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 404 Not Found: "404 page not found"
+2024-06-24 13:47:28.769 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 9.055359445348666
+2024-06-24 13:47:28.769 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.13654177305385
+2024-06-24 13:47:28.771 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":9.055359445348666,"timestamp":1719208048},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.13654177305385,"timestamp":1719208048}]
+2024-06-24 13:47:28.773 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 404 Not Found: "404 page not found"
+2024-06-24 13:48:28.577 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.643 seconds (process running for 2.071)
+2024-06-24 13:48:28.588 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.668944577469248
+2024-06-24 13:48:28.589 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 82.43582130910674
+2024-06-24 13:48:28.600 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.668944577469248,"timestamp":1719208108},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":82.43582130910674,"timestamp":1719208108}]
+2024-06-24 13:48:28.630 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 404 Not Found: "404 page not found"
+2024-06-24 13:49:28.579 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.556408741878328
+2024-06-24 13:49:28.580 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 82.72682738554718
+2024-06-24 13:49:28.582 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.556408741878328,"timestamp":1719208168},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":82.72682738554718,"timestamp":1719208168}]
+2024-06-24 13:49:28.585 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 404 Not Found: "404 page not found"
+2024-06-24 13:50:28.578 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 4.7189495647775415
+2024-06-24 13:50:28.578 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 82.58362527957563
+2024-06-24 13:50:28.579 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":4.7189495647775415,"timestamp":1719208228},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":82.58362527957563,"timestamp":1719208228}]
+2024-06-24 13:50:28.580 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 13:51:28.578 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 3.3024126543404586
+2024-06-24 13:51:28.578 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 82.56348593709795
+2024-06-24 13:51:28.580 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":3.3024126543404586,"timestamp":1719208288},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":82.56348593709795,"timestamp":1719208288}]
+2024-06-24 13:51:28.581 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 13:52:28.578 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.491913746630727
+2024-06-24 13:52:28.578 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.34628782930547
+2024-06-24 13:52:28.579 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.491913746630727,"timestamp":1719208348},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.34628782930547,"timestamp":1719208348}]
+2024-06-24 13:52:28.580 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 13:53:28.578 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.7932720681224135
+2024-06-24 13:53:28.578 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.09076064366724
+2024-06-24 13:53:28.579 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.7932720681224135,"timestamp":1719208408},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.09076064366724,"timestamp":1719208408}]
+2024-06-24 13:53:28.580 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 13:53:46.472 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.585 seconds (process running for 1.992)
+2024-06-24 13:53:46.481 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.679945585568658
+2024-06-24 13:53:46.481 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.61512578429627
+2024-06-24 13:53:46.500 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.679945585568658,"timestamp":1719208426},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.61512578429627,"timestamp":1719208426}]
+2024-06-24 13:53:46.533 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 404 Not Found: "404 page not found"
+2024-06-24 13:54:39.121 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.491 seconds (process running for 1.936)
+2024-06-24 13:54:39.129 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.716815303166401
+2024-06-24 13:54:39.130 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.33629238168756
+2024-06-24 13:54:39.141 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.716815303166401,"timestamp":1719208479},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.33629238168756,"timestamp":1719208479}]
+2024-06-24 13:54:39.169 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 404 Not Found: "404 page not found"
+2024-06-24 13:56:10.510 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.499 seconds (process running for 1.896)
+2024-06-24 13:56:10.517 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.73763073784308
+2024-06-24 13:56:10.518 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.97515982819705
+2024-06-24 13:56:10.529 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.73763073784308,"timestamp":1719208570},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.97515982819705,"timestamp":1719208570}]
+2024-06-24 13:56:10.556 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 404 Not Found: "404 page not found"
+2024-06-24 13:57:40.744 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.468 seconds (process running for 1.865)
+2024-06-24 13:57:40.752 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.74108431546988
+2024-06-24 13:57:40.752 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.74318627159907
+2024-06-24 13:57:40.763 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.74108431546988,"timestamp":1719208660},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.74318627159907,"timestamp":1719208660}]
+2024-06-24 13:57:40.793 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 404 Not Found: "404 page not found"
+2024-06-24 13:59:10.797 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.466 seconds (process running for 1.931)
+2024-06-24 13:59:10.812 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.8210019410837255
+2024-06-24 13:59:10.812 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.79454901727927
+2024-06-24 13:59:10.823 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.8210019410837255,"timestamp":1719208750},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.79454901727927,"timestamp":1719208750}]
+2024-06-24 13:59:10.853 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 404 Not Found: "404 page not found"
+2024-06-24 14:00:10.799 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.603295310519641
+2024-06-24 14:00:10.799 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.22990519169488
+2024-06-24 14:00:10.802 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.603295310519641,"timestamp":1719208810},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.22990519169488,"timestamp":1719208810}]
+2024-06-24 14:00:10.805 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 404 Not Found: "404 page not found"
+2024-06-24 14:01:10.797 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 4.544209084202766
+2024-06-24 14:01:10.797 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.1556419848386
+2024-06-24 14:01:10.798 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":4.544209084202766,"timestamp":1719208870},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.1556419848386,"timestamp":1719208870}]
+2024-06-24 14:01:10.801 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 400 Bad Request: "{"code":400,"message":"[0]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag\n[1]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag"}"
+2024-06-24 14:01:14.835 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.51 seconds (process running for 1.911)
+2024-06-24 14:01:14.842 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.831663370519424
+2024-06-24 14:01:14.842 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.44739029748828
+2024-06-24 14:01:14.859 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.831663370519424,"timestamp":1719208874},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.44739029748828,"timestamp":1719208874}]
+2024-06-24 14:01:14.888 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 400 Bad Request: "{"code":400,"message":"[0]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag\n[1]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag"}"
+2024-06-24 14:01:57.144 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.592 seconds (process running for 1.991)
+2024-06-24 14:01:57.155 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.841789389632024
+2024-06-24 14:01:57.155 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.27603269797915
+2024-06-24 14:01:57.167 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.841789389632024,"timestamp":1719208917},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.27603269797915,"timestamp":1719208917}]
+2024-06-24 14:01:57.196 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 400 Bad Request: "{"code":400,"message":"[0]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag\n[1]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag"}"
+2024-06-24 14:02:57.144 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 4.705162814239916
+2024-06-24 14:02:57.145 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.05687508659423
+2024-06-24 14:02:57.146 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":4.705162814239916,"timestamp":1719208977},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.05687508659423,"timestamp":1719208977}]
+2024-06-24 14:02:57.148 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 400 Bad Request: "{"code":400,"message":"[0]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag\n[1]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag"}"
+2024-06-24 14:03:57.148 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 1.0886240884349419
+2024-06-24 14:03:57.149 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 82.96315539457278
+2024-06-24 14:03:57.154 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":1.0886240884349419,"timestamp":1719209037},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":82.96315539457278,"timestamp":1719209037}]
+2024-06-24 14:03:57.162 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 400 Bad Request: "{"code":400,"message":"[0]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag\n[1]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag"}"
+2024-06-24 14:04:16.606 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.504 seconds (process running for 1.907)
+2024-06-24 14:04:16.613 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.800722227326538
+2024-06-24 14:04:16.613 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.64759614433031
+2024-06-24 14:04:16.625 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.800722227326538,"timestamp":1719209056},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.64759614433031,"timestamp":1719209056}]
+2024-06-24 14:04:16.659 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 400 Bad Request: "{"code":400,"message":"[0]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag\n[1]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag"}"
+2024-06-24 14:05:16.607 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 3.179245481515769
+2024-06-24 14:05:16.607 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.41829463808563
+2024-06-24 14:05:16.608 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":3.179245481515769,"timestamp":1719209116},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.41829463808563,"timestamp":1719209116}]
+2024-06-24 14:05:16.609 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 400 Bad Request: "{"code":400,"message":"[0]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag\n[1]: Key: 'Metric.Metric' Error:Field validation for 'Metric' failed on the 'required' tag"}"
+2024-06-24 14:05:30.124 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.522 seconds (process running for 2.02)
+2024-06-24 14:05:30.131 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.798266729863133
+2024-06-24 14:05:30.131 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.35574886685272
+2024-06-24 14:05:30.149 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.798266729863133,"timestamp":1719209130},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.35574886685272,"timestamp":1719209130}]
+2024-06-24 14:05:30.186 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 500 Internal Server Error: [no body]
+2024-06-24 14:06:25.364 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.502 seconds (process running for 1.934)
+2024-06-24 14:06:25.371 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.840165746975378
+2024-06-24 14:06:25.371 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.74423529877481
+2024-06-24 14:06:25.383 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.840165746975378,"timestamp":1719209185},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.74423529877481,"timestamp":1719209185}]
+2024-06-24 14:06:25.416 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 500 Internal Server Error: [no body]
+2024-06-24 14:07:03.439 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.492 seconds (process running for 1.91)
+2024-06-24 14:07:03.446 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.93933756556464
+2024-06-24 14:07:03.446 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.29127328147577
+2024-06-24 14:07:03.458 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.93933756556464,"timestamp":1719209223},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.29127328147577,"timestamp":1719209223}]
+2024-06-24 14:07:03.481 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 14:07:27.552 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.544 seconds (process running for 1.956)
+2024-06-24 14:07:27.559 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.989317675714611
+2024-06-24 14:07:27.559 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.82473328978881
+2024-06-24 14:07:27.571 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.989317675714611,"timestamp":1719209247},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.82473328978881,"timestamp":1719209247}]
+2024-06-24 14:07:27.872 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:08:27.552 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.463824044199828
+2024-06-24 14:08:27.553 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.18526215782911
+2024-06-24 14:08:27.554 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.463824044199828,"timestamp":1719209307},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.18526215782911,"timestamp":1719209307}]
+2024-06-24 14:08:27.572 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:08:48.351 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.619 seconds (process running for 2.075)
+2024-06-24 14:08:48.359 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.016236785373641
+2024-06-24 14:08:48.359 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 82.85652079251035
+2024-06-24 14:08:48.371 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.016236785373641,"timestamp":1719209328},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":82.85652079251035,"timestamp":1719209328}]
+2024-06-24 14:08:48.395 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 14:08:56.562 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.512 seconds (process running for 1.9)
+2024-06-24 14:08:56.569 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.0384336098681874
+2024-06-24 14:08:56.569 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 82.77759634225997
+2024-06-24 14:08:56.580 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.0384336098681874,"timestamp":1719209336},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":82.77759634225997,"timestamp":1719209336}]
+2024-06-24 14:08:56.619 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 500 Internal Server Error: [no body]
+2024-06-24 14:09:42.089 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.536 seconds (process running for 1.92)
+2024-06-24 14:09:42.095 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.049557344952383
+2024-06-24 14:09:42.095 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.10853472675811
+2024-06-24 14:09:42.107 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.049557344952383,"timestamp":1719209382},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.10853472675811,"timestamp":1719209382}]
+2024-06-24 14:09:42.147 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 500 Internal Server Error: [no body]
+2024-06-24 14:10:42.090 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 3.525445158571283
+2024-06-24 14:10:42.090 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 82.70258100271164
+2024-06-24 14:10:42.091 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":3.525445158571283,"timestamp":1719209442},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":82.70258100271164,"timestamp":1719209442}]
+2024-06-24 14:10:42.104 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 500 Internal Server Error: [no body]
+2024-06-24 14:11:42.090 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 4.616454815658
+2024-06-24 14:11:42.090 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 82.6533460008313
+2024-06-24 14:11:42.091 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":4.616454815658,"timestamp":1719209502},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":82.6533460008313,"timestamp":1719209502}]
+2024-06-24 14:11:42.098 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 500 Internal Server Error: [no body]
+2024-06-24 14:12:18.894 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.512 seconds (process running for 1.942)
+2024-06-24 14:12:18.901 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.0093925916710695
+2024-06-24 14:12:18.901 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 82.76344437187024
+2024-06-24 14:12:18.913 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.0093925916710695,"timestamp":1719209538},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":82.76344437187024,"timestamp":1719209538}]
+2024-06-24 14:12:18.954 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 500 Internal Server Error: [no body]
+2024-06-24 14:13:18.896 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.385133996291924
+2024-06-24 14:13:18.896 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 82.6444391663203
+2024-06-24 14:13:18.898 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.385133996291924,"timestamp":1719209598},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":82.6444391663203,"timestamp":1719209598}]
+2024-06-24 14:13:18.908 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 500 Internal Server Error: [no body]
+2024-06-24 14:13:28.487 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.501 seconds (process running for 1.922)
+2024-06-24 14:13:28.494 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.024994539454653
+2024-06-24 14:13:28.494 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 82.91075351819963
+2024-06-24 14:13:28.506 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.024994539454653,"timestamp":1719209608},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":82.91075351819963,"timestamp":1719209608}]
+2024-06-24 14:13:28.540 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:14:28.488 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 4.823137569037483
+2024-06-24 14:14:28.488 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 82.89407794469845
+2024-06-24 14:14:28.489 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":4.823137569037483,"timestamp":1719209668},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":82.89407794469845,"timestamp":1719209668}]
+2024-06-24 14:14:28.505 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:14:56.719 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.497 seconds (process running for 1.925)
+2024-06-24 14:14:56.726 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.033620418496666
+2024-06-24 14:14:56.727 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.23021198266136
+2024-06-24 14:14:56.739 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.033620418496666,"timestamp":1719209696},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.23021198266136,"timestamp":1719209696}]
+2024-06-24 14:14:56.777 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: 500 Internal Server Error: [no body]
+2024-06-24 14:16:43.683 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.556 seconds (process running for 2.03)
+2024-06-24 14:16:43.691 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.992550234656213
+2024-06-24 14:16:43.692 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.21660431882509
+2024-06-24 14:16:43.705 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.992550234656213,"timestamp":1719209803},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.21660431882509,"timestamp":1719209803}]
+2024-06-24 14:16:43.750 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:17:43.688 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.941509593440964
+2024-06-24 14:17:43.689 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.12753597371494
+2024-06-24 14:17:43.694 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.941509593440964,"timestamp":1719209863},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.12753597371494,"timestamp":1719209863}]
+2024-06-24 14:17:43.719 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:18:43.683 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 4.185918940017297
+2024-06-24 14:18:43.684 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.18236248837164
+2024-06-24 14:18:43.685 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":4.185918940017297,"timestamp":1719209923},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.18236248837164,"timestamp":1719209923}]
+2024-06-24 14:18:43.693 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:19:43.685 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 2.736465135875288
+2024-06-24 14:19:43.685 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.17894820180908
+2024-06-24 14:19:43.689 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":2.736465135875288,"timestamp":1719209983},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.17894820180908,"timestamp":1719209983}]
+2024-06-24 14:19:43.719 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:20:43.688 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 1.1860279608715718
+2024-06-24 14:20:43.688 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.14287552203947
+2024-06-24 14:20:43.694 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":1.1860279608715718,"timestamp":1719210043},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.14287552203947,"timestamp":1719210043}]
+2024-06-24 14:20:43.720 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:21:32.791 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.637 seconds (process running for 2.094)
+2024-06-24 14:21:32.800 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.905754695429133
+2024-06-24 14:21:32.800 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.3748985610514
+2024-06-24 14:21:32.812 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.905754695429133,"timestamp":1719210092},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.3748985610514,"timestamp":1719210092}]
+2024-06-24 14:21:32.854 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:22:32.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 3.9138036357508454
+2024-06-24 14:22:32.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.32907784573362
+2024-06-24 14:22:32.793 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":3.9138036357508454,"timestamp":1719210152},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.32907784573362,"timestamp":1719210152}]
+2024-06-24 14:22:32.804 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:23:32.795 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 1.5577635567531112
+2024-06-24 14:23:32.796 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.35861884686182
+2024-06-24 14:23:32.801 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":1.5577635567531112,"timestamp":1719210212},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.35861884686182,"timestamp":1719210212}]
+2024-06-24 14:23:32.822 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:24:32.795 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 1.5346399174788972
+2024-06-24 14:24:32.796 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.4586722878689
+2024-06-24 14:24:32.797 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":1.5346399174788972,"timestamp":1719210272},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.4586722878689,"timestamp":1719210272}]
+2024-06-24 14:24:32.806 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:25:32.795 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 1.3908761888729915
+2024-06-24 14:25:32.796 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.55793401025275
+2024-06-24 14:25:32.798 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":1.3908761888729915,"timestamp":1719210332},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.55793401025275,"timestamp":1719210332}]
+2024-06-24 14:25:32.807 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:26:32.791 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 1.4774281805745582
+2024-06-24 14:26:32.791 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.47787146448152
+2024-06-24 14:26:32.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":1.4774281805745582,"timestamp":1719210392},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.47787146448152,"timestamp":1719210392}]
+2024-06-24 14:26:32.802 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:27:32.796 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 1.4266175697001615
+2024-06-24 14:27:32.797 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.47346752963996
+2024-06-24 14:27:32.802 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":1.4266175697001615,"timestamp":1719210452},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.47346752963996,"timestamp":1719210452}]
+2024-06-24 14:27:32.822 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:28:32.794 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 1.4858153043185496
+2024-06-24 14:28:32.794 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.40429111493776
+2024-06-24 14:28:32.798 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":1.4858153043185496,"timestamp":1719210512},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.40429111493776,"timestamp":1719210512}]
+2024-06-24 14:28:32.831 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:29:32.795 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 1.4137546546609703
+2024-06-24 14:29:32.796 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.38400332521822
+2024-06-24 14:29:32.796 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":1.4137546546609703,"timestamp":1719210572},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.38400332521822,"timestamp":1719210572}]
+2024-06-24 14:29:32.805 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:30:32.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.277139423583732
+2024-06-24 14:30:32.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.66491498921283
+2024-06-24 14:30:32.793 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.277139423583732,"timestamp":1719210632},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.66491498921283,"timestamp":1719210632}]
+2024-06-24 14:30:32.806 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:31:32.791 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.64592695740237
+2024-06-24 14:31:32.791 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 83.62612077667598
+2024-06-24 14:31:32.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.64592695740237,"timestamp":1719210692},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":83.62612077667598,"timestamp":1719210692}]
+2024-06-24 14:31:32.801 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:32:32.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.2924991052819905
+2024-06-24 14:32:32.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.01614116343052
+2024-06-24 14:32:32.794 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.2924991052819905,"timestamp":1719210752},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.01614116343052,"timestamp":1719210752}]
+2024-06-24 14:32:32.823 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:33:32.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 8.808739012846523
+2024-06-24 14:33:32.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.23104328721573
+2024-06-24 14:33:32.793 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":8.808739012846523,"timestamp":1719210812},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.23104328721573,"timestamp":1719210812}]
+2024-06-24 14:33:32.807 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 14:34:32.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 9.173110237883975
+2024-06-24 14:34:32.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.4878075332027
+2024-06-24 14:34:32.793 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":9.173110237883975,"timestamp":1719210872},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.4878075332027,"timestamp":1719210872}]
+2024-06-24 14:34:32.794 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 14:35:24.721 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.7 seconds (process running for 2.233)
+2024-06-24 14:35:24.734 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.723574455954994
+2024-06-24 14:35:24.734 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 86.98028620628229
+2024-06-24 14:35:24.747 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.723574455954994,"timestamp":1719210924},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":86.98028620628229,"timestamp":1719210924}]
+2024-06-24 14:35:25.065 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:35:49.136 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.476 seconds (process running for 1.868)
+2024-06-24 14:35:49.144 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.739516891718354
+2024-06-24 14:35:49.144 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 86.97202264315263
+2024-06-24 14:35:49.156 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.739516891718354,"timestamp":1719210949},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":86.97202264315263,"timestamp":1719210949}]
+2024-06-24 14:35:49.203 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:36:49.137 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 7.508676881401843
+2024-06-24 14:36:49.137 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 86.72683728202996
+2024-06-24 14:36:49.138 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":7.508676881401843,"timestamp":1719211009},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":86.72683728202996,"timestamp":1719211009}]
+2024-06-24 14:36:49.156 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:37:02.238 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.601 seconds (process running for 2.061)
+2024-06-24 14:37:02.245 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.769586789272452
+2024-06-24 14:37:02.245 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 86.83609445203174
+2024-06-24 14:37:02.258 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.769586789272452,"timestamp":1719211022},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":86.83609445203174,"timestamp":1719211022}]
+2024-06-24 14:37:02.305 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:38:02.238 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.312229151252513
+2024-06-24 14:38:02.238 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 87.12358727708173
+2024-06-24 14:38:02.239 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.312229151252513,"timestamp":1719211082},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":87.12358727708173,"timestamp":1719211082}]
+2024-06-24 14:38:02.257 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:39:02.242 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 9.893776529470156
+2024-06-24 14:39:02.243 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 86.4763078202007
+2024-06-24 14:39:02.248 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":9.893776529470156,"timestamp":1719211142},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":86.4763078202007,"timestamp":1719211142}]
+2024-06-24 14:39:02.288 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:40:02.240 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.239966201943393
+2024-06-24 14:40:02.241 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 86.5985293826574
+2024-06-24 14:40:02.245 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.239966201943393,"timestamp":1719211202},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":86.5985293826574,"timestamp":1719211202}]
+2024-06-24 14:40:02.297 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:41:02.239 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 12.048956814002153
+2024-06-24 14:41:02.240 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 86.59204718642994
+2024-06-24 14:41:02.242 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":12.048956814002153,"timestamp":1719211262},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":86.59204718642994,"timestamp":1719211262}]
+2024-06-24 14:41:02.267 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:42:02.238 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.481912418024116
+2024-06-24 14:42:02.238 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.20411495754409
+2024-06-24 14:42:02.239 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.481912418024116,"timestamp":1719211322},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.20411495754409,"timestamp":1719211322}]
+2024-06-24 14:42:02.259 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:43:02.238 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 3.7833389601620526
+2024-06-24 14:43:02.238 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.20272944995348
+2024-06-24 14:43:02.239 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":3.7833389601620526,"timestamp":1719211382},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.20272944995348,"timestamp":1719211382}]
+2024-06-24 14:43:02.258 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:53:33.738 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.564 seconds (process running for 1.974)
+2024-06-24 14:53:33.745 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.803303525997183
+2024-06-24 14:53:33.745 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.86025176652218
+2024-06-24 14:53:34.063 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:54:32.380 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.558 seconds (process running for 1.97)
+2024-06-24 14:54:32.387 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.84271894949473
+2024-06-24 14:54:32.387 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.326138590345
+2024-06-24 14:54:32.442 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 14:55:32.380 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 7.035314603639764
+2024-06-24 14:55:32.381 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.39506759297745
+2024-06-24 14:55:32.402 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:00:11.067 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.644 seconds (process running for 2.055)
+2024-06-24 15:00:11.075 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.981932469242124
+2024-06-24 15:00:11.075 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 86.33548087009876
+2024-06-24 15:00:11.088 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.981932469242124,"timestamp":1719212411},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":86.33548087009876,"timestamp":1719212411}]
+2024-06-24 15:00:11.361 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:01:11.067 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 7.826971578746578
+2024-06-24 15:01:11.068 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.9022623359658
+2024-06-24 15:01:11.068 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":7.826971578746578,"timestamp":1719212471},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.9022623359658,"timestamp":1719212471}]
+2024-06-24 15:01:11.088 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:08:50.092 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.476 seconds (process running for 2.014)
+2024-06-24 15:08:50.100 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.9850132177969755
+2024-06-24 15:08:50.100 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 87.90441976921403
+2024-06-24 15:08:50.112 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.9850132177969755,"timestamp":1719212930},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":87.90441976921403,"timestamp":1719212930}]
+2024-06-24 15:08:50.402 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:09:50.093 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 8.96554650373388
+2024-06-24 15:09:50.094 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 87.73380440591414
+2024-06-24 15:09:50.095 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":8.96554650373388,"timestamp":1719212990},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":87.73380440591414,"timestamp":1719212990}]
+2024-06-24 15:09:50.127 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:10:50.094 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 7.980483665676708
+2024-06-24 15:10:50.095 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 88.27875423074639
+2024-06-24 15:10:50.096 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":7.980483665676708,"timestamp":1719213050},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":88.27875423074639,"timestamp":1719213050}]
+2024-06-24 15:10:50.122 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:11:50.093 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 9.721279484133715
+2024-06-24 15:11:50.093 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 88.27489460245829
+2024-06-24 15:11:50.095 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":9.721279484133715,"timestamp":1719213110},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":88.27489460245829,"timestamp":1719213110}]
+2024-06-24 15:11:50.131 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:12:50.093 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.583112055231011
+2024-06-24 15:12:50.093 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 87.29306454486075
+2024-06-24 15:12:50.095 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.583112055231011,"timestamp":1719213170},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":87.29306454486075,"timestamp":1719213170}]
+2024-06-24 15:12:50.126 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:13:50.093 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 10.129787234042553
+2024-06-24 15:13:50.093 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 87.8006551471607
+2024-06-24 15:13:50.094 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":10.129787234042553,"timestamp":1719213230},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":87.8006551471607,"timestamp":1719213230}]
+2024-06-24 15:13:50.118 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:14:50.097 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 8.834139716492661
+2024-06-24 15:14:50.098 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 87.8026344437187
+2024-06-24 15:14:50.102 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":8.834139716492661,"timestamp":1719213290},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":87.8026344437187,"timestamp":1719213290}]
+2024-06-24 15:14:50.148 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:15:40.924 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.502 seconds (process running for 2.073)
+2024-06-24 15:15:40.932 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.121219103415887
+2024-06-24 15:15:40.932 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 87.56536626882806
+2024-06-24 15:15:40.944 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.121219103415887,"timestamp":1719213340},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":87.56536626882806,"timestamp":1719213340}]
+2024-06-24 15:15:40.995 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:16:00.922 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.529 seconds (process running for 1.949)
+2024-06-24 15:16:00.930 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.141601162055277
+2024-06-24 15:16:00.930 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 87.46115630504919
+2024-06-24 15:16:00.942 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.141601162055277,"timestamp":1719213360},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":87.46115630504919,"timestamp":1719213360}]
+2024-06-24 15:16:00.990 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:17:00.923 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 9.268054789873204
+2024-06-24 15:17:00.923 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 87.38673475446826
+2024-06-24 15:17:00.924 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":9.268054789873204,"timestamp":1719213420},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":87.38673475446826,"timestamp":1719213420}]
+2024-06-24 15:17:00.944 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:18:00.923 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 7.452137368934919
+2024-06-24 15:18:00.923 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 87.51964451833818
+2024-06-24 15:18:00.924 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":7.452137368934919,"timestamp":1719213480},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":87.51964451833818,"timestamp":1719213480}]
+2024-06-24 15:18:00.956 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-24 15:21:21.407 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.518 seconds (process running for 1.924)
+2024-06-24 15:21:21.415 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.205291013817771
+2024-06-24 15:21:21.415 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.5159630267403
+2024-06-24 15:21:21.426 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.205291013817771,"timestamp":1719213681},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.5159630267403,"timestamp":1719213681}]
+2024-06-24 15:21:21.470 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 15:21:48.657 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.507 seconds (process running for 1.905)
+2024-06-24 15:21:48.664 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.236826472877333
+2024-06-24 15:21:48.664 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.14369693011103
+2024-06-24 15:21:48.676 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.236826472877333,"timestamp":1719213708},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.14369693011103,"timestamp":1719213708}]
+2024-06-24 15:21:48.717 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 15:22:48.662 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.360664090696789
+2024-06-24 15:22:48.663 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 84.65164380579142
+2024-06-24 15:22:48.667 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.360664090696789,"timestamp":1719213768},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":84.65164380579142,"timestamp":1719213768}]
+2024-06-24 15:22:48.671 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 15:23:48.659 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 4.71672079645078
+2024-06-24 15:23:48.659 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.85673851513172
+2024-06-24 15:23:48.661 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":4.71672079645078,"timestamp":1719213828},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.85673851513172,"timestamp":1719213828}]
+2024-06-24 15:23:48.662 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 15:23:59.479 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.645 seconds (process running for 2.081)
+2024-06-24 15:23:59.492 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.240081412008003
+2024-06-24 15:23:59.492 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 86.0528373216159
+2024-06-24 15:23:59.505 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.240081412008003,"timestamp":1719213839},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":86.0528373216159,"timestamp":1719213839}]
+2024-06-24 15:23:59.542 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 15:24:18.299 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.473 seconds (process running for 1.882)
+2024-06-24 15:24:18.312 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.263162238406483
+2024-06-24 15:24:18.312 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.70839023810937
+2024-06-24 15:24:18.324 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.263162238406483,"timestamp":1719213858},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.70839023810937,"timestamp":1719213858}]
+2024-06-24 15:24:18.367 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 15:25:18.304 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 4.423615234540678
+2024-06-24 15:25:18.306 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.80428715634464
+2024-06-24 15:25:18.310 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":4.423615234540678,"timestamp":1719213918},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.80428715634464,"timestamp":1719213918}]
+2024-06-24 15:25:18.332 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 15:26:18.299 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 4.8399390243902385
+2024-06-24 15:26:18.300 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.78147576351365
+2024-06-24 15:26:18.301 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":4.8399390243902385,"timestamp":1719213978},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.78147576351365,"timestamp":1719213978}]
+2024-06-24 15:26:18.311 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 15:27:18.299 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 3.8252641405354892
+2024-06-24 15:27:18.300 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.8979078835382
+2024-06-24 15:27:18.301 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":3.8252641405354892,"timestamp":1719214038},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.8979078835382,"timestamp":1719214038}]
+2024-06-24 15:27:18.310 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 15:28:18.300 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 3.785715796375022
+2024-06-24 15:28:18.300 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.82690061951982
+2024-06-24 15:28:18.301 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":3.785715796375022,"timestamp":1719214098},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.82690061951982,"timestamp":1719214098}]
+2024-06-24 15:28:18.309 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 15:29:18.303 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 3.301416105815158
+2024-06-24 15:29:18.303 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.9720325396354
+2024-06-24 15:29:18.308 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":3.301416105815158,"timestamp":1719214158},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.9720325396354,"timestamp":1719214158}]
+2024-06-24 15:29:18.332 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 15:30:18.304 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 3.578250350184642
+2024-06-24 15:30:18.305 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.91507828117886
+2024-06-24 15:30:18.310 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":3.578250350184642,"timestamp":1719214218},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.91507828117886,"timestamp":1719214218}]
+2024-06-24 15:30:18.338 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 15:31:18.300 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 8.410321758521821
+2024-06-24 15:31:18.300 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 86.18460898996496
+2024-06-24 15:31:18.301 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":8.410321758521821,"timestamp":1719214278},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":86.18460898996496,"timestamp":1719214278}]
+2024-06-24 15:31:18.323 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 15:32:18.299 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 3.167976944756412
+2024-06-24 15:32:18.300 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.8791540486511
+2024-06-24 15:32:18.301 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":3.167976944756412,"timestamp":1719214338},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.8791540486511,"timestamp":1719214338}]
+2024-06-24 15:32:18.312 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 15:33:18.301 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 4.229351188710428
+2024-06-24 15:33:18.301 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.9910832690062
+2024-06-24 15:33:18.303 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":4.229351188710428,"timestamp":1719214398},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.9910832690062,"timestamp":1719214398}]
+2024-06-24 15:33:18.327 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 15:34:18.301 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.2841993637327676
+2024-06-24 15:34:18.301 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 86.09573857451062
+2024-06-24 15:34:18.303 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.2841993637327676,"timestamp":1719214458},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":86.09573857451062,"timestamp":1719214458}]
+2024-06-24 15:34:18.313 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 15:35:06.925 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.573 seconds (process running for 2.225)
+2024-06-24 15:35:06.933 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 6.18761446844025
+2024-06-24 15:35:06.933 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 85.4522197810898
+2024-06-24 15:35:06.945 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":6.18761446844025,"timestamp":1719214506},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":85.4522197810898,"timestamp":1719214506}]
+2024-06-24 15:35:06.991 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}

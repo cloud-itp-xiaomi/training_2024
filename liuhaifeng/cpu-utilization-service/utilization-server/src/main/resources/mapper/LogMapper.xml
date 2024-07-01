@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.example.mapper.LogMapper">
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into log (endpoint_id, file_path_id, log_content, create_time, update_time, deleted)
+        values
+        <foreach collection="logList" item="item" separator=",">
+            (#{item.endpointId}, #{item.filePathId}, #{item.logContent}, #{item.createTime}, #{item.updateTime}, #{item.deleted})
+        </foreach>
+    </insert>
+    <select id="query" resultType="org.example.pojo.entity.Log">
+        select *
+        from log
+        <where>
+            <if test="endpointId != null">
+                and endpoint_id = #{endpointId}
+            </if>
+            <if test="filePathId != null">
+                and file_path_id = #{filePathId}
+            </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
+        </where>
+        order by id desc;
+    </select>
+</mapper>

@@ -1,0 +1,13 @@
+server:
+  port: 8011
+
+spring:
+  redis:
+    host: 192.168.225.200
+    port: 6379
+    password: 123456
+    database: 10
+    #连接超时
+    connect-timeout: 5s
+    #读超时
+    timeout: 5s

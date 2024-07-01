@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <springProperty scope="context" name="MetricLogPath" source="metric.log"/>
+    <springProperty scope="context" name="CpuLogPath" source="cpu.log"/>
+    <springProperty scope="context" name="MemoryLogPath" source="memory.log"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %magenta(%-5level) %cyan(%logger{36}) - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 日志文件输出 -->
+    <appender name="METRIC_LOG" class="ch.qos.logback.core.FileAppender">
+        <file>${MetricLogPath}</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator class="ch.qos.logback.classic.boolex.JaninoEventEvaluator">
+                <expression><![CDATA[
+                    !message.contains("Starting SysMonitorCaptureApplication using Java") &&
+                    !message.contains("The following 1 profile is active: \"dev\"") 
+                ]]></expression>
+            </evaluator>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 日志文件输出 -->
+    <appender name="CPU_LOG" class="ch.qos.logback.core.FileAppender">
+        <file>${CpuLogPath}</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator class="ch.qos.logback.classic.boolex.JaninoEventEvaluator">
+                <expression><![CDATA[
+ !message.contains("Starting SysMonitorCaptureApplication using Java") &&
+                    !message.contains("The following 1 profile is active: \"dev\"")
+                ]]></expression>
+            </evaluator>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 日志文件输出 -->
+    <appender name="MEMORY_LOG" class="ch.qos.logback.core.FileAppender">
+        <file>${MemoryLogPath}</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator class="ch.qos.logback.classic.boolex.JaninoEventEvaluator">
+                <expression><![CDATA[
+ !message.contains("Starting SysMonitorCaptureApplication using Java") &&
+                    !message.contains("The following 1 profile is active: \"dev\"")
+                ]]></expression>
+            </evaluator>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- MetricCollector类的日志输出到日志文件 -->
+    <logger name="com.jiuth.sysmonitorcapture.collector.MetricCollector" level="INFO" additivity="false">
+        <appender-ref ref="METRIC_LOG"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <!-- MetricCollector类的日志输出到日志文件 -->
+    <logger name="com.jiuth.sysmonitorcapture.collector.CpuUtilizationCollector" level="INFO" additivity="false">
+        <appender-ref ref="CPU_LOG"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <!-- MetricCollector类的日志输出到日志文件 -->
+    <logger name="com.jiuth.sysmonitorcapture.collector.MemoryUtilizationCollector" level="INFO" additivity="false">
+        <appender-ref ref="MEMORY_LOG"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- 根日志输出到控制台和日志文件 -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="METRIC_LOG"/>
+        <appender-ref ref="CPU_LOG"/>
+        <appender-ref ref="MEMORY_LOG"/>
+    </root>
+
+
+</configuration>

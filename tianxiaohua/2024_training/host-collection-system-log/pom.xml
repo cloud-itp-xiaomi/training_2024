@@ -1,0 +1,275 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.txh.xiaomi2024.work</groupId>
+  <artifactId>host-collection-system</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>host-collection-system</name>
+  <modules>
+    <module>collector</module>
+    <module>service</module>
+    <module>interface</module>
+  </modules>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.3.2.RELEASE</version>
+  </parent>
+
+  <properties>
+    <!-- java 与 maven -->
+    <java.version>1.8</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.source.version>${java.version}</maven.compiler.source.version>
+    <maven.compiler.target.version>${java.version}</maven.compiler.target.version>
+
+    <!--  框架  -->
+    <quartz.version>2.3.0</quartz.version>
+    <elasticsearch.version>7.6.2</elasticsearch.version>
+
+    <!-- dubbo  -->
+    <dubbo.version>3.2.0-beta.4</dubbo.version>
+
+    <!-- apache 常用工具包 -->
+    <commons.compress.version>1.21</commons.compress.version>
+    <commons.beanutils.version>1.9.3</commons.beanutils.version>
+    <commons.lang3.version>3.12.0</commons.lang3.version>
+    <commons.io.version>2.6</commons.io.version>
+    <commons.net.version>3.8.0</commons.net.version>
+    <httpclient.version>4.5.12</httpclient.version>
+
+    <!-- 工具 -->
+    <lombok.version>1.18.12</lombok.version>
+    <fastjson.version>2.0.12</fastjson.version>
+    <fastjson2.version>2.0.26</fastjson2.version>
+
+    <!-- 存储  -->
+    <jdbc.version>2.5.0</jdbc.version>
+    <mysql.java.version>8.0.22</mysql.java.version>
+    <mybatis.version>2.1.0</mybatis.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- common tools begin -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-compress</artifactId>
+        <version>${commons.compress.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons.lang3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commons.io.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-beanutils</groupId>
+        <artifactId>commons-beanutils</artifactId>
+        <version>${commons.beanutils.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-net</groupId>
+        <artifactId>commons-net</artifactId>
+        <version>${commons.net.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>${httpclient.version}</version>
+      </dependency>
+      <!--common tools end -->
+
+      <!-- fast json -->
+      <dependency>
+        <groupId>com.alibaba.fastjson2</groupId>
+        <artifactId>fastjson2</artifactId>
+        <version>${fastjson2.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>${fastjson.version}</version>
+      </dependency>
+
+      <!-- 依赖 quartz -->
+      <dependency>
+        <groupId>org.quartz-scheduler</groupId>
+        <artifactId>quartz</artifactId>
+        <version>${quartz.version}</version>
+      </dependency>
+
+      <!-- ElasticSearch -->
+      <dependency>
+        <groupId>org.elasticsearch.client</groupId>
+        <artifactId>elasticsearch-rest-high-level-client</artifactId>
+        <version>${elasticsearch.version}</version>
+      </dependency>
+
+      <!--集成mysql数据库-->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.java.version}</version>
+      </dependency>
+      <!-- jdbc -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-jdbc</artifactId>
+        <version>${jdbc.version}</version>
+      </dependency>
+      <!-- mybatis begin -->
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis.version}</version>
+      </dependency>
+      <!-- lombok -->
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <optional>true</optional>
+        <version>${lombok.version}</version>
+      </dependency>
+
+      <!-- Dubbo -->
+      <dependency>
+        <groupId>org.apache.dubbo</groupId>
+        <artifactId>dubbo-bom</artifactId>
+        <version>${dubbo.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.dubbo</groupId>
+        <artifactId>dubbo-dependencies-zookeeper-curator5</artifactId>
+        <version>${dubbo.version}</version>
+        <type>pom</type>
+        <exclusions>
+          <exclusion>
+            <artifactId>slf4j-reload4j</artifactId>
+            <groupId>org.slf4j</groupId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <!-- springboot begin -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.tomcat.embed</groupId>
+          <artifactId>tomcat-embed-websocket</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web-services</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+    <!-- validation -->
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <!--
+        配置元数据，在配置文件中写的自定义的配置元数据信息会在 spring-configuration-metadata.json 中生成
+        spring-boot-configuration-processor 来自动完成这个工作
+        注：生成对应的 META-INF/spring-configuration-metadata.json 文件除了引入此配置外，还需要写自定义的配置类，不然不会生成文件
+
+        参考：
+            1. [spring-configuration-metadata.json文件是做啥的](https://blog.csdn.net/j3T9Z7H/article/details/125025497)
+            2. [解决IntelliJ IDEA Cannot resolve configuration property的问题](https://uixor.com/article/1476748295555649537)
+    -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <!-- springboot end -->
+
+    <!-- lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+
+    <!-- Redis -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-quartz</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>work1-service</finalName>
+    <plugins>
+      <!--
+          maven-compiler-plugin这个插件 配置了java的开发环境和运行环境，还有文件编码
+      -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${maven.compiler.source.version}</source>
+          <target>${maven.compiler.target.version}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+      </plugin>
+      <!--
+          https://leokongwq.github.io/2016/10/12/maven-test.html
+          Maven本身并不是一个单元测试框架，它只是在构建执行到特定生命周期阶段的时候，通过插件来执行JUnit或者TestNG的测试用例。
+          这个插件就是maven-surefire-plugin，也可以称为测试运行器(Test Runner)，它能兼容JUnit 3、JUnit 4以及TestNG。
+      -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

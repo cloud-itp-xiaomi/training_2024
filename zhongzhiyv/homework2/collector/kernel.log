@@ -1,0 +1,21 @@
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] Linux version 6.5.0-35-generic (buildd@lcy02-amd64-079) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #35~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May  7 09:00:52 UTC 2 (Ubuntu 6.5.0-35.35~22.04.1-generic 6.5.13)
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-6.5.0-35-generic root=UUID=4bc20729-9d24-42e3-bad2-77962d4b6daf ro find_preseed=/preseed.cfg auto noprompt priority=critical locale=en_US quiet splash
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] KERNEL supported cpus:
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000]   Intel GenuineIntel
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000]   AMD AuthenticAMD
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000]   Hygon HygonGenuine
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000]   Centaur CentaurHauls
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000]   zhaoxin   Shanghai  
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] BIOS-provided physical RAM map:
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009e7ff] usable
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] BIOS-e820: [mem 0x000000000009e800-0x000000000009ffff] reserved
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] BIOS-e820: [mem 0x00000000000dc000-0x00000000000fffff] reserved
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] BIOS-e820: [mem 0x0000000000100000-0x00000000bfecffff] usable
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] BIOS-e820: [mem 0x00000000bfed0000-0x00000000bfefefff] ACPI data
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] BIOS-e820: [mem 0x00000000bfeff000-0x00000000bfefffff] ACPI NVS
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] BIOS-e820: [mem 0x00000000bff00000-0x00000000bfffffff] usable
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] BIOS-e820: [mem 0x00000000f0000000-0x00000000f7ffffff] reserved
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] BIOS-e820: [mem 0x00000000fec00000-0x00000000fec0ffff] reserved
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] BIOS-e820: [mem 0x00000000fee00000-0x00000000fee00fff] reserved
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] BIOS-e820: [mem 0x00000000fffe0000-0x00000000ffffffff] reserved
+Jun  5 18:18:06 zzy-virtual-machine kernel: [    0.000000] BIOS-e820: [mem 0x0000000100000000-0x000000013fffffff] usable
