@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>i love xiaomi</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button {
+        padding: 0 5px;
+        margin: 0 5px;
+        line-height: 1.5;
+    }
+
+    .calc {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 35%;
+        min-height: 250px;
+        padding: 25px 50px;
+        border-radius: 18px;
+        box-shadow: 0 0 10px #ccc;
+    }
+</style>
+<body>
+<form class="calc">
+    <h2 class="calc-title">sre计算器</h2>
+    <div class="calc-item1">
+        <label for="input-item1">数字一：</label>
+        <input id="input-item1" name="input-item1">
+    </div>
+    <div class="calc-item2">
+        <label for="input-item2">数字二：</label>
+        <input id="input-item2" name="input-item2">
+        <!-- Check by html type attribute -->
+        <!--<input class="input-item2" type="number">-->
+    </div>
+    <div class="cal-btns">
+        <button type="button" class="btn-add">相加</button>
+        <button type="button" class="btn-div">相减</button>
+        <button type="button" class="btn-multi">相乘</button>
+        <button type="button" class="btn-clear">清空</button>
+    </div>
+    <div class="calc-result">
+        <label for="input-result">结果：</label>
+        <!-- input of result should not be edited -->
+        <input id="input-result" type="number" disabled>
+    </div>
+</form>
+<script>
+  const inputItem1 = document.querySelector('#input-item1')
+  const inputItem2 = document.querySelector('#input-item2')
+  const inputResult = document.querySelector('#input-result')
+  const btnAdd = document.querySelector('.btn-add')
+  const btnDiv = document.querySelector('.btn-div')
+  const btnMulti = document.querySelector('.btn-multi')
+  const btnClear = document.querySelector('.btn-clear')
+
+  inputItem1.addEventListener('keydown', preventNonNumericInput)
+  inputItem2.addEventListener('keydown', preventNonNumericInput)
+  // problem: preventNonNumericInput failed when composition event (the user indirectly entering text) is triggered
+  // solution: check and replace text value when keyup
+  inputItem1.addEventListener('keyup', preventCnInput)
+  inputItem2.addEventListener('keyup', preventCnInput)
+  btnAdd.addEventListener('click', () => inputResult.value = +inputItem1.value + +inputItem2.value)
+  btnDiv.addEventListener('click', () => inputResult.value = +inputItem1.value - +inputItem2.value)
+  btnMulti.addEventListener('click', () => inputResult.value = +inputItem1.value * +inputItem2.value)
+  btnClear.addEventListener('click', () => inputResult.value = '')
+
+  function preventNonNumericInput (e) {
+    // Check by e.key
+    // const codeLimitArr = ['ArrowLeft', 'ArrowRight', 'Backspace',
+    //   ...new Array(10).keys().map(item => item.toString())]
+    // if (!codeLimitArr.includes(e.key)) {
+    //   e.preventDefault()
+    // }
+
+    // Check by e.keyCode
+    // Check if input key is number or backspace or arrowLeft or arrowRight
+    if (!(e.keyCode >= 48 && e.keyCode <= 57 ||
+      e.keyCode >= 96 && e.keyCode <= 105 ||
+      e.keyCode === 8 || e.keyCode === 46 ||
+      e.keyCode === 37 || e.keyCode === 39)) {
+      e.preventDefault()
+    }
+  }
+
+  function preventCnInput (e) {
+    e.target.value = e.target.value.split('').filter(item => isFinite(item)).join('')
+  }
+</script>
+</body>
+</html>
