@@ -1,0 +1,70 @@
+* {
+  text-decoration: none;
+  list-style: none;
+}
+.contentAll {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.otherUser {
+  position: relative;
+}
+.mainUser {
+  margin-bottom: 20px;
+}
+.mainUser .avatar {
+  float: right;
+}
+.mainUser .userMessage {
+  position: relative;
+  top: 3px;
+  right: 20px;
+  display: flex;
+  margin-left: auto;
+}
+.otherUser .userName {
+  position: absolute;
+  left: 50px;
+  top: -10px;
+}
+.otherUser .userMessage {
+  position: relative;
+  top: -20px;
+  left: 50px;
+}
+.userMessage {
+  /* 字体大小设为15px，如何根据字体的多少来更改border的宽度 */
+  font-size: 15px;
+  border: 1px;
+  border-radius: 5px;
+  background-color: white;
+  padding: 5px;
+  width: var(--message-width);
+  z-index: 3;
+}
+.otherUser .userMessage::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: inherit;
+  left: -5px; /*向左侧外部延伸箭头box的一半宽度*/
+  position: absolute;
+  transform: rotate(45deg); /*旋转45度*/
+  top: 50%; /*箭头在数值方向上居中*/
+  margin-top: -5px;
+  z-index: -1;
+}
+.mainUser .userMessage::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: inherit;
+  /* left: 110px; /*向左侧外部延伸箭头box的一半宽度*/
+  left: calc(var(--message-width) + 5px);
+  position: absolute;
+  transform: rotate(45deg); /*旋转45度*/
+  top: 50%; /*箭头在数值方向上居中*/
+  margin-top: -5px;
+  z-index: -1;
+}

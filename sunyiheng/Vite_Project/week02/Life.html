@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      type="text/javascript"
+      src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="test"></div>
+    <script type="text/babel">
+      class Count extends React.Component {
+        constructor(props) {
+          console.log("Count---constructor");
+          super(props);
+          this.state = { count: 0 };
+        }
+        // 初始化状态
+        // state = { count: 0 };
+
+        // 加1按钮的回调
+        add = () => {
+          // 获取原状态
+          const { count } = this.state;
+          this.setState({ count: count + 1 });
+        };
+
+        unmount = () => {
+          ReactDOM.unmountComponentAtNode(document.getElementById("test"));
+        };
+
+        force = () => {
+          this.forceUpdate();
+        };
+
+        // 钩子的顺序不影响
+        // 组件将要挂载的钩子
+        componentWillMount() {
+          console.log("Count---componentWillMount");
+        }
+
+        // 组件挂载完毕的钩子
+        componentDidMount() {
+          console.log("Count---componentDidMount");
+        }
+
+        // 组件将要卸载的钩子
+        componentWillUnmount() {
+          console.log("Count---componentWillUnmount");
+        }
+
+        // 控制组件更新的“阀门”
+        shouldComponentUpdate() {
+          console.log("Count---shouldComponentUpdate");
+          return true;
+        }
+
+        // 组件将要更新的钩子
+        componentWillUpdate() {
+          console.log("Count---componentWillUpdate");
+        }
+
+        // 组件更新完毕的钩子
+        componentDidUpdate() {
+          console.log("Count---componentDidUpdate");
+        }
+
+        render() {
+          console.log("Count---render");
+          const { count } = this.state;
+          return (
+            <div>
+              <h2>当前求和为：{count}</h2>
+              <button onClick={this.add}>点我+1</button>
+              <button onClick={this.unmount}>卸载组件</button>
+              <button onClick={this.force}>
+                不更改状态中的数据，强制更新组件
+              </button>
+            </div>
+          );
+        }
+      }
+
+      // 父组件传递参数给子组件，会触发子组件的 componentWillReceiveProps 生命周期钩子
+      class A extends React.Component {
+        state = { carName: "奔驰" };
+        changeCars = () => {
+          this.setState({ carName: "奥迪" });
+        };
+
+        render() {
+          const { carName } = this.state;
+          return (
+            <div>
+              <div>我是A组件</div>
+              <button onClick={this.changeCars}>更改B组件的值</button>
+              <B carName={carName} />
+            </div>
+          );
+        }
+      }
+
+      class B extends React.Component {
+        // 组件将要接收新的props的钩子
+        componentWillReceiveProps() {
+          console.log("B---componentWillReceiveProps");
+        }
+        render() {
+          return <div>我是B组件，我接收到的值为{this.props.carName}</div>;
+        }
+      }
+
+      ReactDOM.render(<A />, document.getElementById("test"));
+    </script>
+  </body>
+</html>
