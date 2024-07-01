@@ -12,6 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @EnableFeignClients
 @EnableScheduling
+
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class CollectorApplication {
     public static void main(String[] args) {

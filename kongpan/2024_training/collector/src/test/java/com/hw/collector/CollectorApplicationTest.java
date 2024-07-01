@@ -1,11 +1,12 @@
 package com.hw.collector;
 
+import com.hw.collector.config.nacos.NacosJsonConfig;
 import com.hw.collector.task.MetricCollector;
 import com.hw.collector.watcher.CPUWatcher;
 import com.hw.collector.watcher.MemoryWatcher;
-import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
 
@@ -13,11 +14,11 @@ import java.io.IOException;
  * @author mrk
  * @create 2024-06-07-22:14
  */
-@RequiredArgsConstructor
+@SpringBootTest(classes = CollectorApplication.class)
 class CollectorApplicationTest {
 
     @Autowired
-    private MetricCollector metricCollector;
+    private NacosJsonConfig nacosJsonConfig;
 
     /**
      * 测试 cpu 和 内存 利用率采集功能
@@ -32,6 +33,11 @@ class CollectorApplicationTest {
         double memoryUsage = MetricCollector.formatUsage(memoryWatcher.getMemoryUsage());
 
         System.out.println("cpu usage: " + cpuUsage + " memory usage: " + memoryUsage);
+    }
+
+    @Test
+    public void testNacosConfig() {
+        System.out.println(nacosJsonConfig.getConfigDTO().getLogStorage());
     }
 
 }
