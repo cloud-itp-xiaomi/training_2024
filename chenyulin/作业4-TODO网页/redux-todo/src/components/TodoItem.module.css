@@ -1,0 +1,16 @@
+li {
+  list-style: none;
+  padding-bottom: 5px;
+}
+
+.check {
+  height: 14px;
+  width: 14px;
+  vertical-align: middle;
+}
+
+span {
+  font-size: 14px;
+  padding-left: 10px;
+  vertical-align: middle;
+}

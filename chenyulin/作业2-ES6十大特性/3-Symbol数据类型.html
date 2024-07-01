@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Symbol数据类型</title>
+  </head>
+  <body>
+    <script>
+      // Symbol表示独一无二的值，最大的用法是用来定义对象的唯一属性名
+      // Symbol不能用new命令
+      let sy = Symbol("KK");
+      console.log(sy);
+      console.log(typeof sy);
+
+      // 相同参数 Symbol() 返回的值不相等
+      let sy1 = Symbol("kk");
+      console.log(sy === sy1);
+
+      // Symbol参数是一个对象时，就会调用toString()方法转为字符串
+      const obj = {
+        toString() {
+          return "abc";
+        },
+      };
+      const sym = Symbol(obj);
+      console.log(sym); // Symbol(abc)
+
+      // 1. Symbol作为属性名
+      // 由于每一个Symbol的值都是不相等的，所以Symbol作为对象的属性名，可以保证属性不重名
+      let mySymbol = Symbol();
+      // 第一种写法
+      let a = {};
+      a[mySymbol] = "Hello!";
+      console.log(a[mySymbol]);
+      // 第二种写法
+      let b = {
+        [mySymbol]: "Hello!",
+      };
+      console.log(b[mySymbol]);
+      // 第三种写法
+      let c = {};
+      Object.defineProperty(c, mySymbol, { value: "Hello!" });
+      console.log(c[mySymbol]);
+
+      // Symbol 作为对象属性名时不能用.运算符，要用方括号
+      let d = {};
+      d[mySymbol] = "kk";
+      console.log(d[mySymbol]);
+      console.log(d.mySymbol); // undefined
+
+      // 2.Symbol.for()希望重新使用同一个 Symbol 值
+      // 它接受一个字符串作为参数，然后搜索有没有以该参数作为名称的 Symbol 值。如果有，就返回这个 Symbol 值，否则就新建一个以该字符串为名称的 Symbol 值，并将其注册到全局
+      let s1 = Symbol.for("foo");
+      let s2 = Symbol.for("foo");
+      console.log(s1 === s2); // true
+
+      // 3. Symbol.keyFor()方法返回一个已登记的 Symbol 类型值的key
+      // Symbol.for()为 Symbol值登记的名字，是全局环境的
+      console.log(Symbol.keyFor(s2)); // "foo"
+
+      let s3 = Symbol("foo");
+      console.log(Symbol.keyFor(s3)); // undefined
+    </script>
+  </body>
+</html>

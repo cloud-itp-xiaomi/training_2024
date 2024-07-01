@@ -1,0 +1,23 @@
+.listinput {
+  width: 260px;
+  height: 30px;
+  border: 0;
+  border-radius: 3px;
+  outline: none;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.add {
+  width: 50px;
+  height: 30px;
+  background-color: white;
+  margin-left: 30px;
+  border: 0;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.add:hover {
+  background-color: rgb(205, 205, 205);
+}

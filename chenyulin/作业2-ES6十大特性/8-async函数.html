@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async函数</title>
+  </head>
+  <body>
+    <script>
+      // 求正方形的面积
+      function asyncArea(length) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (length > 0) resolve(length * length);
+            else reject("请输入大于0的数字");
+          }, 500);
+        });
+      }
+      asyncArea(10)
+        .then((result) => console.log(result)) // 100
+        .catch((err) => console.log(err));
+      asyncArea(-5)
+        .then((result) => console.log(result))
+        .catch((err) => console.log(err)); // 请输入大于0的数字
+
+      //串行计算
+      let start = Date.now();
+      asyncArea(1)
+        .then((result) => asyncArea(result + 1)) // result = 1 耗时500ms
+        .then((result) => asyncArea(result + 1)) // result = 4 耗时500ms
+        .then((result) => {
+          console.log(result); // result = 25 耗时500ms
+          console.log(`串行耗时 ${Date.now() - start} ms`); // 耗时是每个请求的累加
+        });
+
+      //并行计算
+      Promise.all([asyncArea(1), asyncArea(2), asyncArea(5)]).then((result) => {
+        console.log(result); //返回的是数组
+        console.log(`并行耗时${Date.now() - start}ms`);
+      });
+
+      // Promise进行异步操作虽然改善了回调问题，但还是不够优雅
+      // async函数是Promise的语法糖
+      // async函数的返回值是Promise对象，这比Generator函数的返回值是Iterator对象方便多了,可以用then方法指定下一步的操作
+      // 进一步说，async函数完全可以看作多个异步操作，包装成的一个Promise对象，而await命令就是内部then命令的语法糖
+
+      //串行计算的.then不够优雅
+      async function test1() {
+        let start = Date.now();
+        let result1 = await asyncArea(1);
+        let result2 = await asyncArea(result1 + 1);
+        let result3 = await asyncArea(result2 + 1);
+        console.log(result1, result2, result3); //1 4 25
+        console.log(`async串行耗时 ${Date.now() - start} ms`);
+      }
+      test1();
+
+      // 并行计算的async
+      async function all() {
+        let result = await Promise.all([
+          asyncArea(1),
+          asyncArea(2),
+          asyncArea(5),
+        ]);
+        return result;
+      }
+      async function test2() {
+        let start = Date.now();
+        let result = await all();
+        console.log(result);
+        console.log(`async并行耗时 ${Date.now() - start} ms`);
+      }
+      test2(); //执行
+    </script>
+  </body>
+</html>

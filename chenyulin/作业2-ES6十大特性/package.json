@@ -1,0 +1,11 @@
+{
+  "name": "es6-practice",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "node imp.js"
+  },
+  "author": "cyl",
+  "license": "ISC"
+}
